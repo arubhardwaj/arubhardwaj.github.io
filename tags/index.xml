@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Aru Bhardwaj</title>
-    <link>http://localhost:1313/hugo-PaperMod/tags/</link>
+    <link>//localhost:1313/tags/</link>
     <description>Recent content in Tags on Aru Bhardwaj</description>
     <image>
       <title>Aru Bhardwaj</title>
-      <url>http://localhost:1313/hugo-PaperMod/images/papermod-cover.png</url>
-      <link>http://localhost:1313/hugo-PaperMod/images/papermod-cover.png</link>
+      <url>//localhost:1313/images/papermod-cover.png</url>
+      <link>//localhost:1313/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.135.0</generator>
     <language>en</language>
     <copyright>PaperMod Contributors</copyright>
-    <atom:link href="http://localhost:1313/hugo-PaperMod/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
