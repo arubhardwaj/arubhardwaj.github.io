@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Aru Bhardwaj</title>
-    <link>//localhost:1313/</link>
+    <link>/</link>
     <description>Recent content on Aru Bhardwaj</description>
     <image>
       <title>Aru Bhardwaj</title>
-      <url>//localhost:1313/images/papermod-cover.png</url>
-      <link>//localhost:1313/images/papermod-cover.png</link>
+      <url>/images/papermod-cover.png</url>
+      <link>/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.135.0</generator>
     <language>en</language>
     <copyright>PaperMod Contributors</copyright>
-    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Contact</title>
-      <link>//localhost:1313/contact/</link>
+      <link>/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/contact/</guid>
+      <guid>/contact/</guid>
       <description>Contact Me</description>
     </item>
     <item>
       <title>Portfolio</title>
-      <link>//localhost:1313/portfolio/</link>
+      <link>/portfolio/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/portfolio/</guid>
+      <guid>/portfolio/</guid>
       <description>My Work Portfolio</description>
     </item>
     <item>
       <title>Services</title>
-      <link>//localhost:1313/services/</link>
+      <link>/services/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/services/</guid>
+      <guid>/services/</guid>
       <description>Data Science and Analytics Services</description>
     </item>
   </channel>
