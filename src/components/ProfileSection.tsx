@@ -3,11 +3,8 @@ import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { DollarSign } from "lucide-react";
-import { useTranslation } from "react-i18next";
 
 const ProfileSection = () => {
-  const { t } = useTranslation();
-  
   return (
     <section id="profile" className="py-16 bg-white">
       <div className="container mx-auto px-4">
@@ -21,7 +18,7 @@ const ProfileSection = () => {
             </div>
             <h2 className="text-3xl font-bold mb-4 text-primary">Aru Bhardwaj</h2>
             <p className="text-lg mb-6 text-gray-700 max-w-lg">
-              {t("profile.description")}
+              As a data scientist and AI consultant with over 6 years of experience, I specialize in turning complex data challenges into strategic business opportunities. My expertise spans machine learning, predictive analytics, and data-driven decision making.
             </p>
           </div>
           <div>
@@ -29,13 +26,13 @@ const ProfileSection = () => {
               <CardContent className="p-8">
                 <div className="flex items-center mb-6">
                   <DollarSign className="h-10 w-10 text-secondary mr-4" />
-                  <h3 className="text-2xl font-bold text-primary">{t("profile.services")}</h3>
+                  <h3 className="text-2xl font-bold text-primary">Professional Services</h3>
                 </div>
                 
                 <div className="mb-6 p-4 bg-white rounded-lg shadow-sm">
-                  <div className="text-xl font-bold mb-2 text-primary">{t("profile.standardRate")}</div>
+                  <div className="text-xl font-bold mb-2 text-primary">Standard Rate</div>
                   <div className="text-3xl font-bold text-secondary mb-2">500 EUR + VAT</div>
-                  <div className="text-gray-600">{t("profile.perDay")}</div>
+                  <div className="text-gray-600">per day</div>
                 </div>
                 
                 <div className="space-y-4 mb-6">
@@ -45,7 +42,7 @@ const ProfileSection = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <p className="text-gray-700">{t("profile.customSolutions")}</p>
+                    <p className="text-gray-700">Customized solutions tailored to your specific business requirements</p>
                   </div>
                   <div className="flex items-start">
                     <div className="rounded-full bg-primary/10 p-1 mr-3 mt-1">
@@ -53,7 +50,7 @@ const ProfileSection = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <p className="text-gray-700">{t("profile.billingOptions")}</p>
+                    <p className="text-gray-700">Weekly or monthly billing options available for ongoing projects</p>
                   </div>
                   <div className="flex items-start">
                     <div className="rounded-full bg-primary/10 p-1 mr-3 mt-1">
@@ -61,7 +58,7 @@ const ProfileSection = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <p className="text-gray-700">{t("profile.projectPricing")}</p>
+                    <p className="text-gray-700">Project-based fixed pricing available upon assessment</p>
                   </div>
                 </div>
                 
@@ -69,7 +66,7 @@ const ProfileSection = () => {
                   href="#consultation" 
                   className="block w-full bg-secondary text-white text-center rounded-full px-8 py-3 font-medium hover:bg-opacity-90 transition"
                 >
-                  {t("profile.scheduleConsultation")}
+                  Schedule a Consultation
                 </a>
               </CardContent>
             </Card>
@@ -81,4 +78,3 @@ const ProfileSection = () => {
 };
 
 export default ProfileSection;
-
