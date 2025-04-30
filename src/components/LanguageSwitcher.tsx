@@ -1,7 +1,14 @@
 
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Languages } from 'lucide-react';
+import { Globe } from 'lucide-react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 
 const LanguageSwitcher = () => {
   const { i18n, t } = useTranslation();
@@ -11,31 +18,34 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <div className="flex items-center">
-      <Languages className="h-4 w-4 mr-2" />
-      <div className="flex space-x-2">
-        <button 
-          className={`text-sm ${i18n.language === 'en' ? 'font-bold text-secondary' : 'text-gray-600 hover:text-primary'}`}
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" size="sm" className="flex items-center gap-2">
+          <Globe className="h-4 w-4" />
+          <span className="hidden sm:inline-block">{t(`languageSwitcher.${i18n.language}`)}</span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className="bg-white">
+        <DropdownMenuItem 
+          className={i18n.language === 'en' ? 'font-bold text-secondary' : ''}
           onClick={() => changeLanguage('en')}
         >
           {t('languageSwitcher.en')}
-        </button>
-        <span>|</span>
-        <button 
-          className={`text-sm ${i18n.language === 'fr' ? 'font-bold text-secondary' : 'text-gray-600 hover:text-primary'}`}
+        </DropdownMenuItem>
+        <DropdownMenuItem 
+          className={i18n.language === 'fr' ? 'font-bold text-secondary' : ''}
           onClick={() => changeLanguage('fr')}
         >
           {t('languageSwitcher.fr')}
-        </button>
-        <span>|</span>
-        <button 
-          className={`text-sm ${i18n.language === 'it' ? 'font-bold text-secondary' : 'text-gray-600 hover:text-primary'}`}
+        </DropdownMenuItem>
+        <DropdownMenuItem 
+          className={i18n.language === 'it' ? 'font-bold text-secondary' : ''}
           onClick={() => changeLanguage('it')}
         >
           {t('languageSwitcher.it')}
-        </button>
-      </div>
-    </div>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 };
 
