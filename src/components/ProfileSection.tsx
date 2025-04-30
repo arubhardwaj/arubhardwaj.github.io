@@ -2,7 +2,7 @@
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
-import { BriefcaseBusiness, Briefcase, DollarSign, Calendar } from "lucide-react";
+import { DollarSign } from "lucide-react";
 
 const ProfileSection = () => {
   return (
@@ -20,14 +20,6 @@ const ProfileSection = () => {
             <p className="text-lg mb-6 text-gray-700 max-w-lg">
               As a data scientist and AI consultant with over 6 years of experience, I specialize in turning complex data challenges into strategic business opportunities. My expertise spans machine learning, predictive analytics, and data-driven decision making.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <span className="inline-flex items-center px-4 py-2 bg-accent rounded-full text-sm font-medium">
-                <Briefcase size={16} className="mr-2" /> Independent Consultant
-              </span>
-              <span className="inline-flex items-center px-4 py-2 bg-accent rounded-full text-sm font-medium">
-                <Calendar size={16} className="mr-2" /> Available for Projects
-              </span>
-            </div>
           </div>
           <div>
             <Card className="card-hover border-2 border-secondary/30 bg-secondary/5">
