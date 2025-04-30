@@ -1,4 +1,3 @@
-
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -369,6 +368,190 @@ const frTranslations = {
   }
 };
 
+// Italian translations
+const itTranslations = {
+  header: {
+    expertise: 'Competenze',
+    industries: 'Settori',
+    whyChooseMe: 'Perché Scegliermi',
+    contact: 'Contatti',
+    bookConsultation: 'Prenota una Consulenza'
+  },
+  hero: {
+    title: 'Trasformare i Dati in',
+    titleHighlight: 'Soluzioni Intelligenti',
+    description: 'Con più di 6 anni di esperienza specializzata, offro soluzioni avanzate di IA e machine learning che stimolano la crescita aziendale attraverso insight basati sui dati. Come data scientist certificato, ho aiutato organizzazioni in diversi settori a sfruttare i loro asset di dati per ottenere un ROI misurabile e vantaggi competitivi.',
+    exploreExpertise: 'Esplora le Mie Competenze',
+    bookConsultation: 'Prenota una Consulenza'
+  },
+  profile: {
+    description: 'Come data scientist e consulente di IA con oltre 6 anni di esperienza, mi specializzo nel trasformare sfide complesse di dati in opportunità di business strategiche. La mia esperienza comprende machine learning, analisi predittiva e processi decisionali basati sui dati.',
+    professionalServices: 'Servizi Professionali',
+    standardRate: 'Tariffa Standard',
+    rateValue: '500 EUR + IVA',
+    perDay: 'al giorno',
+    customSolutions: 'Soluzioni personalizzate adattate alle tue specifiche esigenze aziendali',
+    billingOptions: 'Opzioni di fatturazione settimanale o mensile disponibili per progetti continui',
+    projectPricing: 'Prezzi fissi basati sul progetto disponibili dopo valutazione',
+    scheduleConsultation: 'Programma una Consulenza'
+  },
+  expertise: {
+    title: 'IA e Machine Learning',
+    titleHighlight: 'Competenze',
+    description: 'Utilizzo di tecnologie e metodologie all\'avanguardia per fornire soluzioni IA trasformative in vari domini e casi d\'uso.',
+    additionalSkills: 'Competenze Chiave Aggiuntive',
+    areas: {
+      aiSolution: {
+        title: 'Sviluppo di Soluzioni IA Personalizzate',
+        description: 'Progettazione e implementazione di pipeline ML su misura per i tuoi obiettivi aziendali'
+      },
+      deepLearning: {
+        title: 'Specialista in Deep Learning',
+        description: 'Esperto in architetture CNN, RNN, LSTM, Transformer utilizzando TensorFlow/PyTorch'
+      },
+      mlAlgorithms: {
+        title: 'Algoritmi ML Avanzati',
+        description: 'Padronanza di Random Forest, XGBoost, SVM e metodi ensemble per un\'accuratezza predittiva ottimale'
+      },
+      nlpVision: {
+        title: 'NLP e Computer Vision',
+        description: 'Soluzioni pronte per la produzione per classificazione di testo, analisi del sentiment, riconoscimento immagini e IA generativa'
+      },
+      mlOps: {
+        title: 'MLOps e Deployment',
+        description: 'Implementazione semplificata di modelli con monitoraggio e manutenzione per soluzioni IA sostenibili'
+      },
+      statistics: {
+        title: 'Analisi Statistica e Modellazione',
+        description: 'Competente in test delle ipotesi, modelli misti, ARIMA e metodi statistici avanzati'
+      }
+    },
+    skills: {
+      dataViz: {
+        title: 'Visualizzazione Dati e Dashboard',
+        description: 'Competenze avanzate in ggplot2, matplotlib e R Shiny per presentazioni visive intuitive'
+      },
+      nlp: {
+        title: 'NLP e Analisi del Testo',
+        description: 'Competente in clustering, generazione di testo e analisi del sentiment'
+      },
+      geoSpatial: {
+        title: 'Analisi Geospaziale e Biostatistica',
+        description: 'Competente nell\'applicazione di metodi computazionali alla biostatistica e ai dati geospaziali'
+      },
+      aws: {
+        title: 'Tecnologie AWS',
+        description: 'Conoscenza di EC2, EMR, Glue, Sagemaker, Quicksight'
+      },
+      etl: {
+        title: 'Data Scraping e Processi ETL',
+        description: 'Efficiente nell\'estrazione e processamento di grandi set di dati'
+      },
+      ml: {
+        title: 'Machine Learning e IA',
+        description: 'Esperto in PCA, K-means, Random Forest, XGBoost, SVM, Regressione Logistica, Deep Learning con TensorFlow'
+      }
+    }
+  },
+  industries: {
+    title: 'Settori',
+    titleHighlight: 'Serviti',
+    description: 'Ho aiutato organizzazioni in vari settori a sfruttare il potere della data science e dell\'IA per raggiungere i loro obiettivi aziendali.',
+    managementConsulting: 'Consulenza Gestionale',
+    healthcare: 'Sanità',
+    technology: 'Tecnologia',
+    marketing: 'Marketing',
+    realEstate: 'Immobiliare',
+    government: 'Governo',
+    ngos: 'ONG',
+    politicalCampaigns: 'Campagne Politiche',
+    bottomText: 'Qualunque sia il tuo settore, posso aiutarti a sfruttare l\'IA e il machine learning per ottenere vantaggi competitivi e sbloccare nuove opportunità.',
+    discussButton: 'Discuti delle Tue Esigenze Settoriali'
+  },
+  whyMe: {
+    title: 'Cosa Mi',
+    titleHighlight: 'Distingue',
+    description: 'Oltre all\'esperienza tecnica, offro un approccio completo per garantire che i tuoi progetti di IA forniscano un reale valore aziendale.',
+    advantages: {
+      strategy: {
+        title: 'Consulenza Strategica IA',
+        description: 'Non solo implementazione, ma anche guida strategica sull\'adozione dell\'IA per massimizzare il ROI'
+      },
+      prototyping: {
+        title: 'Prototipazione Rapida',
+        description: 'Sviluppo rapido di proof-of-concept per convalidare le soluzioni di IA prima di un investimento completo'
+      },
+      explainable: {
+        title: 'IA Spiegabile',
+        description: 'Rendere i modelli complessi interpretabili per ottenere il consenso e la fiducia degli stakeholder'
+      },
+      collaboration: {
+        title: 'Collaborazione Flessibile',
+        description: 'Supporto su chiamata e aggiornamenti di progetto allineati ai fusi orari per una comunicazione senza interruzioni'
+      },
+      rates: {
+        title: 'Tariffe Speciali',
+        description: 'Servizi scontati per organizzazioni non-profit e startup per supportare l\'innovazione'
+      }
+    },
+    bottomText: 'Mi impegno non solo a fornire soluzioni di IA, ma a garantire che creino un impatto significativo per la tua organizzazione.',
+    workTogether: 'Lavoriamo Insieme'
+  },
+  contact: {
+    title: 'Mettiti in',
+    titleHighlight: 'Contatto',
+    description: 'Pronto a trasformare i tuoi dati in insight azionabili? Parliamo di come posso aiutare la tua organizzazione a sfruttare l\'IA e il machine learning.',
+    contactInfo: 'Informazioni di Contatto',
+    email: 'aru.bhardwaj@insighrix.eu',
+    phone: '+33 (0) 766985210',
+    location: 'Parigi, Francia',
+    remote: '(Da remoto)',
+    followMe: 'Seguimi',
+    bookConsultation: 'Prenota una Consulenza',
+    consultationPackage: 'Pacchetto di Consulenza:',
+    consultationTitle: '1 Ora: Consulenza - Data Science, Machine Learning e IA',
+    whatHappensNext: 'Cosa Succede Dopo',
+    confirmation: {
+      title: 'Email di Conferma:',
+      description: 'Riceverai una conferma di pagamento immediatamente dopo il checkout'
+    },
+    personalContact: {
+      title: 'Contatto Personale:',
+      description: 'Ti contatterò entro 24 ore per discutere dei tuoi requisiti specifici'
+    },
+    calendarInvite: {
+      title: 'Invito Calendario:',
+      description: 'Riceverai un link per programmare un orario che funzioni per te'
+    },
+    weekendAvailability: {
+      title: 'Disponibilità nei Weekend:',
+      description: 'Le consulenze sono disponibili anche il sabato per tua comodità'
+    },
+    prepMaterials: {
+      title: 'Materiali di Preparazione:',
+      description: 'Riceverai una guida su come prepararti per il nostro incontro per massimizzarne il valore'
+    },
+    refundPolicy: {
+      title: 'Politica di Rimborso:',
+      description: 'Le richieste di rimborso possono essere effettuate entro 24 ore se la chiamata non è stata programmata'
+    },
+    important: 'Importante:',
+    importantText: 'Dopo che il tuo pagamento sarà elaborato, riceverai un\'email di conferma. Ti contatterò entro 24 ore per organizzare la nostra consulenza in un momento più adatto a te.'
+  },
+  footer: {
+    description: 'Trasformazione di sfide complesse di dati in intelligence aziendale utilizzabile attraverso analisi avanzate e sistemi IA personalizzati.',
+    copyright: '© 2025 Aru Bhardwaj. Tutti i diritti riservati.',
+    quickLinks: 'Link Rapidi',
+    home: 'Home',
+    connect: 'Connetti'
+  },
+  languageSwitcher: {
+    en: 'English',
+    fr: 'Français',
+    it: 'Italiano'
+  }
+};
+
 // Initialize i18n
 i18n
   .use(LanguageDetector)
@@ -380,6 +563,9 @@ i18n
       },
       fr: {
         translation: frTranslations
+      },
+      it: {
+        translation: itTranslations
       }
     },
     fallbackLng: 'en',

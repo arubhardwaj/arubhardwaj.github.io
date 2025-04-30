@@ -27,6 +27,13 @@ const LanguageSwitcher = () => {
         >
           {t('languageSwitcher.fr')}
         </button>
+        <span>|</span>
+        <button 
+          className={`text-sm ${i18n.language === 'it' ? 'font-bold text-secondary' : 'text-gray-600 hover:text-primary'}`}
+          onClick={() => changeLanguage('it')}
+        >
+          {t('languageSwitcher.it')}
+        </button>
       </div>
     </div>
   );
