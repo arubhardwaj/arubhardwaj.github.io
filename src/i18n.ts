@@ -1,3 +1,4 @@
+
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -56,7 +57,7 @@ const enTranslations = {
         description: 'Streamlined model deployment with monitoring and maintenance for sustainable AI solutions'
       },
       statistics: {
-        title: 'Statistical Analysis & Modelling',
+        title: 'Statistical Analysis & Modeling',
         description: 'Proficient in Hypothesis Testing, Mixed Models, ARIMA, and more advanced statistical methods'
       }
     },
@@ -75,7 +76,7 @@ const enTranslations = {
       },
       aws: {
         title: 'AWS Technologies',
-        description: 'Knowledgeable in EC2, EMR, Glue, Sagemaker, Quicksight'
+        description: 'Knowledgeable in EC2, EMR, Glue, SageMaker, QuickSight'
       },
       etl: {
         title: 'Data Scraping & ETL Processes',
@@ -167,7 +168,7 @@ const enTranslations = {
     },
     refundPolicy: {
       title: 'Refund Policy:',
-      description: 'Request for refunds can be made within 24 hours if the call hasn\'t been scheduled'
+      description: 'Refund requests can be made within 24 hours if the call hasn\'t been scheduled'
     },
     important: 'Important:',
     importantText: 'After your payment is processed, you\'ll receive a confirmation email. I\'ll then contact you within 24 hours to arrange our consultation at a time that works best for you.'
@@ -198,7 +199,7 @@ const frTranslations = {
   hero: {
     title: 'Transformer les Données en',
     titleHighlight: 'Solutions Intelligentes',
-    description: 'Avec plus de 6 ans d\'expérience spécialisée, je propose des solutions avancées d\'IA et d\'apprentissage automatique qui stimulent la croissance des entreprises grâce à des insights basés sur les données. En tant que data scientist certifié, j\'ai aidé des organisations de multiples secteurs à tirer parti de leurs actifs de données pour obtenir un ROI mesurable et des avantages concurrentiels.',
+    description: 'Avec plus de 6 ans d\'expérience spécialisée, je propose des solutions avancées d\'IA et d\'apprentissage automatique qui stimulent la croissance des entreprises grâce à des insights basés sur les données. En tant que data scientist certifié, j\'ai aidé des organisations de multiples secteurs à tirer parti de leurs données pour obtenir un ROI mesurable et des avantages concurrentiels.',
     exploreExpertise: 'Explorer Mon Expertise',
     bookConsultation: 'Réserver une Consultation'
   },
@@ -259,7 +260,7 @@ const frTranslations = {
       },
       aws: {
         title: 'Technologies AWS',
-        description: 'Connaissance de EC2, EMR, Glue, Sagemaker, Quicksight'
+        description: 'Connaissance de EC2, EMR, Glue, SageMaker, QuickSight'
       },
       etl: {
         title: 'Scraping de Données & Processus ETL',
@@ -281,7 +282,7 @@ const frTranslations = {
     marketing: 'Marketing',
     realEstate: 'Immobilier',
     government: 'Gouvernement',
-    ngos: 'ONGs',
+    ngos: 'ONG',
     politicalCampaigns: 'Campagnes Politiques',
     bottomText: 'Quel que soit votre secteur, je peux vous aider à exploiter l\'IA et l\'apprentissage automatique pour obtenir des avantages concurrentiels et débloquer de nouvelles opportunités.',
     discussButton: 'Discuter de vos Besoins Sectoriels'
@@ -347,7 +348,7 @@ const frTranslations = {
     },
     prepMaterials: {
       title: 'Matériel de Préparation:',
-      description: 'Vous recevrez des conseils sur comment vous préparer pour notre réunion afin de maximiser sa valeur'
+      description: 'Vous recevrez des conseils pour vous préparer à notre réunion afin d\'en maximiser la valeur'
     },
     refundPolicy: {
       title: 'Politique de Remboursement:',
@@ -361,7 +362,7 @@ const frTranslations = {
     copyright: '© 2025 Aru Bhardwaj. Tous droits réservés.',
     quickLinks: 'Liens Rapides',
     home: 'Accueil',
-    connect: 'Connecter'
+    connect: 'Connexion'
   },
   languageSwitcher: {
     en: 'English',
@@ -443,7 +444,7 @@ const itTranslations = {
       },
       aws: {
         title: 'Tecnologie AWS',
-        description: 'Conoscenza di EC2, EMR, Glue, Sagemaker, Quicksight'
+        description: 'Conoscenza di EC2, EMR, Glue, SageMaker, QuickSight'
       },
       etl: {
         title: 'Data Scraping e Processi ETL',
