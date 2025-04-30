@@ -80,24 +80,53 @@ const ContactSection = () => {
           <div className="lg:col-span-2">
             <div className="bg-white p-8 rounded-xl shadow-md">
               <h3 className="text-2xl font-semibold mb-6" id="consultation">Book a Consultation</h3>
-              <p className="mb-6 text-gray-600">
-                Schedule a 30-minute consultation to discuss your project needs and how I can help
-                your organization leverage AI and data science.
-              </p>
               
-              {/* Stripe Buy Button */}
-              <div className="mb-6" ref={stripeRef}>
-                <stripe-buy-button
-                  buy-button-id="buy_btn_1RJidbDRlpu0XokvgWLL4odr"
-                  publishable-key="pk_live_51QTvRbDRlpu0Xokvl70HGWoEOV7yoyJ1ye6INHArLHaeDpSEKk0vGLIycqiN4VMuA0HueyzxLlsPVD1GukvLAcPI00hxC37Dmk"
-                >
-                </stripe-buy-button>
+              {/* Calendar booking section */}
+              <div className="mb-8">
+                <h4 className="text-xl font-medium mb-4">Step 1: Schedule a Call</h4>
+                <p className="mb-4 text-gray-600">
+                  Please select a convenient time for our consultation from the calendar below:
+                </p>
+                <div className="relative overflow-hidden w-full" style={{ height: "500px" }}>
+                  <iframe 
+                    src="https://zcal.co/i/2rDwr33H?embed=1&embedType=iframe" 
+                    loading="lazy" 
+                    style={{ border: "none", width: "100%", height: "100%", minHeight: "500px" }} 
+                    title="Booking Calendar"
+                    className="absolute inset-0"
+                  />
+                </div>
               </div>
               
-              <p className="text-sm text-gray-500">
-                After booking, you'll receive a confirmation email with the meeting link
-                and details for our consultation session.
-              </p>
+              {/* Payment section */}
+              <div className="mt-8">
+                <h4 className="text-xl font-medium mb-4">Step 2: Confirm with Payment</h4>
+                <p className="mb-4 text-gray-600">
+                  After scheduling your call, please complete your booking by making the payment below:
+                </p>
+                
+                {/* Stripe Buy Button - using div with dangerouslySetInnerHTML to avoid JSX error */}
+                <div className="mb-6" ref={stripeRef}>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: `
+                        <stripe-buy-button
+                          buy-button-id="buy_btn_1RJidbDRlpu0XokvgWLL4odr"
+                          publishable-key="pk_live_51QTvRbDRlpu0Xokvl70HGWoEOV7yoyJ1ye6INHArLHaeDpSEKk0vGLIycqiN4VMuA0HueyzxLlsPVD1GukvLAcPI00hxC37Dmk"
+                        >
+                        </stripe-buy-button>
+                      `
+                    }}
+                  />
+                </div>
+                
+                <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                  <p className="text-sm text-yellow-800">
+                    <strong>Important:</strong> Your consultation is only confirmed after both scheduling a time <strong>and</strong> completing payment. 
+                    You'll receive a confirmation email with meeting details after both steps are completed.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
