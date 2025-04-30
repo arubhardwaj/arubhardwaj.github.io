@@ -181,7 +181,8 @@ const enTranslations = {
   },
   languageSwitcher: {
     en: 'English',
-    fr: 'Français'
+    fr: 'Français',
+    it: 'Italiano'
   }
 };
 
@@ -364,7 +365,8 @@ const frTranslations = {
   },
   languageSwitcher: {
     en: 'English',
-    fr: 'Français'
+    fr: 'Français',
+    it: 'Italiano'
   }
 };
 
