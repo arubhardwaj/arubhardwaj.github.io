@@ -12,7 +12,7 @@ const ProfileSection = () => {
           <div className="flex flex-col items-center md:items-start">
             <div className="mb-6">
               <Avatar className="h-48 w-48 border-4 border-secondary shadow-lg">
-                <AvatarImage src="lovable-uploads/58cbd9bf-9167-4430-b2f0-c0a1d1080f20.png" alt="Aru Bhardwaj" />
+                <AvatarImage src="lovable-uploads/3b507de9-a4ed-4113-9648-f5ef04638fa1.png" alt="Aru Bhardwaj" />
                 <AvatarFallback>AB</AvatarFallback>
               </Avatar>
             </div>
