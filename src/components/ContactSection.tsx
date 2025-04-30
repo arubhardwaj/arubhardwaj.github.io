@@ -1,5 +1,7 @@
+
 import React, { useEffect, useRef } from "react";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Calendar, Clock } from "lucide-react";
+
 const ContactSection = () => {
   const stripeRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -46,24 +48,19 @@ const ContactSection = () => {
               <div className="mt-8">
                 <h4 className="font-semibold mb-2">Follow Me</h4>
                 <div className="flex space-x-4">
-                  <a href="#" className="text-gray-600 hover:text-secondary transition">
+                  <a href="https://www.linkedin.com/in/arub" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-secondary transition">
                     <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                     </svg>
                   </a>
-                  <a href="#" className="text-gray-600 hover:text-secondary transition">
+                  <a href="https://www.malt.fr/profile/arubhardwaj" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-secondary transition">
                     <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.523 0-10-4.477-10-10S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-3.374-9.374L7.5 13.75l1.453 1.453C10.044 16.293 11.081 16.75 12 16.75s1.956-.457 3.047-1.547L16.5 13.75l-1.125-1.124-1.453 1.453c-.597.597-1.203.797-1.922.797s-1.325-.2-1.922-.797l-1.452-1.453z"/>
                     </svg>
                   </a>
-                  <a href="#" className="text-gray-600 hover:text-secondary transition">
+                  <a href="https://upwork.com/fl/arub" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-secondary transition">
                     <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd" />
-                    </svg>
-                  </a>
-                  <a href="#" className="text-gray-600 hover:text-secondary transition">
-                    <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path fillRule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z" clipRule="evenodd" />
+                      <path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.281-2.389 5.281-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.688 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/>
                     </svg>
                   </a>
                 </div>
@@ -75,33 +72,69 @@ const ContactSection = () => {
             <div className="bg-white p-8 rounded-xl shadow-md">
               <h3 className="text-2xl font-semibold mb-6" id="consultation">Book a Consultation</h3>
               
-              {/* Payment section */}
-              <div>
-                <p className="mb-6 text-gray-600">
-                  Ready to work together? Book a consultation session by completing your payment below.
-                  I'll reach out within 24 hours to schedule our call at a time that works for you.
-                </p>
-                
-                {/* Stripe Buy Button - with improved width styling */}
-                <div ref={stripeRef} className="mb-6 w-full mx-0">
-                  <div dangerouslySetInnerHTML={{
-                  __html: `
-                        <stripe-buy-button
-                          buy-button-id="buy_btn_1RJidbDRlpu0XokvgWLL4odr"
-                          publishable-key="pk_live_51QTvRbDRlpu0Xokvl70HGWoEOV7yoyJ1ye6INHArLHaeDpSEKk0vGLIycqiN4VMuA0HueyzxLlsPVD1GukvLAcPI00hxC37Dmk"
-                          style="width: 100%;"
-                        >
-                        </stripe-buy-button>
-                      `
-                }} className="w-full py-0 my-0 mx-[240px] px-[240px]" />
-                </div>
-                
-                <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                  <p className="text-sm text-yellow-800">
-                    <strong>Important:</strong> After your payment is processed, you'll receive a confirmation email. 
-                    I'll then contact you within 24 hours to arrange our consultation at a time that works best for you.
+              {/* Payment section with content columns */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Left column with payment button */}
+                <div>
+                  <p className="mb-6 text-gray-600">
+                    Ready to work together? Book a consultation session by completing your payment below.
+                    I'll reach out within 24 hours to schedule our call at a time that works for you.
                   </p>
+                  
+                  {/* Stripe Buy Button - with improved width styling */}
+                  <div ref={stripeRef} className="mb-6 w-full mx-0">
+                    <div dangerouslySetInnerHTML={{
+                    __html: `
+                          <stripe-buy-button
+                            buy-button-id="buy_btn_1RJidbDRlpu0XokvgWLL4odr"
+                            publishable-key="pk_live_51QTvRbDRlpu0Xokvl70HGWoEOV7yoyJ1ye6INHArLHaeDpSEKk0vGLIycqiN4VMuA0HueyzxLlsPVD1GukvLAcPI00hxC37Dmk"
+                            style="width: 100%;"
+                          >
+                          </stripe-buy-button>
+                        `
+                  }} className="w-full py-0 my-0" />
+                  </div>
                 </div>
+                
+                {/* Right column with what happens next */}
+                <div>
+                  <h4 className="font-semibold text-xl mb-4 text-primary">What Happens Next</h4>
+                  <ul className="space-y-4">
+                    <li className="flex items-start">
+                      <div className="rounded-full bg-secondary/10 p-1 mr-3 mt-1">
+                        <svg className="h-4 w-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <p className="text-gray-700"><strong>Confirmation Email:</strong> You'll receive a payment confirmation immediately after checkout</p>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="rounded-full bg-secondary/10 p-1 mr-3 mt-1">
+                        <Mail className="h-4 w-4 text-secondary" />
+                      </div>
+                      <p className="text-gray-700"><strong>Personal Contact:</strong> I'll email you within 24 hours to discuss your specific requirements</p>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="rounded-full bg-secondary/10 p-1 mr-3 mt-1">
+                        <Calendar className="h-4 w-4 text-secondary" />
+                      </div>
+                      <p className="text-gray-700"><strong>Calendar Invite:</strong> You'll receive a scheduling link to book a time that works for you</p>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="rounded-full bg-secondary/10 p-1 mr-3 mt-1">
+                        <Clock className="h-4 w-4 text-secondary" />
+                      </div>
+                      <p className="text-gray-700"><strong>Weekend Availability:</strong> Consultations are available on Saturdays for your convenience</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div className="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <p className="text-sm text-yellow-800">
+                  <strong>Important:</strong> After your payment is processed, you'll receive a confirmation email. 
+                  I'll then contact you within 24 hours to arrange our consultation at a time that works best for you.
+                </p>
               </div>
             </div>
           </div>
