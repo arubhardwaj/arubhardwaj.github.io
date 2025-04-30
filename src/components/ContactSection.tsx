@@ -81,49 +81,34 @@ const ContactSection = () => {
             <div className="bg-white p-8 rounded-xl shadow-md">
               <h3 className="text-2xl font-semibold mb-6" id="consultation">Book a Consultation</h3>
               
-              {/* Calendar booking section */}
-              <div className="mb-8">
-                <h4 className="text-xl font-medium mb-4">Step 1: Schedule a Call</h4>
-                <p className="mb-4 text-gray-600">
-                  Please select a convenient time for our consultation from the calendar below:
-                </p>
-                <div className="relative overflow-hidden w-full" style={{ height: "500px" }}>
-                  <iframe 
-                    src="https://zcal.co/i/2rDwr33H?embed=1&embedType=iframe" 
-                    loading="lazy" 
-                    style={{ border: "none", width: "100%", height: "100%", minHeight: "500px" }} 
-                    title="Booking Calendar"
-                    className="absolute inset-0"
-                  />
-                </div>
-              </div>
-              
               {/* Payment section */}
-              <div className="mt-8">
-                <h4 className="text-xl font-medium mb-4">Step 2: Confirm with Payment</h4>
-                <p className="mb-4 text-gray-600">
-                  After scheduling your call, please complete your booking by making the payment below:
+              <div>
+                <p className="mb-6 text-gray-600">
+                  Ready to work together? Book a consultation session by completing your payment below.
+                  I'll reach out within 24 hours to schedule our call at a time that works for you.
                 </p>
                 
                 {/* Stripe Buy Button - using div with dangerouslySetInnerHTML to avoid JSX error */}
-                <div className="mb-6" ref={stripeRef}>
+                <div className="mb-6 w-full" ref={stripeRef}>
                   <div
                     dangerouslySetInnerHTML={{
                       __html: `
                         <stripe-buy-button
                           buy-button-id="buy_btn_1RJidbDRlpu0XokvgWLL4odr"
                           publishable-key="pk_live_51QTvRbDRlpu0Xokvl70HGWoEOV7yoyJ1ye6INHArLHaeDpSEKk0vGLIycqiN4VMuA0HueyzxLlsPVD1GukvLAcPI00hxC37Dmk"
+                          style="width: 100%;"
                         >
                         </stripe-buy-button>
                       `
                     }}
+                    className="w-full"
                   />
                 </div>
                 
                 <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
                   <p className="text-sm text-yellow-800">
-                    <strong>Important:</strong> Your consultation is only confirmed after both scheduling a time <strong>and</strong> completing payment. 
-                    You'll receive a confirmation email with meeting details after both steps are completed.
+                    <strong>Important:</strong> After your payment is processed, you'll receive a confirmation email. 
+                    I'll then contact you within 24 hours to arrange our consultation at a time that works best for you.
                   </p>
                 </div>
               </div>
