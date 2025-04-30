@@ -1,25 +1,19 @@
-
 import React, { useEffect, useRef } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
-
 const ContactSection = () => {
   const stripeRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     // Add Stripe script
     const script = document.createElement("script");
     script.src = "https://js.stripe.com/v3/buy-button.js";
     script.async = true;
     document.body.appendChild(script);
-
     return () => {
       // Clean up
       document.body.removeChild(script);
     };
   }, []);
-
-  return (
-    <section id="contact" className="py-20 bg-accent">
+  return <section id="contact" className="py-20 bg-accent">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -89,10 +83,9 @@ const ContactSection = () => {
                 </p>
                 
                 {/* Stripe Buy Button - with improved width styling */}
-                <div className="mb-6 w-full" ref={stripeRef}>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: `
+                <div ref={stripeRef} className="mb-6 w-full mx-0">
+                  <div dangerouslySetInnerHTML={{
+                  __html: `
                         <stripe-buy-button
                           buy-button-id="buy_btn_1RJidbDRlpu0XokvgWLL4odr"
                           publishable-key="pk_live_51QTvRbDRlpu0Xokvl70HGWoEOV7yoyJ1ye6INHArLHaeDpSEKk0vGLIycqiN4VMuA0HueyzxLlsPVD1GukvLAcPI00hxC37Dmk"
@@ -100,9 +93,7 @@ const ContactSection = () => {
                         >
                         </stripe-buy-button>
                       `
-                    }}
-                    className="w-full"
-                  />
+                }} className="w-full py-0 my-0 mx-[240px] px-[240px]" />
                 </div>
                 
                 <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
@@ -116,8 +107,6 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ContactSection;
