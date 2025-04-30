@@ -19,7 +19,7 @@ const ContactSection = () => {
   }, []);
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <section id="contact" className="py-20 bg-accent">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -88,7 +88,7 @@ const ContactSection = () => {
                   I'll reach out within 24 hours to schedule our call at a time that works for you.
                 </p>
                 
-                {/* Stripe Buy Button - using div with dangerouslySetInnerHTML to avoid JSX error */}
+                {/* Stripe Buy Button - with improved width styling */}
                 <div className="mb-6 w-full" ref={stripeRef}>
                   <div
                     dangerouslySetInnerHTML={{

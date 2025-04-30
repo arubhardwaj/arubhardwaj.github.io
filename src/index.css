@@ -14,16 +14,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 235 30% 20%;
+    --primary: 78 60% 25%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 260 60% 60%;
+    --secondary: 45 100% 60%;
     --secondary-foreground: 210 40% 98%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 262 80% 70%;
+    --accent: 78 70% 90%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -102,11 +102,15 @@
 }
 
 .gradient-bg {
-  background: linear-gradient(135deg, #1a1f3c 0%, #2d1b4f 100%);
+  background: linear-gradient(135deg, #F2FCE2 0%, #FEF7CD 100%);
+}
+
+.hero-gradient {
+  background: linear-gradient(184.1deg, rgba(249,255,182,1) 44.7%, rgba(226,255,172,1) 67.2%);
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #8b5cf6 0%, #3b82f6 100%);
+  background: linear-gradient(90deg, #8cb369 0%, #f4a259 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
