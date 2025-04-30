@@ -1,40 +1,43 @@
 
 import React from "react";
 import { Briefcase, Users, Heart, MonitorSmartphone, PieChart, Building, Globe, Award } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const IndustriesServed = () => {
+  const { t } = useTranslation();
+  
   const industries = [
     {
       icon: <Briefcase className="h-10 w-10 text-secondary" />,
-      name: "Management Consulting",
+      nameKey: 'industries.managementConsulting',
     },
     {
       icon: <Heart className="h-10 w-10 text-secondary" />,
-      name: "Healthcare",
+      nameKey: 'industries.healthcare',
     },
     {
       icon: <MonitorSmartphone className="h-10 w-10 text-secondary" />,
-      name: "Technology",
+      nameKey: 'industries.technology',
     },
     {
       icon: <PieChart className="h-10 w-10 text-secondary" />,
-      name: "Marketing",
+      nameKey: 'industries.marketing',
     },
     {
       icon: <Building className="h-10 w-10 text-secondary" />,
-      name: "Real Estate",
+      nameKey: 'industries.realEstate',
     },
     {
       icon: <Users className="h-10 w-10 text-secondary" />,
-      name: "Government",
+      nameKey: 'industries.government',
     },
     {
       icon: <Globe className="h-10 w-10 text-secondary" />,
-      name: "NGOs",
+      nameKey: 'industries.ngos',
     },
     {
       icon: <Award className="h-10 w-10 text-secondary" />,
-      name: "Political Campaigns",
+      nameKey: 'industries.politicalCampaigns',
     },
   ];
 
@@ -43,11 +46,10 @@ const IndustriesServed = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Industries <span className="gradient-text">Served</span>
+            {t('industries.title')} <span className="gradient-text">{t('industries.titleHighlight')}</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            I've helped organizations across various sectors leverage the power of data science
-            and AI to achieve their business goals.
+            {t('industries.description')}
           </p>
         </div>
 
@@ -58,21 +60,20 @@ const IndustriesServed = () => {
               className="bg-white p-6 rounded-xl shadow-sm text-center card-hover"
             >
               <div className="flex justify-center mb-4">{industry.icon}</div>
-              <h3 className="font-medium">{industry.name}</h3>
+              <h3 className="font-medium">{t(industry.nameKey)}</h3>
             </div>
           ))}
         </div>
 
         <div className="mt-16 text-center">
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Whatever your industry, I can help you leverage AI and machine learning to gain 
-            competitive advantages and unlock new opportunities.
+            {t('industries.bottomText')}
           </p>
           <a
             href="#consultation"
             className="mt-6 inline-block bg-secondary text-white rounded-full px-8 py-3 font-medium hover:bg-opacity-90 transition"
           >
-            Discuss Your Industry Needs
+            {t('industries.discussButton')}
           </a>
         </div>
       </div>

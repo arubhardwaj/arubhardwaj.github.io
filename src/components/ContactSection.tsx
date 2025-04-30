@@ -1,9 +1,12 @@
 
 import React, { useEffect, useRef } from "react";
 import { Mail, Phone, MapPin, Calendar, Clock } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const ContactSection = () => {
+  const { t } = useTranslation();
   const stripeRef = useRef<HTMLDivElement>(null);
+  
   useEffect(() => {
     // Add Stripe script
     const script = document.createElement("script");
@@ -15,38 +18,39 @@ const ContactSection = () => {
       document.body.removeChild(script);
     };
   }, []);
-  return <section id="contact" className="py-20 bg-accent">
+  
+  return (
+    <section id="contact" className="py-20 bg-accent">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Get In <span className="gradient-text">Touch</span>
+            {t('contact.title')} <span className="gradient-text">{t('contact.titleHighlight')}</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Ready to transform your data into actionable insights? Let's discuss how I can help
-            your organization leverage AI and machine learning.
+            {t('contact.description')}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <div className="lg:col-span-1">
             <div className="bg-white p-8 rounded-xl shadow-md h-full">
-              <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+              <h3 className="text-2xl font-semibold mb-6">{t('contact.contactInfo')}</h3>
               <div className="space-y-6">
                 <div className="flex items-center">
                   <Mail className="h-5 w-5 text-secondary mr-3" />
-                  <span>contact@arubhardwaj.com</span>
+                  <span>{t('contact.email')}</span>
                 </div>
                 <div className="flex items-center">
                   <Phone className="h-5 w-5 text-secondary mr-3" />
-                  <span>+1 (555) 123-4567</span>
+                  <span>{t('contact.phone')}</span>
                 </div>
                 <div className="flex items-start">
                   <MapPin className="h-5 w-5 text-secondary mr-3 mt-1" />
-                  <span>San Francisco, CA<br />Available Worldwide (Remote)</span>
+                  <span>{t('contact.location')}<br />{t('contact.remote')}</span>
                 </div>
               </div>
               <div className="mt-8">
-                <h4 className="font-semibold mb-2">Follow Me</h4>
+                <h4 className="font-semibold mb-2">{t('contact.followMe')}</h4>
                 <div className="flex space-x-4">
                   <a href="https://www.linkedin.com/in/arub" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-secondary transition">
                     <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -70,7 +74,7 @@ const ContactSection = () => {
 
           <div className="lg:col-span-2">
             <div className="bg-white p-8 rounded-xl shadow-md">
-              <h3 className="text-2xl font-semibold mb-6" id="consultation">Book a Consultation</h3>
+              <h3 className="text-2xl font-semibold mb-6" id="consultation">{t('contact.bookConsultation')}</h3>
               
               {/* Payment section with content columns */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -78,10 +82,9 @@ const ContactSection = () => {
                 <div>
                   {/* Consultation title display */}
                   <div className="mb-4 p-3 bg-primary/5 border border-primary/10 rounded-lg">
-                    <h4 className="font-medium text-primary text-sm">Consultation Package:</h4>
+                    <h4 className="font-medium text-primary text-sm">{t('contact.consultationPackage')}</h4>
                     <p className="font-semibold text-base leading-tight">
-                      1 Hour: Consultation - <br /> 
-                      Data Science, Machine Learning and AI
+                      {t('contact.consultationTitle')}
                     </p>
                   </div>
                   
@@ -102,7 +105,7 @@ const ContactSection = () => {
                 
                 {/* Right column with what happens next */}
                 <div>
-                  <h4 className="font-semibold text-xl mb-4 text-primary">What Happens Next</h4>
+                  <h4 className="font-semibold text-xl mb-4 text-primary">{t('contact.whatHappensNext')}</h4>
                   <ul className="space-y-4">
                     <li className="flex items-start">
                       <div className="rounded-full bg-secondary/10 p-1 mr-3 mt-1">
@@ -110,25 +113,41 @@ const ContactSection = () => {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <p className="text-gray-700"><strong>Confirmation Email:</strong> You'll receive a payment confirmation immediately after checkout</p>
+                      <p className="text-gray-700"><strong>{t('contact.confirmation.title')}</strong> {t('contact.confirmation.description')}</p>
                     </li>
                     <li className="flex items-start">
                       <div className="rounded-full bg-secondary/10 p-1 mr-3 mt-1">
                         <Mail className="h-4 w-4 text-secondary" />
                       </div>
-                      <p className="text-gray-700"><strong>Personal Contact:</strong> I'll email you within 24 hours to discuss your specific requirements</p>
+                      <p className="text-gray-700"><strong>{t('contact.personalContact.title')}</strong> {t('contact.personalContact.description')}</p>
                     </li>
                     <li className="flex items-start">
                       <div className="rounded-full bg-secondary/10 p-1 mr-3 mt-1">
                         <Calendar className="h-4 w-4 text-secondary" />
                       </div>
-                      <p className="text-gray-700"><strong>Calendar Invite:</strong> You'll receive a scheduling link to book a time that works for you</p>
+                      <p className="text-gray-700"><strong>{t('contact.calendarInvite.title')}</strong> {t('contact.calendarInvite.description')}</p>
                     </li>
                     <li className="flex items-start">
                       <div className="rounded-full bg-secondary/10 p-1 mr-3 mt-1">
                         <Clock className="h-4 w-4 text-secondary" />
                       </div>
-                      <p className="text-gray-700"><strong>Weekend Availability:</strong> Consultations are available on Saturdays for your convenience</p>
+                      <p className="text-gray-700"><strong>{t('contact.weekendAvailability.title')}</strong> {t('contact.weekendAvailability.description')}</p>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="rounded-full bg-secondary/10 p-1 mr-3 mt-1">
+                        <svg className="h-4 w-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                      </div>
+                      <p className="text-gray-700"><strong>{t('contact.prepMaterials.title')}</strong> {t('contact.prepMaterials.description')}</p>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="rounded-full bg-secondary/10 p-1 mr-3 mt-1">
+                        <svg className="h-4 w-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                      <p className="text-gray-700"><strong>{t('contact.refundPolicy.title')}</strong> {t('contact.refundPolicy.description')}</p>
                     </li>
                   </ul>
                 </div>
@@ -136,14 +155,15 @@ const ContactSection = () => {
               
               <div className="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
                 <p className="text-sm text-yellow-800">
-                  <strong>Important:</strong> After your payment is processed, you'll receive a confirmation email. 
-                  I'll then contact you within 24 hours to arrange our consultation at a time that works best for you.
+                  <strong>{t('contact.important')}</strong> {t('contact.importantText')}
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default ContactSection;
