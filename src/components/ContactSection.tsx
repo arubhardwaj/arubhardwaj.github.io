@@ -76,8 +76,17 @@ const ContactSection = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Left column with payment button */}
                 <div>
+                  {/* Consultation title display */}
+                  <div className="mb-4 p-3 bg-primary/5 border border-primary/10 rounded-lg">
+                    <h4 className="font-medium text-primary text-sm">Consultation Package:</h4>
+                    <p className="font-semibold text-base leading-tight">
+                      1 Hour: Consultation - <br /> 
+                      Data Science, Machine Learning and AI
+                    </p>
+                  </div>
+                  
                   {/* Stripe Buy Button - with improved width styling */}
-                  <div ref={stripeRef} className="mb-6 w-full mx-0">
+                  <div ref={stripeRef} className="w-full mx-0">
                     <div dangerouslySetInnerHTML={{
                     __html: `
                           <stripe-buy-button
