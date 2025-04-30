@@ -76,11 +76,6 @@ const ContactSection = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Left column with payment button */}
                 <div>
-                  <p className="mb-6 text-gray-600">
-                    Ready to work together? Book a consultation session by completing your payment below.
-                    I'll reach out within 24 hours to schedule our call at a time that works for you.
-                  </p>
-                  
                   {/* Stripe Buy Button - with improved width styling */}
                   <div ref={stripeRef} className="mb-6 w-full mx-0">
                     <div dangerouslySetInnerHTML={{
