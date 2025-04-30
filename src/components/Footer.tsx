@@ -1,8 +1,10 @@
 
 import React from "react";
 import { Linkedin, Briefcase } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
   
   return (
@@ -12,37 +14,36 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-xl font-bold mb-4 text-primary">Aru Bhardwaj</h3>
             <p className="mb-4 text-gray-700">
-              Transforming complex data challenges into actionable business intelligence
-              through advanced analytics and custom AI systems.
+              {t("footer.description")}
             </p>
             <p className="text-gray-700">
-              © {currentYear} Aru Bhardwaj. All rights reserved.
+              © {currentYear} Aru Bhardwaj. {t("footer.rightsReserved")}
             </p>
           </div>
           
           <div className="col-span-1">
-            <h4 className="text-lg font-semibold mb-4 text-primary">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4 text-primary">{t("footer.quickLinks")}</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-700 hover:text-primary transition">Home</a>
+                <a href="#" className="text-gray-700 hover:text-primary transition">{t("footer.home")}</a>
               </li>
               <li>
-                <a href="#expertise" className="text-gray-700 hover:text-primary transition">Expertise</a>
+                <a href="#expertise" className="text-gray-700 hover:text-primary transition">{t("header.expertise")}</a>
               </li>
               <li>
-                <a href="#industries" className="text-gray-700 hover:text-primary transition">Industries</a>
+                <a href="#industries" className="text-gray-700 hover:text-primary transition">{t("header.industries")}</a>
               </li>
               <li>
-                <a href="#why-me" className="text-gray-700 hover:text-primary transition">Why Choose Me</a>
+                <a href="#why-me" className="text-gray-700 hover:text-primary transition">{t("header.why")}</a>
               </li>
               <li>
-                <a href="#contact" className="text-gray-700 hover:text-primary transition">Contact</a>
+                <a href="#contact" className="text-gray-700 hover:text-primary transition">{t("header.contact")}</a>
               </li>
             </ul>
           </div>
           
           <div className="col-span-1">
-            <h4 className="text-lg font-semibold mb-4 text-primary">Connect</h4>
+            <h4 className="text-lg font-semibold mb-4 text-primary">{t("footer.connect")}</h4>
             <ul className="space-y-4">
               <li>
                 <a 
@@ -98,3 +99,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
