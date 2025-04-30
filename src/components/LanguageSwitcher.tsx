@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Language } from 'lucide-react';
+import { Languages } from 'lucide-react';
 
 const LanguageSwitcher = () => {
   const { i18n, t } = useTranslation();
@@ -12,7 +12,7 @@ const LanguageSwitcher = () => {
 
   return (
     <div className="flex items-center">
-      <Language className="h-4 w-4 mr-2" />
+      <Languages className="h-4 w-4 mr-2" />
       <div className="flex space-x-2">
         <button 
           className={`text-sm ${i18n.language === 'en' ? 'font-bold text-secondary' : 'text-gray-600 hover:text-primary'}`}
