@@ -25,7 +25,7 @@ const LanguageSwitcher = () => {
           <span className="hidden sm:inline-block">{t(`languageSwitcher.${i18n.language}`)}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="bg-white">
+      <DropdownMenuContent align="end" className="bg-white shadow-md">
         <DropdownMenuItem 
           className={i18n.language === 'en' ? 'font-bold text-secondary' : ''}
           onClick={() => changeLanguage('en')}

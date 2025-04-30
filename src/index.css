@@ -17,7 +17,7 @@
     --primary: 78 60% 25%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 45 100% 60%;
+    --secondary: 45 100% 45%;
     --secondary-foreground: 210 40% 98%;
 
     --muted: 210 40% 96.1%;
@@ -115,7 +115,7 @@
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #8cb369 0%, #f4a259 100%);
+  background: linear-gradient(90deg, #8cb369 0%, #e09c41 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
