@@ -55,21 +55,21 @@ const LanguageSwitcher = () => {
     const languages = ['en', 'fr', 'it'];
     
     // Remove any existing alternate links
-    document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(el => el.remove());
+    document.querySelectorAll('link[rel="alternate"][hrefLang]').forEach(el => el.remove());
     
-    // Add new alternate links
+    // Add new alternate links with correct camelCase hrefLang attribute
     languages.forEach(lang => {
       const link = document.createElement('link');
       link.setAttribute('rel', 'alternate');
-      link.setAttribute('hreflang', lang);
+      link.setAttribute('hrefLang', lang);
       link.setAttribute('href', `${window.location.origin}${lang === 'en' ? '' : `?lang=${lang}`}`);
       document.head.appendChild(link);
     });
     
-    // Add x-default hreflang link (points to English version)
+    // Add x-default hrefLang link (points to English version)
     const defaultLink = document.createElement('link');
     defaultLink.setAttribute('rel', 'alternate');
-    defaultLink.setAttribute('hreflang', 'x-default');
+    defaultLink.setAttribute('hrefLang', 'x-default');
     defaultLink.setAttribute('href', window.location.origin);
     document.head.appendChild(defaultLink);
   };

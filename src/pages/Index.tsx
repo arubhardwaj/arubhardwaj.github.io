@@ -65,11 +65,11 @@ const Index = () => {
         <meta property="og:type" content="website" />
         <meta property="og:locale" content={i18n.language === 'fr' ? 'fr_FR' : i18n.language === 'it' ? 'it_IT' : 'en_US'} />
         
-        {/* Alternate language versions */}
-        <link rel="alternate" hreflang="en" href="https://arubhardwaj.com/" />
-        <link rel="alternate" hreflang="fr" href="https://arubhardwaj.com/?lang=fr" />
-        <link rel="alternate" hreflang="it" href="https://arubhardwaj.com/?lang=it" />
-        <link rel="alternate" hreflang="x-default" href="https://arubhardwaj.com/" />
+        {/* Alternate language versions - fixed hrefLang camelCase */}
+        <link rel="alternate" hrefLang="en" href="https://arubhardwaj.com/" />
+        <link rel="alternate" hrefLang="fr" href="https://arubhardwaj.com/?lang=fr" />
+        <link rel="alternate" hrefLang="it" href="https://arubhardwaj.com/?lang=it" />
+        <link rel="alternate" hrefLang="x-default" href="https://arubhardwaj.com/" />
       </Helmet>
       <Header />
       <main className="flex-grow">

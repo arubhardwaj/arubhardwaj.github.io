@@ -1,6 +1,6 @@
 
 import React from "react";
-import { ArrowDownCircle } from "lucide-react";
+import { ArrowDownCircle, Mail, Phone, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const Hero = () => {
@@ -15,7 +15,7 @@ const Hero = () => {
               Aru Bhardwaj | <span className="text-secondary">{t('hero.titleHighlight')}</span>
             </h1>
             <h2 className="text-xl md:text-2xl mb-6 font-semibold">
-              Data Scientist · Statistician · AI Expert · Upwork Top-Rated
+              Transforming Data Into Intelligent Solutions
             </h2>
             <p className="text-lg md:text-xl mb-10">
               {t('hero.description')}
@@ -46,7 +46,33 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="mt-16 animate-bounce text-center">
+
+        {/* Contact information in horizontal layout */}
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+          <div className="flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-lg shadow-sm">
+            <Mail className="h-5 w-5 text-secondary mr-3 flex-shrink-0" />
+            <div>
+              <p className="font-medium">Email</p>
+              <p className="text-sm">contact@arubhardwaj.com</p>
+            </div>
+          </div>
+          <div className="flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-lg shadow-sm">
+            <Phone className="h-5 w-5 text-secondary mr-3 flex-shrink-0" />
+            <div>
+              <p className="font-medium">Phone</p>
+              <p className="text-sm">+33 (0) 7 12 34 56 78</p>
+            </div>
+          </div>
+          <div className="flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-lg shadow-sm">
+            <MapPin className="h-5 w-5 text-secondary mr-3 flex-shrink-0" />
+            <div>
+              <p className="font-medium">Location</p>
+              <p className="text-sm">Paris, France & Remote</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 animate-bounce text-center">
           <a href="#expertise" className="inline-block">
             <ArrowDownCircle size={36} className="text-primary hover:text-secondary transition" />
           </a>
