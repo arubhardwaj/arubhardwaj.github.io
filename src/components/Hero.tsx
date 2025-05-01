@@ -50,14 +50,14 @@ const Hero = () => {
             <Mail className="h-5 w-5 text-secondary mr-3 flex-shrink-0" />
             <div>
               <p className="font-medium">Email</p>
-              <p className="text-sm">contact@arubhardwaj.com</p>
+              <p className="text-sm">aru.bhardwaj@insighrix.eu</p>
             </div>
           </div>
           <div className="flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-lg shadow-sm">
             <Phone className="h-5 w-5 text-secondary mr-3 flex-shrink-0" />
             <div>
               <p className="font-medium">Phone</p>
-              <p className="text-sm">+33 (0) 7 12 34 56 78</p>
+              <p className="text-sm">+33 (0) 766985210</p>
             </div>
           </div>
           <div className="flex items-center bg-white/10 backdrop-blur-sm p-4 rounded-lg shadow-sm">
