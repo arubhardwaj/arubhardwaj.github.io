@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe } from 'lucide-react';
 import {
@@ -15,6 +15,47 @@ const LanguageSwitcher = () => {
   
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
+    // Update HTML lang attribute for screen readers and SEO
+    document.documentElement.lang = lng;
+    // Update canonical and alternate language links
+    updateLanguageMetaTags(lng);
+  };
+
+  // Update language meta tags on component mount
+  useEffect(() => {
+    updateLanguageMetaTags(i18n.language);
+  }, [i18n.language]);
+
+  const updateLanguageMetaTags = (currentLang: string) => {
+    // Update canonical link
+    let canonicalUrl = window.location.origin;
+    if (currentLang !== 'en') {
+      canonicalUrl += `?lang=${currentLang}`;
+    }
+    
+    // Find existing canonical link or create a new one
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', canonicalUrl);
+
+    // Set hreflang tags for language alternates
+    const languages = ['en', 'fr', 'it'];
+    
+    // Remove any existing alternate links
+    document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(el => el.remove());
+    
+    // Add new alternate links
+    languages.forEach(lang => {
+      const link = document.createElement('link');
+      link.setAttribute('rel', 'alternate');
+      link.setAttribute('hreflang', lang);
+      link.setAttribute('href', `${window.location.origin}${lang === 'en' ? '' : `?lang=${lang}`}`);
+      document.head.appendChild(link);
+    });
   };
 
   return (
