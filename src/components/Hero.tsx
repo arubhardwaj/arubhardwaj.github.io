@@ -12,11 +12,8 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="md:w-1/2 text-left">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Aru Bhardwaj | <span className="text-secondary">{t('hero.titleHighlight')}</span>
-            </h1>
-            <h2 className="text-xl md:text-2xl mb-6 font-semibold">
               Transforming Data Into Intelligent Solutions
-            </h2>
+            </h1>
             <p className="text-lg md:text-xl mb-10">
               {t('hero.description')}
             </p>
