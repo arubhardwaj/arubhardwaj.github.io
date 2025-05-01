@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Globe } from 'lucide-react';
+import { Globe, Flag } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -58,6 +58,20 @@ const LanguageSwitcher = () => {
     });
   };
 
+  // Function to get the flag for each language
+  const getLanguageFlag = (language: string) => {
+    switch (language) {
+      case 'en':
+        return <Flag className="h-4 w-4 mr-2" />;
+      case 'fr':
+        return <Flag className="h-4 w-4 mr-2" />;
+      case 'it':
+        return <Flag className="h-4 w-4 mr-2" />;
+      default:
+        return <Globe className="h-4 w-4 mr-2" />;
+    }
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -71,18 +85,21 @@ const LanguageSwitcher = () => {
           className={i18n.language === 'en' ? 'font-bold text-secondary' : ''}
           onClick={() => changeLanguage('en')}
         >
+          {getLanguageFlag('en')}
           {t('languageSwitcher.en')}
         </DropdownMenuItem>
         <DropdownMenuItem 
           className={i18n.language === 'fr' ? 'font-bold text-secondary' : ''}
           onClick={() => changeLanguage('fr')}
         >
+          {getLanguageFlag('fr')}
           {t('languageSwitcher.fr')}
         </DropdownMenuItem>
         <DropdownMenuItem 
           className={i18n.language === 'it' ? 'font-bold text-secondary' : ''}
           onClick={() => changeLanguage('it')}
         >
+          {getLanguageFlag('it')}
           {t('languageSwitcher.it')}
         </DropdownMenuItem>
       </DropdownMenuContent>
