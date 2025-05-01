@@ -33,22 +33,36 @@ const ContactSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <div className="lg:col-span-1">
-            <div className="bg-white p-8 rounded-xl shadow-md h-full">
+            <div className="bg-white p-8 rounded-xl shadow-md">
               <h3 className="text-2xl font-semibold mb-6">{t('contact.contactInfo')}</h3>
-              <div className="space-y-6">
-                <div className="flex items-center">
-                  <Mail className="h-5 w-5 text-secondary mr-3" />
-                  <span>{t('contact.email')}</span>
+              
+              {/* Horizontal contact info layout */}
+              <div className="flex flex-wrap gap-4">
+                <div className="flex items-center bg-primary/5 rounded-lg p-3 flex-1">
+                  <Mail className="h-5 w-5 text-secondary mr-2 flex-shrink-0" />
+                  <div>
+                    <p className="font-medium text-sm">Email</p>
+                    <p className="text-sm">aru.bhardwaj@insighrix.eu</p>
+                  </div>
                 </div>
-                <div className="flex items-center">
-                  <Phone className="h-5 w-5 text-secondary mr-3" />
-                  <span>{t('contact.phone')}</span>
+                
+                <div className="flex items-center bg-primary/5 rounded-lg p-3 flex-1">
+                  <Phone className="h-5 w-5 text-secondary mr-2 flex-shrink-0" />
+                  <div>
+                    <p className="font-medium text-sm">Phone</p>
+                    <p className="text-sm">+33 (0) 766985210</p>
+                  </div>
                 </div>
-                <div className="flex items-start">
-                  <MapPin className="h-5 w-5 text-secondary mr-3 mt-1" />
-                  <span>{t('contact.location')}<br />{t('contact.remote')}</span>
+                
+                <div className="flex items-center bg-primary/5 rounded-lg p-3 flex-1">
+                  <MapPin className="h-5 w-5 text-secondary mr-2 flex-shrink-0" />
+                  <div>
+                    <p className="font-medium text-sm">Location</p>
+                    <p className="text-sm">Paris, France (Remote)</p>
+                  </div>
                 </div>
               </div>
+              
               <div className="mt-8">
                 <h4 className="font-semibold mb-2">{t('contact.followMe')}</h4>
                 <div className="flex space-x-4">
