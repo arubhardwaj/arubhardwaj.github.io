@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe, Flag } from 'lucide-react';
@@ -58,15 +57,41 @@ const LanguageSwitcher = () => {
     });
   };
 
-  // Function to get the flag for each language
+  // Function to get the appropriate flag for each language
   const getLanguageFlag = (language: string) => {
     switch (language) {
       case 'en':
-        return <Flag className="h-4 w-4 mr-2" />;
+        return (
+          <div className="mr-2 flex items-center justify-center">
+            <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path fill="#012169" d="M0 0h512v512H0z"/>
+              <path fill="#FFF" d="M512 0v64L322 256l190 187v69h-67L254 324 68 512H0v-68l186-187L0 74V0h62l192 188L440 0z"/>
+              <path fill="#C8102E" d="M184 324l11 34L42 512H0v-3l184-185zm124-12l54 8 150 147v45L308 312zM512 0L320 196l-4-44L466 0h46zM0 1l193 189-59-8L0 49V1z"/>
+              <path fill="#FFF" d="M176 0v512h160V0H176zM0 176v160h512V176H0z"/>
+              <path fill="#C8102E" d="M0 208v96h512v-96H0h-96z"/>
+            </svg>
+          </div>
+        );
       case 'fr':
-        return <Flag className="h-4 w-4 mr-2" />;
+        return (
+          <div className="mr-2 flex items-center justify-center">
+            <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path fill="#fff" d="M0 0h512v512H0z"/>
+              <path fill="#002654" d="M0 0h170.7v512H0z"/>
+              <path fill="#CE1126" d="M341.3 0H512v512H341.3z"/>
+            </svg>
+          </div>
+        );
       case 'it':
-        return <Flag className="h-4 w-4 mr-2" />;
+        return (
+          <div className="mr-2 flex items-center justify-center">
+            <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path fill="#fff" d="M0 0h512v512H0z"/>
+              <path fill="#009246" d="M0 0h170.7v512H0z"/>
+              <path fill="#CE2B37" d="M341.3 0H512v512H341.3z"/>
+            </svg>
+          </div>
+        );
       default:
         return <Globe className="h-4 w-4 mr-2" />;
     }
