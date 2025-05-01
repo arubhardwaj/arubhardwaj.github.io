@@ -12,8 +12,11 @@ const Hero = () => {
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="md:w-1/2 text-left">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              {t('hero.title')} <span className="text-secondary">{t('hero.titleHighlight')}</span>
+              Aru Bhardwaj | <span className="text-secondary">{t('hero.titleHighlight')}</span>
             </h1>
+            <h2 className="text-xl md:text-2xl mb-6 font-semibold">
+              Data Scientist · Statistician · AI Expert · Upwork Top-Rated
+            </h2>
             <p className="text-lg md:text-xl mb-10">
               {t('hero.description')}
             </p>
@@ -36,7 +39,7 @@ const Hero = () => {
             <div className="relative">
               <img 
                 src="lovable-uploads/58cbd9bf-9167-4430-b2f0-c0a1d1080f20.png" 
-                alt="Data Science Visualization" 
+                alt="Aru Bhardwaj - Data Scientist and AI Expert visualization of machine learning model" 
                 className="rounded-lg shadow-xl w-full h-auto"
               />
               <div className="absolute inset-0 rounded-lg bg-gradient-to-tr from-primary/10 to-transparent"></div>

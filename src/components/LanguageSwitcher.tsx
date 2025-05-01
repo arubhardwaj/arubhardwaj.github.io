@@ -1,6 +1,7 @@
+
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Globe, Flag } from 'lucide-react';
+import { Globe } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,6 +19,15 @@ const LanguageSwitcher = () => {
     document.documentElement.lang = lng;
     // Update canonical and alternate language links
     updateLanguageMetaTags(lng);
+    
+    // Add language parameter to URL for proper indexing without reloading
+    const url = new URL(window.location.href);
+    if (lng !== 'en') {
+      url.searchParams.set('lang', lng);
+    } else {
+      url.searchParams.delete('lang');
+    }
+    window.history.replaceState({}, '', url.toString());
   };
 
   // Update language meta tags on component mount
@@ -55,6 +65,13 @@ const LanguageSwitcher = () => {
       link.setAttribute('href', `${window.location.origin}${lang === 'en' ? '' : `?lang=${lang}`}`);
       document.head.appendChild(link);
     });
+    
+    // Add x-default hreflang link (points to English version)
+    const defaultLink = document.createElement('link');
+    defaultLink.setAttribute('rel', 'alternate');
+    defaultLink.setAttribute('hreflang', 'x-default');
+    defaultLink.setAttribute('href', window.location.origin);
+    document.head.appendChild(defaultLink);
   };
 
   // Function to get the appropriate flag for each language
@@ -101,7 +118,7 @@ const LanguageSwitcher = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="sm" className="flex items-center gap-2">
-          <Globe className="h-4 w-4" />
+          {getLanguageFlag(i18n.language)}
           <span className="hidden sm:inline-block">{t(`languageSwitcher.${i18n.language}`)}</span>
         </Button>
       </DropdownMenuTrigger>
@@ -111,21 +128,21 @@ const LanguageSwitcher = () => {
           onClick={() => changeLanguage('en')}
         >
           {getLanguageFlag('en')}
-          {t('languageSwitcher.en')}
+          <span>English - {t('languageSwitcher.en')}</span>
         </DropdownMenuItem>
         <DropdownMenuItem 
           className={i18n.language === 'fr' ? 'font-bold text-secondary' : ''}
           onClick={() => changeLanguage('fr')}
         >
           {getLanguageFlag('fr')}
-          {t('languageSwitcher.fr')}
+          <span>Français - {t('languageSwitcher.fr')}</span>
         </DropdownMenuItem>
         <DropdownMenuItem 
           className={i18n.language === 'it' ? 'font-bold text-secondary' : ''}
           onClick={() => changeLanguage('it')}
         >
           {getLanguageFlag('it')}
-          {t('languageSwitcher.it')}
+          <span>Italiano - {t('languageSwitcher.it')}</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
