@@ -1,4 +1,3 @@
-
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -137,10 +136,6 @@ const enTranslations = {
     titleHighlight: 'Touch',
     description: 'Ready to transform your data into actionable insights? Let\'s discuss how I can help your organization leverage AI and machine learning.',
     contactInfo: 'Contact Information',
-    email: 'aru.bhardwaj@insighrix.eu',
-    phone: '+33 (0) 766985210',
-    location: 'Paris, France',
-    remote: '(Remote)',
     followMe: 'Follow Me',
     bookConsultation: 'Book a Consultation',
     consultationPackage: 'Consultation Package:',
@@ -171,7 +166,27 @@ const enTranslations = {
       description: 'Refund requests can be made within 24 hours if the call hasn\'t been scheduled'
     },
     important: 'Important:',
-    importantText: 'After your payment is processed, you\'ll receive a confirmation email. I\'ll then contact you within 24 hours to arrange our consultation at a time that works best for you.'
+    importantText: 'After your payment is processed, you\'ll receive a confirmation email. I\'ll then contact you within 24 hours to arrange our consultation at a time that works best for you.',
+    form: {
+      contactMe: 'Send Me a Message',
+      fullName: 'Full Name',
+      fullNamePlaceholder: 'Enter your full name',
+      emailAddress: 'Email Address',
+      emailAddressPlaceholder: 'Enter your email address',
+      inquirySubject: 'Subject',
+      inquirySubjectPlaceholder: 'What is your inquiry about?',
+      messageDetails: 'Message',
+      messageDetailsPlaceholder: 'Please provide details about your project or inquiry',
+      submitMessage: 'Send Message',
+      submitting: 'Sending...',
+      successTitle: 'Message Sent',
+      successMessage: 'Thank you for your message. I will get back to you as soon as possible.',
+      errorTitle: 'Error',
+      errorMessage: 'There was an error sending your message. Please try again.',
+      emailLabel: 'Email',
+      phoneLabel: 'Phone',
+      locationLabel: 'Location'
+    }
   },
   footer: {
     description: 'Transforming complex data challenges into actionable business intelligence through advanced analytics and custom AI systems.',
@@ -321,10 +336,6 @@ const frTranslations = {
     titleHighlight: 'Contact',
     description: 'Prêt à transformer vos données en insights actionnables ? Discutons de la façon dont je peux aider votre organisation à tirer parti de l\'IA et du machine learning.',
     contactInfo: 'Informations de Contact',
-    email: 'aru.bhardwaj@insighrix.eu',
-    phone: '+33 (0) 766985210',
-    location: 'Paris, France',
-    remote: '(À distance)',
     followMe: 'Suivez-moi',
     bookConsultation: 'Réserver une Consultation',
     consultationPackage: 'Forfait de Consultation:',
@@ -355,7 +366,27 @@ const frTranslations = {
       description: 'Les demandes de remboursement peuvent être faites dans les 24 heures si l\'appel n\'a pas été programmé'
     },
     important: 'Important:',
-    importantText: 'Après le traitement de votre paiement, vous recevrez un email de confirmation. Je vous contacterai ensuite dans les 24 heures pour organiser notre consultation à un moment qui vous convient le mieux.'
+    importantText: 'Après le traitement de votre paiement, vous recevrez un email de confirmation. Je vous contacterai ensuite dans les 24 heures pour organiser notre consultation à un moment qui vous convient le mieux.',
+    form: {
+      contactMe: 'Envoyez-moi un Message',
+      fullName: 'Nom Complet',
+      fullNamePlaceholder: 'Entrez votre nom complet',
+      emailAddress: 'Adresse Email',
+      emailAddressPlaceholder: 'Entrez votre adresse email',
+      inquirySubject: 'Sujet',
+      inquirySubjectPlaceholder: 'Quel est l\'objet de votre demande ?',
+      messageDetails: 'Message',
+      messageDetailsPlaceholder: 'Veuillez fournir des détails sur votre projet ou demande',
+      submitMessage: 'Envoyer le Message',
+      submitting: 'Envoi en cours...',
+      successTitle: 'Message Envoyé',
+      successMessage: 'Merci pour votre message. Je vous répondrai dès que possible.',
+      errorTitle: 'Erreur',
+      errorMessage: 'Une erreur s\'est produite lors de l\'envoi de votre message. Veuillez réessayer.',
+      emailLabel: 'Email',
+      phoneLabel: 'Téléphone',
+      locationLabel: 'Localisation'
+    }
   },
   footer: {
     description: 'Transformer les défis complexes des données en intelligence commerciale exploitable grâce à l\'analyse avancée et aux systèmes d\'IA personnalisés.',
@@ -505,10 +536,6 @@ const itTranslations = {
     titleHighlight: 'Contatto',
     description: 'Pronto a trasformare i tuoi dati in insight azionabili? Parliamo di come posso aiutare la tua organizzazione a sfruttare l\'IA e il machine learning.',
     contactInfo: 'Informazioni di Contatto',
-    email: 'aru.bhardwaj@insighrix.eu',
-    phone: '+33 (0) 766985210',
-    location: 'Parigi, Francia',
-    remote: '(Da remoto)',
     followMe: 'Seguimi',
     bookConsultation: 'Prenota una Consulenza',
     consultationPackage: 'Pacchetto di Consulenza:',
@@ -539,7 +566,27 @@ const itTranslations = {
       description: 'Le richieste di rimborso possono essere effettuate entro 24 ore se la chiamata non è stata programmata'
     },
     important: 'Importante:',
-    importantText: 'Dopo che il tuo pagamento sarà elaborato, riceverai un\'email di conferma. Ti contatterò entro 24 ore per organizzare la nostra consulenza in un momento più adatto a te.'
+    importantText: 'Dopo che il tuo pagamento sarà elaborato, riceverai un\'email di conferma. Ti contatterò entro 24 ore per organizzare la nostra consulenza in un momento più adatto a te.',
+    form: {
+      contactMe: 'Inviami un Messaggio',
+      fullName: 'Nome Completo',
+      fullNamePlaceholder: 'Inserisci il tuo nome completo',
+      emailAddress: 'Indirizzo Email',
+      emailAddressPlaceholder: 'Inserisci il tuo indirizzo email',
+      inquirySubject: 'Oggetto',
+      inquirySubjectPlaceholder: 'Qual è l\'oggetto della tua richiesta?',
+      messageDetails: 'Messaggio',
+      messageDetailsPlaceholder: 'Fornisci dettagli sul tuo progetto o richiesta',
+      submitMessage: 'Invia Messaggio',
+      submitting: 'Invio in corso...',
+      successTitle: 'Messaggio Inviato',
+      successMessage: 'Grazie per il tuo messaggio. Ti risponderò il prima possibile.',
+      errorTitle: 'Errore',
+      errorMessage: 'Si è verificato un errore durante l\'invio del messaggio. Riprova più tardi.',
+      emailLabel: 'Email',
+      phoneLabel: 'Telefono',
+      locationLabel: 'Posizione'
+    }
   },
   footer: {
     description: 'Trasformazione di sfide complesse di dati in intelligence aziendale utilizzabile attraverso analisi avanzate e sistemi IA personalizzati.',

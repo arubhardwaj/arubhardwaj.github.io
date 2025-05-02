@@ -52,16 +52,16 @@ const ContactSection = () => {
       await new Promise(resolve => setTimeout(resolve, 1000));
       
       toast({
-        title: "Message sent",
-        description: "Thank you for your message. I'll get back to you soon.",
+        title: t('contact.form.successTitle'),
+        description: t('contact.form.successMessage'),
       });
       
       form.reset();
     } catch (error) {
       console.error("Form submission error:", error);
       toast({
-        title: "Error",
-        description: "There was an error sending your message. Please try again.",
+        title: t('contact.form.errorTitle'),
+        description: t('contact.form.errorMessage'),
         variant: "destructive",
       });
     } finally {
@@ -103,7 +103,7 @@ const ContactSection = () => {
                 <div className="flex items-center bg-primary/5 rounded-lg p-3 flex-1">
                   <Mail className="h-5 w-5 text-secondary mr-2 flex-shrink-0" />
                   <div>
-                    <p className="font-medium text-sm">Email</p>
+                    <p className="font-medium text-sm">{t('contact.form.emailLabel')}</p>
                     <p className="text-sm">aru.bhardwaj@insighrix.eu</p>
                   </div>
                 </div>
@@ -111,7 +111,7 @@ const ContactSection = () => {
                 <div className="flex items-center bg-primary/5 rounded-lg p-3 flex-1">
                   <Phone className="h-5 w-5 text-secondary mr-2 flex-shrink-0" />
                   <div>
-                    <p className="font-medium text-sm">Phone</p>
+                    <p className="font-medium text-sm">{t('contact.form.phoneLabel')}</p>
                     <p className="text-sm">+33 (0) 766985210</p>
                   </div>
                 </div>
@@ -119,7 +119,7 @@ const ContactSection = () => {
                 <div className="flex items-center bg-primary/5 rounded-lg p-3 flex-1">
                   <MapPin className="h-5 w-5 text-secondary mr-2 flex-shrink-0" />
                   <div>
-                    <p className="font-medium text-sm">Location</p>
+                    <p className="font-medium text-sm">{t('contact.form.locationLabel')}</p>
                     <p className="text-sm">Paris, France (Remote)</p>
                   </div>
                 </div>
@@ -148,7 +148,7 @@ const ContactSection = () => {
               
               {/* Contact Form */}
               <div className="mt-8">
-                <h4 className="text-xl font-semibold mb-4">{t('contact.sendMessage')}</h4>
+                <h4 className="text-xl font-semibold mb-4">{t('contact.form.contactMe')}</h4>
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                     <FormField
@@ -156,9 +156,9 @@ const ContactSection = () => {
                       name="name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>{t('contact.form.name')}</FormLabel>
+                          <FormLabel>{t('contact.form.fullName')}</FormLabel>
                           <FormControl>
-                            <Input placeholder={t('contact.form.namePlaceholder')} {...field} />
+                            <Input placeholder={t('contact.form.fullNamePlaceholder')} {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -169,9 +169,9 @@ const ContactSection = () => {
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>{t('contact.form.email')}</FormLabel>
+                          <FormLabel>{t('contact.form.emailAddress')}</FormLabel>
                           <FormControl>
-                            <Input placeholder={t('contact.form.emailPlaceholder')} type="email" {...field} />
+                            <Input placeholder={t('contact.form.emailAddressPlaceholder')} type="email" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -182,9 +182,9 @@ const ContactSection = () => {
                       name="subject"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>{t('contact.form.subject')}</FormLabel>
+                          <FormLabel>{t('contact.form.inquirySubject')}</FormLabel>
                           <FormControl>
-                            <Input placeholder={t('contact.form.subjectPlaceholder')} {...field} />
+                            <Input placeholder={t('contact.form.inquirySubjectPlaceholder')} {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -195,10 +195,10 @@ const ContactSection = () => {
                       name="message"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>{t('contact.form.message')}</FormLabel>
+                          <FormLabel>{t('contact.form.messageDetails')}</FormLabel>
                           <FormControl>
                             <Textarea 
-                              placeholder={t('contact.form.messagePlaceholder')} 
+                              placeholder={t('contact.form.messageDetailsPlaceholder')} 
                               className="min-h-[120px]" 
                               {...field} 
                             />
@@ -212,7 +212,7 @@ const ContactSection = () => {
                       className="w-full" 
                       disabled={isSubmitting}
                     >
-                      {isSubmitting ? t('contact.form.sending') : t('contact.form.send')}
+                      {isSubmitting ? t('contact.form.submitting') : t('contact.form.submitMessage')}
                       <Send className="ml-2 h-4 w-4" />
                     </Button>
                   </form>
