@@ -74,16 +74,16 @@ const Index = () => {
         <link rel="alternate" hrefLang="x-default" href="https://arubhardwaj.com/" />
       </Helmet>
       
-      {/* Availability Notice - Moved to right corner with red border */}
+      {/* Availability Notice - Updated text in all languages */}
       <div className="fixed top-20 right-4 z-40 max-w-xs">
         <Alert className="border-[#ea384c] border-2 bg-accent/80 backdrop-blur-sm shadow-md">
           <InfoIcon className="h-5 w-5 text-[#ea384c]" />
           <AlertDescription className="text-sm font-medium">
             {i18n.language === 'fr' 
-              ? "Important : Ma disponibilité est limitée. Veuillez m'envoyer un message pour vérifier ma disponibilité avant de réserver une consultation."
+              ? "Important : Ma disponibilité est limitée. Veuillez m'envoyer un message pour vérifier ma disponibilité ou réserver une consultation et je pourrai donner mon avis sur votre projet."
               : i18n.language === 'it'
-              ? "Importante: La mia disponibilità è limitata. Si prega di inviarmi un messaggio per verificare la mia disponibilità prima di prenotare una consulenza."
-              : "Important: My availability is limited. Please send me a message to check my availability before booking a consultation."}
+              ? "Importante: La mia disponibilità è limitata. Si prega di inviarmi un messaggio per verificare la mia disponibilità o prenotare una consulenza e potrò dare un'opinione sul tuo progetto."
+              : "Important: My availability is limited. Please send me a message to check my availability or book a consultation and I can give opinion on your project."}
           </AlertDescription>
         </Alert>
       </div>
