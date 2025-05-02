@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import { Mail, Phone, MapPin, Calendar, Clock, Send } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -42,9 +41,9 @@ const ContactSection = () => {
     },
   });
 
-  // Initialize EmailJS
+  // Initialize EmailJS with your public key
   useEffect(() => {
-    emailjs.init("YOUR_USER_ID"); // Replace with your actual EmailJS User ID
+    emailjs.init("hF6O_JgDy5jUxyk-4");
   }, []);
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
@@ -60,12 +59,12 @@ const ContactSection = () => {
         from_email: values.email,
         subject: values.subject,
         message: values.message,
-        to_email: "aru.bhardwaj@insighrix.eu", // This is used in the EmailJS template
+        to_email: "aru.bhardwaj@insightrix.eu", // This is used in the EmailJS template
       };
       
       await emailjs.send(
-        "YOUR_SERVICE_ID", // Replace with your EmailJS Service ID
-        "YOUR_TEMPLATE_ID", // Replace with your EmailJS Template ID
+        "service_ugxzpww", // Your EmailJS Service ID
+        "template_enrm7gd", // Your EmailJS Template ID
         templateParams
       );
       
