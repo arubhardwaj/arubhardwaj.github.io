@@ -28,21 +28,21 @@ const Index = () => {
         return {
           title: "Aru Bhardwaj | Scientifique des Données · Statisticien · Expert en IA",
           description: "Aru Bhardwaj – Scientifique des données et statisticien basé à Paris. Expert en IA avec un excellent bilan. Autonomisation des entreprises avec des analyses exploitables.",
-          keywords: "Scientifique des données, Statisticien, Expert en IA, Apprentissage automatique, Consultant en analyse, Freelance, Aru Bhardwaj",
+          keywords: "Scientifique des données, Statisticien, Expert en IA, Apprentissage automatique, Consultant en analyse, Freelance, Aru Bhardwaj, data scientist indépendant, consultant en science des données freelance, expert en data science à distance, prestataire data scientist, data analyst freelance, analyste de données indépendant, mission freelance data science, consultant data analytique contrat, data scientist pour entreprise, spécialiste data analyste, services de data science freelance, consultant data à la demande, data science en CDD, expert freelance en analyse de données, data analyst pour projet",
           canonicalUrl: `${baseUrl}/?lang=fr`
         };
       case 'it':
         return {
           title: "Aru Bhardwaj | Data Scientist · Statistico · Esperto di IA",
           description: "Aru Bhardwaj – Data Scientist e Statistico con sede a Parigi. Esperto di IA con comprovata esperienza. Potenziamento delle aziende con analisi attivabili.",
-          keywords: "Data Scientist, Statistico, Esperto di IA, Machine Learning, Consulente di analisi, Freelance, Aru Bhardwaj",
+          keywords: "Data Scientist, Statistico, Esperto di IA, Machine Learning, Consulente di analisi, Freelance, Aru Bhardwaj, data scientist freelance, consulente di data science, data analyst indipendente, esperto di analisi dati freelance, data science contractor, consulente di analisi dati a progetto, data scientist remoto, analista dati freelance, professionista data science in partita IVA, servizi di data analytics freelance, data scientist per aziende, analista dati per progetto, consulente freelance in data science, data science on demand, data analytics contractor",
           canonicalUrl: `${baseUrl}/?lang=it`
         };
       default: // English
         return {
           title: "Aru Bhardwaj | Data Scientist · Statistician · AI Expert",
           description: "Aru Bhardwaj – Paris-based Data Scientist & Statistician. AI expert with proven track record. Empowering businesses with actionable analytics.",
-          keywords: "Data Scientist, Statistician, AI Expert, Machine Learning, Analytics Consultant, Freelance Data Scientist, Freelance Data Analyst, Aru Bhardwaj",
+          keywords: "Data Scientist, Statistician, AI Expert, Machine Learning, Analytics Consultant, Freelance Data Scientist, Freelance Data Analyst, Aru Bhardwaj, freelance data scientist, hire data scientist contractor, remote data science consultant, data science freelancer, contract data scientist, data analytics freelancer, data analyst on demand, part-time data scientist, data science consulting services, independent data scientist, freelance data analyst, data analytics contractor, hire data analytics expert, data scientist for hire, temporary data science specialist",
           canonicalUrl: baseUrl
         };
     }
