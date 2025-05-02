@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import emailjs from 'emailjs-com';
 import {
   Form,
   FormControl,
@@ -41,15 +42,32 @@ const ContactSection = () => {
     },
   });
 
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init("YOUR_USER_ID"); // Replace with your actual EmailJS User ID
+  }, []);
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
     
     try {
-      // In a real implementation, you would send this data to your backend
+      // Log form data
       console.log("Form submission:", values);
       
-      // Simulate network delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Send email using EmailJS
+      const templateParams = {
+        from_name: values.name,
+        from_email: values.email,
+        subject: values.subject,
+        message: values.message,
+        to_email: "aru.bhardwaj@insighrix.eu", // This is used in the EmailJS template
+      };
+      
+      await emailjs.send(
+        "YOUR_SERVICE_ID", // Replace with your EmailJS Service ID
+        "YOUR_TEMPLATE_ID", // Replace with your EmailJS Template ID
+        templateParams
+      );
       
       toast({
         title: t('contact.form.successTitle'),
