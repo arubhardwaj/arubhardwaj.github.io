@@ -54,12 +54,15 @@ const ContactSection = () => {
       // Log form data
       console.log("Form submission:", values);
       
+      // Add email to the message content automatically
+      const enhancedMessage = `Email: ${values.email}\n\n${values.message}`;
+      
       // Send email using EmailJS
       const templateParams = {
         from_name: values.name,
         from_email: values.email,
         subject: `${values.subject} - From: ${values.email} (${values.name})`,
-        message: values.message,
+        message: enhancedMessage, // Using the enhanced message with email included
         to_email: "aru.bhardwaj@insightrix.eu", // This is used in the EmailJS template
         reply_to: values.email, // Explicitly set reply-to field
       };
