@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from "react";
 import { Mail, Phone, MapPin, Calendar, Clock, Send } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -57,9 +58,10 @@ const ContactSection = () => {
       const templateParams = {
         from_name: values.name,
         from_email: values.email,
-        subject: values.subject,
+        subject: `${values.subject} - From: ${values.email} (${values.name})`,
         message: values.message,
         to_email: "aru.bhardwaj@insightrix.eu", // This is used in the EmailJS template
+        reply_to: values.email, // Explicitly set reply-to field
       };
       
       await emailjs.send(
