@@ -2,6 +2,8 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { InfoIcon } from "lucide-react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ProfileSection from "@/components/ProfileSection";
@@ -71,6 +73,21 @@ const Index = () => {
         <link rel="alternate" hrefLang="it" href="https://arubhardwaj.com/?lang=it" />
         <link rel="alternate" hrefLang="x-default" href="https://arubhardwaj.com/" />
       </Helmet>
+      
+      {/* Availability Notice */}
+      <div className="fixed top-20 left-4 z-40 max-w-xs">
+        <Alert className="border-secondary bg-accent/80 backdrop-blur-sm shadow-md">
+          <InfoIcon className="h-5 w-5 text-secondary" />
+          <AlertDescription className="text-sm font-medium">
+            {i18n.language === 'fr' 
+              ? "Important : Ma disponibilité est limitée. Veuillez m'envoyer un message pour vérifier ma disponibilité avant de réserver une consultation."
+              : i18n.language === 'it'
+              ? "Importante: La mia disponibilità è limitata. Si prega di inviarmi un messaggio per verificare la mia disponibilità prima di prenotare una consulenza."
+              : "Important: My availability is limited. Please send me a message to check my availability before booking a consultation."}
+          </AlertDescription>
+        </Alert>
+      </div>
+      
       <Header />
       <main className="flex-grow">
         <Hero />
