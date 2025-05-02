@@ -28,21 +28,21 @@ const Index = () => {
         return {
           title: "Aru Bhardwaj | Scientifique des Données · Statisticien · Expert en IA",
           description: "Aru Bhardwaj – Scientifique des données et statisticien basé à Paris. Expert en IA avec un excellent bilan. Autonomisation des entreprises avec des analyses exploitables.",
-          keywords: "Scientifique des données, Statisticien, Expert en IA, Apprentissage automatique, Consultant en analyse, Aru Bhardwaj",
+          keywords: "Scientifique des données, Statisticien, Expert en IA, Apprentissage automatique, Consultant en analyse, Freelance, Aru Bhardwaj",
           canonicalUrl: `${baseUrl}/?lang=fr`
         };
       case 'it':
         return {
           title: "Aru Bhardwaj | Data Scientist · Statistico · Esperto di IA",
           description: "Aru Bhardwaj – Data Scientist e Statistico con sede a Parigi. Esperto di IA con comprovata esperienza. Potenziamento delle aziende con analisi attivabili.",
-          keywords: "Data Scientist, Statistico, Esperto di IA, Machine Learning, Consulente di analisi, Aru Bhardwaj",
+          keywords: "Data Scientist, Statistico, Esperto di IA, Machine Learning, Consulente di analisi, Freelance, Aru Bhardwaj",
           canonicalUrl: `${baseUrl}/?lang=it`
         };
       default: // English
         return {
           title: "Aru Bhardwaj | Data Scientist · Statistician · AI Expert",
           description: "Aru Bhardwaj – Paris-based Data Scientist & Statistician. AI expert with proven track record. Empowering businesses with actionable analytics.",
-          keywords: "Data Scientist, Statistician, AI Expert, Machine Learning, Analytics Consultant, Aru Bhardwaj",
+          keywords: "Data Scientist, Statistician, AI Expert, Machine Learning, Analytics Consultant, Freelance Data Scientist, Freelance Data Analyst, Aru Bhardwaj",
           canonicalUrl: baseUrl
         };
     }
