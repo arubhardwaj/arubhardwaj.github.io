@@ -74,10 +74,10 @@ const Index = () => {
         <link rel="alternate" hrefLang="x-default" href="https://arubhardwaj.com/" />
       </Helmet>
       
-      {/* Availability Notice */}
-      <div className="fixed top-20 left-4 z-40 max-w-xs">
-        <Alert className="border-secondary bg-accent/80 backdrop-blur-sm shadow-md">
-          <InfoIcon className="h-5 w-5 text-secondary" />
+      {/* Availability Notice - Moved to right corner with red border */}
+      <div className="fixed top-20 right-4 z-40 max-w-xs">
+        <Alert className="border-[#ea384c] border-2 bg-accent/80 backdrop-blur-sm shadow-md">
+          <InfoIcon className="h-5 w-5 text-[#ea384c]" />
           <AlertDescription className="text-sm font-medium">
             {i18n.language === 'fr' 
               ? "Important : Ma disponibilité est limitée. Veuillez m'envoyer un message pour vérifier ma disponibilité avant de réserver une consultation."
