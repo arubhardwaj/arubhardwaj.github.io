@@ -1,9 +1,7 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { InfoIcon, X } from "lucide-react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ProfileSection from "@/components/ProfileSection";
@@ -15,7 +13,6 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   const { t, i18n } = useTranslation();
-  const [showNotice, setShowNotice] = useState(true);
 
   useEffect(() => {
     // Set document language attribute on mount and language change
@@ -74,29 +71,6 @@ const Index = () => {
         <link rel="alternate" hrefLang="it" href="https://arubhardwaj.com/?lang=it" />
         <link rel="alternate" hrefLang="x-default" href="https://arubhardwaj.com/" />
       </Helmet>
-      
-      {/* Availability Notice - Now closable */}
-      {showNotice && (
-        <div className="fixed top-20 right-4 z-40 max-w-xs">
-          <Alert className="border-[#ea384c] border-2 bg-accent/80 backdrop-blur-sm shadow-md relative">
-            <button 
-              onClick={() => setShowNotice(false)} 
-              className="absolute top-1 right-1 p-1 rounded-full hover:bg-gray-200/50"
-              aria-label="Close"
-            >
-              <X className="h-4 w-4 text-[#ea384c]" />
-            </button>
-            <InfoIcon className="h-5 w-5 text-[#ea384c]" />
-            <AlertDescription className="text-sm font-medium pr-6">
-              {i18n.language === 'fr' 
-                ? "Important : Ma disponibilité est limitée. Veuillez m'envoyer un message pour vérifier ma disponibilité ou réserver une consultation et je pourrai donner mon avis sur votre projet."
-                : i18n.language === 'it'
-                ? "Importante: La mia disponibilità è limitata. Si prega di inviarmi un messaggio per verificare la mia disponibilità o prenotare una consulenza e potrò dare un'opinione sul tuo progetto."
-                : "Important: My availability is limited. Please send me a message to check my availability or book a consultation and I can give opinion on your project."}
-            </AlertDescription>
-          </Alert>
-        </div>
-      )}
       
       <Header />
       <main className="flex-grow">
