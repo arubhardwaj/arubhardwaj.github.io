@@ -10,21 +10,21 @@ import { useEffect } from 'react';
 
 // Custom Icon components for Upwork and Malt
 const MaltIcon = () => (
-  <div className="flex items-center justify-center h-full w-full">
+  <div className="flex items-center justify-center h-full w-full bg-white rounded-full p-1">
     <img 
       src="/lovable-uploads/1fa53f10-66e1-4d3b-b36d-4095f6e3d4bf.png" 
       alt="Malt" 
-      className="w-6 h-6 object-contain"
+      className="w-7 h-7 object-contain"
     />
   </div>
 );
 
 const UpworkIcon = () => (
-  <div className="flex items-center justify-center h-full w-full">
+  <div className="flex items-center justify-center h-full w-full bg-white rounded-full p-1">
     <img 
       src="/lovable-uploads/62d7931a-42c8-4548-97c4-7f582b78beb9.png" 
       alt="Upwork" 
-      className="w-6 h-6 object-contain"
+      className="w-7 h-7 object-contain"
     />
   </div>
 );
@@ -171,7 +171,7 @@ const ConsultationSection = () => {
                       href="https://www.malt.fr/profile/arubhardwaj" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="h-10 w-10 rounded-full bg-theme-olive hover:bg-theme-olive/90 flex items-center justify-center text-white transition-colors"
+                      className="h-10 w-10 rounded-full bg-theme-olive hover:bg-theme-olive/90 flex items-center justify-center transition-colors"
                     >
                       <MaltIcon />
                     </a>
@@ -179,7 +179,7 @@ const ConsultationSection = () => {
                       href="https://upwork.com/fl/arub" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="h-10 w-10 rounded-full bg-[#6FDA44] hover:bg-[#6FDA44]/90 flex items-center justify-center text-white transition-colors"
+                      className="h-10 w-10 rounded-full bg-[#6FDA44] hover:bg-[#6FDA44]/90 flex items-center justify-center transition-colors"
                     >
                       <UpworkIcon />
                     </a>
