@@ -9,46 +9,81 @@ import {
   Building2,
   Vote,
 } from "lucide-react";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const IndustriesSection = () => {
+  const { language, translations } = useLanguage();
+  
   const industries = [
     {
-      name: "Management Consulting",
+      name: {
+        en: "Management Consulting",
+        it: "Consulenza Gestionale",
+        fr: "Conseil en Management"
+      },
       icon: Briefcase,
       color: "bg-amber-100 text-amber-600",
     },
     {
-      name: "Healthcare",
+      name: {
+        en: "Healthcare",
+        it: "Sanità",
+        fr: "Santé"
+      },
       icon: Heart,
       color: "bg-red-100 text-red-600",
     },
     {
-      name: "Technology",
+      name: {
+        en: "Technology",
+        it: "Tecnologia",
+        fr: "Technologie"
+      },
       icon: Laptop,
       color: "bg-indigo-100 text-indigo-600",
     },
     {
-      name: "Marketing",
+      name: {
+        en: "Marketing",
+        it: "Marketing",
+        fr: "Marketing"
+      },
       icon: LineChart,
       color: "bg-green-100 text-green-600",
     },
     {
-      name: "Real Estate",
+      name: {
+        en: "Real Estate",
+        it: "Immobiliare",
+        fr: "Immobilier"
+      },
       icon: Home,
       color: "bg-amber-100 text-amber-600",
     },
     {
-      name: "Government",
+      name: {
+        en: "Government",
+        it: "Governo",
+        fr: "Gouvernement"
+      },
       icon: Building,
       color: "bg-slate-100 text-slate-600",
     },
     {
-      name: "NGOs",
+      name: {
+        en: "NGOs",
+        it: "ONG",
+        fr: "ONG"
+      },
       icon: Building2,
       color: "bg-teal-100 text-teal-600",
     },
     {
-      name: "Political Campaigns",
+      name: {
+        en: "Political Campaigns",
+        it: "Campagne Politiche",
+        fr: "Campagnes Politiques"
+      },
       icon: Vote,
       color: "bg-violet-100 text-violet-600",
     },
@@ -58,10 +93,9 @@ const IndustriesSection = () => {
     <section className="py-20 bg-gray-50" id="industries">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="heading-lg mb-4 text-theme-olive">Industries <span className="text-theme-gold">Served</span></h2>
+          <h2 className="heading-lg mb-4 text-theme-olive">{translations.industriesServed[language]} <span className="text-theme-gold">{translations.served[language]}</span></h2>
           <p className="text-lg text-gray-600">
-            I've helped organizations across various sectors leverage the power
-            of data science and AI to achieve their business goals.
+            {translations.industriesDescription[language]}
           </p>
         </div>
 
@@ -76,21 +110,22 @@ const IndustriesSection = () => {
               >
                 <industry.icon className="h-7 w-7" />
               </div>
-              <h3 className="text-lg font-medium text-center text-theme-olive">{industry.name}</h3>
+              <h3 className="text-lg font-medium text-center text-theme-olive">
+                {industry.name[language as keyof typeof industry.name]}
+              </h3>
             </div>
           ))}
         </div>
 
         <div className="mt-12 text-center">
           <p className="text-lg mb-6">
-            Whatever your industry, I can help you leverage AI and machine
-            learning to gain competitive advantages and unlock new opportunities.
+            {translations.industryCallout[language]}
           </p>
           <a
             href="#contact"
             className="inline-block bg-theme-gold hover:bg-theme-gold/90 text-white px-6 py-3 rounded-md font-medium transition-all duration-300"
           >
-            Discuss Your Industry Needs
+            {translations.discussIndustryNeeds[language]}
           </a>
         </div>
       </div>

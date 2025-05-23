@@ -1,42 +1,41 @@
 
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const HeroSection = () => {
+  const { language, translations } = useLanguage();
+  
   return (
     <section className="relative min-h-screen flex items-center pt-16 bg-hero-lime overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 py-16 md:py-24 relative z-10">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div>
             <h1 className="text-4xl md:text-5xl font-bold text-theme-olive mb-6 leading-tight">
-              Transforming Data Into{' '}
+              {translations.transformingData[language]}{' '}
               <span className="text-theme-gold">
-                Intelligent Solutions
+                {translations.intelligentSolutions[language]}
               </span>
             </h1>
             
             <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl">
-              With 6+ years of specialized experience, I deliver advanced AI and machine learning solutions that 
-              drive business growth through data-driven insights. As a certified data scientist, I've helped 
-              organizations across multiple sectors leverage their data assets to achieve measurable ROI and 
-              competitive advantages.
+              {translations.heroDescription1[language]}
             </p>
             
             <p className="text-lg md:text-xl text-gray-700 mb-12 max-w-2xl">
-              Paris-based data scientist specializing in <span className="text-theme-gold">predictive analytics</span>, <span className="text-theme-gold">NLP</span>, <span className="text-theme-gold">forecasting</span>, and 
-              <span className="text-theme-gold"> machine learning solutions</span> for businesses across Europe.
+              {translations.heroDescription2[language]}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="#expertise">
                 <Button className="bg-theme-olive hover:bg-theme-olive/90 text-white px-8 py-6 text-lg w-full sm:w-auto">
-                  Explore My Expertise
+                  {translations.exploreExpertise[language]}
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
                 </Button>
               </a>
               <a href="#contact">
                 <Button variant="outline" className="bg-theme-gold hover:bg-theme-gold/90 text-white border-theme-gold px-8 py-6 text-lg w-full sm:w-auto">
-                  Book a Consultation
+                  {translations.bookAConsultation[language]}
                 </Button>
               </a>
             </div>
@@ -61,7 +60,7 @@ const HeroSection = () => {
                 </svg>
               </div>
               <div>
-                <h3 className="text-sm font-medium text-theme-olive">Email</h3>
+                <h3 className="text-sm font-medium text-theme-olive">{translations.email[language]}</h3>
                 <p className="text-sm">aru.bhardwaj@insighrix.eu</p>
               </div>
             </div>
@@ -75,7 +74,7 @@ const HeroSection = () => {
                 </svg>
               </div>
               <div>
-                <h3 className="text-sm font-medium text-theme-olive">Phone</h3>
+                <h3 className="text-sm font-medium text-theme-olive">{translations.phone[language]}</h3>
                 <p className="text-sm">+33 (0) 766985210</p>
               </div>
             </div>
@@ -90,7 +89,7 @@ const HeroSection = () => {
                 </svg>
               </div>
               <div>
-                <h3 className="text-sm font-medium text-theme-olive">Location</h3>
+                <h3 className="text-sm font-medium text-theme-olive">{translations.location[language]}</h3>
                 <p className="text-sm">Paris, France & Remote</p>
               </div>
             </div>

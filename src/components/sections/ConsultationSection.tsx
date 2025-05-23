@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Check, Linkedin } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -7,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
 import { useEffect } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // Custom Icon components for Upwork and Malt
 const MaltIcon = () => (
@@ -38,9 +40,14 @@ declare global {
       };
     }
   }
+  
+  interface Window {
+    emailjs: any;
+  }
 }
 
 const ConsultationSection = () => {
+  const { language, translations } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -112,11 +119,11 @@ const ConsultationSection = () => {
       <div className="container mx-auto px-4 md:px-8">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-theme-olive">Get In </span>
-            <span className="text-theme-gold">Touch</span>
+            <span className="text-theme-olive">{translations.getInTouch[language]} </span>
+            <span className="text-theme-gold">{translations.touch[language]}</span>
           </h2>
           <p className="text-lg text-gray-700">
-            Ready to transform your data into actionable insights? Book a consultation or send me a message.
+            {translations.contactDescription[language]}
           </p>
         </div>
         
@@ -124,13 +131,13 @@ const ConsultationSection = () => {
           <CardContent className="p-0">
             <div className="grid md:grid-cols-2">
               <div className="p-8 border-r border-gray-200">
-                <h3 className="text-xl font-semibold mb-6 text-theme-olive">Contact Information</h3>
+                <h3 className="text-xl font-semibold mb-6 text-theme-olive">{translations.contactInformation[language]}</h3>
                 
                 <div className="mb-6">
                   <div className="flex items-center gap-3 mb-3 bg-yellow-50 p-3 rounded-md">
                     <Mail className="h-5 w-5 text-yellow-500" />
                     <div>
-                      <p className="text-sm text-gray-500">Email</p>
+                      <p className="text-sm text-gray-500">{translations.email[language]}</p>
                       <a href="mailto:aru.bhardwaj@insighrix.eu" className="text-theme-olive font-medium">
                         aru.bhardwaj@insighrix.eu
                       </a>
@@ -140,7 +147,7 @@ const ConsultationSection = () => {
                   <div className="flex items-center gap-3 mb-3 bg-yellow-50 p-3 rounded-md">
                     <Phone className="h-5 w-5 text-yellow-500" />
                     <div>
-                      <p className="text-sm text-gray-500">Phone</p>
+                      <p className="text-sm text-gray-500">{translations.phone[language]}</p>
                       <a href="tel:+33766985210" className="text-theme-olive font-medium">
                         +33 (0) 766985210
                       </a>
@@ -150,14 +157,14 @@ const ConsultationSection = () => {
                   <div className="flex items-center gap-3 bg-yellow-50 p-3 rounded-md">
                     <MapPin className="h-5 w-5 text-yellow-500" />
                     <div>
-                      <p className="text-sm text-gray-500">Location</p>
+                      <p className="text-sm text-gray-500">{translations.location[language]}</p>
                       <p className="text-theme-olive font-medium">Paris, France (Remote)</p>
                     </div>
                   </div>
                 </div>
                 
                 <div className="mt-8">
-                  <h4 className="font-semibold mb-3">Follow Me</h4>
+                  <h4 className="font-semibold mb-3">{translations.followMe[language]}</h4>
                   <div className="flex gap-3">
                     <a 
                       href="https://www.linkedin.com/in/arub" 
@@ -187,14 +194,14 @@ const ConsultationSection = () => {
                 </div>
                 
                 <div className="mt-8">
-                  <h4 className="font-semibold mb-3">Send Me a Message</h4>
+                  <h4 className="font-semibold mb-3">{translations.sendMessage[language]}</h4>
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                      <Label htmlFor="name" className="text-sm">Full Name</Label>
+                      <Label htmlFor="name" className="text-sm">{translations.fullName[language]}</Label>
                       <Input 
                         id="name"
                         name="name"
-                        placeholder="Enter your full name"
+                        placeholder={translations.enterFullName[language]}
                         value={formData.name}
                         onChange={handleChange}
                         required
@@ -203,12 +210,12 @@ const ConsultationSection = () => {
                     </div>
                     
                     <div>
-                      <Label htmlFor="email" className="text-sm">Email Address</Label>
+                      <Label htmlFor="email" className="text-sm">{translations.emailAddress[language]}</Label>
                       <Input 
                         id="email"
                         name="email"
                         type="email"
-                        placeholder="Enter your email address"
+                        placeholder={translations.enterEmail[language]}
                         value={formData.email}
                         onChange={handleChange}
                         required
@@ -217,11 +224,11 @@ const ConsultationSection = () => {
                     </div>
                     
                     <div>
-                      <Label htmlFor="subject" className="text-sm">Subject</Label>
+                      <Label htmlFor="subject" className="text-sm">{translations.subject[language]}</Label>
                       <Input 
                         id="subject"
                         name="subject"
-                        placeholder="What is your inquiry about?"
+                        placeholder={translations.enterSubject[language]}
                         value={formData.subject}
                         onChange={handleChange}
                         required
@@ -230,11 +237,11 @@ const ConsultationSection = () => {
                     </div>
                     
                     <div>
-                      <Label htmlFor="message" className="text-sm">Message</Label>
+                      <Label htmlFor="message" className="text-sm">{translations.message[language]}</Label>
                       <Textarea 
                         id="message"
                         name="message"
-                        placeholder="Please provide details about your project or inquiry"
+                        placeholder={translations.enterMessage[language]}
                         rows={4}
                         value={formData.message}
                         onChange={handleChange}
@@ -248,14 +255,14 @@ const ConsultationSection = () => {
                       className="w-full bg-theme-olive hover:bg-theme-olive/90 text-white"
                       disabled={isSubmitting}
                     >
-                      {isSubmitting ? 'Sending...' : 'Send Message'}
+                      {isSubmitting ? translations.sending[language] : translations.sendMessage[language]}
                     </Button>
                   </form>
                 </div>
               </div>
               
               <div className="p-8">
-                <h3 className="text-xl font-semibold mb-6 text-theme-olive">Consultation Package:</h3>
+                <h3 className="text-xl font-semibold mb-6 text-theme-olive">{translations.consultationPackage[language]}</h3>
                 
                 <div className="flex justify-center my-8">
                   <div className="stripe-button-container">
@@ -268,31 +275,31 @@ const ConsultationSection = () => {
                 </div>
                 
                 <div className="mt-8">
-                  <h4 className="text-lg font-semibold mb-4 text-theme-olive">What Happens Next</h4>
+                  <h4 className="text-lg font-semibold mb-4 text-theme-olive">{translations.whatHappensNext[language]}</h4>
                   <ul className="space-y-4">
                     <li className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-yellow-500 shrink-0 mt-0.5" />
-                      <span><strong>Confirmation Email:</strong> You'll receive a payment confirmation immediately after checkout</span>
+                      <span>{translations.confirmationEmail[language]}</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-yellow-500 shrink-0 mt-0.5" />
-                      <span><strong>Personal Contact:</strong> I'll email you within 24 hours to discuss your specific requirements</span>
+                      <span>{translations.personalContact[language]}</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-yellow-500 shrink-0 mt-0.5" />
-                      <span><strong>Calendar Invite:</strong> You'll receive a scheduling link to book a time that works for you</span>
+                      <span>{translations.calendarInvite[language]}</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-yellow-500 shrink-0 mt-0.5" />
-                      <span><strong>Weekend Availability:</strong> Consultations are available on Saturdays for your convenience</span>
+                      <span>{translations.weekendAvailability[language]}</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-yellow-500 shrink-0 mt-0.5" />
-                      <span><strong>Preparation Materials:</strong> You'll receive guidance on how to prepare for our meeting</span>
+                      <span>{translations.preparationMaterials[language]}</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="h-5 w-5 text-yellow-500 shrink-0 mt-0.5" />
-                      <span><strong>Refund Policy:</strong> Refund requests can be made within 24 hours if the call hasn't been scheduled</span>
+                      <span>{translations.refundPolicy[language]}</span>
                     </li>
                   </ul>
                 </div>

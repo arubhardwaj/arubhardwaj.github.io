@@ -19,9 +19,7 @@ const AboutSection = () => {
               Aru Bhardwaj
             </h2>
             <p className="text-lg mb-6 text-gray-700">
-              As a data scientist and AI consultant with over 6 years of experience, I specialize in turning 
-              complex data challenges into strategic business opportunities. My expertise spans machine learning, 
-              predictive analytics, and data-driven decision making.
+              {translations.aboutMeDescription[language]}
             </p>
             
             <div className="mb-8">
@@ -75,15 +73,15 @@ const AboutSection = () => {
                   <ul className="space-y-2">
                     <li className="flex items-start">
                       <CheckCircle size={20} className="text-green-500 mr-2 shrink-0 mt-0.5" />
-                      <span>Customized solutions tailored to your specific business requirements</span>
+                      <span>{translations.customizedSolutions[language]}</span>
                     </li>
                     <li className="flex items-start">
                       <CheckCircle size={20} className="text-green-500 mr-2 shrink-0 mt-0.5" />
-                      <span>Weekly or monthly billing options available for ongoing projects</span>
+                      <span>{translations.weeklyMonthlyBilling[language]}</span>
                     </li>
                     <li className="flex items-start">
                       <CheckCircle size={20} className="text-green-500 mr-2 shrink-0 mt-0.5" />
-                      <span>Project-based fixed pricing available upon assessment</span>
+                      <span>{translations.projectBasedPricing[language]}</span>
                     </li>
                   </ul>
                   <div className="mt-6">
@@ -110,7 +108,7 @@ const AboutSection = () => {
             <div className="bg-white p-6 text-center">
               <h3 className="text-xl font-bold mb-1 text-theme-olive">Aru Bhardwaj</h3>
               <p className="text-gray-600">
-                {/* Removed the Upwork description text as requested */}
+                {/* Empty paragraph as requested */}
               </p>
             </div>
           </div>
