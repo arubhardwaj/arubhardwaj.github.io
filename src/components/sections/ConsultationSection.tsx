@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Check, Linkedin } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -12,7 +11,11 @@ import { useEffect } from 'react';
 // Custom Icon components for Upwork and Malt
 const MaltIcon = () => (
   <div className="flex items-center justify-center h-5 w-5 text-white">
-    <span className="font-bold text-base">M</span>
+    <img 
+      src="/lovable-uploads/1fa53f10-66e1-4d3b-b36d-4095f6e3d4bf.png" 
+      alt="Malt" 
+      className="w-full h-full object-contain"
+    />
   </div>
 );
 

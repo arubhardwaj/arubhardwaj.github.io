@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Linkedin } from 'lucide-react';
 
@@ -17,7 +16,13 @@ const Footer = () => {
                 <Linkedin size={20} />
               </a>
               <a href="https://www.malt.fr/profile/arubhardwaj" aria-label="Malt" className="text-theme-olive hover:text-theme-gold">
-                <span className="font-bold">M</span>
+                <div className="w-5 h-5">
+                  <img 
+                    src="/lovable-uploads/1fa53f10-66e1-4d3b-b36d-4095f6e3d4bf.png" 
+                    alt="Malt" 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               </a>
               <a href="https://upwork.com/fl/arub" aria-label="Upwork" className="text-theme-olive hover:text-theme-gold">
                 <div className="w-5 h-5">
