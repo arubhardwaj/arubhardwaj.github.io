@@ -95,7 +95,7 @@ const AboutSection = () => {
             <div className="bg-white p-6 text-center">
               <h3 className="text-xl font-bold mb-1 text-theme-olive">Aru Bhardwaj</h3>
               <p className="text-gray-600">
-                Upwork Top-Rated Data Scientist | Predictive Analytics | NLP | Forecasting | Machine Learning
+                {/* Removed the Upwork description text as requested */}
               </p>
             </div>
           </div>
