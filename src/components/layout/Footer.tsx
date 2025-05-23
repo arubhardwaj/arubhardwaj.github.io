@@ -16,20 +16,20 @@ const Footer = () => {
                 <Linkedin size={20} />
               </a>
               <a href="https://www.malt.fr/profile/arubhardwaj" aria-label="Malt" className="text-theme-olive hover:text-theme-gold">
-                <div className="w-5 h-5">
+                <div className="w-5 h-5 flex items-center justify-center">
                   <img 
                     src="/lovable-uploads/1fa53f10-66e1-4d3b-b36d-4095f6e3d4bf.png" 
                     alt="Malt" 
-                    className="w-full h-full object-contain"
+                    className="w-4 h-4 object-contain"
                   />
                 </div>
               </a>
               <a href="https://upwork.com/fl/arub" aria-label="Upwork" className="text-theme-olive hover:text-theme-gold">
-                <div className="w-5 h-5">
+                <div className="w-5 h-5 flex items-center justify-center">
                   <img 
                     src="/lovable-uploads/62d7931a-42c8-4548-97c4-7f582b78beb9.png" 
                     alt="Upwork" 
-                    className="w-full h-full object-contain"
+                    className="w-4 h-4 object-contain"
                   />
                 </div>
               </a>

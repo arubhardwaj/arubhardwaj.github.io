@@ -10,21 +10,21 @@ import { useEffect } from 'react';
 
 // Custom Icon components for Upwork and Malt
 const MaltIcon = () => (
-  <div className="flex items-center justify-center h-5 w-5 text-white">
+  <div className="flex items-center justify-center h-full w-full">
     <img 
       src="/lovable-uploads/1fa53f10-66e1-4d3b-b36d-4095f6e3d4bf.png" 
       alt="Malt" 
-      className="w-full h-full object-contain"
+      className="w-6 h-6 object-contain"
     />
   </div>
 );
 
 const UpworkIcon = () => (
-  <div className="flex items-center justify-center h-5 w-5 text-white">
+  <div className="flex items-center justify-center h-full w-full">
     <img 
       src="/lovable-uploads/62d7931a-42c8-4548-97c4-7f582b78beb9.png" 
       alt="Upwork" 
-      className="w-full h-full object-contain"
+      className="w-6 h-6 object-contain"
     />
   </div>
 );
