@@ -35,7 +35,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-2">
-          <span className="text-xl md:text-2xl font-bold text-primary">Aru Bhardwaj</span>
+          <span className="text-xl md:text-2xl font-bold text-theme-green">Aru Bhardwaj</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -58,7 +58,7 @@ const Navbar = () => {
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
-          <Button className="btn-primary">Book Consultation</Button>
+          <Button onClick={() => document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' })} className="bg-theme-gold hover:bg-theme-gold/90 text-white">Book Consultation</Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -90,7 +90,10 @@ const Navbar = () => {
             <a href="#contact" className="text-foreground hover:text-primary font-medium transition-colors py-2" onClick={() => setIsMenuOpen(false)}>
               Contact
             </a>
-            <Button className="btn-primary w-full mt-4">Book Consultation</Button>
+            <Button onClick={() => {
+              document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
+              setIsMenuOpen(false);
+            }} className="bg-theme-gold hover:bg-theme-gold/90 text-white w-full">Book Consultation</Button>
           </nav>
         </div>
       )}
