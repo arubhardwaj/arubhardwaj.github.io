@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Linkedin } from 'lucide-react';
 import { Label } from '@/components/ui/label';
@@ -70,7 +69,10 @@ const ContactSection = () => {
     <section className="py-20 bg-hero-lime" id="contact">
       <div className="container mx-auto px-4 md:px-8">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="heading-lg mb-4 text-theme-olive">Get In Touch</h2>
+          <h2 className="heading-lg mb-4">
+            <span className="text-theme-olive">Get In </span>
+            <span className="text-theme-gold">Touch</span>
+          </h2>
           <p className="text-lg text-gray-700">
             Ready to transform your data into actionable insights? Let's discuss how I can help your organization leverage AI and machine learning.
           </p>
@@ -204,7 +206,7 @@ const ContactSection = () => {
                   
                   <Button 
                     type="submit" 
-                    className="w-full bg-theme-green hover:bg-theme-green/90 text-white"
+                    className="w-full bg-theme-olive hover:bg-theme-olive/90 text-white"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}

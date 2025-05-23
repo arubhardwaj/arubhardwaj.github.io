@@ -33,7 +33,10 @@ const ConsultationSection = () => {
     <section className="py-20 bg-hero-lime">
       <div className="container mx-auto px-4 md:px-8">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-theme-olive">Book a Consultation</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <span className="text-theme-olive">Book a </span>
+            <span className="text-theme-gold">Consultation</span>
+          </h2>
           <p className="text-lg text-gray-700">
             Get expert advice on your data science and AI challenges with a personalized consultation.
           </p>
