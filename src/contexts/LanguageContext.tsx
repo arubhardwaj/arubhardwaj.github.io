@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 type Language = 'en' | 'it' | 'fr';
@@ -54,7 +53,7 @@ const translations = {
     fr: 'Solutions Intelligentes',
   },
   heroDescription1: {
-    en: 'With 6+ years of specialized experience, I deliver advanced AI and machine learning solutions that drive business growth through data-driven insights. As a certified data scientist, I've helped organizations across multiple sectors leverage their data assets to achieve measurable ROI and competitive advantages.',
+    en: 'With 6+ years of specialized experience, I deliver advanced AI and machine learning solutions that drive business growth through data-driven insights. As a certified data scientist, I\'ve helped organizations across multiple sectors leverage their data assets to achieve measurable ROI and competitive advantages.',
     it: 'Con oltre 6 anni di esperienza specializzata, offro soluzioni avanzate di AI e machine learning che guidano la crescita aziendale attraverso insights basati sui dati. Come data scientist certificato, ho aiutato organizzazioni in diversi settori a sfruttare i loro asset di dati per ottenere ROI misurabili e vantaggi competitivi.',
     fr: 'Avec plus de 6 ans d\'expérience spécialisée, je propose des solutions avancées d\'IA et d\'apprentissage automatique qui favorisent la croissance des entreprises grâce à des insights basés sur les données. En tant que data scientist certifié, j\'ai aidé des organisations de plusieurs secteurs à tirer parti de leurs actifs de données pour obtenir un ROI mesurable et des avantages concurrentiels.',
   },
