@@ -4,10 +4,13 @@ import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { language, translations } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,34 +44,40 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           <Link to="/" className="text-foreground hover:text-primary font-medium transition-colors">
-            Home
+            {translations.home[language]}
           </Link>
           <a href="#expertise" className="text-foreground hover:text-primary font-medium transition-colors">
-            Expertise
+            {translations.expertise[language]}
           </a>
           <a href="#industries" className="text-foreground hover:text-primary font-medium transition-colors">
-            Industries
+            {translations.industries[language]}
           </a>
           <a href="#why-choose-me" className="text-foreground hover:text-primary font-medium transition-colors">
-            Why Choose Me
+            {translations.whyChooseMe[language]}
           </a>
           <a href="#contact" className="text-foreground hover:text-primary font-medium transition-colors">
-            Contact
+            {translations.contact[language]}
           </a>
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
-          <Button onClick={() => document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' })} className="bg-theme-gold hover:bg-theme-gold/90 text-white">Book Consultation</Button>
+          <LanguageSwitcher />
+          <Button onClick={() => document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' })} className="bg-theme-gold hover:bg-theme-gold/90 text-white">
+            {translations.bookConsultation[language]}
+          </Button>
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          onClick={toggleMenu}
-          className="md:hidden p-2 text-foreground hover:text-primary rounded-md"
-          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <LanguageSwitcher />
+          <button
+            onClick={toggleMenu}
+            className="p-2 text-foreground hover:text-primary rounded-md"
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
@@ -76,24 +85,26 @@ const Navbar = () => {
         <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-md py-4 animate-fade-in">
           <nav className="container mx-auto px-4 flex flex-col space-y-4">
             <Link to="/" className="text-foreground hover:text-primary font-medium transition-colors py-2" onClick={() => setIsMenuOpen(false)}>
-              Home
+              {translations.home[language]}
             </Link>
             <a href="#expertise" className="text-foreground hover:text-primary font-medium transition-colors py-2" onClick={() => setIsMenuOpen(false)}>
-              Expertise
+              {translations.expertise[language]}
             </a>
             <a href="#industries" className="text-foreground hover:text-primary font-medium transition-colors py-2" onClick={() => setIsMenuOpen(false)}>
-              Industries
+              {translations.industries[language]}
             </a>
             <a href="#why-choose-me" className="text-foreground hover:text-primary font-medium transition-colors py-2" onClick={() => setIsMenuOpen(false)}>
-              Why Choose Me
+              {translations.whyChooseMe[language]}
             </a>
             <a href="#contact" className="text-foreground hover:text-primary font-medium transition-colors py-2" onClick={() => setIsMenuOpen(false)}>
-              Contact
+              {translations.contact[language]}
             </a>
             <Button onClick={() => {
               document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
               setIsMenuOpen(false);
-            }} className="bg-theme-gold hover:bg-theme-gold/90 text-white w-full">Book Consultation</Button>
+            }} className="bg-theme-gold hover:bg-theme-gold/90 text-white w-full">
+              {translations.bookConsultation[language]}
+            </Button>
           </nav>
         </div>
       )}
