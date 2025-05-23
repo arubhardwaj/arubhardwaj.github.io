@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 type Language = 'en' | 'it' | 'fr';
@@ -242,7 +243,7 @@ const translations = {
     it: 'Seguimi',
     fr: 'Suivez-moi',
   },
-  sendMessage: {
+  sendMessageTitle: {
     en: 'Send Me a Message',
     it: 'Inviami un Messaggio',
     fr: 'Envoyez-moi un Message',
