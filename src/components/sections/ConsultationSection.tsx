@@ -2,11 +2,9 @@
 import { Check } from 'lucide-react';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 const ConsultationSection = () => {
-  const stripeButtonRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     // Load Stripe script
     const script = document.createElement('script');
@@ -14,18 +12,12 @@ const ConsultationSection = () => {
     script.async = true;
     document.body.appendChild(script);
 
-    // Add Stripe button once script is loaded
-    script.onload = () => {
-      if (stripeButtonRef.current) {
-        const stripeButton = document.createElement('stripe-buy-button');
-        stripeButton.setAttribute('buy-button-id', 'buy_btn_1RJidbDRlpu0XokvgWLL4odr');
-        stripeButton.setAttribute('publishable-key', 'pk_live_51QTvRbDRlpu0Xokvl70HGWoEOV7yoyJ1ye6INHArLHaeDpSEKk0vGLIycqiN4VMuA0HueyzxLlsPVD1GukvLAcPI00hxC37Dmk');
-        stripeButtonRef.current.appendChild(stripeButton);
-      }
-    };
-
     return () => {
-      document.body.removeChild(script);
+      // Clean up script when component unmounts
+      const existingScript = document.querySelector('script[src="https://js.stripe.com/v3/buy-button.js"]');
+      if (existingScript && document.body.contains(existingScript)) {
+        document.body.removeChild(existingScript);
+      }
     };
   }, []);
 
@@ -59,9 +51,13 @@ const ConsultationSection = () => {
                 
                 <div className="text-center mb-6">
                   <p className="text-2xl font-bold text-theme-olive mb-2">€90</p>
-                  <Button className="w-full bg-theme-gold hover:bg-theme-gold/90 text-white py-3 h-auto text-base">
-                    Book
-                  </Button>
+                  <div className="stripe-button-container">
+                    <stripe-buy-button
+                      buy-button-id="buy_btn_1RJidbDRlpu0XokvgWLL4odr"
+                      publishable-key="pk_live_51QTvRbDRlpu0Xokvl70HGWoEOV7yoyJ1ye6INHArLHaeDpSEKk0vGLIycqiN4VMuA0HueyzxLlsPVD1GukvLAcPI00hxC37Dmk"
+                    >
+                    </stripe-buy-button>
+                  </div>
                   <p className="text-sm text-gray-500 mt-2">Supported payment methods:</p>
                   <div className="flex justify-center gap-2 mt-1">
                     <div className="w-8 h-5 bg-blue-600 rounded"></div>
@@ -109,9 +105,6 @@ const ConsultationSection = () => {
               </div>
             </div>
           </CardContent>
-          <CardFooter className="flex justify-center p-6 pt-0 hidden">
-            <div ref={stripeButtonRef}></div>
-          </CardFooter>
         </Card>
       </div>
     </section>
