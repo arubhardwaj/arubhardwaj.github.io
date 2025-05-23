@@ -44,7 +44,7 @@ const HeroSection = () => {
           <div className="hidden md:block relative">
             <div className="rounded-lg overflow-hidden bg-gray-200 shadow-xl">
               <img 
-                src="/lovable-uploads/aa9ec9e1-1fea-42f9-aa4b-832dbe9bcc72.png" 
+                src="/lovable-uploads/001b4d75-900d-4162-9a12-0745979ca94a.png" 
                 alt="Aru Bhardwaj - Top Paris Data Scientist and AI Expert specializing in predictive analytics, NLP, and forecasting" 
                 className="w-full h-auto"
               />

@@ -61,7 +61,7 @@ const AboutSection = () => {
           <div className="rounded-lg overflow-hidden shadow-xl">
             <div className="border-8 border-theme-gold rounded-full overflow-hidden aspect-square w-64 md:w-80 mx-auto">
               <img 
-                src="/lovable-uploads/311732f1-e812-431b-92d0-8f138564b9f0.png" 
+                src="/lovable-uploads/3961e730-26c4-4c1e-9142-84c71787419b.png" 
                 alt="Aru Bhardwaj" 
                 className="w-full h-full object-cover"
               />
