@@ -10,12 +10,6 @@ import { toast } from 'sonner';
 import { useEffect } from 'react';
 
 // Custom Icon components for Upwork and Malt
-const UpworkIcon = () => (
-  <div className="flex items-center justify-center h-5 w-5 text-white">
-    <span className="font-bold text-base">U</span>
-  </div>
-);
-
 const MaltIcon = () => (
   <div className="flex items-center justify-center h-5 w-5 text-white">
     <span className="font-bold text-base">M</span>
@@ -168,14 +162,6 @@ const ConsultationSection = () => {
                     >
                       <MaltIcon />
                     </a>
-                    <a 
-                      href="https://upwork.com/fl/arub" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="h-10 w-10 rounded-full bg-[#6FDA44] hover:bg-[#6FDA44]/90 flex items-center justify-center text-white transition-colors"
-                    >
-                      <UpworkIcon />
-                    </a>
                   </div>
                 </div>
                 
@@ -250,31 +236,13 @@ const ConsultationSection = () => {
               <div className="p-8">
                 <h3 className="text-xl font-semibold mb-6 text-theme-olive">Consultation Package:</h3>
                 
-                <div className="text-center mb-6">
-                  <p className="font-medium mt-2">1 Hour: Consultation - Data Science, Machine Learning and AI</p>
-                </div>
-                
-                <div className="flex justify-center my-6">
-                  <div className="w-32 h-32 bg-gray-100 rounded-full overflow-hidden flex items-center justify-center">
-                    <img src="/lovable-uploads/fdeddb7d-ba2f-47aa-a96e-5019d4da87ed.png" alt="Consultant" className="w-full h-auto" />
-                  </div>
-                </div>
-                
-                <div className="text-center mb-6">
-                  <p className="text-2xl font-bold text-theme-olive mb-2">€90</p>
+                <div className="flex justify-center my-8">
                   <div className="stripe-button-container">
                     <stripe-buy-button
                       buy-button-id="buy_btn_1RJidbDRlpu0XokvgWLL4odr"
                       publishable-key="pk_live_51QTvRbDRlpu0Xokvl70HGWoEOV7yoyJ1ye6INHArLHaeDpSEKk0vGLIycqiN4VMuA0HueyzxLlsPVD1GukvLAcPI00hxC37Dmk"
                     >
                     </stripe-buy-button>
-                  </div>
-                  <p className="text-sm text-gray-500 mt-2">Supported payment methods:</p>
-                  <div className="flex justify-center gap-2 mt-1">
-                    <div className="w-8 h-5 bg-blue-600 rounded"></div>
-                    <div className="w-8 h-5 bg-orange-600 rounded"></div>
-                    <div className="w-8 h-5 bg-blue-800 rounded"></div>
-                    <div className="w-8 h-5 bg-gray-800 rounded"></div>
                   </div>
                 </div>
                 
