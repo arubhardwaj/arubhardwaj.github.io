@@ -20,7 +20,13 @@ const Footer = () => {
                 <span className="font-bold">M</span>
               </a>
               <a href="https://upwork.com/fl/arub" aria-label="Upwork" className="text-theme-olive hover:text-theme-gold">
-                <span className="font-bold">U</span>
+                <div className="w-5 h-5">
+                  <img 
+                    src="/lovable-uploads/62d7931a-42c8-4548-97c4-7f582b78beb9.png" 
+                    alt="Upwork" 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               </a>
             </div>
           </div>

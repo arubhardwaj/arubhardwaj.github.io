@@ -16,6 +16,16 @@ const MaltIcon = () => (
   </div>
 );
 
+const UpworkIcon = () => (
+  <div className="flex items-center justify-center h-5 w-5 text-white">
+    <img 
+      src="/lovable-uploads/62d7931a-42c8-4548-97c4-7f582b78beb9.png" 
+      alt="Upwork" 
+      className="w-full h-full object-contain"
+    />
+  </div>
+);
+
 declare global {
   namespace JSX {
     interface IntrinsicElements {
@@ -161,6 +171,14 @@ const ConsultationSection = () => {
                       className="h-10 w-10 rounded-full bg-theme-olive hover:bg-theme-olive/90 flex items-center justify-center text-white transition-colors"
                     >
                       <MaltIcon />
+                    </a>
+                    <a 
+                      href="https://upwork.com/fl/arub" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="h-10 w-10 rounded-full bg-[#6FDA44] hover:bg-[#6FDA44]/90 flex items-center justify-center text-white transition-colors"
+                    >
+                      <UpworkIcon />
                     </a>
                   </div>
                 </div>
