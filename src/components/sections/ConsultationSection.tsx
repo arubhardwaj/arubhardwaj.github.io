@@ -84,6 +84,9 @@ const ConsultationSection = () => {
                   <strong>Important:</strong> After your payment is processed, you'll receive a confirmation email. 
                   I'll then contact you within 24 hours to arrange our consultation at a time that works best for you.
                 </p>
+                <Button className="w-full bg-theme-gold hover:bg-theme-gold/90 text-white py-3 h-auto text-base">
+                  Book a Consultation
+                </Button>
               </div>
             </CardContent>
             <CardFooter className="flex justify-center p-6 pt-0">
