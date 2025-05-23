@@ -8,7 +8,7 @@ const AboutSection = () => {
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="heading-lg mb-6 text-theme-dark">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-theme-olive">
               Aru Bhardwaj
             </h2>
             <p className="text-lg mb-6 text-gray-700">
@@ -18,16 +18,18 @@ const AboutSection = () => {
             </p>
             
             <div className="mb-8">
-              <h3 className="heading-sm mb-4 text-theme-blue">Professional Services</h3>
+              <h3 className="text-xl font-semibold mb-4 text-theme-gold">Professional Services</h3>
               
-              <Card className="mb-4 shadow-md">
+              <Card className="mb-4 shadow-md border-yellow-100">
                 <CardContent className="p-6">
                   <div className="flex justify-between items-center mb-4">
-                    <h4 className="text-lg font-medium">Hourly Rate</h4>
-                    <span className="text-xl font-bold text-theme-blue">Standard Rate</span>
+                    <h4 className="text-lg font-medium">Standard Rate</h4>
+                    <div className="w-16 h-8 bg-gray-200 rounded-full p-1 flex items-center">
+                      <div className="w-6 h-6 rounded-full bg-white shadow-sm"></div>
+                    </div>
                   </div>
                   <div className="mb-4">
-                    <span className="text-2xl font-bold">450 EUR + VAT</span>
+                    <span className="text-3xl font-bold text-theme-gold">450 EUR + VAT</span>
                     <span className="text-gray-500 ml-1">per day</span>
                   </div>
                   <ul className="space-y-2">
@@ -49,7 +51,7 @@ const AboutSection = () => {
               
               <a 
                 href="#contact" 
-                className="inline-block bg-theme-blue hover:bg-theme-blue/90 text-white px-6 py-3 rounded-md font-medium transition-all duration-300"
+                className="inline-block bg-theme-olive hover:bg-theme-olive/90 text-white px-6 py-3 rounded-md font-medium transition-all duration-300"
               >
                 Schedule a Consultation
               </a>
@@ -57,15 +59,15 @@ const AboutSection = () => {
           </div>
           
           <div className="rounded-lg overflow-hidden shadow-xl">
-            <div className="aspect-w-3 aspect-h-4 bg-gradient-to-br from-theme-blue via-theme-purple to-theme-teal p-1 rounded-lg">
-              <div className="rounded-lg overflow-hidden bg-gray-200 flex items-center justify-center">
-                <div className="text-center p-8 text-gray-500">
-                  [Your professional headshot image]
-                </div>
-              </div>
+            <div className="border-8 border-theme-gold rounded-full overflow-hidden aspect-square w-64 md:w-80 mx-auto">
+              <img 
+                src="/lovable-uploads/311732f1-e812-431b-92d0-8f138564b9f0.png" 
+                alt="Aru Bhardwaj" 
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div className="bg-white p-6">
-              <h3 className="text-xl font-bold mb-1">Aru Bhardwaj</h3>
+            <div className="bg-white p-6 text-center">
+              <h3 className="text-xl font-bold mb-1 text-theme-olive">Aru Bhardwaj</h3>
               <p className="text-gray-600">
                 Upwork Top-Rated Data Scientist | Predictive Analytics | NLP | Forecasting | Machine Learning
               </p>

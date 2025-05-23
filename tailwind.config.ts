@@ -67,14 +67,22 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom theme colors
+				// Custom theme colors based on screenshots
 				theme: {
 					blue: '#1e40af',
 					purple: '#4c1d95',
 					teal: '#115e59',
 					dark: '#0f172a',
-					light: '#f8fafc'
+					light: '#f8fafc',
+					olive: '#4D5726',
+					gold: '#E6B91E',
+					lime: '#F3FFBF',
+					green: '#557A11'
 				}
+			},
+			backgroundColor: {
+				'hero-lime': '#F8FFD0',
+				'footer-lime': '#F8FFD0'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

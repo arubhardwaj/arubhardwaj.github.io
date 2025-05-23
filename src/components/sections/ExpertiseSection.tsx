@@ -1,5 +1,6 @@
 
-import { Brain, GitMerge, BarChart3, MessageSquare, Server, Database, LineChart, PieChart, MapPin, Cloud, Database as DatabaseIcon, Cpu } from 'lucide-react';
+import React from 'react';
+import { Brain, GitMerge, BarChart3, MessageSquare, Server, Cpu, LineChart, PieChart, MapPin, Cloud, Database } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const ExpertiseSection = () => {
@@ -59,7 +60,7 @@ const ExpertiseSection = () => {
     },
     {
       title: "Data Scraping & ETL Processes",
-      icon: DatabaseIcon,
+      icon: Database,
       description: "Efficient in extracting and processing large datasets"
     },
     {
@@ -73,8 +74,8 @@ const ExpertiseSection = () => {
     <section className="py-20 bg-gray-50" id="expertise">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="heading-lg mb-4 text-theme-dark">
-            AI & Machine Learning Expertise
+          <h2 className="heading-lg mb-4 text-theme-olive">
+            AI & Machine Learning <span className="text-theme-gold">Expertise</span>
           </h2>
           <p className="text-lg text-gray-600">
             Leveraging cutting-edge technologies and methodologies to deliver transformative AI solutions 
@@ -84,12 +85,12 @@ const ExpertiseSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {expertiseAreas.map((area, index) => (
-            <Card key={index} className="card-hover border-t-4 border-t-theme-blue">
+            <Card key={index} className="card-hover border-t-4 border-t-theme-gold bg-white">
               <CardContent className="p-6">
-                <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
-                  <area.icon className="h-6 w-6 text-theme-blue" />
+                <div className="h-12 w-12 rounded-full bg-yellow-100 flex items-center justify-center mb-4">
+                  <area.icon className="h-6 w-6 text-theme-gold" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">{area.title}</h3>
+                <h3 className="text-xl font-bold mb-2 text-theme-olive">{area.title}</h3>
                 <p className="text-gray-600">{area.description}</p>
               </CardContent>
             </Card>
@@ -97,17 +98,17 @@ const ExpertiseSection = () => {
         </div>
 
         <div className="mt-16">
-          <h3 className="heading-md text-center mb-8 text-theme-dark">Additional Key Skills</h3>
+          <h3 className="heading-md text-center mb-8 text-theme-olive">Additional Key Skills</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {additionalSkills.map((skill, index) => (
-              <Card key={index} className="card-hover">
+              <Card key={index} className="card-hover bg-white">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="h-10 w-10 rounded-full bg-purple-100 flex items-center justify-center shrink-0">
-                      <skill.icon className="h-5 w-5 text-theme-purple" />
+                    <div className="h-10 w-10 rounded-full bg-yellow-100 flex items-center justify-center shrink-0">
+                      <skill.icon className="h-5 w-5 text-theme-gold" />
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold mb-2">{skill.title}</h4>
+                      <h4 className="text-lg font-semibold mb-2 text-theme-olive">{skill.title}</h4>
                       <p className="text-gray-600">{skill.description}</p>
                     </div>
                   </div>

@@ -15,7 +15,7 @@ const IndustriesSection = () => {
     {
       name: "Management Consulting",
       icon: Briefcase,
-      color: "bg-blue-100 text-blue-600",
+      color: "bg-amber-100 text-amber-600",
     },
     {
       name: "Healthcare",
@@ -55,10 +55,10 @@ const IndustriesSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-white" id="industries">
+    <section className="py-20 bg-gray-50" id="industries">
       <div className="container mx-auto px-4 md:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="heading-lg mb-4 text-theme-dark">Industries Served</h2>
+          <h2 className="heading-lg mb-4 text-theme-olive">Industries <span className="text-theme-gold">Served</span></h2>
           <p className="text-lg text-gray-600">
             I've helped organizations across various sectors leverage the power
             of data science and AI to achieve their business goals.
@@ -69,14 +69,14 @@ const IndustriesSection = () => {
           {industries.map((industry, index) => (
             <div
               key={index}
-              className="flex flex-col items-center p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow"
+              className="flex flex-col items-center p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow bg-white"
             >
               <div
                 className={`h-14 w-14 rounded-full ${industry.color} flex items-center justify-center mb-4`}
               >
                 <industry.icon className="h-7 w-7" />
               </div>
-              <h3 className="text-lg font-medium text-center">{industry.name}</h3>
+              <h3 className="text-lg font-medium text-center text-theme-olive">{industry.name}</h3>
             </div>
           ))}
         </div>
@@ -88,7 +88,7 @@ const IndustriesSection = () => {
           </p>
           <a
             href="#contact"
-            className="inline-block bg-theme-purple hover:bg-theme-purple/90 text-white px-6 py-3 rounded-md font-medium transition-all duration-300"
+            className="inline-block bg-theme-gold hover:bg-theme-gold/90 text-white px-6 py-3 rounded-md font-medium transition-all duration-300"
           >
             Discuss Your Industry Needs
           </a>
