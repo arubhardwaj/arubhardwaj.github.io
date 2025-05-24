@@ -1,4 +1,3 @@
-
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -27,17 +26,20 @@ const HeroSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#expertise">
-                <Button className="bg-theme-olive hover:bg-theme-olive/90 text-white px-8 py-6 text-lg w-full sm:w-auto">
-                  {translations.exploreExpertise[language]}
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
-                </Button>
-              </a>
-              <a href="#contact">
-                <Button variant="outline" className="bg-theme-gold hover:bg-theme-gold/90 text-white border-theme-gold px-8 py-6 text-lg w-full sm:w-auto">
-                  {translations.bookAConsultation[language]}
-                </Button>
-              </a>
+              <Button 
+                onClick={() => document.querySelector('[id*="expertise"]')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-theme-olive hover:bg-theme-olive/90 text-white px-8 py-6 text-lg w-full sm:w-auto"
+              >
+                {translations.exploreExpertise[language]}
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
+              </Button>
+              <Button 
+                onClick={() => document.querySelector('[id*="consultation"]')?.scrollIntoView({ behavior: 'smooth' })}
+                variant="outline" 
+                className="bg-theme-gold hover:bg-theme-gold/90 text-white border-theme-gold px-8 py-6 text-lg w-full sm:w-auto"
+              >
+                {translations.bookAConsultation[language]}
+              </Button>
             </div>
           </div>
           <div className="relative order-first md:order-last mb-8 md:mb-0">
