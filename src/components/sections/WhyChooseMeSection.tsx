@@ -1,4 +1,3 @@
-
 import { 
   Lightbulb, 
   Rocket, 
@@ -116,12 +115,12 @@ const WhyChooseMeSection = () => {
           <p className="text-lg mb-6">
             {translations.whyChooseMeCallout[language]}
           </p>
-          <a 
-            href="#contact" 
+          <button 
+            onClick={() => document.querySelector('[id*="contact"]')?.scrollIntoView({ behavior: 'smooth' })}
             className="inline-block bg-theme-gold hover:bg-theme-gold/90 text-white px-6 py-3 rounded-md font-medium transition-all duration-300"
           >
             {translations.letsWorkTogether[language]}
-          </a>
+          </button>
         </div>
       </div>
     </section>

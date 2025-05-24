@@ -29,6 +29,10 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <header
       className={cn(
@@ -37,15 +41,15 @@ const Navbar = () => {
       )}
     >
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-2">
+        <button onClick={scrollToTop} className="flex items-center gap-2">
           <span className="text-xl md:text-2xl font-bold text-theme-green">Aru Bhardwaj</span>
-        </Link>
+        </button>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link to="/" className="text-foreground hover:text-primary font-medium transition-colors">
+          <button onClick={scrollToTop} className="text-foreground hover:text-primary font-medium transition-colors">
             {translations.home[language]}
-          </Link>
+          </button>
           <a href="#expertise" className="text-foreground hover:text-primary font-medium transition-colors">
             {translations.expertise[language]}
           </a>
@@ -84,9 +88,9 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-md py-4 animate-fade-in">
           <nav className="container mx-auto px-4 flex flex-col space-y-4">
-            <Link to="/" className="text-foreground hover:text-primary font-medium transition-colors py-2" onClick={() => setIsMenuOpen(false)}>
+            <button onClick={() => { scrollToTop(); setIsMenuOpen(false); }} className="text-foreground hover:text-primary font-medium transition-colors py-2 text-left">
               {translations.home[language]}
-            </Link>
+            </button>
             <a href="#expertise" className="text-foreground hover:text-primary font-medium transition-colors py-2" onClick={() => setIsMenuOpen(false)}>
               {translations.expertise[language]}
             </a>
