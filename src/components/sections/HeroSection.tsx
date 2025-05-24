@@ -40,8 +40,8 @@ const HeroSection = () => {
               </a>
             </div>
           </div>
-          <div className="hidden md:block relative">
-            <div className="rounded-lg overflow-hidden bg-gray-200 shadow-xl">
+          <div className="relative order-first md:order-last mb-8 md:mb-0">
+            <div className="rounded-lg overflow-hidden bg-gray-200 shadow-xl max-w-sm mx-auto md:max-w-none">
               <img 
                 src="/lovable-uploads/3961e730-26c4-4c1e-9142-84c71787419b.png" 
                 alt="Aru Bhardwaj - Top Paris Data Scientist and AI Expert specializing in predictive analytics, NLP, and forecasting" 
