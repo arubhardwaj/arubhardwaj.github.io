@@ -59,7 +59,7 @@ const Navbar = () => {
           <a href="#why-choose-me" className="text-foreground hover:text-primary font-medium transition-colors">
             {translations.whyChooseMe[language]}
           </a>
-          <a href="#contact" className="text-foreground hover:text-primary font-medium transition-colors">
+          <a href="#consultation" className="text-foreground hover:text-primary font-medium transition-colors">
             {translations.contact[language]}
           </a>
         </nav>
@@ -100,7 +100,7 @@ const Navbar = () => {
             <a href="#why-choose-me" className="text-foreground hover:text-primary font-medium transition-colors py-2" onClick={() => setIsMenuOpen(false)}>
               {translations.whyChooseMe[language]}
             </a>
-            <a href="#contact" className="text-foreground hover:text-primary font-medium transition-colors py-2" onClick={() => setIsMenuOpen(false)}>
+            <a href="#consultation" className="text-foreground hover:text-primary font-medium transition-colors py-2" onClick={() => setIsMenuOpen(false)}>
               {translations.contact[language]}
             </a>
             <Button onClick={() => {
