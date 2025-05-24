@@ -97,6 +97,123 @@ const translations = {
     fr: 'Compétences Clés Supplémentaires'
   },
 
+  // Consultation Section
+  getInTouch: {
+    en: 'Get In',
+    it: 'Mettiti In',
+    fr: 'Entrer En'
+  },
+  touch: {
+    en: 'Touch',
+    it: 'Contatto',
+    fr: 'Contact'
+  },
+  contactDescription: {
+    en: 'Ready to transform your data into actionable insights? Let\'s discuss your project and explore how AI can drive your business forward.',
+    it: 'Pronto a trasformare i tuoi dati in insights azionabili? Discutiamo il tuo progetto ed esploriamo come l\'AI può far progredire la tua azienda.',
+    fr: 'Prêt à transformer vos données en insights exploitables ? Discutons de votre projet et explorons comment l\'IA peut faire progresser votre entreprise.'
+  },
+  contactInformation: {
+    en: 'Contact Information',
+    it: 'Informazioni di Contatto',
+    fr: 'Informations de Contact'
+  },
+  followMe: {
+    en: 'Follow Me',
+    it: 'Seguimi',
+    fr: 'Suivez-moi'
+  },
+  sendMessage: {
+    en: 'Send Message',
+    it: 'Invia Messaggio',
+    fr: 'Envoyer Message'
+  },
+  fullName: {
+    en: 'Full Name',
+    it: 'Nome Completo',
+    fr: 'Nom Complet'
+  },
+  enterFullName: {
+    en: 'Enter your full name',
+    it: 'Inserisci il tuo nome completo',
+    fr: 'Entrez votre nom complet'
+  },
+  emailAddress: {
+    en: 'Email Address',
+    it: 'Indirizzo Email',
+    fr: 'Adresse Email'
+  },
+  enterEmail: {
+    en: 'Enter your email',
+    it: 'Inserisci la tua email',
+    fr: 'Entrez votre email'
+  },
+  subject: {
+    en: 'Subject',
+    it: 'Oggetto',
+    fr: 'Sujet'
+  },
+  enterSubject: {
+    en: 'Enter subject',
+    it: 'Inserisci oggetto',
+    fr: 'Entrez le sujet'
+  },
+  message: {
+    en: 'Message',
+    it: 'Messaggio',
+    fr: 'Message'
+  },
+  enterMessage: {
+    en: 'Enter your message',
+    it: 'Inserisci il tuo messaggio',
+    fr: 'Entrez votre message'
+  },
+  sending: {
+    en: 'Sending...',
+    it: 'Invio...',
+    fr: 'Envoi...'
+  },
+  consultationPackage: {
+    en: 'Consultation Package',
+    it: 'Pacchetto Consulenza',
+    fr: 'Package Consultation'
+  },
+  whatHappensNext: {
+    en: 'What Happens Next?',
+    it: 'Cosa Succede Dopo?',
+    fr: 'Que Se Passe-t-il Ensuite ?'
+  },
+  confirmationEmail: {
+    en: 'You\'ll receive a confirmation email within 5 minutes',
+    it: 'Riceverai un\'email di conferma entro 5 minuti',
+    fr: 'Vous recevrez un email de confirmation dans les 5 minutes'
+  },
+  personalContact: {
+    en: 'I\'ll personally contact you within 24 hours to schedule',
+    it: 'Ti contatterò personalmente entro 24 ore per programmare',
+    fr: 'Je vous contacterai personnellement dans les 24 heures pour programmer'
+  },
+  calendarInvite: {
+    en: 'Calendar invite sent for your preferred time slot',
+    it: 'Invito del calendario inviato per la tua fascia oraria preferita',
+    fr: 'Invitation de calendrier envoyée pour votre créneau préféré'
+  },
+  weekendAvailability: {
+    en: 'Weekend availability for urgent projects',
+    it: 'Disponibilità nei weekend per progetti urgenti',
+    fr: 'Disponibilité le week-end pour les projets urgents'
+  },
+  preparationMaterials: {
+    en: 'Preparation materials shared before our call',
+    it: 'Materiali di preparazione condivisi prima della nostra chiamata',
+    fr: 'Matériaux de préparation partagés avant notre appel'
+  },
+  refundPolicy: {
+    en: '100% refund if not completely satisfied',
+    it: 'Rimborso del 100% se non completamente soddisfatto',
+    fr: 'Remboursement à 100% si pas complètement satisfait'
+  },
+
   // Contact Info
   email: {
     en: 'Email',
