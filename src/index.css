@@ -36,6 +36,12 @@
     --ring: 221 83% 53%;
 
     --radius: 0.5rem;
+
+    /* Custom theme colors */
+    --hero-lime: #f7f8dc;
+    --theme-olive: #4a5d23;
+    --theme-gold: #d4af37;
+    --theme-green: #2d5016;
   }
 
   .dark {
@@ -120,5 +126,45 @@
 
   .card-hover {
     @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .bg-hero-lime {
+    background-color: var(--hero-lime);
+  }
+
+  .text-theme-olive {
+    color: var(--theme-olive);
+  }
+
+  .bg-theme-olive {
+    background-color: var(--theme-olive);
+  }
+
+  .text-theme-gold {
+    color: var(--theme-gold);
+  }
+
+  .bg-theme-gold {
+    background-color: var(--theme-gold);
+  }
+
+  .text-theme-green {
+    color: var(--theme-green);
+  }
+
+  .bg-theme-green {
+    background-color: var(--theme-green);
+  }
+
+  .border-theme-gold {
+    border-color: var(--theme-gold);
+  }
+
+  .hover\:bg-theme-olive\/90:hover {
+    background-color: rgb(from var(--theme-olive) r g b / 0.9);
+  }
+
+  .hover\:bg-theme-gold\/90:hover {
+    background-color: rgb(from var(--theme-gold) r g b / 0.9);
   }
 }
