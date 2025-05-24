@@ -80,6 +80,23 @@ const translations = {
     fr: 'Réserver une Consultation'
   },
 
+  // Expertise Section
+  aiAndMachineLearning: {
+    en: 'AI & Machine Learning',
+    it: 'AI & Machine Learning',
+    fr: 'IA & Apprentissage Automatique'
+  },
+  expertiseDescription: {
+    en: 'Comprehensive AI and data science solutions tailored to transform your business challenges into competitive advantages.',
+    it: 'Soluzioni complete di AI e data science su misura per trasformare le sfide aziendali in vantaggi competitivi.',
+    fr: 'Solutions complètes d\'IA et de science des données sur mesure pour transformer vos défis commerciaux en avantages concurrentiels.'
+  },
+  additionalKeySkills: {
+    en: 'Additional Key Skills',
+    it: 'Competenze Chiave Aggiuntive',
+    fr: 'Compétences Clés Supplémentaires'
+  },
+
   // Contact Info
   email: {
     en: 'Email',
