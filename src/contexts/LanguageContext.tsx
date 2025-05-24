@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState } from 'react';
 
 type Language = 'en' | 'it' | 'fr';
@@ -209,9 +208,9 @@ const translations = {
     fr: 'Matériaux de préparation partagés avant notre appel'
   },
   refundPolicy: {
-    en: '100% refund if not completely satisfied',
-    it: 'Rimborso del 100% se non completamente soddisfatto',
-    fr: 'Remboursement à 100% si pas complètement satisfait'
+    en: 'Refunds will be issued within 48 hours if we could not find time slot that works for both',
+    it: 'I rimborsi verranno emessi entro 48 ore se non riusciamo a trovare una fascia oraria che funzioni per entrambi',
+    fr: 'Les remboursements seront émis dans les 48 heures si nous ne trouvons pas de créneau qui convient aux deux parties'
   },
 
   // Contact Info
