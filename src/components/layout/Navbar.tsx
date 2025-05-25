@@ -66,6 +66,11 @@ const Navbar = () => {
 
         <div className="hidden md:flex items-center gap-4">
           <LanguageSwitcher />
+          <Link to="/submit-project">
+            <Button variant="outline" className="border-theme-olive text-theme-olive hover:bg-theme-olive hover:text-white">
+              Submit Project
+            </Button>
+          </Link>
           <Button onClick={() => document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' })} className="bg-theme-gold hover:bg-theme-gold/90 text-white">
             {translations.bookConsultation[language]}
           </Button>
@@ -103,6 +108,11 @@ const Navbar = () => {
             <a href="#consultation" className="text-foreground hover:text-primary font-medium transition-colors py-2" onClick={() => setIsMenuOpen(false)}>
               {translations.contact[language]}
             </a>
+            <Link to="/submit-project" onClick={() => setIsMenuOpen(false)}>
+              <Button variant="outline" className="border-theme-olive text-theme-olive hover:bg-theme-olive hover:text-white w-full">
+                Submit Project
+              </Button>
+            </Link>
             <Button onClick={() => {
               document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
               setIsMenuOpen(false);
