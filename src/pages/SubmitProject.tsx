@@ -12,7 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { CalendarIcon, Upload, Sparkles, FileText, ArrowLeft } from 'lucide-react';
-import { format } from 'date-fns';
+import { format, addDays } from 'date-fns';
 import { cn } from '@/lib/utils';
 import { toast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
@@ -28,6 +28,14 @@ const formSchema = z.object({
   dueDate: z.date().optional(),
   urgentProject: z.boolean().default(false),
   startImmediately: z.boolean().default(false),
+}).refine((data) => {
+  if (data.startDate && data.dueDate) {
+    return data.dueDate >= data.startDate;
+  }
+  return true;
+}, {
+  message: "Due date must be on or after start date",
+  path: ["dueDate"],
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -46,6 +54,16 @@ const SubmitProject = () => {
       startImmediately: false,
     },
   });
+
+  const watchStartDate = form.watch("startDate");
+
+  // Set minimum due date to start date + 2 days
+  const getMinDueDate = () => {
+    if (watchStartDate) {
+      return addDays(watchStartDate, 2);
+    }
+    return addDays(new Date(), 2);
+  };
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(event.target.files || []);
@@ -353,7 +371,7 @@ const SubmitProject = () => {
                   name="startDate"
                   render={({ field }) => (
                     <FormItem className="flex flex-col">
-                      <FormLabel className="text-theme-olive">Preferred Start Date</FormLabel>
+                      <FormLabel className="text-theme-olive">Preferred Start Date (Optional)</FormLabel>
                       <Popover>
                         <PopoverTrigger asChild>
                           <FormControl>
@@ -395,7 +413,7 @@ const SubmitProject = () => {
                   name="dueDate"
                   render={({ field }) => (
                     <FormItem className="flex flex-col">
-                      <FormLabel className="text-theme-olive">Preferred Due Date</FormLabel>
+                      <FormLabel className="text-theme-olive">Preferred Due Date (Optional)</FormLabel>
                       <Popover>
                         <PopoverTrigger asChild>
                           <FormControl>
@@ -420,7 +438,7 @@ const SubmitProject = () => {
                             mode="single"
                             selected={field.value}
                             onSelect={field.onChange}
-                            disabled={(date) => date < new Date()}
+                            disabled={(date) => date < getMinDueDate()}
                             initialFocus
                             className="pointer-events-auto"
                           />

@@ -25,7 +25,7 @@ serve(async (req) => {
       timeline: projectData.timeline
     });
 
-    // Send notification email to you
+    // Send notification email to you (admin)
     const adminEmailResponse = await resend.emails.send({
       from: "Project Submissions <onboarding@resend.dev>",
       to: ["aru.bhardwaj@insighrix.eu"], // Your email
@@ -43,6 +43,7 @@ serve(async (req) => {
             <p><strong>Due Date:</strong> ${projectData.dueDate || 'Not specified'}</p>
             <p><strong>Urgent:</strong> ${projectData.urgentProject ? 'Yes' : 'No'}</p>
             <p><strong>Start Immediately:</strong> ${projectData.startImmediately ? 'Yes' : 'No'}</p>
+            <p><strong>Files Uploaded:</strong> ${projectData.filesCount || 0}</p>
           </div>
           
           <div style="background: white; padding: 20px; border: 1px solid #d4af37; border-radius: 8px;">
@@ -57,58 +58,76 @@ serve(async (req) => {
       `,
     });
 
-    // Send confirmation email to client
-    const clientEmailResponse = await resend.emails.send({
-      from: "Aru Bhardwaj <onboarding@resend.dev>",
-      to: [projectData.contactEmail],
-      subject: "Project Submission Received - We'll Get Back to You Soon!",
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #4a5d23;">Thank You for Your Project Submission!</h2>
-          
-          <p>Dear ${projectData.contactEmail.split('@')[0]},</p>
-          
-          <p>Thank you for submitting your data science and AI project. I have received your request and will review it carefully.</p>
-          
-          <div style="background: #f7f8dc; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="color: #4a5d23; margin-top: 0;">What Happens Next?</h3>
-            <ul style="color: #4a5d23;">
-              <li>I will review your project requirements within 1 working day</li>
-              <li>You'll receive a detailed proposal with timeline and approach</li>
-              <li>We can schedule a call to discuss your project in detail</li>
-              <li>If urgent, I'll prioritize your request</li>
-            </ul>
-          </div>
-          
-          <div style="background: white; padding: 20px; border: 1px solid #d4af37; border-radius: 8px;">
-            <h3 style="color: #4a5d23; margin-top: 0;">Your Submission Summary</h3>
-            <p><strong>Budget:</strong> ${projectData.budget} ${projectData.currency}</p>
-            <p><strong>Timeline:</strong> ${projectData.timeline}</p>
-            <p><strong>Priority:</strong> ${projectData.urgentProject ? 'Urgent' : 'Standard'}</p>
-          </div>
-          
-          <p>If you have any immediate questions, feel free to reply to this email or contact me directly at <a href="mailto:aru.bhardwaj@insighrix.eu" style="color: #d4af37;">aru.bhardwaj@insighrix.eu</a></p>
-          
-          <p>Best regards,<br>
-          <strong style="color: #4a5d23;">Aru Bhardwaj</strong><br>
-          Data Science & AI Consultant</p>
-          
-          <p style="color: #666; margin-top: 20px; font-size: 14px;">
-            Submitted at: ${new Date().toLocaleString()}
-          </p>
-        </div>
-      `,
-    });
-
     console.log('Admin email sent:', adminEmailResponse);
-    console.log('Client email sent:', clientEmailResponse);
+
+    // Only send client confirmation email if your domain is verified
+    let clientEmailResponse = null;
+    try {
+      clientEmailResponse = await resend.emails.send({
+        from: "Aru Bhardwaj <onboarding@resend.dev>",
+        to: [projectData.contactEmail],
+        subject: "Project Submission Received - We'll Get Back to You Soon!",
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #4a5d23;">Thank You for Your Project Submission!</h2>
+            
+            <p>Dear ${projectData.contactEmail.split('@')[0]},</p>
+            
+            <p>Thank you for submitting your data science and AI project. I have received your request and will review it carefully.</p>
+            
+            <div style="background: #f7f8dc; padding: 20px; border-radius: 8px; margin: 20px 0;">
+              <h3 style="color: #4a5d23; margin-top: 0;">What Happens Next?</h3>
+              <ul style="color: #4a5d23;">
+                <li>I will review your project requirements within 1 working day</li>
+                <li>You'll receive a detailed proposal with timeline and approach</li>
+                <li>We can schedule a call to discuss your project in detail</li>
+                <li>If urgent, I'll prioritize your request</li>
+              </ul>
+            </div>
+            
+            <div style="background: white; padding: 20px; border: 1px solid #d4af37; border-radius: 8px;">
+              <h3 style="color: #4a5d23; margin-top: 0;">Your Submission Summary</h3>
+              <p><strong>Budget:</strong> ${projectData.budget} ${projectData.currency}</p>
+              <p><strong>Timeline:</strong> ${projectData.timeline}</p>
+              <p><strong>Priority:</strong> ${projectData.urgentProject ? 'Urgent' : 'Standard'}</p>
+            </div>
+            
+            <p>If you have any immediate questions, feel free to reply to this email or contact me directly at <a href="mailto:aru.bhardwaj@insighrix.eu" style="color: #d4af37;">aru.bhardwaj@insighrix.eu</a></p>
+            
+            <p>Best regards,<br>
+            <strong style="color: #4a5d23;">Aru Bhardwaj</strong><br>
+            Data Science & AI Consultant</p>
+            
+            <p style="color: #666; margin-top: 20px; font-size: 14px;">
+              Submitted at: ${new Date().toLocaleString()}
+            </p>
+          </div>
+        `,
+      });
+      console.log('Client email sent:', clientEmailResponse);
+    } catch (emailError) {
+      console.log('Client email failed (domain not verified):', emailError);
+      // Continue without failing the whole submission
+    }
 
     return new Response(
       JSON.stringify({ 
         success: true, 
-        message: 'Project submitted successfully and emails sent',
+        message: 'Project submitted successfully',
         adminEmailId: adminEmailResponse.data?.id,
-        clientEmailId: clientEmailResponse.data?.id
+        clientEmailId: clientEmailResponse?.data?.id || 'domain-not-verified',
+        projectData: {
+          contactEmail: projectData.contactEmail,
+          budget: projectData.budget,
+          currency: projectData.currency,
+          timeline: projectData.timeline,
+          startDate: projectData.startDate,
+          dueDate: projectData.dueDate,
+          urgentProject: projectData.urgentProject,
+          startImmediately: projectData.startImmediately,
+          filesCount: projectData.filesCount || 0,
+          submittedAt: projectData.submittedAt || new Date().toISOString()
+        }
       }),
       {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
