@@ -154,23 +154,39 @@ const SubmitProject = () => {
       console.log('Submitting project:', data);
       console.log('Uploaded files:', uploadedFiles);
       
-      // Submit to Supabase edge function for email notifications
-      const { data: response, error } = await supabase.functions.invoke('submit-project', {
-        body: {
-          ...data,
-          startDate: data.startDate?.toISOString(),
-          dueDate: data.dueDate?.toISOString(),
-          filesCount: uploadedFiles.length,
-          submittedAt: new Date().toISOString()
-        }
+      // Create FormData to include files
+      const formData = new FormData();
+      
+      // Add project data as JSON string
+      const projectData = {
+        ...data,
+        startDate: data.startDate?.toISOString(),
+        dueDate: data.dueDate?.toISOString(),
+        submittedAt: new Date().toISOString()
+      };
+      formData.append('projectData', JSON.stringify(projectData));
+      
+      // Add files to FormData
+      uploadedFiles.forEach((file, index) => {
+        formData.append(`file_${index}`, file);
       });
 
-      if (error) {
-        console.error('Submission error:', error);
-        throw new Error(error.message || 'Failed to submit project');
+      // Submit to Supabase edge function
+      const response = await fetch(`https://egwiqdzwctjprchzwrqo.supabase.co/functions/v1/submit-project`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${supabase.supabaseKey}`,
+        },
+        body: formData
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to submit project');
       }
 
-      console.log('Project submitted successfully:', response);
+      const result = await response.json();
+      console.log('Project submitted successfully:', result);
       setIsSubmitted(true);
       
       toast({

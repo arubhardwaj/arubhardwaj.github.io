@@ -17,18 +17,40 @@ serve(async (req) => {
   }
 
   try {
-    const projectData = await req.json();
+    const formData = await req.formData();
+    
+    // Parse the project data from the form
+    const projectDataString = formData.get('projectData') as string;
+    const projectData = JSON.parse(projectDataString);
     
     console.log('Project submission received:', {
       email: projectData.contactEmail,
       budget: projectData.budget,
-      timeline: projectData.timeline
+      timeline: projectData.timeline,
+      filesCount: Array.from(formData.entries()).filter(([key]) => key.startsWith('file_')).length
     });
+
+    // Process uploaded files for attachments
+    const attachments = [];
+    for (const [key, value] of formData.entries()) {
+      if (key.startsWith('file_') && value instanceof File) {
+        const fileBuffer = await value.arrayBuffer();
+        const fileContent = new Uint8Array(fileBuffer);
+        
+        attachments.push({
+          filename: value.name,
+          content: Array.from(fileContent),
+          contentType: value.type || 'application/octet-stream'
+        });
+      }
+    }
+
+    console.log('Processing attachments:', attachments.length);
 
     // Send notification email to you (admin)
     const adminEmailResponse = await resend.emails.send({
       from: "Project Submissions <aru.bhardwaj@insightrix.eu>",
-      to: ["aru.bhardwaj@insightrix.eu"], // Your email
+      to: ["aru.bhardwaj@insightrix.eu"],
       subject: `New Project Submission - ${projectData.budget} ${projectData.currency}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -43,7 +65,7 @@ serve(async (req) => {
             <p><strong>Due Date:</strong> ${projectData.dueDate || 'Not specified'}</p>
             <p><strong>Urgent:</strong> ${projectData.urgentProject ? 'Yes' : 'No'}</p>
             <p><strong>Start Immediately:</strong> ${projectData.startImmediately ? 'Yes' : 'No'}</p>
-            <p><strong>Files Uploaded:</strong> ${projectData.filesCount || 0}</p>
+            <p><strong>Files Uploaded:</strong> ${attachments.length}</p>
           </div>
           
           <div style="background: white; padding: 20px; border: 1px solid #d4af37; border-radius: 8px;">
@@ -51,16 +73,26 @@ serve(async (req) => {
             <p style="white-space: pre-wrap;">${projectData.projectDescription}</p>
           </div>
           
+          ${attachments.length > 0 ? `
+          <div style="background: #f0f8ff; padding: 20px; border: 1px solid #d4af37; border-radius: 8px; margin-top: 20px;">
+            <h3 style="color: #4a5d23; margin-top: 0;">Attached Files</h3>
+            <ul style="color: #4a5d23;">
+              ${attachments.map(att => `<li>${att.filename}</li>`).join('')}
+            </ul>
+          </div>
+          ` : ''}
+          
           <p style="color: #666; margin-top: 20px; font-size: 14px;">
             Submitted at: ${new Date().toLocaleString()}
           </p>
         </div>
       `,
+      attachments: attachments.length > 0 ? attachments : undefined,
     });
 
     console.log('Admin email sent:', adminEmailResponse);
 
-    // Send client confirmation email
+    // Send client confirmation email (without attachments for privacy)
     const clientEmailResponse = await resend.emails.send({
       from: "Aru Bhardwaj <aru.bhardwaj@insightrix.eu>",
       to: [projectData.contactEmail],
@@ -88,6 +120,7 @@ serve(async (req) => {
             <p><strong>Budget:</strong> ${projectData.budget} ${projectData.currency}</p>
             <p><strong>Timeline:</strong> ${projectData.timeline}</p>
             <p><strong>Priority:</strong> ${projectData.urgentProject ? 'Urgent' : 'Standard'}</p>
+            ${attachments.length > 0 ? `<p><strong>Files Attached:</strong> ${attachments.length} document(s)</p>` : ''}
           </div>
           
           <p>If you have any immediate questions, feel free to reply to this email or contact me directly at <a href="mailto:aru.bhardwaj@insightrix.eu" style="color: #d4af37;">aru.bhardwaj@insightrix.eu</a></p>
@@ -120,7 +153,7 @@ serve(async (req) => {
           dueDate: projectData.dueDate,
           urgentProject: projectData.urgentProject,
           startImmediately: projectData.startImmediately,
-          filesCount: projectData.filesCount || 0,
+          filesCount: attachments.length,
           submittedAt: projectData.submittedAt || new Date().toISOString()
         }
       }),
