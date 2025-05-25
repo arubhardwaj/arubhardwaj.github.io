@@ -33,7 +33,6 @@ const SubmitProject = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isRewriting, setIsRewriting] = useState(false);
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
-  const [geminiApiKey, setGeminiApiKey] = useState('');
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -84,53 +83,39 @@ const SubmitProject = () => {
       return;
     }
 
-    if (!geminiApiKey) {
-      toast({
-        title: "API Key Required",
-        description: "Please enter your Gemini API key to use the AI rewriting feature.",
-        variant: "destructive",
-      });
-      return;
-    }
-
     setIsRewriting(true);
     
     try {
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${geminiApiKey}`, {
+      const response = await fetch('/api/enhance-description', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          contents: [{
-            parts: [{
-              text: `You are an expert writing assistant helping users rephrase project descriptions for professional use. The rewritten version should be clear, detailed, and suitable for submitting to freelancers or service providers. Maintain all essential details, remove redundancy, and enhance clarity without altering the original intent.
-
-Please rewrite this project description:
-
-${currentDescription}`
-            }]
-          }]
+          description: currentDescription
         }),
       });
 
+      if (!response.ok) {
+        throw new Error('Failed to enhance description');
+      }
+
       const data = await response.json();
       
-      if (data.candidates && data.candidates[0] && data.candidates[0].content) {
-        const rewrittenText = data.candidates[0].content.parts[0].text;
-        form.setValue('projectDescription', rewrittenText);
+      if (data.enhancedDescription) {
+        form.setValue('projectDescription', data.enhancedDescription);
         toast({
-          title: "Description rewritten!",
+          title: "Description enhanced!",
           description: "Your project description has been enhanced using AI.",
         });
       } else {
-        throw new Error('Failed to get response from AI');
+        throw new Error('No enhanced description received');
       }
     } catch (error) {
-      console.error('Error rewriting description:', error);
+      console.error('Error enhancing description:', error);
       toast({
         title: "Error",
-        description: "Failed to rewrite description. Please check your API key and try again.",
+        description: "Failed to enhance description. Please try again later.",
         variant: "destructive",
       });
     } finally {
@@ -185,20 +170,6 @@ ${currentDescription}`
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               
-              {/* Gemini API Key Input */}
-              <div className="space-y-2">
-                <label className="text-lg font-semibold">Gemini API Key (for AI enhancement)</label>
-                <Input
-                  type="password"
-                  placeholder="Enter your Gemini API key to enable AI description enhancement"
-                  value={geminiApiKey}
-                  onChange={(e) => setGeminiApiKey(e.target.value)}
-                />
-                <p className="text-sm text-gray-500">
-                  Optional: Provide your Gemini API key to enable AI-powered description enhancement. Your key is stored locally and not shared.
-                </p>
-              </div>
-
               {/* Project Description */}
               <FormField
                 control={form.control}
@@ -218,13 +189,13 @@ ${currentDescription}`
                         type="button"
                         variant="outline"
                         onClick={rewriteDescription}
-                        disabled={isRewriting || !geminiApiKey}
+                        disabled={isRewriting}
                         className="w-full sm:w-auto"
                       >
                         {isRewriting ? (
                           <>
                             <Sparkles className="w-4 h-4 mr-2 animate-spin" />
-                            Rewriting...
+                            Enhancing...
                           </>
                         ) : (
                           <>
@@ -239,61 +210,59 @@ ${currentDescription}`
                 )}
               />
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Budget */}
-                <FormField
-                  control={form.control}
-                  name="budget"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-lg font-semibold">Proposed Budget *</FormLabel>
-                      <div className="flex gap-2">
-                        <FormControl>
-                          <Input
-                            type="number"
-                            placeholder="5000"
-                            {...field}
-                            onChange={(e) => field.onChange(parseFloat(e.target.value) || 0)}
-                          />
-                        </FormControl>
-                        <FormField
-                          control={form.control}
-                          name="currency"
-                          render={({ field }) => (
-                            <Select onValueChange={field.onChange} defaultValue={field.value}>
-                              <FormControl>
-                                <SelectTrigger className="w-24">
-                                  <SelectValue />
-                                </SelectTrigger>
-                              </FormControl>
-                              <SelectContent>
-                                <SelectItem value="USD">USD</SelectItem>
-                                <SelectItem value="EUR">EUR</SelectItem>
-                              </SelectContent>
-                            </Select>
-                          )}
-                        />
-                      </div>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                {/* Contact Email */}
-                <FormField
-                  control={form.control}
-                  name="contactEmail"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-lg font-semibold">Contact Email *</FormLabel>
+              {/* Budget */}
+              <FormField
+                control={form.control}
+                name="budget"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-lg font-semibold">Proposed Budget *</FormLabel>
+                    <div className="flex gap-2">
                       <FormControl>
-                        <Input placeholder="your.email@company.com" {...field} />
+                        <Input
+                          type="number"
+                          placeholder="5000"
+                          {...field}
+                          onChange={(e) => field.onChange(parseFloat(e.target.value) || 0)}
+                        />
                       </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
+                      <FormField
+                        control={form.control}
+                        name="currency"
+                        render={({ field }) => (
+                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                            <FormControl>
+                              <SelectTrigger className="w-24">
+                                <SelectValue />
+                              </SelectTrigger>
+                            </FormControl>
+                            <SelectContent>
+                              <SelectItem value="USD">USD</SelectItem>
+                              <SelectItem value="EUR">EUR</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        )}
+                      />
+                    </div>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Contact Email */}
+              <FormField
+                control={form.control}
+                name="contactEmail"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-lg font-semibold">Contact Email *</FormLabel>
+                    <FormControl>
+                      <Input placeholder="your.email@company.com" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
               {/* Timeline */}
               <FormField
