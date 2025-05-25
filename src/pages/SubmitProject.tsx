@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -34,6 +33,7 @@ const SubmitProject = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isRewriting, setIsRewriting] = useState(false);
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
+  const [geminiApiKey, setGeminiApiKey] = useState('');
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -84,10 +84,19 @@ const SubmitProject = () => {
       return;
     }
 
+    if (!geminiApiKey) {
+      toast({
+        title: "API Key Required",
+        description: "Please enter your Gemini API key to use the AI rewriting feature.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsRewriting(true);
     
     try {
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyAEdQZD-mY7g6pvdCNmvJJR_VtALsalWuU`, {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${geminiApiKey}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -121,7 +130,7 @@ ${currentDescription}`
       console.error('Error rewriting description:', error);
       toast({
         title: "Error",
-        description: "Failed to rewrite description. Please try again.",
+        description: "Failed to rewrite description. Please check your API key and try again.",
         variant: "destructive",
       });
     } finally {
@@ -176,6 +185,20 @@ ${currentDescription}`
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               
+              {/* Gemini API Key Input */}
+              <div className="space-y-2">
+                <label className="text-lg font-semibold">Gemini API Key (for AI enhancement)</label>
+                <Input
+                  type="password"
+                  placeholder="Enter your Gemini API key to enable AI description enhancement"
+                  value={geminiApiKey}
+                  onChange={(e) => setGeminiApiKey(e.target.value)}
+                />
+                <p className="text-sm text-gray-500">
+                  Optional: Provide your Gemini API key to enable AI-powered description enhancement. Your key is stored locally and not shared.
+                </p>
+              </div>
+
               {/* Project Description */}
               <FormField
                 control={form.control}
@@ -195,7 +218,7 @@ ${currentDescription}`
                         type="button"
                         variant="outline"
                         onClick={rewriteDescription}
-                        disabled={isRewriting}
+                        disabled={isRewriting || !geminiApiKey}
                         className="w-full sm:w-auto"
                       >
                         {isRewriting ? (
