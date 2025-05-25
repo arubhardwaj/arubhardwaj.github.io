@@ -171,11 +171,11 @@ const SubmitProject = () => {
         formData.append(`file_${index}`, file);
       });
 
-      // Submit to Supabase edge function
+      // Submit to Supabase edge function using the correct anon key
       const response = await fetch(`https://egwiqdzwctjprchzwrqo.supabase.co/functions/v1/submit-project`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${supabase.supabaseKey}`,
+          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVnd2lxZHp3Y3RqcHJjaHp3cnFvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgxMjMzMjUsImV4cCI6MjA2MzY5OTMyNX0.DUBh38-3AL6WxgLXQHhnHwckcJdV_QNo0Sd_-Oah8H0`,
         },
         body: formData
       });
