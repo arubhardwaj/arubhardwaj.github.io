@@ -10,10 +10,11 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { CalendarIcon, Upload, Sparkles, FileText, File } from 'lucide-react';
+import { CalendarIcon, Upload, Sparkles, FileText } from 'lucide-react';
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
 import { toast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 const formSchema = z.object({
   projectDescription: z.string().min(50, 'Project description must be at least 50 characters'),
@@ -77,7 +78,7 @@ const SubmitProject = () => {
     if (!currentDescription || currentDescription.length < 10) {
       toast({
         title: "Description too short",
-        description: "Please enter at least 10 characters before rewriting.",
+        description: "Please enter at least 10 characters before enhancing.",
         variant: "destructive",
       });
       return;
@@ -86,23 +87,20 @@ const SubmitProject = () => {
     setIsRewriting(true);
     
     try {
-      const response = await fetch('/api/enhance-description', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
+      console.log('Calling Supabase edge function to enhance description...');
+      
+      const { data, error } = await supabase.functions.invoke('enhance-description', {
+        body: {
           description: currentDescription
-        }),
+        }
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to enhance description');
+      if (error) {
+        console.error('Supabase function error:', error);
+        throw new Error(error.message || 'Failed to enhance description');
       }
 
-      const data = await response.json();
-      
-      if (data.enhancedDescription) {
+      if (data && data.enhancedDescription) {
         form.setValue('projectDescription', data.enhancedDescription);
         toast({
           title: "Description enhanced!",
@@ -114,8 +112,8 @@ const SubmitProject = () => {
     } catch (error) {
       console.error('Error enhancing description:', error);
       toast({
-        title: "Error",
-        description: "Failed to enhance description. Please try again later.",
+        title: "Enhancement failed",
+        description: error instanceof Error ? error.message : "Failed to enhance description. Please try again later.",
         variant: "destructive",
       });
     } finally {
