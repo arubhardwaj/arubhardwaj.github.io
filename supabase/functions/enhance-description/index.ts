@@ -40,6 +40,7 @@ serve(async (req) => {
     }
 
     console.log('Enhancing description with Gemini API...');
+    console.log('Description length:', description.length);
     
     const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${GEMINI_API_KEY}`, {
       method: 'POST',
@@ -55,7 +56,31 @@ Please rewrite this project description:
 
 ${description}`
           }]
-        }]
+        }],
+        generationConfig: {
+          temperature: 0.7,
+          topK: 40,
+          topP: 0.95,
+          maxOutputTokens: 1024,
+        },
+        safetySettings: [
+          {
+            category: "HARM_CATEGORY_HARASSMENT",
+            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+          },
+          {
+            category: "HARM_CATEGORY_HATE_SPEECH",
+            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+          },
+          {
+            category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+          },
+          {
+            category: "HARM_CATEGORY_DANGEROUS_CONTENT",
+            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+          }
+        ]
       }),
     });
 
@@ -69,7 +94,7 @@ ${description}`
     const data = await response.json();
     console.log('Gemini API response received');
     
-    if (data.candidates && data.candidates[0] && data.candidates[0].content) {
+    if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0]) {
       const enhancedDescription = data.candidates[0].content.parts[0].text;
       
       return new Response(
@@ -79,7 +104,7 @@ ${description}`
         }
       );
     } else {
-      console.error('Unexpected response structure from Gemini API:', data);
+      console.error('Unexpected response structure from Gemini API:', JSON.stringify(data, null, 2));
       throw new Error('Failed to get valid response from AI');
     }
   } catch (error) {

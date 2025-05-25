@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -88,6 +89,7 @@ const SubmitProject = () => {
     
     try {
       console.log('Calling Supabase edge function to enhance description...');
+      console.log('Description to enhance:', currentDescription.substring(0, 100) + '...');
       
       const { data, error } = await supabase.functions.invoke('enhance-description', {
         body: {
@@ -95,18 +97,22 @@ const SubmitProject = () => {
         }
       });
 
+      console.log('Supabase function response:', { data, error });
+
       if (error) {
         console.error('Supabase function error:', error);
         throw new Error(error.message || 'Failed to enhance description');
       }
 
       if (data && data.enhancedDescription) {
+        console.log('Enhancement successful, updating form...');
         form.setValue('projectDescription', data.enhancedDescription);
         toast({
           title: "Description enhanced!",
           description: "Your project description has been enhanced using AI.",
         });
       } else {
+        console.error('No enhanced description in response:', data);
         throw new Error('No enhanced description received');
       }
     } catch (error) {
