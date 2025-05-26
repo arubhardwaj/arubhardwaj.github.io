@@ -56,14 +56,14 @@ const AboutSection = () => {
                   <div className="mb-4">
                     {isHourlyRate ? (
                       <>
-                        <span className="text-3xl font-bold text-theme-gold">90 EUR + VAT</span>
+                        <span className="text-3xl font-bold text-theme-gold">€90 + VAT</span>
                         <span className="text-gray-500 ml-1">
                           {translations.perHour[language]}
                         </span>
                       </>
                     ) : (
                       <>
-                        <span className="text-3xl font-bold text-theme-gold">450 EUR + VAT</span>
+                        <span className="text-3xl font-bold text-theme-gold">€450 + VAT</span>
                         <span className="text-gray-500 ml-1">
                           {translations.perDay[language]}
                         </span>
@@ -84,12 +84,18 @@ const AboutSection = () => {
                       <span>{translations.projectBasedPricing[language]}</span>
                     </li>
                   </ul>
-                  <div className="mt-6">
+                  <div className="mt-6 space-y-3">
                     <a 
-                      href="#contact" 
+                      href="#consultation" 
                       className="inline-block w-full bg-theme-gold hover:bg-theme-gold/90 text-white px-6 py-3 rounded-md font-medium transition-all duration-300 text-center"
                     >
                       {translations.scheduleConsultation[language]}
+                    </a>
+                    <a 
+                      href="/submit-project" 
+                      className="inline-block w-full bg-theme-olive hover:bg-theme-olive/90 text-white px-6 py-3 rounded-md font-medium transition-all duration-300 text-center"
+                    >
+                      Submit Your Project
                     </a>
                   </div>
                 </CardContent>
