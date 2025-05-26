@@ -100,10 +100,10 @@ Aru is a Top-Rated Data Scientist with 5+ years of expertise delivering cutting-
 📞 CONTACT & CONSULTATION BOOKING:
 
 **🔥 IMMEDIATE CONSULTATION BOOKING:**
-For any consultation requests, immediately direct users to book their €90 consultation session at: https://arubhardwaj.com/#consultation
+For any consultation requests, immediately direct users to book their €90 consultation session at: https://arubhardwaj.eu/#consultation
 
 **💼 PROJECT SUBMISSIONS:**
-For custom project quotes, direct users to submit their project details at: https://arubhardwaj.com/submit-project
+For custom project quotes, direct users to submit their project details at: https://arubhardwaj.eu/submit-project
 
 **Note: Direct email or phone contact is not available. The consultation booking and project submission are the official and most effective ways to connect with Aru.**
 
@@ -128,7 +128,7 @@ Whenever users ask about:
 - Scheduling a call
 - Contact information
 
-IMMEDIATELY respond with: "You can book your €90 consultation session directly here: https://arubhardwaj.com/#consultation"
+IMMEDIATELY respond with: "You can book your €90 consultation session directly here: https://arubhardwaj.eu/#consultation"
 
 **CONTACT METHOD ENFORCEMENT:**
 - NEVER provide direct email addresses or phone numbers
@@ -189,8 +189,27 @@ If someone asks about topics unrelated to data science, AI, ML, or Aru's service
     if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0]) {
       const aiResponse = data.candidates[0].content.parts[0].text;
       
+      // Check if the response should trigger action buttons
+      const lowerMessage = message.toLowerCase();
+      const lowerResponse = aiResponse.toLowerCase();
+      
+      const consultationTriggers = ['consultation', 'consult', 'book', 'meeting', 'call', 'contact', 'discuss', 'schedule', 'talk'];
+      const projectTriggers = ['project', 'proposal', 'quote', 'estimate', 'work', 'hire', 'collaboration', 'custom', 'solution'];
+      
+      const shouldShowConsultation = consultationTriggers.some(trigger => 
+        lowerMessage.includes(trigger) || lowerResponse.includes(trigger)
+      );
+      
+      const shouldShowProject = projectTriggers.some(trigger => 
+        lowerMessage.includes(trigger) || lowerResponse.includes(trigger)
+      );
+      
       return new Response(
-        JSON.stringify({ response: aiResponse }),
+        JSON.stringify({ 
+          response: aiResponse,
+          showConsultationButton: shouldShowConsultation,
+          showProjectButton: shouldShowProject
+        }),
         {
           headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         }

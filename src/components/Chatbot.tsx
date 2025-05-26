@@ -1,6 +1,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send, Bot, User } from 'lucide-react';
+import { MessageCircle, X, Send, Bot, User, Calendar, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -12,6 +12,8 @@ interface Message {
   content: string;
   isUser: boolean;
   timestamp: Date;
+  showConsultationButton?: boolean;
+  showProjectButton?: boolean;
 }
 
 const Chatbot = () => {
@@ -36,6 +38,14 @@ const Chatbot = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  const handleConsultationClick = () => {
+    window.open('https://arubhardwaj.eu/#consultation', '_blank');
+  };
+
+  const handleProjectClick = () => {
+    window.open('https://arubhardwaj.eu/submit-project', '_blank');
+  };
 
   const handleSendMessage = async () => {
     if (!input.trim() || isLoading) return;
@@ -71,7 +81,9 @@ const Chatbot = () => {
         id: (Date.now() + 1).toString(),
         content: data.response,
         isUser: false,
-        timestamp: new Date()
+        timestamp: new Date(),
+        showConsultationButton: data.showConsultationButton,
+        showProjectButton: data.showProjectButton
       };
 
       setMessages(prev => [...prev, aiMessage]);
@@ -121,29 +133,56 @@ const Chatbot = () => {
               <ScrollArea className="h-80 p-4">
                 <div className="space-y-4">
                   {messages.map((message) => (
-                    <div
-                      key={message.id}
-                      className={`flex gap-2 ${message.isUser ? 'justify-end' : 'justify-start'}`}
-                    >
-                      <div className={`flex gap-2 max-w-[80%] ${message.isUser ? 'flex-row-reverse' : 'flex-row'}`}>
-                        <div className={`h-8 w-8 rounded-full flex items-center justify-center shrink-0 ${
-                          message.isUser 
-                            ? 'bg-theme-olive text-white' 
-                            : 'bg-theme-gold text-white'
-                        }`}>
-                          {message.isUser ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
-                        </div>
-                        <div className={`rounded-lg p-3 ${
-                          message.isUser 
-                            ? 'bg-theme-olive text-white' 
-                            : 'bg-gray-100 text-gray-900'
-                        }`}>
-                          <p className="text-sm whitespace-pre-wrap">{message.content}</p>
-                          <p className="text-xs opacity-70 mt-1">
-                            {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                          </p>
+                    <div key={message.id} className="space-y-2">
+                      <div
+                        className={`flex gap-2 ${message.isUser ? 'justify-end' : 'justify-start'}`}
+                      >
+                        <div className={`flex gap-2 max-w-[80%] ${message.isUser ? 'flex-row-reverse' : 'flex-row'}`}>
+                          <div className={`h-8 w-8 rounded-full flex items-center justify-center shrink-0 ${
+                            message.isUser 
+                              ? 'bg-theme-olive text-white' 
+                              : 'bg-theme-gold text-white'
+                          }`}>
+                            {message.isUser ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
+                          </div>
+                          <div className={`rounded-lg p-3 ${
+                            message.isUser 
+                              ? 'bg-theme-olive text-white' 
+                              : 'bg-gray-100 text-gray-900'
+                          }`}>
+                            <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                            <p className="text-xs opacity-70 mt-1">
+                              {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                            </p>
+                          </div>
                         </div>
                       </div>
+                      
+                      {/* Action Buttons */}
+                      {!message.isUser && (message.showConsultationButton || message.showProjectButton) && (
+                        <div className="flex flex-wrap gap-2 justify-start ml-10">
+                          {message.showConsultationButton && (
+                            <Button
+                              onClick={handleConsultationClick}
+                              className="bg-theme-gold hover:bg-yellow-600 text-white text-xs px-3 py-1 h-auto"
+                              size="sm"
+                            >
+                              <Calendar className="h-3 w-3 mr-1" />
+                              Book Consultation (€90)
+                            </Button>
+                          )}
+                          {message.showProjectButton && (
+                            <Button
+                              onClick={handleProjectClick}
+                              className="bg-theme-olive hover:bg-theme-olive/90 text-white text-xs px-3 py-1 h-auto"
+                              size="sm"
+                            >
+                              <FileText className="h-3 w-3 mr-1" />
+                              Submit Project
+                            </Button>
+                          )}
+                        </div>
+                      )}
                     </div>
                   ))}
                   {isLoading && (
