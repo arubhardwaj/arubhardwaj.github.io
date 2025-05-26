@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Bot, User, Calendar, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -43,7 +44,7 @@ const Chatbot = () => {
   const handleConsultationClick = () => {
     setIsOpen(false);
     setTimeout(() => {
-      window.location.href = 'https://arubhardwaj.eu/#consultation';
+      window.location.href = 'https://book.stripe.com/28og05dXm9e7dTafYZ?locale=en-GB&__embed_source=buy_btn_1RJidbDRlpu0XokvgWLL4odr';
     }, 300);
   };
 
