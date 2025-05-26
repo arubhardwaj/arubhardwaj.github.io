@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Bot, User, Calendar, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,6 +5,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useToast } from '@/hooks/use-toast';
+import { useNavigate } from 'react-router-dom';
 
 interface Message {
   id: string;
@@ -30,6 +30,7 @@ const Chatbot = () => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -40,11 +41,15 @@ const Chatbot = () => {
   }, [messages]);
 
   const handleConsultationClick = () => {
-    window.open('https://arubhardwaj.eu/#consultation', '_blank');
+    setIsOpen(false);
+    setTimeout(() => {
+      window.location.href = 'https://arubhardwaj.eu/#consultation';
+    }, 300);
   };
 
   const handleProjectClick = () => {
-    window.open('https://arubhardwaj.eu/submit-project', '_blank');
+    setIsOpen(false);
+    navigate('/submit-project');
   };
 
   const handleSendMessage = async () => {
