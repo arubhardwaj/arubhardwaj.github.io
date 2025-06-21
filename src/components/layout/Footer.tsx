@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Linkedin } from 'lucide-react';
 
@@ -88,7 +89,14 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-300 pt-6 text-center text-gray-600">
-          <p>&copy; {currentYear} Aru Bhardwaj. All rights reserved.</p>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-2">
+            <p>&copy; {currentYear} Aru Bhardwaj. All rights reserved.</p>
+            <div className="flex gap-4">
+              <Link to="/terms-and-conditions" className="hover:text-theme-gold transition-colors">
+                Terms & Conditions
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
