@@ -17,7 +17,7 @@ const TermsAndConditions = () => {
                 Terms and Conditions
               </CardTitle>
               <p className="text-center text-gray-600">
-                Last updated: {new Date().toLocaleDateString()}
+                Last updated: 31 January 2025
               </p>
             </CardHeader>
             <CardContent className="prose prose-gray max-w-none">
