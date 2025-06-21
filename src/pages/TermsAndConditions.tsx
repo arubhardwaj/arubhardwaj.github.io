@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -89,7 +88,7 @@ const TermsAndConditions = () => {
                       <li>Mutual agreement to terminate the project is reached</li>
                     </ul>
                     <p>
-                      Work completed up to the refund request date will be billed at the agreed hourly rate.
+                      Even the partial work done will be charged according to the hourly rate.
                     </p>
                   </div>
                 </section>
