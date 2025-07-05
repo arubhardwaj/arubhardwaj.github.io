@@ -14,9 +14,13 @@ serve(async (req) => {
   }
 
   try {
+    console.log('Chatbot function called');
+    
     const { message } = await req.json();
+    console.log('Received message:', message);
     
     if (!message || message.trim().length === 0) {
+      console.log('Empty message received');
       return new Response(
         JSON.stringify({ error: 'Message is required' }),
         { 
@@ -27,19 +31,23 @@ serve(async (req) => {
     }
 
     const GEMINI_API_KEY = Deno.env.get('GEMINI_API_KEY');
+    console.log('GEMINI_API_KEY exists:', !!GEMINI_API_KEY);
     
     if (!GEMINI_API_KEY) {
       console.error('GEMINI_API_KEY not found in environment');
       return new Response(
-        JSON.stringify({ error: 'API configuration error' }),
+        JSON.stringify({ 
+          response: "I'm currently experiencing technical difficulties. Please try contacting me directly at aru.bhardwaj@insightrix.eu for immediate assistance.",
+          showConsultationButton: true 
+        }),
         { 
-          status: 500, 
+          status: 200, 
           headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
         }
       );
     }
 
-    console.log('Processing chatbot message...');
+    console.log('Making request to Gemini API...');
     
     const systemPrompt = `You are Aru Bhardwaj's AI assistant on his professional website. You are knowledgeable about data science, machine learning, AI, and Aru's complete professional profile and services.
 
@@ -176,15 +184,28 @@ If someone asks about topics unrelated to data science, AI, ML, or Aru's service
       }),
     });
 
+    console.log('Gemini API response status:', response.status);
+
     if (!response.ok) {
       console.error('Gemini API error:', response.status, response.statusText);
       const errorText = await response.text();
-      console.error('Error details:', errorText);
-      throw new Error(`Gemini API returned ${response.status}: ${response.statusText}`);
+      console.error('Gemini API error details:', errorText);
+      
+      // Return a fallback response instead of throwing an error
+      return new Response(
+        JSON.stringify({ 
+          response: "I'm having trouble processing your request right now, but I'm here to help! You can book a direct consultation with me for personalized assistance.",
+          showConsultationButton: true 
+        }),
+        {
+          status: 200,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        }
+      );
     }
 
     const data = await response.json();
-    console.log('Gemini API response received');
+    console.log('Gemini API response received successfully');
     
     if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0]) {
       const aiResponse = data.candidates[0].content.parts[0].text;
@@ -216,14 +237,30 @@ If someone asks about topics unrelated to data science, AI, ML, or Aru's service
       );
     } else {
       console.error('Unexpected response structure from Gemini API:', JSON.stringify(data, null, 2));
-      throw new Error('Failed to get valid response from AI');
+      
+      // Return a fallback response
+      return new Response(
+        JSON.stringify({ 
+          response: "I received your message but had trouble generating a response. Please try again or book a consultation for direct assistance.",
+          showConsultationButton: true 
+        }),
+        {
+          status: 200,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        }
+      );
     }
   } catch (error) {
     console.error('Error in chatbot function:', error);
+    
+    // Always return a user-friendly response instead of throwing errors
     return new Response(
-      JSON.stringify({ error: 'Failed to process your message. Please try again later.' }),
+      JSON.stringify({ 
+        response: "I'm experiencing technical difficulties right now. Please try again in a moment or book a consultation for direct assistance.",
+        showConsultationButton: true 
+      }),
       {
-        status: 500,
+        status: 200,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       }
     );

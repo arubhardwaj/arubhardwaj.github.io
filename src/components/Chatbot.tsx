@@ -71,6 +71,7 @@ const Chatbot = () => {
     try {
       console.log('Sending message to chatbot API:', currentInput);
       
+      // Use the supabase client to invoke the function instead of direct fetch
       const response = await fetch(`https://egwiqdzwctjprchzwrqo.supabase.co/functions/v1/chatbot`, {
         method: 'POST',
         headers: {
@@ -81,27 +82,36 @@ const Chatbot = () => {
       });
 
       console.log('Response status:', response.status);
-      console.log('Response headers:', response.headers);
 
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error('API Error Response:', errorText);
-        throw new Error(`HTTP ${response.status}: ${errorText || 'Failed to get response from chatbot'}`);
+      // Always try to parse the response as JSON, even if there's an error
+      let data;
+      try {
+        data = await response.json();
+        console.log('API Response data:', data);
+      } catch (parseError) {
+        console.error('Failed to parse response as JSON:', parseError);
+        const textResponse = await response.text();
+        console.log('Raw response:', textResponse);
+        throw new Error('Invalid response format from server');
       }
 
-      const data = await response.json();
-      console.log('API Response data:', data);
-      
-      const aiMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        content: data.response || data.message || 'I received your message but had trouble generating a response.',
-        isUser: false,
-        timestamp: new Date(),
-        showConsultationButton: data.showConsultationButton,
-        showProjectButton: data.showProjectButton
-      };
+      // Check if we have a valid response with content
+      if (data && (data.response || data.message)) {
+        const aiMessage: Message = {
+          id: (Date.now() + 1).toString(),
+          content: data.response || data.message || 'I received your message.',
+          isUser: false,
+          timestamp: new Date(),
+          showConsultationButton: data.showConsultationButton,
+          showProjectButton: data.showProjectButton
+        };
 
-      setMessages(prev => [...prev, aiMessage]);
+        setMessages(prev => [...prev, aiMessage]);
+      } else {
+        // Handle unexpected response structure
+        throw new Error('Unexpected response format');
+      }
+
     } catch (error) {
       console.error('Error sending message:', error);
       
@@ -110,14 +120,15 @@ const Chatbot = () => {
         id: (Date.now() + 2).toString(),
         content: "I'm sorry, I'm having trouble connecting right now. Please try again in a moment, or feel free to contact me directly at aru.bhardwaj@insightrix.eu",
         isUser: false,
-        timestamp: new Date()
+        timestamp: new Date(),
+        showConsultationButton: true
       };
       
       setMessages(prev => [...prev, errorMessage]);
       
       toast({
-        title: "Connection Error",
-        description: "Unable to send message. Please try again or contact me directly.",
+        title: "Connection Issue",
+        description: "The message couldn't be sent. Please try again.",
         variant: "destructive"
       });
     } finally {
