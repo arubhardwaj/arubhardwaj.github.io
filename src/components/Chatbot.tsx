@@ -64,28 +64,37 @@ const Chatbot = () => {
     };
 
     setMessages(prev => [...prev, userMessage]);
+    const currentInput = input.trim();
     setInput('');
     setIsLoading(true);
 
     try {
+      console.log('Sending message to chatbot API:', currentInput);
+      
       const response = await fetch(`https://egwiqdzwctjprchzwrqo.supabase.co/functions/v1/chatbot`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVnd2lxZHp3Y3RqcHJjaHp3cnFvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgxMjMzMjUsImV4cCI6MjA2MzY5OTMyNX0.DUBh38-3AL6WxgLXQHhnHwckcJdV_QNo0Sd_-Oah8H0`,
         },
-        body: JSON.stringify({ message: input.trim() })
+        body: JSON.stringify({ message: currentInput })
       });
 
+      console.log('Response status:', response.status);
+      console.log('Response headers:', response.headers);
+
       if (!response.ok) {
-        throw new Error('Failed to get response from chatbot');
+        const errorText = await response.text();
+        console.error('API Error Response:', errorText);
+        throw new Error(`HTTP ${response.status}: ${errorText || 'Failed to get response from chatbot'}`);
       }
 
       const data = await response.json();
+      console.log('API Response data:', data);
       
       const aiMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: data.response,
+        content: data.response || data.message || 'I received your message but had trouble generating a response.',
         isUser: false,
         timestamp: new Date(),
         showConsultationButton: data.showConsultationButton,
@@ -95,9 +104,20 @@ const Chatbot = () => {
       setMessages(prev => [...prev, aiMessage]);
     } catch (error) {
       console.error('Error sending message:', error);
+      
+      // Add error message to chat
+      const errorMessage: Message = {
+        id: (Date.now() + 2).toString(),
+        content: "I'm sorry, I'm having trouble connecting right now. Please try again in a moment, or feel free to contact me directly at aru.bhardwaj@insightrix.eu",
+        isUser: false,
+        timestamp: new Date()
+      };
+      
+      setMessages(prev => [...prev, errorMessage]);
+      
       toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
+        title: "Connection Error",
+        description: "Unable to send message. Please try again or contact me directly.",
         variant: "destructive"
       });
     } finally {
