@@ -14,9 +14,13 @@ serve(async (req) => {
   }
 
   try {
+    console.log('Enhance description function called');
+    
     const { description } = await req.json();
+    console.log('Received description:', description?.substring(0, 100) + '...');
     
     if (!description || description.length < 10) {
+      console.log('Description validation failed:', { description, length: description?.length });
       return new Response(
         JSON.stringify({ error: 'Description must be at least 10 characters long' }),
         { 
@@ -27,20 +31,22 @@ serve(async (req) => {
     }
 
     const GEMINI_API_KEY = Deno.env.get('GEMINI_API_KEY');
+    console.log('GEMINI_API_KEY check:', !!GEMINI_API_KEY);
     
     if (!GEMINI_API_KEY) {
       console.error('GEMINI_API_KEY not found in environment');
       return new Response(
-        JSON.stringify({ error: 'API configuration error' }),
+        JSON.stringify({ 
+          error: 'AI service is temporarily unavailable. Please try again later or submit your project description as-is.' 
+        }),
         { 
-          status: 500, 
+          status: 503, 
           headers: { ...corsHeaders, 'Content-Type': 'application/json' } 
         }
       );
     }
 
-    console.log('Enhancing description with Gemini API...');
-    console.log('Description length:', description.length);
+    console.log('Making request to Gemini API...');
     
     const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${GEMINI_API_KEY}`, {
       method: 'POST',
@@ -52,7 +58,7 @@ serve(async (req) => {
           parts: [{
             text: `You are an expert writing assistant helping users rephrase project descriptions for professional use. The rewritten version should be clear, detailed, and suitable for submitting to freelancers or service providers. Maintain all essential details, remove redundancy, and enhance clarity without altering the original intent.
 
-Please rewrite this project description:
+Please rewrite this project description (keep it concise but professional):
 
 ${description}`
           }]
@@ -61,7 +67,7 @@ ${description}`
           temperature: 0.7,
           topK: 40,
           topP: 0.95,
-          maxOutputTokens: 1024,
+          maxOutputTokens: 800,
         },
         safetySettings: [
           {
@@ -84,18 +90,29 @@ ${description}`
       }),
     });
 
+    console.log('Gemini API response status:', response.status);
+
     if (!response.ok) {
-      console.error('Gemini API error:', response.status, response.statusText);
       const errorText = await response.text();
-      console.error('Error details:', errorText);
-      throw new Error(`Gemini API returned ${response.status}: ${response.statusText}`);
+      console.error('Gemini API error:', response.status, response.statusText, errorText);
+      
+      return new Response(
+        JSON.stringify({ 
+          error: 'AI enhancement service is temporarily unavailable. Please try again later or submit your project description as-is.' 
+        }),
+        {
+          status: 503,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        }
+      );
     }
 
     const data = await response.json();
-    console.log('Gemini API response received');
+    console.log('Gemini API response received successfully');
     
     if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0]) {
       const enhancedDescription = data.candidates[0].content.parts[0].text;
+      console.log('Enhanced description generated successfully');
       
       return new Response(
         JSON.stringify({ enhancedDescription }),
@@ -105,12 +122,24 @@ ${description}`
       );
     } else {
       console.error('Unexpected response structure from Gemini API:', JSON.stringify(data, null, 2));
-      throw new Error('Failed to get valid response from AI');
+      return new Response(
+        JSON.stringify({ 
+          error: 'AI enhancement completed but response was malformed. Please try again.' 
+        }),
+        {
+          status: 500,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        }
+      );
     }
   } catch (error) {
     console.error('Error in enhance-description function:', error);
     return new Response(
-      JSON.stringify({ error: 'Failed to enhance description. Please try again later.' }),
+      JSON.stringify({ 
+        error: error.message.includes('fetch') 
+          ? 'Network error occurred. Please check your connection and try again.' 
+          : 'An unexpected error occurred. Please try again later.'
+      }),
       {
         status: 500,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
