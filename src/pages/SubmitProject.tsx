@@ -108,24 +108,22 @@ const SubmitProject = () => {
     setIsRewriting(true);
     
     try {
-      console.log('Calling Supabase edge function to enhance description...');
+      console.log('Calling enhance-description function...');
       console.log('Description to enhance:', currentDescription.substring(0, 100) + '...');
       
       const { data, error } = await supabase.functions.invoke('enhance-description', {
-        body: {
-          description: currentDescription
-        }
+        body: { description: currentDescription }
       });
 
-      console.log('Supabase function response:', { data, error });
+      console.log('Enhancement response:', { data, error });
 
       if (error) {
-        console.error('Supabase function error:', error);
+        console.error('Enhancement error:', error);
         throw new Error(error.message || 'Failed to enhance description');
       }
 
       if (data && data.enhancedDescription) {
-        console.log('Enhancement successful, updating form...');
+        console.log('Enhancement successful');
         form.setValue('projectDescription', data.enhancedDescription);
         toast({
           title: "Description enhanced!",
@@ -171,21 +169,15 @@ const SubmitProject = () => {
         formData.append(`file_${index}`, file);
       });
 
-      // Submit to Supabase edge function using the correct anon key
-      const response = await fetch(`https://egwiqdzwctjprchzwrqo.supabase.co/functions/v1/submit-project`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVnd2lxZHp3Y3RqcHJjaHp3cnFvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgxMjMzMjUsImV4cCI6MjA2MzY5OTMyNX0.DUBh38-3AL6WxgLXQHhnHwckcJdV_QNo0Sd_-Oah8H0`,
-        },
+      const { data: result, error } = await supabase.functions.invoke('submit-project', {
         body: formData
       });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to submit project');
+      if (error) {
+        console.error('Submit error:', error);
+        throw new Error(error.message || 'Failed to submit project');
       }
 
-      const result = await response.json();
       console.log('Project submitted successfully:', result);
       setIsSubmitted(true);
       

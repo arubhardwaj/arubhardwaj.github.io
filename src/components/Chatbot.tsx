@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useToast } from '@/hooks/use-toast';
 import { useNavigate } from 'react-router-dom';
+import { supabase } from '@/integrations/supabase/client';
 
 interface Message {
   id: string;
@@ -69,33 +70,19 @@ const Chatbot = () => {
     setIsLoading(true);
 
     try {
-      console.log('Sending message to chatbot API:', currentInput);
+      console.log('Sending message to chatbot:', currentInput);
       
-      // Use the supabase client to invoke the function instead of direct fetch
-      const response = await fetch(`https://egwiqdzwctjprchzwrqo.supabase.co/functions/v1/chatbot`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVnd2lxZHp3Y3RqcHJjaHp3cnFvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgxMjMzMjUsImV4cCI6MjA2MzY5OTMyNX0.DUBh38-3AL6WxgLXQHhnHwckcJdV_QNo0Sd_-Oah8H0`,
-        },
-        body: JSON.stringify({ message: currentInput })
+      const { data, error } = await supabase.functions.invoke('chatbot', {
+        body: { message: currentInput }
       });
 
-      console.log('Response status:', response.status);
+      console.log('Chatbot response:', { data, error });
 
-      // Always try to parse the response as JSON, even if there's an error
-      let data;
-      try {
-        data = await response.json();
-        console.log('API Response data:', data);
-      } catch (parseError) {
-        console.error('Failed to parse response as JSON:', parseError);
-        const textResponse = await response.text();
-        console.log('Raw response:', textResponse);
-        throw new Error('Invalid response format from server');
+      if (error) {
+        console.error('Supabase function error:', error);
+        throw new Error(error.message || 'Failed to get response from chatbot');
       }
 
-      // Check if we have a valid response with content
       if (data && (data.response || data.message)) {
         const aiMessage: Message = {
           id: (Date.now() + 1).toString(),
@@ -108,14 +95,12 @@ const Chatbot = () => {
 
         setMessages(prev => [...prev, aiMessage]);
       } else {
-        // Handle unexpected response structure
-        throw new Error('Unexpected response format');
+        throw new Error('No response received from chatbot');
       }
 
     } catch (error) {
       console.error('Error sending message:', error);
       
-      // Add error message to chat
       const errorMessage: Message = {
         id: (Date.now() + 2).toString(),
         content: "I'm sorry, I'm having trouble connecting right now. Please try again in a moment, or feel free to contact me directly at aru.bhardwaj@insightrix.eu",
