@@ -108,22 +108,21 @@ const SubmitProject = () => {
     setIsRewriting(true);
     
     try {
-      console.log('Calling enhance-description function...');
-      console.log('Description to enhance:', currentDescription.substring(0, 100) + '...');
+      console.log('Calling enhance-description function with:', currentDescription.substring(0, 100) + '...');
       
       const { data, error } = await supabase.functions.invoke('enhance-description', {
         body: { description: currentDescription }
       });
 
-      console.log('Enhancement response:', { data, error });
+      console.log('Enhancement function response:', { data, error });
 
       if (error) {
-        console.error('Enhancement error:', error);
+        console.error('Enhancement function error:', error);
         throw new Error(error.message || 'Failed to enhance description');
       }
 
       if (data && data.enhancedDescription) {
-        console.log('Enhancement successful');
+        console.log('Enhancement successful, updating form');
         form.setValue('projectDescription', data.enhancedDescription);
         toast({
           title: "Description enhanced!",
@@ -131,13 +130,17 @@ const SubmitProject = () => {
         });
       } else {
         console.error('No enhanced description in response:', data);
-        throw new Error('No enhanced description received');
+        throw new Error('No enhanced description received from AI service');
       }
     } catch (error) {
       console.error('Error enhancing description:', error);
+      
+      // Provide a helpful fallback message
+      const fallbackMessage = "I'm having trouble enhancing your description right now. Please try again in a moment, or feel free to submit your project as-is.";
+      
       toast({
-        title: "Enhancement failed",
-        description: error instanceof Error ? error.message : "Failed to enhance description. Please try again later.",
+        title: "Enhancement temporarily unavailable",
+        description: fallbackMessage,
         variant: "destructive",
       });
     } finally {
@@ -149,8 +152,8 @@ const SubmitProject = () => {
     setIsSubmitting(true);
     
     try {
-      console.log('Submitting project:', data);
-      console.log('Uploaded files:', uploadedFiles);
+      console.log('Submitting project with data:', data);
+      console.log('Uploaded files count:', uploadedFiles.length);
       
       // Create FormData to include files
       const formData = new FormData();
@@ -174,7 +177,7 @@ const SubmitProject = () => {
       });
 
       if (error) {
-        console.error('Submit error:', error);
+        console.error('Project submission error:', error);
         throw new Error(error.message || 'Failed to submit project');
       }
 

@@ -70,40 +70,40 @@ const Chatbot = () => {
     setIsLoading(true);
 
     try {
-      console.log('Sending message to chatbot:', currentInput);
+      console.log('Sending message to chatbot function:', currentInput);
       
       const { data, error } = await supabase.functions.invoke('chatbot', {
         body: { message: currentInput }
       });
 
-      console.log('Chatbot response:', { data, error });
+      console.log('Chatbot function response:', { data, error });
 
       if (error) {
-        console.error('Supabase function error:', error);
+        console.error('Chatbot function error:', error);
         throw new Error(error.message || 'Failed to get response from chatbot');
       }
 
-      if (data && (data.response || data.message)) {
+      if (data && data.response) {
         const aiMessage: Message = {
           id: (Date.now() + 1).toString(),
-          content: data.response || data.message || 'I received your message.',
+          content: data.response,
           isUser: false,
           timestamp: new Date(),
-          showConsultationButton: data.showConsultationButton,
-          showProjectButton: data.showProjectButton
+          showConsultationButton: data.showConsultationButton || false,
+          showProjectButton: data.showProjectButton || false
         };
 
         setMessages(prev => [...prev, aiMessage]);
       } else {
-        throw new Error('No response received from chatbot');
+        throw new Error('No valid response received from chatbot');
       }
 
     } catch (error) {
-      console.error('Error sending message:', error);
+      console.error('Error in chatbot communication:', error);
       
       const errorMessage: Message = {
         id: (Date.now() + 2).toString(),
-        content: "I'm sorry, I'm having trouble connecting right now. Please try again in a moment, or feel free to contact me directly at aru.bhardwaj@insightrix.eu",
+        content: "I'm having trouble connecting right now. You can book a consultation directly or contact me at aru.bhardwaj@insightrix.eu for immediate assistance.",
         isUser: false,
         timestamp: new Date(),
         showConsultationButton: true
@@ -113,7 +113,7 @@ const Chatbot = () => {
       
       toast({
         title: "Connection Issue",
-        description: "The message couldn't be sent. Please try again.",
+        description: "The chatbot is having trouble responding. Please try again or use the consultation booking.",
         variant: "destructive"
       });
     } finally {

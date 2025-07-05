@@ -70,6 +70,7 @@ const ConsultationSection = () => {
     document.body.appendChild(emailjsScript);
     
     emailjsScript.onload = () => {
+      // Initialize EmailJS with correct public key
       window.emailjs.init("hF6O_JgDy5jUxyk-4");
     };
 
@@ -96,20 +97,29 @@ const ConsultationSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    window.emailjs.send("default_service", "template_enrm7gd", {
+    // Updated EmailJS configuration with correct service ID and template ID
+    const serviceId = "service_c45kycg";
+    const templateId = "template_enrm7gd";
+    const publicKey = "hF6O_JgDy5jUxyk-4";
+
+    console.log('Sending email with EmailJS...');
+
+    window.emailjs.send(serviceId, templateId, {
       from_name: formData.name,
       from_email: formData.email,
       subject: formData.subject,
-      message: formData.message
-    }, "Su2lriYsuQqokQg2iFNy0")
-      .then(() => {
+      message: formData.message,
+      to_name: "Aru Bhardwaj"
+    }, publicKey)
+      .then((response: any) => {
+        console.log('Email sent successfully:', response);
         toast.success('Message sent successfully! I will get back to you soon.');
         setFormData({ name: '', email: '', subject: '', message: '' });
         setIsSubmitting(false);
       })
       .catch((error: any) => {
         console.error('Error sending email:', error);
-        toast.error('Failed to send message. Please try again later.');
+        toast.error('Failed to send message. Please try contacting me directly at aru.bhardwaj@insightrix.eu');
         setIsSubmitting(false);
       });
   };
