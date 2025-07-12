@@ -105,11 +105,10 @@ const ConsultationSection = () => {
     console.log('Sending email with EmailJS...');
 
     window.emailjs.send(serviceId, templateId, {
-      from_name: formData.name,
-      from_email: formData.email,
+      name: formData.name,
+      email: formData.email,
       subject: formData.subject,
-      message: formData.message,
-      to_name: "Aru Bhardwaj"
+      message: formData.message
     }, publicKey)
       .then((response: any) => {
         console.log('Email sent successfully:', response);

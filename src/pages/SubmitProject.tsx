@@ -236,11 +236,10 @@ Files Count: ${uploadedFiles.length}
 
       // Send email using EmailJS
       await window.emailjs.send(serviceId, templateId, {
-        from_name: data.contactEmail,
-        from_email: data.contactEmail,
+        name: data.contactEmail,
+        email: data.contactEmail,
         subject: `Project Submission - ${data.budget} ${data.currency} - ${timelineMap[data.timeline]}`,
-        message: emailContent,
-        to_name: "Aru Bhardwaj"
+        message: emailContent
       }, publicKey);
 
       console.log('Project submitted successfully via EmailJS');
