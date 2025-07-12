@@ -178,6 +178,36 @@ const SubmitProject = () => {
     try {
       console.log('Submitting project with data:', data);
       
+      // Upload files to Supabase storage first
+      const uploadedFileLinks: string[] = [];
+      const fileUploadPromises = uploadedFiles.map(async (file, index) => {
+        const fileName = `${Date.now()}_${index}_${file.name}`;
+        const filePath = `${data.contactEmail}/${fileName}`;
+        
+        const { data: uploadData, error: uploadError } = await supabase.storage
+          .from('project-files')
+          .upload(filePath, file);
+          
+        if (uploadError) {
+          console.error('File upload error:', uploadError);
+          throw new Error(`Failed to upload ${file.name}`);
+        }
+        
+        // Get public URL for the uploaded file
+        const { data: urlData } = supabase.storage
+          .from('project-files')
+          .getPublicUrl(filePath);
+          
+        uploadedFileLinks.push(`${file.name}: ${urlData.publicUrl}`);
+        return uploadData;
+      });
+      
+      // Wait for all files to upload
+      if (uploadedFiles.length > 0) {
+        await Promise.all(fileUploadPromises);
+        console.log('All files uploaded successfully');
+      }
+      
       // Format timeline display
       const timelineMap = {
         'less-than-month': 'Less than 1 month',
@@ -216,10 +246,10 @@ PROJECT DESCRIPTION
 ${data.projectDescription}
 
 ====================
-ATTACHMENTS
+FILE ATTACHMENTS
 ====================
-${uploadedFiles.length > 0 ? 
-  uploadedFiles.map(file => `- ${file.name} (${(file.size / 1024).toFixed(1)} KB)`).join('\n') : 
+${uploadedFileLinks.length > 0 ? 
+  uploadedFileLinks.join('\n') : 
   'No files attached'
 }
 
@@ -253,7 +283,7 @@ Files Count: ${uploadedFiles.length}
       console.error('Error submitting project:', error);
       toast({
         title: "Submission failed",
-        description: "Failed to submit project. Please try again later.",
+        description: error instanceof Error ? error.message : "Failed to submit project. Please try again later.",
         variant: "destructive",
       });
     } finally {
