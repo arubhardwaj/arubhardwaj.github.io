@@ -7,12 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
-
-declare global {
-  interface Window {
-    emailjs: any;
-  }
-}
+import { supabase } from '@/integrations/supabase/client';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -24,26 +19,13 @@ const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    // Load EmailJS
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
-    script.async = true;
-    document.body.appendChild(script);
-    
-    script.onload = () => {
-      window.emailjs.init("hF6O_JgDy5jUxyk-4");
-    };
-    
-    // Load Stripe script
+    // Load Stripe script only
     const stripeScript = document.createElement('script');
     stripeScript.src = 'https://js.stripe.com/v3/buy-button.js';
     stripeScript.async = true;
     document.body.appendChild(stripeScript);
     
     return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
       if (document.body.contains(stripeScript)) {
         document.body.removeChild(stripeScript);
       }
@@ -55,30 +37,32 @@ const ContactSection = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const serviceId = "service_c45kycg";
-    const templateId = "template_enrm7gd";
-    const publicKey = "hF6O_JgDy5jUxyk-4";
-
-    window.emailjs.send(serviceId, templateId, {
-      from_name: formData.name,
-      from_email: formData.email,
-      subject: formData.subject,
-      message: formData.message
-    }, publicKey)
-      .then(() => {
-        toast.success('Message sent successfully! I will get back to you soon.');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-        setIsSubmitting(false);
-      })
-      .catch((error: any) => {
-        console.error('Error sending email:', error);
-        toast.error('Failed to send message. Please try again later.');
-        setIsSubmitting(false);
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-message', {
+        body: {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message
+        }
       });
+
+      if (error) {
+        throw error;
+      }
+
+      toast.success('Message sent successfully! I will get back to you soon.');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error: any) {
+      console.error('Error sending message:', error);
+      toast.error('Failed to send message. Please try contacting me directly at aru.bhardwaj@insightrix.eu');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
