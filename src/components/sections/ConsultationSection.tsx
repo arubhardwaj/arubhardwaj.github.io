@@ -98,7 +98,7 @@ const ConsultationSection = () => {
     setIsSubmitting(true);
 
     // Updated EmailJS configuration with correct service ID and template ID
-    const serviceId = "service_enrm7gd";
+    const serviceId = "service_gmail";
     const templateId = "template_enrm7gd";
     const publicKey = "hF6O_JgDy5jUxyk-4";
 
