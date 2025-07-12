@@ -61,7 +61,7 @@ const ContactSection = () => {
 
     const serviceId = "service_c45kycg";
     const templateId = "template_enrm7gd";
-    const publicKey = "Su2lriYsuQqokQg2iFNy0";
+    const publicKey = "hF6O_JgDy5jUxyk-4";
 
     window.emailjs.send(serviceId, templateId, {
       from_name: formData.name,
