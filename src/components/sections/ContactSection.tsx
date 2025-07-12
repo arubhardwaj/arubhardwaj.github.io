@@ -42,6 +42,7 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
+      console.log('Attempting to send contact message...');
       const { data, error } = await supabase.functions.invoke('send-contact-message', {
         body: {
           name: formData.name,
@@ -51,8 +52,16 @@ const ContactSection = () => {
         }
       });
 
+      console.log('Supabase function response:', { data, error });
+
       if (error) {
+        console.error('Supabase function error:', error);
         throw error;
+      }
+
+      if (data?.error) {
+        console.error('Function returned error:', data.error);
+        throw new Error(data.error);
       }
 
       toast.success('Message sent successfully! I will get back to you soon.');
