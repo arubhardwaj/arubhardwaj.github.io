@@ -9,6 +9,64 @@ const corsHeaders = {
 };
 
 const resend = new Resend(Deno.env.get('RESEND_API_KEY'));
+const geminiApiKey = Deno.env.get('GEMINI_API_KEY');
+
+// Function to enhance project description using Gemini AI
+async function enhanceProjectDescription(description: string): Promise<string> {
+  if (!geminiApiKey) {
+    console.warn('Gemini API key not available, returning original description');
+    return description;
+  }
+
+  try {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${geminiApiKey}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        contents: [{
+          parts: [{
+            text: `Please enhance and structure the following project description to make it more professional and clear. Focus on:
+1. Technical requirements and objectives
+2. Expected deliverables
+3. Success criteria
+4. Any specific technologies or methodologies mentioned
+
+Original description:
+${description}
+
+Please provide an enhanced version that maintains all the original information but presents it in a more structured and professional manner.`
+          }]
+        }],
+        generationConfig: {
+          temperature: 0.3,
+          topK: 40,
+          topP: 0.95,
+          maxOutputTokens: 1024,
+        }
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`Gemini API error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    const enhancedDescription = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    
+    if (enhancedDescription) {
+      console.log('Project description enhanced successfully');
+      return enhancedDescription;
+    } else {
+      console.warn('No enhanced description received from Gemini, using original');
+      return description;
+    }
+  } catch (error) {
+    console.error('Error enhancing description with Gemini:', error);
+    return description; // Return original description on error
+  }
+}
 
 serve(async (req) => {
   // Handle CORS preflight requests
@@ -47,6 +105,10 @@ serve(async (req) => {
 
     console.log('Processing attachments:', attachments.length);
 
+    // Enhance project description using Gemini AI
+    const enhancedDescription = await enhanceProjectDescription(projectData.projectDescription);
+    console.log('Description enhancement completed');
+
     // Send notification email to you (admin)
     const adminEmailResponse = await resend.emails.send({
       from: "Project Submissions <aru.bhardwaj@insightrix.eu>",
@@ -69,8 +131,13 @@ serve(async (req) => {
           </div>
           
           <div style="background: white; padding: 20px; border: 1px solid #d4af37; border-radius: 8px;">
-            <h3 style="color: #4a5d23; margin-top: 0;">Project Description</h3>
-            <p style="white-space: pre-wrap;">${projectData.projectDescription}</p>
+            <h3 style="color: #4a5d23; margin-top: 0;">Enhanced Project Description</h3>
+            <p style="white-space: pre-wrap;">${enhancedDescription}</p>
+          </div>
+          
+          <div style="background: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; margin-top: 10px;">
+            <h4 style="color: #666; margin-top: 0;">Original Description</h4>
+            <p style="white-space: pre-wrap; color: #666; font-size: 14px;">${projectData.projectDescription}</p>
           </div>
           
           ${attachments.length > 0 ? `
