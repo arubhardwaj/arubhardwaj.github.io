@@ -221,8 +221,8 @@ const ContactSection = () => {
                 </div>
                 
                 <div className="flex justify-center my-6">
-                  <div className="w-32 h-32 bg-gray-100 rounded-full overflow-hidden flex items-center justify-center">
-                    <img src="/lovable-uploads/fdeddb7d-ba2f-47aa-a96e-5019d4da87ed.png" alt="Consultant" className="w-full h-auto" />
+                  <div className="w-24 h-24 rounded-full overflow-hidden">
+                    <img src="/lovable-uploads/fdeddb7d-ba2f-47aa-a96e-5019d4da87ed.png" alt="Aru Bhardwaj" className="w-full h-full object-cover" />
                   </div>
                 </div>
                 
