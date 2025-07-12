@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -17,6 +17,12 @@ import { cn } from '@/lib/utils';
 import { toast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { Link } from 'react-router-dom';
+
+declare global {
+  interface Window {
+    emailjs: any;
+  }
+}
 
 const formSchema = z.object({
   projectDescription: z.string().min(50, 'Project description must be at least 50 characters'),
@@ -54,6 +60,24 @@ const SubmitProject = () => {
       startImmediately: false,
     },
   });
+
+  useEffect(() => {
+    // Load EmailJS
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+    script.async = true;
+    document.body.appendChild(script);
+    
+    script.onload = () => {
+      window.emailjs.init("hF6O_JgDy5jUxyk-4");
+    };
+    
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
 
   const watchStartDate = form.watch("startDate");
 
@@ -153,35 +177,72 @@ const SubmitProject = () => {
     
     try {
       console.log('Submitting project with data:', data);
-      console.log('Uploaded files count:', uploadedFiles.length);
       
-      // Create FormData to include files
-      const formData = new FormData();
-      
-      // Add project data as JSON string
-      const projectData = {
-        ...data,
-        startDate: data.startDate?.toISOString(),
-        dueDate: data.dueDate?.toISOString(),
-        submittedAt: new Date().toISOString()
+      // Format timeline display
+      const timelineMap = {
+        'less-than-month': 'Less than 1 month',
+        '1-3-months': '1-3 months',
+        '3-6-months': '3-6 months',
+        '6-months-plus': '6+ months (Long term)'
       };
-      formData.append('projectData', JSON.stringify(projectData));
-      
-      // Add files to FormData
-      uploadedFiles.forEach((file, index) => {
-        formData.append(`file_${index}`, file);
-      });
 
-      const { data: result, error } = await supabase.functions.invoke('submit-project', {
-        body: formData
-      });
+      // Format dates for display
+      const formatDate = (date: Date | undefined) => {
+        return date ? format(date, 'PPP') : 'Not specified';
+      };
 
-      if (error) {
-        console.error('Project submission error:', error);
-        throw new Error(error.message || 'Failed to submit project');
-      }
+      // Create detailed email content with all project information
+      const emailContent = `
+PROJECT SUBMISSION DETAILS
 
-      console.log('Project submitted successfully:', result);
+====================
+CONTACT INFORMATION
+====================
+Email: ${data.contactEmail}
+
+====================
+PROJECT OVERVIEW
+====================
+Budget: ${data.budget} ${data.currency}
+Timeline: ${timelineMap[data.timeline]}
+Start Date: ${formatDate(data.startDate)}
+Due Date: ${formatDate(data.dueDate)}
+Urgent Project: ${data.urgentProject ? 'Yes' : 'No'}
+Start Immediately: ${data.startImmediately ? 'Yes' : 'No'}
+
+====================
+PROJECT DESCRIPTION
+====================
+${data.projectDescription}
+
+====================
+ATTACHMENTS
+====================
+${uploadedFiles.length > 0 ? 
+  uploadedFiles.map(file => `- ${file.name} (${(file.size / 1024).toFixed(1)} KB)`).join('\n') : 
+  'No files attached'
+}
+
+====================
+SUBMISSION DETAILS
+====================
+Submitted: ${new Date().toLocaleString()}
+Files Count: ${uploadedFiles.length}
+      `;
+
+      const serviceId = "service_c45kycg";
+      const templateId = "template_enrm7gd";
+      const publicKey = "hF6O_JgDy5jUxyk-4";
+
+      // Send email using EmailJS
+      await window.emailjs.send(serviceId, templateId, {
+        from_name: data.contactEmail,
+        from_email: data.contactEmail,
+        subject: `Project Submission - ${data.budget} ${data.currency} - ${timelineMap[data.timeline]}`,
+        message: emailContent
+      }, publicKey);
+
+      console.log('Project submitted successfully via EmailJS');
       setIsSubmitted(true);
       
       toast({
@@ -192,7 +253,7 @@ const SubmitProject = () => {
       console.error('Error submitting project:', error);
       toast({
         title: "Submission failed",
-        description: error instanceof Error ? error.message : "Failed to submit project. Please try again later.",
+        description: "Failed to submit project. Please try again later.",
         variant: "destructive",
       });
     } finally {
