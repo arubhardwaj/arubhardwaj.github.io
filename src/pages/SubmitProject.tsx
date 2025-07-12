@@ -230,7 +230,7 @@ Submitted: ${new Date().toLocaleString()}
 Files Count: ${uploadedFiles.length}
       `;
 
-      const serviceId = "service_gmail";
+      const serviceId = "service_ugxzpww";
       const templateId = "template_enrm7gd";
       const publicKey = "hF6O_JgDy5jUxyk-4";
 
