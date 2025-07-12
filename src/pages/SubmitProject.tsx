@@ -230,7 +230,7 @@ Submitted: ${new Date().toLocaleString()}
 Files Count: ${uploadedFiles.length}
       `;
 
-      const serviceId = "service_c45kycg";
+      const serviceId = "default_service";
       const templateId = "template_enrm7gd";
       const publicKey = "hF6O_JgDy5jUxyk-4";
 
@@ -239,7 +239,8 @@ Files Count: ${uploadedFiles.length}
         from_name: data.contactEmail,
         from_email: data.contactEmail,
         subject: `Project Submission - ${data.budget} ${data.currency} - ${timelineMap[data.timeline]}`,
-        message: emailContent
+        message: emailContent,
+        to_name: "Aru Bhardwaj"
       }, publicKey);
 
       console.log('Project submitted successfully via EmailJS');
