@@ -63,7 +63,7 @@ const AboutSection = () => {
                       </>
                     ) : (
                       <>
-                        <span className="text-3xl font-bold text-theme-gold">€450 + VAT</span>
+                        <span className="text-3xl font-bold text-theme-gold">€540 + VAT</span>
                         <span className="text-gray-500 ml-1">
                           {translations.perDay[language]}
                         </span>
