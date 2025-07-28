@@ -98,8 +98,8 @@ const ContactSection = () => {
                     <Mail className="h-5 w-5 text-yellow-500" />
                     <div>
                       <p className="text-sm text-gray-500">Email</p>
-                      <a href="mailto:aru.bhardwaj@insighrix.eu" className="text-theme-olive font-medium">
-                        aru.bhardwaj@insighrix.eu
+                      <a href="mailto:aru.bhardwaj@insightrix.eu" className="text-theme-olive font-medium">
+                        aru.bhardwaj@insightrix.eu
                       </a>
                     </div>
                   </div>

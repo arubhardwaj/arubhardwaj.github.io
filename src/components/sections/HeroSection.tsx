@@ -63,7 +63,7 @@ const HeroSection = () => {
               </div>
               <div>
                 <h3 className="text-sm font-medium text-theme-olive">{translations.email[language]}</h3>
-                <p className="text-sm">aru.bhardwaj@insighrix.eu</p>
+                <p className="text-sm">aru.bhardwaj@insightrix.eu</p>
               </div>
             </div>
           </div>

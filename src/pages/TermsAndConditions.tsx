@@ -196,7 +196,7 @@ const TermsAndConditions = () => {
                 <section>
                   <h2 className="text-2xl font-semibold text-theme-olive mb-4">12. Contact Information</h2>
                   <div className="space-y-2 text-gray-700">
-                    <p><strong>Email:</strong> aru.bhardwaj@insighrix.eu</p>
+                    <p><strong>Email:</strong> aru.bhardwaj@insightrix.eu</p>
                     <p><strong>Phone:</strong> +33 (0) 766985210</p>
                     <p><strong>Address:</strong> Paris, France</p>
                   </div>
