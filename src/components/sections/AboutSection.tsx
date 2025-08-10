@@ -107,7 +107,7 @@ const AboutSection = () => {
             <div className="border-8 border-theme-gold rounded-full overflow-hidden aspect-square w-64 md:w-80 mx-auto">
               <img 
                 src="/lovable-uploads/001b4d75-900d-4162-9a12-0745979ca94a.png" 
-                alt="Aru Bhardwaj" 
+                alt="Aru Bhardwaj - Freelance Data Scientist & AI Expert" 
                 className="w-full h-full object-cover"
               />
             </div>
