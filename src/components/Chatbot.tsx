@@ -166,7 +166,7 @@ const Chatbot = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 z-40 w-96 max-w-[calc(100vw-3rem)]">
+        <div className="fixed bottom-24 right-6 z-[60] w-96 max-w-[calc(100vw-3rem)]">
           <Card className="shadow-2xl border-2 border-theme-gold/20">
             <CardHeader className="bg-theme-gold text-white p-4">
               <CardTitle className="text-lg flex items-center gap-2">
