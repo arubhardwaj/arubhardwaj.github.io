@@ -7,7 +7,6 @@ import ExpertiseSection from '@/components/sections/ExpertiseSection';
 import IndustriesSection from '@/components/sections/IndustriesSection';
 import WhyChooseMeSection from '@/components/sections/WhyChooseMeSection';
 import ConsultationSection from '@/components/sections/ConsultationSection';
-import Chatbot from '@/components/Chatbot';
 
 const Index = () => {
   return (
@@ -22,7 +21,6 @@ const Index = () => {
         <ConsultationSection />
       </main>
       <Footer />
-      <Chatbot />
     </div>
   );
 };
