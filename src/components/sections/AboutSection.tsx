@@ -1,13 +1,9 @@
 
 import { CheckCircle } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Switch } from '@/components/ui/switch';
-import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const AboutSection = () => {
-  const [isHourlyRate, setIsHourlyRate] = useState(false);
   const { language, translations } = useLanguage();
 
   return (
@@ -32,43 +28,13 @@ const AboutSection = () => {
               
               <Card className="mb-4 shadow-md border-yellow-100 bg-[#fffdf6]">
                 <CardContent className="p-6">
-                  <div className="flex justify-between items-center mb-4">
-                    <h4 className="text-lg font-medium">
-                      {isHourlyRate 
-                        ? translations.hourlyRate[language] 
-                        : translations.standardRate[language]
-                      }
-                    </h4>
-                    <div className="flex items-center">
-                      <span className={`mr-2 text-sm ${!isHourlyRate ? 'font-semibold' : ''}`}>
-                        {translations.daily[language]}
-                      </span>
-                      <Switch 
-                        checked={isHourlyRate}
-                        onCheckedChange={setIsHourlyRate}
-                        className={`${isHourlyRate ? 'bg-theme-olive' : 'bg-gray-300'}`}
-                      />
-                      <span className={`ml-2 text-sm ${isHourlyRate ? 'font-semibold' : ''}`}>
-                        {translations.hourly[language]}
-                      </span>
-                    </div>
-                  </div>
                   <div className="mb-4">
-                    {isHourlyRate ? (
-                      <>
-                        <span className="text-3xl font-bold text-theme-gold">€90 + VAT</span>
-                        <span className="text-gray-500 ml-1">
-                          {translations.perHour[language]}
-                        </span>
-                      </>
-                    ) : (
-                      <>
-                        <span className="text-3xl font-bold text-theme-gold">€540 + VAT</span>
-                        <span className="text-gray-500 ml-1">
-                          {translations.perDay[language]}
-                        </span>
-                      </>
-                    )}
+                    <h4 className="text-lg font-medium mb-2">
+                      {translations.pricing[language]}
+                    </h4>
+                    <span className="text-2xl font-bold text-theme-gold">
+                      {translations.contactForPricing[language]}
+                    </span>
                   </div>
                   <ul className="space-y-2">
                     <li className="flex items-start">
