@@ -241,35 +241,15 @@ const translations = {
     it: 'Servizi Professionali',
     fr: 'Services Professionnels'
   },
-  standardRate: {
-    en: 'Standard Daily Rate',
-    it: 'Tariffa Giornaliera Standard',
-    fr: 'Tarif Journalier Standard'
+  pricing: {
+    en: 'Pricing',
+    it: 'Prezzi',
+    fr: 'Tarification'
   },
-  hourlyRate: {
-    en: 'Hourly Rate',
-    it: 'Tariffa Oraria',
-    fr: 'Tarif Horaire'
-  },
-  daily: {
-    en: 'Daily',
-    it: 'Giornaliero',
-    fr: 'Journalier'
-  },
-  hourly: {
-    en: 'Hourly',
-    it: 'Orario',
-    fr: 'Horaire'
-  },
-  perHour: {
-    en: 'per hour',
-    it: 'all\'ora',
-    fr: 'par heure'
-  },
-  perDay: {
-    en: 'per day',
-    it: 'al giorno',
-    fr: 'par jour'
+  contactForPricing: {
+    en: 'Contact for Pricing',
+    it: 'Contattami per i Prezzi',
+    fr: 'Contactez pour les Tarifs'
   },
   customizedSolutions: {
     en: 'Customized AI solutions',
