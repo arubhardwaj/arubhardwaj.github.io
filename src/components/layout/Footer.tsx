@@ -12,7 +12,7 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4 text-theme-olive">Aru Bhardwaj</h3>
             <p className="mb-4 text-gray-600">Transforming complex data challenges into actionable business intelligence through advanced analytics and custom AI systems.</p>
-            <div className="flex space-x-4">
+            <div className="flex items-center space-x-4">
               <a href="https://www.linkedin.com/in/arub" aria-label="LinkedIn" className="text-theme-olive hover:text-theme-gold">
                 <Linkedin size={20} />
               </a>
@@ -34,6 +34,19 @@ const Footer = () => {
                   />
                 </div>
               </a>
+              {/* Pride Flag Badge */}
+              <div 
+                className="w-6 h-4 rounded-sm overflow-hidden flex flex-col"
+                title="LGBTQ+ Ally"
+                aria-label="Pride Flag"
+              >
+                <div className="flex-1 bg-[#E40303]"></div>
+                <div className="flex-1 bg-[#FF8C00]"></div>
+                <div className="flex-1 bg-[#FFED00]"></div>
+                <div className="flex-1 bg-[#008026]"></div>
+                <div className="flex-1 bg-[#24408E]"></div>
+                <div className="flex-1 bg-[#732982]"></div>
+              </div>
             </div>
           </div>
           
