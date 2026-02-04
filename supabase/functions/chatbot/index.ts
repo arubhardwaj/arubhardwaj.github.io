@@ -40,7 +40,7 @@ serve(async (req) => {
       console.error('GEMINI_API_KEY not found in environment');
       return new Response(
         JSON.stringify({ 
-          response: "I'm currently experiencing technical difficulties. You can book a consultation directly at https://arubhardwaj.eu/#consultation or contact Aru at aru.bhardwaj@insightrix.eu for immediate assistance.",
+          response: "I'm currently experiencing technical difficulties. You can book a consultation directly at https://arubhardwaj.eu/#consultation or contact Aru at bonjour@arubhardwaj.eu for immediate assistance.",
           showConsultationButton: true 
         }),
         { 

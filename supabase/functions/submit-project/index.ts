@@ -111,8 +111,8 @@ serve(async (req) => {
 
     // Send notification email to you (admin)
     const adminEmailResponse = await resend.emails.send({
-      from: "Project Submissions <aru.bhardwaj@insightrix.eu>",
-      to: ["aru.bhardwaj@insightrix.eu"],
+      from: "Project Submissions <bonjour@arubhardwaj.eu>",
+      to: ["bonjour@arubhardwaj.eu"],
       subject: `New Project Submission - ${projectData.budget} ${projectData.currency}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -161,7 +161,7 @@ serve(async (req) => {
 
     // Send client confirmation email (without attachments for privacy)
     const clientEmailResponse = await resend.emails.send({
-      from: "Aru Bhardwaj <aru.bhardwaj@insightrix.eu>",
+      from: "Aru Bhardwaj <bonjour@arubhardwaj.eu>",
       to: [projectData.contactEmail],
       subject: "Project Submission Received - We'll Get Back to You Soon!",
       html: `
@@ -190,7 +190,7 @@ serve(async (req) => {
             ${attachments.length > 0 ? `<p><strong>Files Attached:</strong> ${attachments.length} document(s)</p>` : ''}
           </div>
           
-          <p>If you have any immediate questions, feel free to reply to this email or contact me directly at <a href="mailto:aru.bhardwaj@insightrix.eu" style="color: #d4af37;">aru.bhardwaj@insightrix.eu</a></p>
+          <p>If you have any immediate questions, feel free to reply to this email or contact me directly at <a href="mailto:bonjour@arubhardwaj.eu" style="color: #d4af37;">bonjour@arubhardwaj.eu</a></p>
           
           <p>Best regards,<br>
           <strong style="color: #4a5d23;">Aru Bhardwaj</strong><br>

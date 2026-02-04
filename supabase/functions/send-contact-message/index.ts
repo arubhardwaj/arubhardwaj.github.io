@@ -38,8 +38,8 @@ serve(async (req) => {
 
     // Send email to admin with all contact details
     const emailResponse = await resend.emails.send({
-      from: "Contact Form <aru.bhardwaj@insightrix.eu>",
-      to: ["aru.bhardwaj@insightrix.eu"],
+      from: "Contact Form <bonjour@arubhardwaj.eu>",
+      to: ["bonjour@arubhardwaj.eu"],
       subject: `Contact Form: ${subject}`,
       replyTo: email,
       html: `
@@ -75,7 +75,7 @@ serve(async (req) => {
 
     // Send confirmation email to the user
     const confirmationResponse = await resend.emails.send({
-      from: "Aru Bhardwaj <aru.bhardwaj@insightrix.eu>",
+      from: "Aru Bhardwaj <bonjour@arubhardwaj.eu>",
       to: [email],
       subject: "Message Received - Thank You for Contacting Me!",
       html: `
