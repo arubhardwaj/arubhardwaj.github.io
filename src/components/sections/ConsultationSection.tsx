@@ -118,7 +118,7 @@ const ConsultationSection = () => {
       })
       .catch((error: any) => {
         console.error('Error sending email:', error);
-        toast.error('Failed to send message. Please try contacting me directly at aru.bhardwaj@insightrix.eu');
+        toast.error('Failed to send message. Please try contacting me directly at bonjour@arubhardwaj.eu');
         setIsSubmitting(false);
       });
   };
@@ -147,8 +147,8 @@ const ConsultationSection = () => {
                     <Mail className="h-5 w-5 text-yellow-500" />
                     <div>
                       <p className="text-sm text-gray-500">{translations.email[language]}</p>
-                      <a href="mailto:aru.bhardwaj@insightrix.eu" className="text-theme-olive font-medium">
-                        aru.bhardwaj@insightrix.eu
+                      <a href="mailto:bonjour@arubhardwaj.eu" className="text-theme-olive font-medium">
+                        bonjour@arubhardwaj.eu
                       </a>
                     </div>
                   </div>
