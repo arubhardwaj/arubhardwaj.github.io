@@ -1,13 +1,12 @@
-
 import { CheckCircle } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
-
 const AboutSection = () => {
-  const { language, translations } = useLanguage();
-
-  return (
-    <section className="py-20 bg-white" id="about">
+  const {
+    language,
+    translations
+  } = useLanguage();
+  return <section className="py-20 bg-white" id="about">
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -51,16 +50,10 @@ const AboutSection = () => {
                     </li>
                   </ul>
                   <div className="mt-6 space-y-3">
-                    <a 
-                      href="#consultation" 
-                      className="inline-block w-full bg-theme-gold hover:bg-theme-gold/90 text-white px-6 py-3 rounded-md font-medium transition-all duration-300 text-center"
-                    >
+                    <a href="#consultation" className="inline-block w-full bg-theme-gold hover:bg-theme-gold/90 text-white px-6 py-3 rounded-md font-medium transition-all duration-300 text-center">
                       {translations.scheduleConsultation[language]}
                     </a>
-                    <a 
-                      href="/submit-project" 
-                      className="inline-block w-full bg-theme-olive hover:bg-theme-olive/90 text-white px-6 py-3 rounded-md font-medium transition-all duration-300 text-center"
-                    >
+                    <a href="/submit-project" className="inline-block w-full bg-theme-olive hover:bg-theme-olive/90 text-white px-6 py-3 rounded-md font-medium transition-all duration-300 text-center">
                       Submit Your Project
                     </a>
                   </div>
@@ -71,11 +64,7 @@ const AboutSection = () => {
           
           <div className="rounded-lg overflow-hidden shadow-xl">
             <div className="border-8 border-theme-gold rounded-full overflow-hidden aspect-square w-64 md:w-80 mx-auto">
-              <img 
-                src="/lovable-uploads/profile-picture.jpg" 
-                alt="Aru Bhardwaj - Freelance Data Scientist & AI Expert" 
-                className="w-full h-full object-cover"
-              />
+              <img alt="Aru Bhardwaj - Freelance Data Scientist & AI Expert" className="w-full h-full object-fill" src="/lovable-uploads/aa05f26c-fc9f-4fc6-9bde-9212daa6295f.png" />
             </div>
             <div className="bg-white p-6 text-center">
               <h3 className="text-xl font-bold mb-1 text-theme-olive">Aru Bhardwaj</h3>
@@ -86,8 +75,6 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutSection;
