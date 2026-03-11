@@ -161,7 +161,7 @@ serve(async (req) => {
 
     // Send client confirmation email (without attachments for privacy)
     const clientEmailResponse = await resend.emails.send({
-      from: "Aru Bhardwaj <bonjour@arubhardwaj.eu>",
+      from: "Aru Bhardwaj <aru.bhardwaj@insightrix.eu>",
       to: [projectData.contactEmail],
       subject: "Project Submission Received - We'll Get Back to You Soon!",
       html: `
