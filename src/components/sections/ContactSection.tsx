@@ -68,7 +68,7 @@ const ContactSection = () => {
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error: any) {
       console.error('Error sending message:', error);
-      toast.error('Failed to send message. Please try contacting me directly at bonjour@arubhardwaj.eu');
+      toast.error('Failed to send message. Please try contacting me directly at aru.bhardwaj@insightrix.eu');
     } finally {
       setIsSubmitting(false);
     }
