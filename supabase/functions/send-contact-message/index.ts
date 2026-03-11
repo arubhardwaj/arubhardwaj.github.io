@@ -38,8 +38,8 @@ serve(async (req) => {
 
     // Send email to admin with all contact details
     const emailResponse = await resend.emails.send({
-      from: "Contact Form <bonjour@arubhardwaj.eu>",
-      to: ["bonjour@arubhardwaj.eu"],
+      from: "Contact Form <aru.bhardwaj@insightrix.eu>",
+      to: ["aru.bhardwaj@insightrix.eu"],
       subject: `Contact Form: ${subject}`,
       replyTo: email,
       html: `
