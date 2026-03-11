@@ -190,7 +190,7 @@ serve(async (req) => {
             ${attachments.length > 0 ? `<p><strong>Files Attached:</strong> ${attachments.length} document(s)</p>` : ''}
           </div>
           
-          <p>If you have any immediate questions, feel free to reply to this email or contact me directly at <a href="mailto:bonjour@arubhardwaj.eu" style="color: #d4af37;">bonjour@arubhardwaj.eu</a></p>
+          <p>If you have any immediate questions, feel free to reply to this email or contact me directly at <a href="mailto:aru.bhardwaj@insightrix.eu" style="color: #d4af37;">aru.bhardwaj@insightrix.eu</a></p>
           
           <p>Best regards,<br>
           <strong style="color: #4a5d23;">Aru Bhardwaj</strong><br>

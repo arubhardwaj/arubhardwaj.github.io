@@ -75,7 +75,7 @@ serve(async (req) => {
 
     // Send confirmation email to the user
     const confirmationResponse = await resend.emails.send({
-      from: "Aru Bhardwaj <bonjour@arubhardwaj.eu>",
+      from: "Aru Bhardwaj <aru.bhardwaj@insightrix.eu>",
       to: [email],
       subject: "Message Received - Thank You for Contacting Me!",
       html: `
