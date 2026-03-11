@@ -111,8 +111,8 @@ serve(async (req) => {
 
     // Send notification email to you (admin)
     const adminEmailResponse = await resend.emails.send({
-      from: "Project Submissions <bonjour@arubhardwaj.eu>",
-      to: ["bonjour@arubhardwaj.eu"],
+      from: "Project Submissions <aru.bhardwaj@insightrix.eu>",
+      to: ["aru.bhardwaj@insightrix.eu"],
       subject: `New Project Submission - ${projectData.budget} ${projectData.currency}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
