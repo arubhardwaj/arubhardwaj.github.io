@@ -118,7 +118,7 @@ const ConsultationSection = () => {
       })
       .catch((error: any) => {
         console.error('Error sending email:', error);
-        toast.error('Failed to send message. Please try contacting me directly at bonjour@arubhardwaj.eu');
+        toast.error('Failed to send message. Please try contacting me directly at aru.bhardwaj@insightrix.eu');
         setIsSubmitting(false);
       });
   };
