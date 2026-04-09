@@ -5,6 +5,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
 const AboutSection = () => {
+  const [isDaily, setIsDaily] = useState(false);
   const {
     language,
     translations
@@ -31,17 +32,22 @@ const AboutSection = () => {
               <Card className="mb-4 shadow-md border-yellow-100 bg-[#fffdf6]">
                 <CardContent className="p-6">
                   <div className="mb-4">
-                    <h4 className="text-lg font-medium mb-2">
+                    <h4 className="text-lg font-medium mb-3">
                       {translations.pricing[language]}
                     </h4>
-                    <div className="flex flex-col gap-1">
-                      <span className="text-2xl font-bold text-theme-gold">
-                        {translations.hourlyRate[language]} <span className="text-sm font-normal text-gray-500">{translations.vatExtra[language]}</span>
-                      </span>
-                      <span className="text-2xl font-bold text-theme-gold">
-                        {translations.dailyRate[language]} <span className="text-sm font-normal text-gray-500">{translations.vatExtra[language]}</span>
-                      </span>
+                    <div className="flex items-center gap-3 mb-3">
+                      <Label htmlFor="rate-toggle" className={`text-sm font-medium ${!isDaily ? 'text-theme-gold' : 'text-muted-foreground'}`}>
+                        {language === 'en' ? 'Hourly' : language === 'it' ? 'Oraria' : 'Horaire'}
+                      </Label>
+                      <Switch id="rate-toggle" checked={isDaily} onCheckedChange={setIsDaily} />
+                      <Label htmlFor="rate-toggle" className={`text-sm font-medium ${isDaily ? 'text-theme-gold' : 'text-muted-foreground'}`}>
+                        {language === 'en' ? 'Daily' : language === 'it' ? 'Giornaliera' : 'Journalier'}
+                      </Label>
                     </div>
+                    <span className="text-2xl font-bold text-theme-gold">
+                      {isDaily ? translations.dailyRate[language] : translations.hourlyRate[language]}{' '}
+                      <span className="text-sm font-normal text-muted-foreground">{translations.vatExtra[language]}</span>
+                    </span>
                   </div>
                   <ul className="space-y-2">
                     <li className="flex items-start">
