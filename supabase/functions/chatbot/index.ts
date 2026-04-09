@@ -69,8 +69,8 @@ Aru is a Top-Rated Data Scientist with 5+ years of expertise delivering cutting-
 • Geospatial & Biostatistical Analysis: Specialized in computational methods and spatial data analysis
 
 💰 PRICING STRUCTURE:
-• Daily Rate: €450 + VAT per day for comprehensive project work
-• Hourly Rate: €90 + VAT per hour for consulting and smaller tasks
+• Hourly Rate: €90 + VAT per hour
+• Daily Rate: €550 + VAT per day
 • Data Analysis Projects: €500 - €2,500 depending on complexity and scope
 • Machine Learning Model Development: €1,500 - €8,000 based on requirements and data complexity
 • Custom AI Solution Development: €3,000 - €15,000 for end-to-end solutions
