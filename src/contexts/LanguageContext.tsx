@@ -246,10 +246,20 @@ const translations = {
     it: 'Prezzi',
     fr: 'Tarification'
   },
-  contactForPricing: {
-    en: 'Contact for Pricing',
-    it: 'Contattami per i Prezzi',
-    fr: 'Contactez pour les Tarifs'
+  hourlyRate: {
+    en: '€90/hour',
+    it: '€90/ora',
+    fr: '€90/heure'
+  },
+  dailyRate: {
+    en: '€550/day',
+    it: '€550/giorno',
+    fr: '€550/jour'
+  },
+  vatExtra: {
+    en: '+ VAT',
+    it: '+ IVA',
+    fr: '+ TVA'
   },
   customizedSolutions: {
     en: 'Customized AI solutions',

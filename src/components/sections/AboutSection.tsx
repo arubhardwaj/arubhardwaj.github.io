@@ -31,9 +31,14 @@ const AboutSection = () => {
                     <h4 className="text-lg font-medium mb-2">
                       {translations.pricing[language]}
                     </h4>
-                    <span className="text-2xl font-bold text-theme-gold">
-                      {translations.contactForPricing[language]}
-                    </span>
+                    <div className="flex flex-col gap-1">
+                      <span className="text-2xl font-bold text-theme-gold">
+                        {translations.hourlyRate[language]} <span className="text-sm font-normal text-gray-500">{translations.vatExtra[language]}</span>
+                      </span>
+                      <span className="text-2xl font-bold text-theme-gold">
+                        {translations.dailyRate[language]} <span className="text-sm font-normal text-gray-500">{translations.vatExtra[language]}</span>
+                      </span>
+                    </div>
                   </div>
                   <ul className="space-y-2">
                     <li className="flex items-start">
