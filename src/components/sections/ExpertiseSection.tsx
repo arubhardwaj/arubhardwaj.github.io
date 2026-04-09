@@ -10,15 +10,15 @@ const ExpertiseSection = () => {
   const expertiseAreas = [
     {
       title: {
-        en: "Custom AI Solution Development",
-        it: "Sviluppo di Soluzioni AI Personalizzate",
-        fr: "Développement de Solutions IA Personnalisées"
+        en: "ChatGPT, Claude & LLM Solutions",
+        it: "Soluzioni ChatGPT, Claude & LLM",
+        fr: "Solutions ChatGPT, Claude & LLM"
       },
       icon: Brain,
       description: {
-        en: "Design and implement end-to-end ML pipelines tailored to your business objectives",
-        it: "Progettazione e implementazione di pipeline ML end-to-end su misura per i tuoi obiettivi aziendali",
-        fr: "Conception et implémentation de pipelines ML de bout en bout adaptés à vos objectifs commerciaux"
+        en: "Custom integrations with ChatGPT, OpenAI, Claude AI, and other large language models. RAG pipelines, fine-tuning, and AI chatbot development",
+        it: "Integrazioni personalizzate con ChatGPT, OpenAI, Claude AI e altri modelli linguistici. Pipeline RAG, fine-tuning e sviluppo chatbot AI",
+        fr: "Intégrations personnalisées avec ChatGPT, OpenAI, Claude AI et autres grands modèles de langage. Pipelines RAG, fine-tuning et développement de chatbots IA"
       }
     },
     {
@@ -49,15 +49,15 @@ const ExpertiseSection = () => {
     },
     {
       title: {
-        en: "NLP & Computer Vision",
-        it: "NLP & Computer Vision",
-        fr: "NLP & Vision par Ordinateur"
+        en: "Generative AI & Prompt Engineering",
+        it: "AI Generativa & Prompt Engineering",
+        fr: "IA Générative & Prompt Engineering"
       },
       icon: MessageSquare,
       description: {
-        en: "Production-ready solutions for text classification, sentiment analysis, image recognition, and generative AI",
-        it: "Soluzioni pronte per la produzione per classificazione del testo, analisi del sentiment, riconoscimento delle immagini e AI generativa",
-        fr: "Solutions prêtes pour la production pour la classification de texte, l'analyse de sentiment, la reconnaissance d'image et l'IA générative"
+        en: "Production-ready generative AI solutions: text generation, image AI, sentiment analysis, and intelligent prompt engineering for GPT-4, Claude & Gemini",
+        it: "Soluzioni AI generative pronte per la produzione: generazione di testo, AI per immagini, analisi del sentiment e prompt engineering per GPT-4, Claude & Gemini",
+        fr: "Solutions d'IA générative prêtes pour la production : génération de texte, IA d'image, analyse de sentiment et prompt engineering pour GPT-4, Claude & Gemini"
       }
     },
     {
