@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { CheckCircle } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Switch } from '@/components/ui/switch';
-import { Label } from '@/components/ui/label';
 const AboutSection = () => {
   const [isDaily, setIsDaily] = useState(false);
   const {
@@ -35,14 +33,19 @@ const AboutSection = () => {
                     <h4 className="text-lg font-medium mb-3">
                       {translations.pricing[language]}
                     </h4>
-                    <div className="flex items-center gap-3 mb-3">
-                      <Label htmlFor="rate-toggle" className={`text-sm font-medium ${!isDaily ? 'text-theme-gold' : 'text-muted-foreground'}`}>
+                    <div className="flex items-center gap-1 mb-3 bg-muted rounded-full p-1 w-fit">
+                      <button
+                        onClick={() => setIsDaily(false)}
+                        className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${!isDaily ? 'bg-theme-gold text-white shadow' : 'text-muted-foreground hover:text-foreground'}`}
+                      >
                         {language === 'en' ? 'Hourly' : language === 'it' ? 'Oraria' : 'Horaire'}
-                      </Label>
-                      <Switch id="rate-toggle" checked={isDaily} onCheckedChange={setIsDaily} />
-                      <Label htmlFor="rate-toggle" className={`text-sm font-medium ${isDaily ? 'text-theme-gold' : 'text-muted-foreground'}`}>
+                      </button>
+                      <button
+                        onClick={() => setIsDaily(true)}
+                        className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${isDaily ? 'bg-theme-gold text-white shadow' : 'text-muted-foreground hover:text-foreground'}`}
+                      >
                         {language === 'en' ? 'Daily' : language === 'it' ? 'Giornaliera' : 'Journalier'}
-                      </Label>
+                      </button>
                     </div>
                     <span className="text-2xl font-bold text-theme-gold">
                       {isDaily ? translations.dailyRate[language] : translations.hourlyRate[language]}{' '}

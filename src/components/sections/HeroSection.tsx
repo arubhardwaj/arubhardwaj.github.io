@@ -15,7 +15,7 @@ const HeroSection = () => {
               <span className="text-theme-gold">
                 {translations.intelligentSolutions[language]}
               </span>
-              <span className="block mt-2 text-xl md:text-2xl text-theme-olive">Freelance Data Scientist & AI Consultant</span>
+              <span className="block mt-2 text-xl md:text-2xl text-theme-olive">Freelance AI Developer, ChatGPT & LLM Expert | Data Scientist</span>
             </h1>
             
             <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl">
@@ -47,7 +47,7 @@ const HeroSection = () => {
             <div className="rounded-lg overflow-hidden bg-gray-200 shadow-xl max-w-sm mx-auto md:max-w-none">
               <img 
                 src="/lovable-uploads/3961e730-26c4-4c1e-9142-84c71787419b.png" 
-                alt="Aru Bhardwaj - Top Paris Data Scientist and AI Expert specializing in predictive analytics, NLP, and forecasting" 
+                alt="Aru Bhardwaj - Freelance AI Developer, ChatGPT Expert, Claude AI Specialist, Data Scientist in Paris specializing in OpenAI, LLMs, generative AI, machine learning, NLP, and predictive analytics" 
                 className="w-full h-auto"
               />
             </div>
