@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { CheckCircle } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Switch } from '@/components/ui/switch';
+import { Label } from '@/components/ui/label';
 const AboutSection = () => {
   const {
     language,
