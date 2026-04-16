@@ -6,7 +6,7 @@ import {
   LineChart,
   Home,
   Building,
-  Building2,
+  Gem,
   Vote,
 } from "lucide-react";
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -77,13 +77,13 @@ const IndustriesSection = () => {
     },
     {
       name: {
-        en: "NGOs",
-        it: "ONG",
-        fr: "ONG",
-        de: "NGOs"
+        en: "Luxury",
+        it: "Lusso",
+        fr: "Luxe",
+        de: "Luxus"
       },
-      icon: Building2,
-      color: "bg-teal-100 text-teal-600",
+      icon: Gem,
+      color: "bg-amber-100 text-amber-600",
     },
     {
       name: {
