@@ -3,7 +3,8 @@ import {
   Rocket,
   Info,
   Clock,
-  BadgePercent
+  BadgePercent,
+  ShieldCheck
 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -90,6 +91,22 @@ const WhyChooseMeSection = () => {
       },
       icon: BadgePercent,
       color: 'bg-red-100 text-red-600'
+    },
+    {
+      title: {
+        en: 'End-to-End Ownership',
+        it: 'Gestione Completa',
+        fr: 'Maîtrise de A à Z',
+        de: 'Vollständige Verantwortung'
+      },
+      description: {
+        en: 'From ideation to deployment and monitoring — I own the full lifecycle so nothing falls through the cracks',
+        it: 'Dall\'ideazione al deployment e monitoraggio — gestisco l\'intero ciclo di vita affinché nulla venga trascurato',
+        fr: 'De l\'idéation au déploiement et monitoring — je gère le cycle complet pour que rien ne passe entre les mailles',
+        de: 'Von der Ideenfindung bis zum Deployment und Monitoring — ich verantworte den gesamten Lebenszyklus, damit nichts übersehen wird'
+      },
+      icon: ShieldCheck,
+      color: 'bg-emerald-100 text-emerald-600'
     }
   ];
 
@@ -126,7 +143,7 @@ const WhyChooseMeSection = () => {
             {translations.whyChooseMeCallout[language]}
           </p>
           <button
-            onClick={() => document.querySelector('[id*="consultation"]')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' })}
             className="inline-block bg-theme-gold hover:bg-theme-gold/90 text-white px-6 py-3 rounded-md font-medium transition-all duration-300"
           >
             {translations.letsWorkTogether[language]}
