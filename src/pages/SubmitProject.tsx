@@ -235,8 +235,8 @@ Files Count: ${uploadedFiles.length}
   return (
     <div className="min-h-screen bg-hero-lime py-12 px-6">
       <Helmet>
-        <title>Submit Your AI & Data Science Project | Hire Aru Bhardwaj - Freelance AI Developer</title>
-        <meta name="description" content="Submit your AI, machine learning, or data science project. Hire Aru Bhardwaj, a freelance AI developer specializing in ChatGPT, Claude AI, LLMs, generative AI, and predictive analytics. Get a response within 1 business day." />
+        <title>Hire AI Developer & Data Scientist | Submit Your Project | Aru Bhardwaj - Like Upwork, Malt, Fiverr</title>
+        <meta name="description" content="Hire a top-rated freelance AI developer & data scientist directly. Submit your ChatGPT, Claude AI, LLM, generative AI, machine learning, or data science project. Better than Upwork, Malt, Fiverr — no platform fees, direct contact. Response within 1 business day." />
         <link rel="canonical" href="https://arubhardwaj.eu/submit-project" />
       </Helmet>
       <div className="max-w-4xl mx-auto">

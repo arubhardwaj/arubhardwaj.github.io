@@ -1,7 +1,7 @@
-import { 
-  Lightbulb, 
-  Rocket, 
-  Info, 
+import {
+  Lightbulb,
+  Rocket,
+  Info,
   Clock,
   BadgePercent
 } from 'lucide-react';
@@ -9,18 +9,20 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const WhyChooseMeSection = () => {
   const { language, translations } = useLanguage();
-  
+
   const advantages = [
     {
       title: {
         en: 'AI Strategy Consulting',
         it: 'Consulenza Strategica AI',
-        fr: 'Conseil en Stratégie IA'
+        fr: 'Conseil en Stratégie IA',
+        de: 'KI-Strategieberatung'
       },
       description: {
         en: 'Not just implementation, but strategic guidance on AI adoption to maximize ROI',
         it: 'Non solo implementazione, ma guida strategica sull\'adozione dell\'AI per massimizzare il ROI',
-        fr: 'Pas seulement l\'implémentation, mais des conseils stratégiques sur l\'adoption de l\'IA pour maximiser le ROI'
+        fr: 'Pas seulement l\'implémentation, mais des conseils stratégiques sur l\'adoption de l\'IA pour maximiser le ROI',
+        de: 'Nicht nur Implementierung, sondern strategische Beratung zur KI-Einführung zur Maximierung des ROI'
       },
       icon: Lightbulb,
       color: 'bg-amber-100 text-amber-600'
@@ -29,12 +31,14 @@ const WhyChooseMeSection = () => {
       title: {
         en: 'Rapid Prototyping',
         it: 'Prototipazione Rapida',
-        fr: 'Prototypage Rapide'
+        fr: 'Prototypage Rapide',
+        de: 'Schnelles Prototyping'
       },
       description: {
         en: 'Quick proof-of-concept development to validate AI solutions before full investment',
         it: 'Sviluppo rapido di proof-of-concept per validare soluzioni AI prima dell\'investimento completo',
-        fr: 'Développement rapide de preuves de concept pour valider les solutions d\'IA avant un investissement complet'
+        fr: 'Développement rapide de preuves de concept pour valider les solutions d\'IA avant un investissement complet',
+        de: 'Schnelle Proof-of-Concept-Entwicklung zur Validierung von KI-Lösungen vor der vollständigen Investition'
       },
       icon: Rocket,
       color: 'bg-green-100 text-green-600'
@@ -43,12 +47,14 @@ const WhyChooseMeSection = () => {
       title: {
         en: 'Explainable AI',
         it: 'AI Spiegabile',
-        fr: 'IA Explicable'
+        fr: 'IA Explicable',
+        de: 'Erklärbare KI'
       },
       description: {
         en: 'Making complex models interpretable for stakeholder buy-in and trust',
         it: 'Rendere i modelli complessi interpretabili per l\'adesione e la fiducia degli stakeholder',
-        fr: 'Rendre les modèles complexes interprétables pour l\'adhésion et la confiance des parties prenantes'
+        fr: 'Rendre les modèles complexes interprétables pour l\'adhésion et la confiance des parties prenantes',
+        de: 'Komplexe Modelle interpretierbar machen für die Akzeptanz und das Vertrauen der Stakeholder'
       },
       icon: Info,
       color: 'bg-blue-100 text-blue-600'
@@ -57,12 +63,14 @@ const WhyChooseMeSection = () => {
       title: {
         en: 'Flexible Collaboration',
         it: 'Collaborazione Flessibile',
-        fr: 'Collaboration Flexible'
+        fr: 'Collaboration Flexible',
+        de: 'Flexible Zusammenarbeit'
       },
       description: {
         en: 'On-call support and timezone-aligned project updates for seamless communication',
         it: 'Supporto su chiamata e aggiornamenti di progetto allineati al fuso orario per una comunicazione senza interruzioni',
-        fr: 'Support sur appel et mises à jour de projet alignées sur le fuseau horaire pour une communication fluide'
+        fr: 'Support sur appel et mises à jour de projet alignées sur le fuseau horaire pour une communication fluide',
+        de: 'Bereitschaftssupport und zeitzonengerechte Projektaktualisierungen für nahtlose Kommunikation'
       },
       icon: Clock,
       color: 'bg-purple-100 text-purple-600'
@@ -71,12 +79,14 @@ const WhyChooseMeSection = () => {
       title: {
         en: 'Special Rates',
         it: 'Tariffe Speciali',
-        fr: 'Tarifs Spéciaux'
+        fr: 'Tarifs Spéciaux',
+        de: 'Sondertarife'
       },
       description: {
         en: 'Discounted services for non-profits and startups to support innovation',
         it: 'Servizi scontati per organizzazioni non-profit e startup per sostenere l\'innovazione',
-        fr: 'Services à prix réduit pour les organisations à but non lucratif et les startups pour soutenir l\'innovation'
+        fr: 'Services à prix réduit pour les organisations à but non lucratif et les startups pour soutenir l\'innovation',
+        de: 'Ermäßigte Dienstleistungen für gemeinnützige Organisationen und Startups zur Förderung von Innovation'
       },
       icon: BadgePercent,
       color: 'bg-red-100 text-red-600'
@@ -110,13 +120,13 @@ const WhyChooseMeSection = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="mt-12 text-center">
           <p className="text-lg mb-6">
             {translations.whyChooseMeCallout[language]}
           </p>
-          <button 
-            onClick={() => document.querySelector('[id*="contact"]')?.scrollIntoView({ behavior: 'smooth' })}
+          <button
+            onClick={() => document.querySelector('[id*="consultation"]')?.scrollIntoView({ behavior: 'smooth' })}
             className="inline-block bg-theme-gold hover:bg-theme-gold/90 text-white px-6 py-3 rounded-md font-medium transition-all duration-300"
           >
             {translations.letsWorkTogether[language]}

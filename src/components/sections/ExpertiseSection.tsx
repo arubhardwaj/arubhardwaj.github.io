@@ -12,78 +12,90 @@ const ExpertiseSection = () => {
       title: {
         en: "ChatGPT, Claude & LLM Solutions",
         it: "Soluzioni ChatGPT, Claude & LLM",
-        fr: "Solutions ChatGPT, Claude & LLM"
+        fr: "Solutions ChatGPT, Claude & LLM",
+        de: "ChatGPT, Claude & LLM-Lösungen"
       },
       icon: Brain,
       description: {
         en: "Custom integrations with ChatGPT, OpenAI, Claude AI, and other large language models. RAG pipelines, fine-tuning, AI agents, agentic workflows, and AI chatbot development",
         it: "Integrazioni personalizzate con ChatGPT, OpenAI, Claude AI e altri modelli linguistici. Pipeline RAG, fine-tuning e sviluppo chatbot AI",
-        fr: "Intégrations personnalisées avec ChatGPT, OpenAI, Claude AI et autres grands modèles de langage. Pipelines RAG, fine-tuning et développement de chatbots IA"
+        fr: "Intégrations personnalisées avec ChatGPT, OpenAI, Claude AI et autres grands modèles de langage. Pipelines RAG, fine-tuning et développement de chatbots IA",
+        de: "Individuelle Integrationen mit ChatGPT, OpenAI, Claude AI und anderen großen Sprachmodellen. RAG-Pipelines, Feinabstimmung, KI-Agenten und Chatbot-Entwicklung"
       }
     },
     {
       title: {
         en: "Deep Learning Specialist",
         it: "Specialista in Deep Learning",
-        fr: "Spécialiste en Deep Learning"
+        fr: "Spécialiste en Deep Learning",
+        de: "Deep-Learning-Spezialist"
       },
       icon: Cpu,
       description: {
         en: "Expert in CNN, RNN, LSTM, Transformer architectures using TensorFlow/PyTorch",
         it: "Esperto in architetture CNN, RNN, LSTM, Transformer utilizzando TensorFlow/PyTorch",
-        fr: "Expert en architectures CNN, RNN, LSTM, Transformer utilisant TensorFlow/PyTorch"
+        fr: "Expert en architectures CNN, RNN, LSTM, Transformer utilisant TensorFlow/PyTorch",
+        de: "Experte für CNN, RNN, LSTM und Transformer-Architekturen mit TensorFlow/PyTorch"
       }
     },
     {
       title: {
         en: "Advanced ML Algorithms",
         it: "Algoritmi ML Avanzati",
-        fr: "Algorithmes ML Avancés"
+        fr: "Algorithmes ML Avancés",
+        de: "Fortgeschrittene ML-Algorithmen"
       },
       icon: GitMerge,
       description: {
         en: "Mastery of Random Forest, XGBoost, SVM, and ensemble methods for optimal predictive accuracy",
         it: "Padronanza di Random Forest, XGBoost, SVM e metodi ensemble per un'ottimale accuratezza predittiva",
-        fr: "Maîtrise de Random Forest, XGBoost, SVM et méthodes d'ensemble pour une précision prédictive optimale"
+        fr: "Maîtrise de Random Forest, XGBoost, SVM et méthodes d'ensemble pour une précision prédictive optimale",
+        de: "Beherrschung von Random Forest, XGBoost, SVM und Ensemble-Methoden für optimale Vorhersagegenauigkeit"
       }
     },
     {
       title: {
         en: "Generative AI & Prompt Engineering",
         it: "AI Generativa & Prompt Engineering",
-        fr: "IA Générative & Prompt Engineering"
+        fr: "IA Générative & Prompt Engineering",
+        de: "Generative KI & Prompt Engineering"
       },
       icon: MessageSquare,
       description: {
         en: "Production-ready generative AI solutions: text generation, image AI, sentiment analysis, multimodal AI, AI agents, and intelligent prompt engineering for GPT-4, Claude & Gemini",
         it: "Soluzioni AI generative pronte per la produzione: generazione di testo, AI per immagini, analisi del sentiment e prompt engineering per GPT-4, Claude & Gemini",
-        fr: "Solutions d'IA générative prêtes pour la production : génération de texte, IA d'image, analyse de sentiment et prompt engineering pour GPT-4, Claude & Gemini"
+        fr: "Solutions d'IA générative prêtes pour la production : génération de texte, IA d'image, analyse de sentiment et prompt engineering pour GPT-4, Claude & Gemini",
+        de: "Produktionsreife generative KI-Lösungen: Textgenerierung, Bild-KI, Sentimentanalyse, multimodale KI, KI-Agenten und intelligentes Prompt Engineering für GPT-4, Claude & Gemini"
       }
     },
     {
       title: {
         en: "MLOps & Deployment",
         it: "MLOps & Deployment",
-        fr: "MLOps & Déploiement"
+        fr: "MLOps & Déploiement",
+        de: "MLOps & Bereitstellung"
       },
       icon: Server,
       description: {
         en: "Streamlined model deployment with monitoring and maintenance for sustainable AI solutions",
         it: "Deployment di modelli semplificato con monitoraggio e manutenzione per soluzioni AI sostenibili",
-        fr: "Déploiement de modèles rationalisé avec surveillance et maintenance pour des solutions d'IA durables"
+        fr: "Déploiement de modèles rationalisé avec surveillance et maintenance pour des solutions d'IA durables",
+        de: "Optimierte Modellbereitstellung mit Überwachung und Wartung für nachhaltige KI-Lösungen"
       }
     },
     {
       title: {
         en: "Statistical Analysis & Modeling",
         it: "Analisi Statistica & Modellazione",
-        fr: "Analyse Statistique & Modélisation"
+        fr: "Analyse Statistique & Modélisation",
+        de: "Statistische Analyse & Modellierung"
       },
       icon: BarChart3,
       description: {
         en: "Proficient in Hypothesis Testing, Mixed Models, ARIMA, and more advanced statistical methods",
         it: "Competente in Test di Ipotesi, Modelli Misti, ARIMA e metodi statistici più avanzati",
-        fr: "Compétent en Tests d'Hypothèses, Modèles Mixtes, ARIMA et méthodes statistiques plus avancées"
+        fr: "Compétent en Tests d'Hypothèses, Modèles Mixtes, ARIMA et méthodes statistiques plus avancées",
+        de: "Versiert in Hypothesentests, gemischten Modellen, ARIMA und fortgeschrittenen statistischen Methoden"
       }
     }
   ];
@@ -93,78 +105,90 @@ const ExpertiseSection = () => {
       title: {
         en: "Data Visualization & Dashboards",
         it: "Visualizzazione Dati & Dashboard",
-        fr: "Visualisation de Données & Tableaux de Bord"
+        fr: "Visualisation de Données & Tableaux de Bord",
+        de: "Datenvisualisierung & Dashboards"
       },
       icon: PieChart,
       description: {
         en: "Advanced skills in ggplot2, matplotlib, and R Shiny for insightful visual presentations",
         it: "Competenze avanzate in ggplot2, matplotlib e R Shiny per presentazioni visive approfondite",
-        fr: "Compétences avancées en ggplot2, matplotlib et R Shiny pour des présentations visuelles perspicaces"
+        fr: "Compétences avancées en ggplot2, matplotlib et R Shiny pour des présentations visuelles perspicaces",
+        de: "Fortgeschrittene Fähigkeiten in ggplot2, matplotlib und R Shiny für aufschlussreiche visuelle Darstellungen"
       }
     },
     {
       title: {
         en: "NLP & Text Analysis",
         it: "NLP & Analisi del Testo",
-        fr: "NLP & Analyse de Texte"
+        fr: "NLP & Analyse de Texte",
+        de: "NLP & Textanalyse"
       },
       icon: MessageSquare,
       description: {
         en: "Competent in clustering, text generation, and sentiment analysis",
         it: "Competente in clustering, generazione di testo e analisi del sentiment",
-        fr: "Compétent en clustering, génération de texte et analyse de sentiment"
+        fr: "Compétent en clustering, génération de texte et analyse de sentiment",
+        de: "Kompetent in Clustering, Textgenerierung und Sentimentanalyse"
       }
     },
     {
       title: {
         en: "Geospatial & Biostatistical Analysis",
         it: "Analisi Geospaziale & Biostatistica",
-        fr: "Analyse Géospatiale & Biostatistique"
+        fr: "Analyse Géospatiale & Biostatistique",
+        de: "Geodaten- & Biostatistische Analyse"
       },
       icon: MapPin,
       description: {
         en: "Proficient in applying computational methods to biostatistics and geospatial data",
         it: "Esperto nell'applicazione di metodi computazionali alla biostatistica e ai dati geospaziali",
-        fr: "Compétent dans l'application de méthodes computationnelles aux biostatistiques et aux données géospatiales"
+        fr: "Compétent dans l'application de méthodes computationnelles aux biostatistiques et aux données géospatiales",
+        de: "Versiert in der Anwendung computergestützter Methoden auf Biostatistik und Geodaten"
       }
     },
     {
       title: {
         en: "AWS Technologies",
         it: "Tecnologie AWS",
-        fr: "Technologies AWS"
+        fr: "Technologies AWS",
+        de: "AWS-Technologien"
       },
       icon: Cloud,
       description: {
         en: "Knowledgeable in EC2, EMR, Glue, SageMaker, QuickSight",
         it: "Conoscenza di EC2, EMR, Glue, SageMaker, QuickSight",
-        fr: "Connaissances en EC2, EMR, Glue, SageMaker, QuickSight"
+        fr: "Connaissances en EC2, EMR, Glue, SageMaker, QuickSight",
+        de: "Erfahren mit EC2, EMR, Glue, SageMaker, QuickSight"
       }
     },
     {
       title: {
         en: "Data Scraping & ETL Processes",
         it: "Scraping dei Dati & Processi ETL",
-        fr: "Scraping de Données & Processus ETL"
+        fr: "Scraping de Données & Processus ETL",
+        de: "Data Scraping & ETL-Prozesse"
       },
       icon: Database,
       description: {
         en: "Efficient in extracting and processing large datasets",
         it: "Efficiente nell'estrazione e nell'elaborazione di grandi set di dati",
-        fr: "Efficace dans l'extraction et le traitement de grands ensembles de données"
+        fr: "Efficace dans l'extraction et le traitement de grands ensembles de données",
+        de: "Effizient in der Extraktion und Verarbeitung großer Datensätze"
       }
     },
     {
       title: {
         en: "Machine Learning & AI",
         it: "Machine Learning & AI",
-        fr: "Apprentissage Automatique & IA"
+        fr: "Apprentissage Automatique & IA",
+        de: "Machine Learning & KI"
       },
       icon: Brain,
       description: {
         en: "Expert in PCA, K-means, Random Forest, XGBoost, SVM, Logistic Regression, Deep Learning using TensorFlow",
         it: "Esperto in PCA, K-means, Random Forest, XGBoost, SVM, Regressione Logistica, Deep Learning utilizzando TensorFlow",
-        fr: "Expert en ACP, K-means, Random Forest, XGBoost, SVM, Régression Logistique, Deep Learning utilisant TensorFlow"
+        fr: "Expert en ACP, K-means, Random Forest, XGBoost, SVM, Régression Logistique, Deep Learning utilisant TensorFlow",
+        de: "Experte für PCA, K-Means, Random Forest, XGBoost, SVM, logistische Regression, Deep Learning mit TensorFlow"
       }
     }
   ];

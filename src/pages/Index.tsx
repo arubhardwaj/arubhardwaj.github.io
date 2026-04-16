@@ -45,8 +45,17 @@ const Index = () => {
           <h3>Industries Served</h3>
           <p>Freelance AI developer serving management consulting firms, healthcare organizations, technology companies, marketing agencies, real estate firms, government agencies, NGOs, political campaigns, finance, insurance, retail, e-commerce, energy, manufacturing, education, and legal sectors across France, Europe, and worldwide.</p>
 
-          <h3>Hire a Freelance AI Developer</h3>
-          <p>Available for hire as a freelance AI developer, freelance data scientist, freelance machine learning engineer, AI consultant, ChatGPT developer, Claude AI developer, LLM specialist, generative AI consultant, NLP engineer, and AI strategy advisor. Competitive rates starting at 150 euros per hour or 700 euros per day (exclusive of VAT). Based in Paris, France with availability for remote and on-site projects across Europe and globally.</p>
+          <h3>Hire a Freelance AI Developer — Better Than Upwork, Fiverr, Malt</h3>
+          <p>Available for hire as a freelance AI developer, freelance data scientist, freelance machine learning engineer, AI consultant, ChatGPT developer, Claude AI developer, LLM specialist, generative AI consultant, NLP engineer, and AI strategy advisor. Competitive rates starting at 150 euros per hour or 700 euros per day (exclusive of VAT). Based in Paris, France with availability for remote and on-site projects across Europe and globally. Hire directly without platform fees — better than Upwork, Fiverr, Malt, Freelancer, Toptal, and other freelance platforms. Top-rated AI developer available on Malt and Upwork. Book a 1-hour AI consultation to discuss your project needs.</p>
+
+          <h3>Book an AI Consultation</h3>
+          <p>Book a 1-hour consultation with an expert AI developer and data scientist. Get personalized advice on ChatGPT integration, Claude AI development, LLM strategy, RAG implementation, AI agent architecture, machine learning model selection, and data science roadmap. Ideal for CTOs, product managers, startup founders, and business leaders looking to leverage AI. Available worldwide via video call. Weekend availability for urgent projects.</p>
+
+          <h3>Freelance AI Developer on Upwork, Malt, Fiverr</h3>
+          <p>Looking for a freelance AI developer on Upwork? Searching for a data scientist on Malt? Need a ChatGPT expert on Fiverr? Aru Bhardwaj is a top-rated freelance AI developer available on major freelance platforms including Upwork, Malt, and directly via this website. Skip the platform fees and hire directly for AI development, data science, machine learning, ChatGPT integration, Claude AI, LLM development, and generative AI projects.</p>
+
+          <h3>AI Developer Available Worldwide</h3>
+          <p>Freelance AI developer and data scientist serving clients in the United States, United Kingdom, Australia, India, Israel, Germany, France, Italy, Switzerland, Austria, Belgium, Netherlands, Spain, Portugal, Scandinavia, and all countries worldwide. Fluent in English, German, French, Italian, and Hindi. Remote-first with flexible timezone support for seamless collaboration across continents. KI-Entwickler und Data Scientist für Deutschland, Österreich und die Schweiz. Développeur IA freelance disponible en France et dans toute l'Europe.</p>
         </section>
       </main>
       <Footer />

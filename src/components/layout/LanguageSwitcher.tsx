@@ -14,9 +14,10 @@ const LanguageSwitcher = () => {
   const { language, setLanguage } = useLanguage();
 
   const languages = [
-    { code: 'en', name: 'English' },
-    { code: 'it', name: 'Italiano' },
-    { code: 'fr', name: 'Français' },
+    { code: 'en', name: 'English', flag: '🇬🇧' },
+    { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+    { code: 'fr', name: 'Français', flag: '🇫🇷' },
+    { code: 'it', name: 'Italiano', flag: '🇮🇹' },
   ];
 
   return (
@@ -32,7 +33,7 @@ const LanguageSwitcher = () => {
           <DropdownMenuItem
             key={lang.code}
             className={`${language === lang.code ? 'font-medium bg-muted' : ''} cursor-pointer`}
-            onClick={() => setLanguage(lang.code as 'en' | 'it' | 'fr')}
+            onClick={() => setLanguage(lang.code as 'en' | 'it' | 'fr' | 'de')}
           >
             {lang.name}
           </DropdownMenuItem>

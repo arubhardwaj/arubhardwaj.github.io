@@ -13,13 +13,14 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const IndustriesSection = () => {
   const { language, translations } = useLanguage();
-  
+
   const industries = [
     {
       name: {
         en: "Management Consulting",
         it: "Consulenza Gestionale",
-        fr: "Conseil en Management"
+        fr: "Conseil en Management",
+        de: "Unternehmensberatung"
       },
       icon: Briefcase,
       color: "bg-amber-100 text-amber-600",
@@ -28,7 +29,8 @@ const IndustriesSection = () => {
       name: {
         en: "Healthcare",
         it: "Sanità",
-        fr: "Santé"
+        fr: "Santé",
+        de: "Gesundheitswesen"
       },
       icon: Heart,
       color: "bg-red-100 text-red-600",
@@ -37,7 +39,8 @@ const IndustriesSection = () => {
       name: {
         en: "Technology",
         it: "Tecnologia",
-        fr: "Technologie"
+        fr: "Technologie",
+        de: "Technologie"
       },
       icon: Laptop,
       color: "bg-indigo-100 text-indigo-600",
@@ -46,7 +49,8 @@ const IndustriesSection = () => {
       name: {
         en: "Marketing",
         it: "Marketing",
-        fr: "Marketing"
+        fr: "Marketing",
+        de: "Marketing"
       },
       icon: LineChart,
       color: "bg-green-100 text-green-600",
@@ -55,7 +59,8 @@ const IndustriesSection = () => {
       name: {
         en: "Real Estate",
         it: "Immobiliare",
-        fr: "Immobilier"
+        fr: "Immobilier",
+        de: "Immobilien"
       },
       icon: Home,
       color: "bg-amber-100 text-amber-600",
@@ -64,7 +69,8 @@ const IndustriesSection = () => {
       name: {
         en: "Government",
         it: "Governo",
-        fr: "Gouvernement"
+        fr: "Gouvernement",
+        de: "Regierung"
       },
       icon: Building,
       color: "bg-slate-100 text-slate-600",
@@ -73,7 +79,8 @@ const IndustriesSection = () => {
       name: {
         en: "NGOs",
         it: "ONG",
-        fr: "ONG"
+        fr: "ONG",
+        de: "NGOs"
       },
       icon: Building2,
       color: "bg-teal-100 text-teal-600",
@@ -82,7 +89,8 @@ const IndustriesSection = () => {
       name: {
         en: "Political Campaigns",
         it: "Campagne Politiche",
-        fr: "Campagnes Politiques"
+        fr: "Campagnes Politiques",
+        de: "Politische Kampagnen"
       },
       icon: Vote,
       color: "bg-violet-100 text-violet-600",
@@ -122,7 +130,7 @@ const IndustriesSection = () => {
             {translations.industryCallout[language]}
           </p>
           <a
-            href="#contact"
+            href="#consultation"
             className="inline-block bg-theme-gold hover:bg-theme-gold/90 text-white px-6 py-3 rounded-md font-medium transition-all duration-300"
           >
             {translations.discussIndustryNeeds[language]}

@@ -38,13 +38,13 @@ const AboutSection = () => {
                         onClick={() => setIsDaily(false)}
                         className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${!isDaily ? 'bg-theme-gold text-white shadow' : 'text-muted-foreground hover:text-foreground'}`}
                       >
-                        {language === 'en' ? 'Hourly' : language === 'it' ? 'Oraria' : 'Horaire'}
+                        {language === 'en' ? 'Hourly' : language === 'it' ? 'Oraria' : language === 'de' ? 'Stündlich' : 'Horaire'}
                       </button>
                       <button
                         onClick={() => setIsDaily(true)}
                         className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${isDaily ? 'bg-theme-gold text-white shadow' : 'text-muted-foreground hover:text-foreground'}`}
                       >
-                        {language === 'en' ? 'Daily' : language === 'it' ? 'Giornaliera' : 'Journalier'}
+                        {language === 'en' ? 'Daily' : language === 'it' ? 'Giornaliera' : language === 'de' ? 'Täglich' : 'Journalier'}
                       </button>
                     </div>
                     <span className="text-2xl font-bold text-theme-gold">
