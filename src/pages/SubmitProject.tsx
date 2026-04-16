@@ -11,11 +11,10 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { CalendarIcon, Upload, Sparkles, FileText, ArrowLeft } from 'lucide-react';
+import { CalendarIcon, Upload, FileText, ArrowLeft } from 'lucide-react';
 import { format, addDays } from 'date-fns';
 import { cn } from '@/lib/utils';
 import { toast } from '@/hooks/use-toast';
-import { supabase } from '@/integrations/supabase/client';
 import { Link } from 'react-router-dom';
 
 declare global {
@@ -48,7 +47,6 @@ type FormData = z.infer<typeof formSchema>;
 
 const SubmitProject = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isRewriting, setIsRewriting] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
 
@@ -117,97 +115,10 @@ const SubmitProject = () => {
     setUploadedFiles(prev => prev.filter((_, i) => i !== index));
   };
 
-  const rewriteDescription = async () => {
-    const currentDescription = form.getValues('projectDescription');
-    
-    if (!currentDescription || currentDescription.length < 10) {
-      toast({
-        title: "Description too short",
-        description: "Please enter at least 10 characters before enhancing.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    setIsRewriting(true);
-    
-    try {
-      console.log('Calling enhance-description function with:', currentDescription.substring(0, 100) + '...');
-      
-      const { data, error } = await supabase.functions.invoke('enhance-description', {
-        body: { description: currentDescription }
-      });
-
-      console.log('Enhancement function response:', { data, error });
-
-      if (error) {
-        console.error('Enhancement function error:', error);
-        throw new Error(error.message || 'Failed to enhance description');
-      }
-
-      if (data && data.enhancedDescription) {
-        console.log('Enhancement successful, updating form');
-        form.setValue('projectDescription', data.enhancedDescription);
-        toast({
-          title: "Description enhanced!",
-          description: "Your project description has been enhanced using AI.",
-        });
-      } else {
-        console.error('No enhanced description in response:', data);
-        throw new Error('No enhanced description received from AI service');
-      }
-    } catch (error) {
-      console.error('Error enhancing description:', error);
-      
-      // Provide a helpful fallback message
-      const fallbackMessage = "I'm having trouble enhancing your description right now. Please try again in a moment, or feel free to submit your project as-is.";
-      
-      toast({
-        title: "Enhancement temporarily unavailable",
-        description: fallbackMessage,
-        variant: "destructive",
-      });
-    } finally {
-      setIsRewriting(false);
-    }
-  };
-
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
-    
+
     try {
-      console.log('Submitting project with data:', data);
-      
-      // Upload files to Supabase storage first
-      const uploadedFileLinks: string[] = [];
-      const fileUploadPromises = uploadedFiles.map(async (file, index) => {
-        const fileName = `${Date.now()}_${index}_${file.name}`;
-        const filePath = `${data.contactEmail}/${fileName}`;
-        
-        const { data: uploadData, error: uploadError } = await supabase.storage
-          .from('project-files')
-          .upload(filePath, file);
-          
-        if (uploadError) {
-          console.error('File upload error:', uploadError);
-          throw new Error(`Failed to upload ${file.name}`);
-        }
-        
-        // Get public URL for the uploaded file
-        const { data: urlData } = supabase.storage
-          .from('project-files')
-          .getPublicUrl(filePath);
-          
-        uploadedFileLinks.push(`${file.name}: ${urlData.publicUrl}`);
-        return uploadData;
-      });
-      
-      // Wait for all files to upload
-      if (uploadedFiles.length > 0) {
-        await Promise.all(fileUploadPromises);
-        console.log('All files uploaded successfully');
-      }
-      
       // Format timeline display
       const timelineMap = {
         'less-than-month': 'Less than 1 month',
@@ -248,8 +159,8 @@ ${data.projectDescription}
 ====================
 FILE ATTACHMENTS
 ====================
-${uploadedFileLinks.length > 0 ? 
-  uploadedFileLinks.join('\n') : 
+${uploadedFiles.length > 0 ?
+  uploadedFiles.map(f => f.name).join('\n') :
   'No files attached'
 }
 
@@ -357,25 +268,6 @@ Files Count: ${uploadedFiles.length}
                           {...field}
                         />
                       </FormControl>
-                      <Button
-                        type="button"
-                        variant="outline"
-                        onClick={rewriteDescription}
-                        disabled={isRewriting}
-                        className="w-full sm:w-auto border-theme-gold text-theme-olive hover:bg-theme-gold/10"
-                      >
-                        {isRewriting ? (
-                          <>
-                            <Sparkles className="w-4 h-4 mr-2 animate-spin" />
-                            Enhancing...
-                          </>
-                        ) : (
-                          <>
-                            <Sparkles className="w-4 h-4 mr-2" />
-                            Enhance with AI
-                          </>
-                        )}
-                      </Button>
                     </div>
                     <FormMessage />
                   </FormItem>

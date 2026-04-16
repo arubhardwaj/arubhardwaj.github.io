@@ -247,14 +247,14 @@ const translations = {
     fr: 'Tarification'
   },
   hourlyRate: {
-    en: '€90/hour',
-    it: '€90/ora',
-    fr: '€90/heure'
+    en: '€150/hour',
+    it: '€150/ora',
+    fr: '€150/heure'
   },
   dailyRate: {
-    en: '€550/day',
-    it: '€550/giorno',
-    fr: '€550/jour'
+    en: '€700/day',
+    it: '€700/giorno',
+    fr: '€700/jour'
   },
   vatExtra: {
     en: '+ VAT',

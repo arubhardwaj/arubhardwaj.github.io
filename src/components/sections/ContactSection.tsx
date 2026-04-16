@@ -7,7 +7,12 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
-import { supabase } from '@/integrations/supabase/client';
+
+declare global {
+  interface Window {
+    emailjs: any;
+  }
+}
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -19,15 +24,29 @@ const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    // Load Stripe script only
+    // Load Stripe script
     const stripeScript = document.createElement('script');
     stripeScript.src = 'https://js.stripe.com/v3/buy-button.js';
     stripeScript.async = true;
     document.body.appendChild(stripeScript);
-    
+
+    // Load EmailJS
+    const emailjsScript = document.createElement('script');
+    emailjsScript.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+    emailjsScript.async = true;
+    document.body.appendChild(emailjsScript);
+
+    emailjsScript.onload = () => {
+      window.emailjs.init("hF6O_JgDy5jUxyk-4");
+    };
+
     return () => {
       if (document.body.contains(stripeScript)) {
         document.body.removeChild(stripeScript);
+      }
+      const existingEmailjsScript = document.querySelector('script[src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"]');
+      if (existingEmailjsScript && document.body.contains(existingEmailjsScript)) {
+        document.body.removeChild(existingEmailjsScript);
       }
     };
   }, []);
@@ -42,27 +61,16 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      console.log('Attempting to send contact message...');
-      const { data, error } = await supabase.functions.invoke('send-contact-message', {
-        body: {
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message
-        }
-      });
+      const serviceId = "service_ugxzpww";
+      const templateId = "template_enrm7gd";
+      const publicKey = "hF6O_JgDy5jUxyk-4";
 
-      console.log('Supabase function response:', { data, error });
-
-      if (error) {
-        console.error('Supabase function error:', error);
-        throw error;
-      }
-
-      if (data?.error) {
-        console.error('Function returned error:', data.error);
-        throw new Error(data.error);
-      }
+      await window.emailjs.send(serviceId, templateId, {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message
+      }, publicKey);
 
       toast.success('Message sent successfully! I will get back to you soon.');
       setFormData({ name: '', email: '', subject: '', message: '' });
@@ -86,13 +94,13 @@ const ContactSection = () => {
             Ready to transform your data into actionable insights? Book a consultation or send me a message.
           </p>
         </div>
-        
+
         <Card className="bg-white text-gray-800 max-w-5xl mx-auto">
           <CardContent className="p-0">
             <div className="grid md:grid-cols-2">
               <div className="p-8 border-r border-gray-200">
                 <h3 className="text-xl font-semibold mb-6 text-theme-olive">Contact Information</h3>
-                
+
                 <div className="mb-6">
                   <div className="flex items-center gap-3 mb-3 bg-yellow-50 p-3 rounded-md">
                     <Mail className="h-5 w-5 text-yellow-500" />
@@ -103,7 +111,7 @@ const ContactSection = () => {
                       </a>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center gap-3 mb-3 bg-yellow-50 p-3 rounded-md">
                     <Phone className="h-5 w-5 text-yellow-500" />
                     <div>
@@ -113,7 +121,7 @@ const ContactSection = () => {
                       </a>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center gap-3 bg-yellow-50 p-3 rounded-md">
                     <MapPin className="h-5 w-5 text-yellow-500" />
                     <div>
@@ -122,21 +130,21 @@ const ContactSection = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="mt-8">
                   <h4 className="font-semibold mb-3">Follow Me</h4>
                   <div className="flex gap-3">
-                    <a 
-                      href="https://www.linkedin.com/in/arub" 
-                      target="_blank" 
+                    <a
+                      href="https://www.linkedin.com/in/arub"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="h-10 w-10 rounded-full bg-[#0077b5] hover:bg-[#0077b5]/90 flex items-center justify-center text-white transition-colors"
                     >
                       <Linkedin className="h-5 w-5" />
                     </a>
-                    <a 
-                      href="https://www.malt.fr/profile/arubhardwaj" 
-                      target="_blank" 
+                    <a
+                      href="https://www.malt.fr/profile/arubhardwaj"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="h-10 w-10 rounded-full bg-theme-olive hover:bg-theme-olive/90 flex items-center justify-center text-white transition-colors"
                     >
@@ -144,13 +152,13 @@ const ContactSection = () => {
                     </a>
                   </div>
                 </div>
-                
+
                 <div className="mt-8">
                   <h4 className="font-semibold mb-3">Send Me a Message</h4>
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
                       <Label htmlFor="name" className="text-sm">Full Name</Label>
-                      <Input 
+                      <Input
                         id="name"
                         name="name"
                         placeholder="Enter your full name"
@@ -160,10 +168,10 @@ const ContactSection = () => {
                         className="mt-1"
                       />
                     </div>
-                    
+
                     <div>
                       <Label htmlFor="email" className="text-sm">Email Address</Label>
-                      <Input 
+                      <Input
                         id="email"
                         name="email"
                         type="email"
@@ -174,10 +182,10 @@ const ContactSection = () => {
                         className="mt-1"
                       />
                     </div>
-                    
+
                     <div>
                       <Label htmlFor="subject" className="text-sm">Subject</Label>
-                      <Input 
+                      <Input
                         id="subject"
                         name="subject"
                         placeholder="What is your inquiry about?"
@@ -187,10 +195,10 @@ const ContactSection = () => {
                         className="mt-1"
                       />
                     </div>
-                    
+
                     <div>
                       <Label htmlFor="message" className="text-sm">Message</Label>
-                      <Textarea 
+                      <Textarea
                         id="message"
                         name="message"
                         placeholder="Please provide details about your project or inquiry"
@@ -201,9 +209,9 @@ const ContactSection = () => {
                         className="mt-1"
                       />
                     </div>
-                    
-                    <Button 
-                      type="submit" 
+
+                    <Button
+                      type="submit"
                       className="w-full bg-theme-olive hover:bg-theme-olive/90 text-white"
                       disabled={isSubmitting}
                     >
@@ -212,22 +220,22 @@ const ContactSection = () => {
                   </form>
                 </div>
               </div>
-              
+
               <div className="p-8">
                 <h3 className="text-xl font-semibold mb-6 text-theme-olive">Consultation Package:</h3>
-                
+
                 <div className="text-center mb-6">
                   <p className="font-medium mt-2">1 Hour: Consultation - Data Science, Machine Learning and AI</p>
                 </div>
-                
+
                 <div className="flex justify-center my-6">
                   <div className="w-24 h-24 rounded-full overflow-hidden">
                     <img src="/lovable-uploads/fdeddb7d-ba2f-47aa-a96e-5019d4da87ed.png" alt="Aru Bhardwaj" className="w-full h-full object-cover" />
                   </div>
                 </div>
-                
+
                 <div className="text-center mb-6">
-                  <p className="text-2xl font-bold text-theme-olive mb-2">€90</p>
+                  <p className="text-2xl font-bold text-theme-olive mb-2">€150</p>
                   <div className="stripe-button-container">
                     <stripe-buy-button
                       buy-button-id="buy_btn_1RJidbDRlpu0XokvgWLL4odr"
@@ -243,7 +251,7 @@ const ContactSection = () => {
                     <div className="w-8 h-5 bg-gray-800 rounded"></div>
                   </div>
                 </div>
-                
+
                 <div className="mt-8">
                   <h4 className="text-lg font-semibold mb-4 text-theme-olive">What Happens Next</h4>
                   <ul className="space-y-4">
