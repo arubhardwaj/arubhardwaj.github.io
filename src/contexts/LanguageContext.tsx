@@ -407,10 +407,23 @@ const translations = {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+const detectLanguage = (): Language => {
+  const supported: Language[] = ['en', 'de', 'fr', 'it'];
+  const browserLang = navigator.language || (navigator as any).userLanguage || 'en';
+  const primary = browserLang.split('-')[0].toLowerCase();
+  if (supported.includes(primary as Language)) {
+    return primary as Language;
+  }
+  return 'en';
+};
+
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>(() => {
     const saved = localStorage.getItem('preferred-language');
-    return (saved as Language) || 'en';
+    if (saved && ['en', 'de', 'fr', 'it'].includes(saved)) {
+      return saved as Language;
+    }
+    return detectLanguage();
   });
 
   const setLanguage = (lang: Language) => {
