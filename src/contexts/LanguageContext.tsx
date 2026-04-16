@@ -212,44 +212,44 @@ const translations = {
   whatHappensNext: {
     en: 'What Happens Next?',
     it: 'Cosa Succede Dopo?',
-    fr: 'Que Se Passe-t-il Ensuite ?',
-    de: 'Was passiert als Nächstes?'
+    fr: 'Et Ensuite ?',
+    de: 'Wie geht es weiter?'
   },
   confirmationEmail: {
-    en: 'You\'ll receive a confirmation email within 5 minutes',
-    it: 'Riceverai un\'email di conferma entro 5 minuti',
-    fr: 'Vous recevrez un email de confirmation dans les 5 minutes',
-    de: 'Sie erhalten innerhalb von 5 Minuten eine Bestätigungs-E-Mail'
+    en: 'Instant confirmation delivered to your inbox',
+    it: 'Conferma immediata nella tua casella di posta',
+    fr: 'Confirmation instantanée dans votre boîte mail',
+    de: 'Sofortige Bestätigung in Ihrem Posteingang'
   },
   personalContact: {
-    en: 'I\'ll personally contact you within 24 hours to schedule',
-    it: 'Ti contatterò personalmente entro 24 ore per programmare',
-    fr: 'Je vous contacterai personnellement dans les 24 heures pour programmer',
-    de: 'Ich werde Sie innerhalb von 24 Stunden persönlich kontaktieren, um einen Termin zu vereinbaren'
+    en: 'Personal response from me within 24 hours to align on goals',
+    it: 'Risposta personale da parte mia entro 24 ore per allinearci sugli obiettivi',
+    fr: 'Réponse personnelle de ma part sous 24h pour définir vos objectifs',
+    de: 'Persönliche Rückmeldung von mir innerhalb von 24 Stunden zur Zielabstimmung'
   },
   calendarInvite: {
-    en: 'Calendar invite sent for your preferred time slot',
-    it: 'Invito del calendario inviato per la tua fascia oraria preferita',
-    fr: 'Invitation de calendrier envoyée pour votre créneau préféré',
-    de: 'Kalendereinladung für Ihren bevorzugten Zeitraum gesendet'
+    en: 'Calendar invite for your preferred time slot — no back-and-forth',
+    it: 'Invito calendario per la tua fascia oraria preferita — senza continui scambi',
+    fr: 'Invitation calendrier à votre créneau préféré — sans allers-retours',
+    de: 'Kalendereinladung zu Ihrem Wunschtermin — ohne langes Hin und Her'
   },
   weekendAvailability: {
-    en: 'Weekend availability for urgent projects',
-    it: 'Disponibilità nei weekend per progetti urgenti',
-    fr: 'Disponibilité le week-end pour les projets urgents',
-    de: 'Verfügbarkeit am Wochenende für dringende Projekte'
+    en: 'Evenings & weekends available for time-sensitive projects',
+    it: 'Sere e weekend disponibili per progetti con scadenze urgenti',
+    fr: 'Soirs et week-ends disponibles pour les projets urgents',
+    de: 'Abende und Wochenenden verfügbar für zeitkritische Projekte'
   },
   preparationMaterials: {
-    en: 'Preparation materials shared before our call',
-    it: 'Materiali di preparazione condivisi prima della nostra chiamata',
-    fr: 'Matériaux de préparation partagés avant notre appel',
-    de: 'Vorbereitungsmaterialien werden vor unserem Gespräch geteilt'
+    en: 'Tailored briefing document shared ahead of our session',
+    it: 'Documento di briefing personalizzato condiviso prima della sessione',
+    fr: 'Document de briefing personnalisé partagé avant notre session',
+    de: 'Maßgeschneidertes Briefing-Dokument vor unserem Gespräch bereitgestellt'
   },
   refundPolicy: {
-    en: 'Refunds will be issued within 48 hours if we could not find time slot that works for both',
-    it: 'I rimborsi verranno emessi entro 48 ore se non riusciamo a trovare una fascia oraria che funzioni per entrambi',
-    fr: 'Les remboursements seront émis dans les 48 heures si nous ne trouvons pas de créneau qui convient aux deux parties',
-    de: 'Rückerstattungen erfolgen innerhalb von 48 Stunden, wenn kein passender Termin für beide Seiten gefunden wird'
+    en: 'Full refund guaranteed within 48 hours if scheduling doesn\'t work out',
+    it: 'Rimborso completo garantito entro 48 ore in caso di incompatibilità di orari',
+    fr: 'Remboursement intégral garanti sous 48h si la planification ne convient pas',
+    de: 'Volle Rückerstattung innerhalb von 48 Stunden garantiert, falls kein passender Termin möglich ist'
   },
 
   // Contact Info
