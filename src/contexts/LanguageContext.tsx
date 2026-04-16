@@ -56,16 +56,16 @@ const translations = {
 
   // Hero Section
   transformingData: {
-    en: 'Transforming Data Into',
-    it: 'Trasformare i Dati in',
-    fr: 'Transformer les Données en',
-    de: 'Daten verwandeln in'
+    en: 'I Build AI That',
+    it: 'Creo AI Che',
+    fr: 'Je Crée des IA Qui',
+    de: 'Ich baue KI, die'
   },
   intelligentSolutions: {
-    en: 'Intelligent Solutions',
-    it: 'Soluzioni Intelligenti',
-    fr: 'Solutions Intelligentes',
-    de: 'Intelligente Lösungen'
+    en: 'Ships to Production',
+    it: 'Va in Produzione',
+    fr: 'Passent en Production',
+    de: 'in Produktion geht'
   },
   heroDescription1: {
     en: 'I build with ChatGPT, Claude, LLMs, and cutting-edge generative AI — from intelligent agents and RAG pipelines to predictive models and NLP systems that actually ship to production.',

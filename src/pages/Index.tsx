@@ -26,8 +26,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Aru Bhardwaj | Freelance AI Developer, MVP Builder & ChatGPT Expert | Data Scientist Paris</title>
-        <meta name="description" content="Hire Aru Bhardwaj, a freelance AI developer, MVP builder & data scientist with 7+ years experience. Expert in ChatGPT, Claude AI, OpenAI, LLMs, generative AI, RAG, AI agents, and machine learning. I build AI-powered MVPs, production-ready LLM apps, and data science solutions. Based in Paris, serving clients worldwide." />
+        <title>Aru Bhardwaj | AI Developer, MVP Builder & Data Scientist Paris</title>
+        <meta name="description" content="Freelance AI developer & MVP builder. I build AI-powered products with ChatGPT, Claude, LLMs, and generative AI. 7+ years experience. Paris-based, worldwide." />
         <link rel="canonical" href="https://arubhardwaj.eu/" />
       </Helmet>
       <Navbar />
