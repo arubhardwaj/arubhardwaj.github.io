@@ -238,6 +238,16 @@ Files Count: ${uploadedFiles.length}
         <title>Hire AI Developer & Data Scientist | Submit Your Project | Aru Bhardwaj - Like Upwork, Malt, Fiverr</title>
         <meta name="description" content="Hire a top-rated freelance AI developer & data scientist directly. Submit your ChatGPT, Claude AI, LLM, generative AI, machine learning, or data science project. Better than Upwork, Malt, Fiverr — no platform fees, direct contact. Response within 1 business day." />
         <link rel="canonical" href="https://arubhardwaj.eu/submit-project" />
+        <meta property="og:title" content="Hire AI Developer & Data Scientist | Submit Your Project | Aru Bhardwaj" />
+        <meta property="og:description" content="Submit your AI, ChatGPT, Claude, LLM, or data science project directly to a top-rated freelance AI developer. No platform fees. Response within 1 business day." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://arubhardwaj.eu/submit-project" />
+        <meta property="og:image" content="https://arubhardwaj.eu/images/headshot.jpg" />
+        <meta property="og:site_name" content="Aru Bhardwaj - AI Developer & Data Scientist" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Hire AI Developer & Data Scientist | Submit Your Project" />
+        <meta name="twitter:description" content="Submit your AI or data science project directly. No platform fees, faster than Upwork or Malt. Response within 1 business day." />
+        <meta name="twitter:image" content="https://arubhardwaj.eu/images/headshot.jpg" />
       </Helmet>
       <div className="max-w-4xl mx-auto">
         {/* Header with back link */}

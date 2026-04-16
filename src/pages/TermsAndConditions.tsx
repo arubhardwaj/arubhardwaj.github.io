@@ -11,6 +11,7 @@ const TermsAndConditions = () => {
       <Helmet>
         <title>Terms and Conditions | Aru Bhardwaj - Freelance AI Developer & Data Scientist</title>
         <meta name="description" content="Terms and conditions for AI development, data science consulting, and machine learning services provided by Aru Bhardwaj, freelance AI developer based in Paris." />
+        <meta name="robots" content="noindex, follow" />
         <link rel="canonical" href="https://arubhardwaj.eu/terms-and-conditions" />
       </Helmet>
       <Navbar />
