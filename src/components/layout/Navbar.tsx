@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -11,6 +11,10 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { language, translations } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +34,19 @@ const Navbar = () => {
   };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (isHomePage) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+    }
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    if (isHomePage) {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/#' + sectionId);
+    }
   };
 
   return (
@@ -50,18 +66,18 @@ const Navbar = () => {
           <button onClick={scrollToTop} className="text-foreground hover:text-primary font-medium transition-colors">
             {translations.home[language]}
           </button>
-          <a href="#expertise" className="text-foreground hover:text-primary font-medium transition-colors">
+          <button onClick={() => scrollToSection('expertise')} className="text-foreground hover:text-primary font-medium transition-colors">
             {translations.expertise[language]}
-          </a>
-          <a href="#industries" className="text-foreground hover:text-primary font-medium transition-colors">
+          </button>
+          <button onClick={() => scrollToSection('industries')} className="text-foreground hover:text-primary font-medium transition-colors">
             {translations.industries[language]}
-          </a>
-          <a href="#why-choose-me" className="text-foreground hover:text-primary font-medium transition-colors">
+          </button>
+          <button onClick={() => scrollToSection('why-choose-me')} className="text-foreground hover:text-primary font-medium transition-colors">
             {translations.whyChooseMe[language]}
-          </a>
-          <a href="#consultation" className="text-foreground hover:text-primary font-medium transition-colors">
+          </button>
+          <button onClick={() => scrollToSection('consultation')} className="text-foreground hover:text-primary font-medium transition-colors">
             {translations.contact[language]}
-          </a>
+          </button>
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
@@ -71,7 +87,7 @@ const Navbar = () => {
               Submit Project
             </Button>
           </Link>
-          <Button onClick={() => document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' })} className="bg-theme-gold hover:bg-theme-gold/90 text-white">
+          <Button onClick={() => scrollToSection('consultation')} className="bg-theme-gold hover:bg-theme-gold/90 text-white">
             {translations.bookConsultation[language]}
           </Button>
         </div>
@@ -96,25 +112,25 @@ const Navbar = () => {
             <button onClick={() => { scrollToTop(); setIsMenuOpen(false); }} className="text-foreground hover:text-primary font-medium transition-colors py-2 text-left">
               {translations.home[language]}
             </button>
-            <a href="#expertise" className="text-foreground hover:text-primary font-medium transition-colors py-2" onClick={() => setIsMenuOpen(false)}>
+            <button onClick={() => { scrollToSection('expertise'); setIsMenuOpen(false); }} className="text-foreground hover:text-primary font-medium transition-colors py-2 text-left">
               {translations.expertise[language]}
-            </a>
-            <a href="#industries" className="text-foreground hover:text-primary font-medium transition-colors py-2" onClick={() => setIsMenuOpen(false)}>
+            </button>
+            <button onClick={() => { scrollToSection('industries'); setIsMenuOpen(false); }} className="text-foreground hover:text-primary font-medium transition-colors py-2 text-left">
               {translations.industries[language]}
-            </a>
-            <a href="#why-choose-me" className="text-foreground hover:text-primary font-medium transition-colors py-2" onClick={() => setIsMenuOpen(false)}>
+            </button>
+            <button onClick={() => { scrollToSection('why-choose-me'); setIsMenuOpen(false); }} className="text-foreground hover:text-primary font-medium transition-colors py-2 text-left">
               {translations.whyChooseMe[language]}
-            </a>
-            <a href="#consultation" className="text-foreground hover:text-primary font-medium transition-colors py-2" onClick={() => setIsMenuOpen(false)}>
+            </button>
+            <button onClick={() => { scrollToSection('consultation'); setIsMenuOpen(false); }} className="text-foreground hover:text-primary font-medium transition-colors py-2 text-left">
               {translations.contact[language]}
-            </a>
+            </button>
             <Link to="/submit-project" onClick={() => setIsMenuOpen(false)}>
               <Button variant="outline" className="border-theme-olive text-theme-olive hover:bg-theme-olive hover:text-white w-full">
                 Submit Project
               </Button>
             </Link>
             <Button onClick={() => {
-              document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
+              scrollToSection('consultation');
               setIsMenuOpen(false);
             }} className="bg-theme-gold hover:bg-theme-gold/90 text-white w-full">
               {translations.bookConsultation[language]}
