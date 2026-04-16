@@ -84,7 +84,7 @@ const Navbar = () => {
           <LanguageSwitcher />
           <Link to="/submit-project">
             <Button variant="outline" className="border-theme-olive text-theme-olive hover:bg-theme-olive hover:text-white">
-              Submit Project
+              {translations.submitYourProject[language]}
             </Button>
           </Link>
           <Button onClick={() => scrollToSection('consultation')} className="bg-theme-gold hover:bg-theme-gold/90 text-white">
@@ -126,7 +126,7 @@ const Navbar = () => {
             </button>
             <Link to="/submit-project" onClick={() => setIsMenuOpen(false)}>
               <Button variant="outline" className="border-theme-olive text-theme-olive hover:bg-theme-olive hover:text-white w-full">
-                Submit Project
+                {translations.submitYourProject[language]}
               </Button>
             </Link>
             <Button onClick={() => {

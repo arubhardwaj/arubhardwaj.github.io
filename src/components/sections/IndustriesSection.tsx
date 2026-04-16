@@ -130,7 +130,7 @@ const IndustriesSection = () => {
             {translations.industryCallout[language]}
           </p>
           <a
-            href="#consultation"
+            href="/#consultation"
             className="inline-block bg-theme-gold hover:bg-theme-gold/90 text-white px-6 py-3 rounded-md font-medium transition-all duration-300"
           >
             {translations.discussIndustryNeeds[language]}

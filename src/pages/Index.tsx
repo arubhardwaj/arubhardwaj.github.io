@@ -26,7 +26,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Aru Bhardwaj | AI Developer, MVP Builder & Data Scientist Paris</title>
+        <title>Aru Bhardwaj | AI Developer & MVP Builder | Paris</title>
         <meta name="description" content="Freelance AI developer & MVP builder. I build AI-powered products with ChatGPT, Claude, LLMs, and generative AI. 7+ years experience. Paris-based, worldwide." />
         <link rel="canonical" href="https://arubhardwaj.eu/" />
       </Helmet>
