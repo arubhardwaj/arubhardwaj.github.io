@@ -230,7 +230,7 @@ const ContactSection = () => {
 
                 <div className="flex justify-center my-6">
                   <div className="w-24 h-24 rounded-full overflow-hidden">
-                    <img src="/lovable-uploads/fdeddb7d-ba2f-47aa-a96e-5019d4da87ed.png" alt="Aru Bhardwaj" className="w-full h-full object-cover" />
+                    <img src="/lovable-uploads/fdeddb7d-ba2f-47aa-a96e-5019d4da87ed.png" alt="Aru Bhardwaj - Freelance AI Developer & Data Science Consultant" className="w-full h-full object-cover" loading="lazy" />
                   </div>
                 </div>
 

@@ -1,26 +1,35 @@
+const CACHE_NAME = 'arubhardwaj-v1';
+const ASSETS_TO_CACHE = [
+  '/',
+  '/data-icon.svg',
+  '/images/og-image.jpg'
+];
 
-// Simple service worker to intercept API calls for frontend-only app
-self.addEventListener('fetch', event => {
-  if (event.request.url.includes('/api/enhance-description')) {
-    event.respondWith(handleEnhanceDescription(event.request));
-  }
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS_TO_CACHE))
+  );
+  self.skipWaiting();
 });
 
-async function handleEnhanceDescription(request) {
-  try {
-    const { description } = await request.json();
-    
-    // This is where your Gemini API key would be used securely
-    // For now, returning a mock enhanced description
-    const enhancedDescription = `Enhanced: ${description} - This project requires comprehensive data analysis, machine learning implementation, and strategic insights to deliver measurable business value through advanced AI solutions.`;
-    
-    return new Response(JSON.stringify({ enhancedDescription }), {
-      headers: { 'Content-Type': 'application/json' },
-    });
-  } catch (error) {
-    return new Response(JSON.stringify({ error: 'Failed to enhance description' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
-}
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)))
+    )
+  );
+  self.clients.claim();
+});
+
+self.addEventListener('fetch', event => {
+  if (event.request.method !== 'GET') return;
+  event.respondWith(
+    fetch(event.request)
+      .then(response => {
+        const clone = response.clone();
+        caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+        return response;
+      })
+      .catch(() => caches.match(event.request))
+  );
+});

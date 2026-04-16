@@ -44,11 +44,14 @@ const HeroSection = () => {
             </div>
           </div>
           <div className="relative order-first md:order-last mb-8 md:mb-0">
-            <div className="rounded-lg overflow-hidden bg-gray-200 shadow-xl max-w-sm mx-auto md:max-w-none">
-              <img 
-                src="/lovable-uploads/3961e730-26c4-4c1e-9142-84c71787419b.png" 
-                alt="Aru Bhardwaj - Freelance AI Developer, ChatGPT Expert, Claude AI Specialist, Data Scientist in Paris specializing in OpenAI, LLMs, generative AI, machine learning, NLP, and predictive analytics" 
-                className="w-full h-auto"
+            <div className="rounded-2xl overflow-hidden shadow-2xl max-w-sm mx-auto md:max-w-none ring-4 ring-theme-gold/20">
+              <img
+                src="/images/headshot.jpg"
+                alt="Aru Bhardwaj - Freelance AI Developer, ChatGPT Expert, Claude AI Specialist, Data Scientist in Paris specializing in OpenAI, LLMs, generative AI, machine learning, NLP, and predictive analytics"
+                className="w-full h-auto object-cover"
+                loading="eager"
+                width="600"
+                height="600"
               />
             </div>
           </div>

@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import Index from "./pages/Index";
 import SubmitProject from "./pages/SubmitProject";
@@ -18,7 +19,6 @@ const AppContent = () => (
       <Route path="/" element={<Index />} />
       <Route path="/submit-project" element={<SubmitProject />} />
       <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
     </Routes>
   </BrowserRouter>
@@ -26,15 +26,17 @@ const AppContent = () => (
 
 const App = () => {
   return (
-    <QueryClientProvider client={queryClient}>
-      <LanguageProvider>
-        <TooltipProvider>
-          <AppContent />
-          <Toaster />
-          <Sonner />
-        </TooltipProvider>
-      </LanguageProvider>
-    </QueryClientProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <LanguageProvider>
+          <TooltipProvider>
+            <AppContent />
+            <Toaster />
+            <Sonner />
+          </TooltipProvider>
+        </LanguageProvider>
+      </QueryClientProvider>
+    </HelmetProvider>
   );
 };
 

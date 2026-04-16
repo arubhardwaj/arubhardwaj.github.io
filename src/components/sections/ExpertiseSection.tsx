@@ -16,7 +16,7 @@ const ExpertiseSection = () => {
       },
       icon: Brain,
       description: {
-        en: "Custom integrations with ChatGPT, OpenAI, Claude AI, and other large language models. RAG pipelines, fine-tuning, and AI chatbot development",
+        en: "Custom integrations with ChatGPT, OpenAI, Claude AI, and other large language models. RAG pipelines, fine-tuning, AI agents, agentic workflows, and AI chatbot development",
         it: "Integrazioni personalizzate con ChatGPT, OpenAI, Claude AI e altri modelli linguistici. Pipeline RAG, fine-tuning e sviluppo chatbot AI",
         fr: "Intégrations personnalisées avec ChatGPT, OpenAI, Claude AI et autres grands modèles de langage. Pipelines RAG, fine-tuning et développement de chatbots IA"
       }
@@ -55,7 +55,7 @@ const ExpertiseSection = () => {
       },
       icon: MessageSquare,
       description: {
-        en: "Production-ready generative AI solutions: text generation, image AI, sentiment analysis, and intelligent prompt engineering for GPT-4, Claude & Gemini",
+        en: "Production-ready generative AI solutions: text generation, image AI, sentiment analysis, multimodal AI, AI agents, and intelligent prompt engineering for GPT-4, Claude & Gemini",
         it: "Soluzioni AI generative pronte per la produzione: generazione di testo, AI per immagini, analisi del sentiment e prompt engineering per GPT-4, Claude & Gemini",
         fr: "Solutions d'IA générative prêtes pour la production : génération de texte, IA d'image, analyse de sentiment et prompt engineering pour GPT-4, Claude & Gemini"
       }

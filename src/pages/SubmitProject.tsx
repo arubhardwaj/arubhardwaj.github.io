@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -233,6 +234,11 @@ Files Count: ${uploadedFiles.length}
 
   return (
     <div className="min-h-screen bg-hero-lime py-12 px-6">
+      <Helmet>
+        <title>Submit Your AI & Data Science Project | Hire Aru Bhardwaj - Freelance AI Developer</title>
+        <meta name="description" content="Submit your AI, machine learning, or data science project. Hire Aru Bhardwaj, a freelance AI developer specializing in ChatGPT, Claude AI, LLMs, generative AI, and predictive analytics. Get a response within 1 business day." />
+        <link rel="canonical" href="https://arubhardwaj.eu/submit-project" />
+      </Helmet>
       <div className="max-w-4xl mx-auto">
         {/* Header with back link */}
         <div className="mb-8">

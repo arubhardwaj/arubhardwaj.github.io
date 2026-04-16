@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -7,6 +8,11 @@ import { Separator } from '@/components/ui/separator';
 const TermsAndConditions = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Terms and Conditions | Aru Bhardwaj - Freelance AI Developer & Data Scientist</title>
+        <meta name="description" content="Terms and conditions for AI development, data science consulting, and machine learning services provided by Aru Bhardwaj, freelance AI developer based in Paris." />
+        <link rel="canonical" href="https://arubhardwaj.eu/terms-and-conditions" />
+      </Helmet>
       <Navbar />
       <main className="pt-20 pb-16">
         <div className="container mx-auto px-4 md:px-8 max-w-4xl">
