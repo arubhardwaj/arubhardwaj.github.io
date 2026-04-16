@@ -68,16 +68,16 @@ const translations = {
     de: 'Intelligente Lösungen'
   },
   heroDescription1: {
-    en: 'Expert data scientist specializing in predictive analytics, NLP, forecasting, and machine learning solutions for businesses across Europe.',
-    it: 'Scienziato dei dati esperto specializzato in analisi predittiva, NLP, previsioni e soluzioni di machine learning per aziende in Europa.',
-    fr: 'Expert en science des données spécialisé dans l\'analyse prédictive, le NLP, les prévisions et les solutions d\'apprentissage automatique pour les entreprises en Europe.',
-    de: 'Erfahrener Data Scientist spezialisiert auf Predictive Analytics, NLP, Prognosen und Machine-Learning-Lösungen für Unternehmen in ganz Europa.'
+    en: 'I build with ChatGPT, Claude, LLMs, and cutting-edge generative AI — from intelligent agents and RAG pipelines to predictive models and NLP systems that actually ship to production.',
+    it: 'Sviluppo con ChatGPT, Claude, LLM e intelligenza artificiale generativa all\'avanguardia — dagli agenti intelligenti e pipeline RAG ai modelli predittivi e sistemi NLP pronti per la produzione.',
+    fr: 'Je développe avec ChatGPT, Claude, LLMs et l\'IA générative de pointe — des agents intelligents et pipelines RAG aux modèles prédictifs et systèmes NLP prêts pour la production.',
+    de: 'Ich entwickle mit ChatGPT, Claude, LLMs und modernster generativer KI — von intelligenten Agenten und RAG-Pipelines bis hin zu Vorhersagemodellen und NLP-Systemen für den Produktiveinsatz.'
   },
   heroDescription2: {
-    en: 'Let me help you unlock the hidden insights in your data and build AI systems that drive real business results.',
-    it: 'Lascia che ti aiuti a sbloccare le intuizioni nascoste nei tuoi dati e a costruire sistemi AI che generano risultati commerciali reali.',
-    fr: 'Laissez-moi vous aider à déverrouiller les insights cachés dans vos données et à construire des systèmes d\'IA qui génèrent de vrais résultats commerciaux.',
-    de: 'Lassen Sie mich Ihnen helfen, verborgene Erkenntnisse in Ihren Daten freizulegen und KI-Systeme aufzubauen, die echte Geschäftsergebnisse liefern.'
+    en: 'Whether you need an AI-powered product, a custom LLM solution, or deep data science — I turn complex ideas into production-ready systems that drive real business impact.',
+    it: 'Che tu abbia bisogno di un prodotto basato sull\'IA, una soluzione LLM personalizzata o data science avanzata — trasformo idee complesse in sistemi pronti per la produzione con impatto reale.',
+    fr: 'Que vous ayez besoin d\'un produit propulsé par l\'IA, d\'une solution LLM sur mesure ou de data science approfondie — je transforme les idées complexes en systèmes prêts pour la production.',
+    de: 'Ob Sie ein KI-gestütztes Produkt, eine maßgeschneiderte LLM-Lösung oder tiefgreifende Data Science benötigen — ich verwandle komplexe Ideen in produktionsreife Systeme mit echtem Geschäftsimpact.'
   },
   exploreExpertise: {
     en: 'Explore My Expertise',
