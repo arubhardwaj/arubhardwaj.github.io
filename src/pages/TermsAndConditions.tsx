@@ -147,7 +147,7 @@ const TermsAndConditions = () => {
                 <Separator />
 
                 <section>
-                  <h2 className="text-2xl font-semibent text-theme-olive mb-4">8. Limitation of Liability</h2>
+                  <h2 className="text-2xl font-semibold text-theme-olive mb-4">8. Limitation of Liability</h2>
                   <div className="space-y-3 text-gray-700">
                     <p>
                       While we strive for excellence in all deliverables, our liability is limited to 

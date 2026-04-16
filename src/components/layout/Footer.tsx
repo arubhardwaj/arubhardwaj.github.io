@@ -1,10 +1,21 @@
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Mail, Phone, MapPin, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
+  const scrollToSection = (sectionId: string) => {
+    if (isHomePage) {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/#' + sectionId);
+    }
+  };
+
   return (
     <footer className="bg-hero-lime text-gray-700 pt-16 pb-6">
       <div className="container mx-auto px-4 md:px-8">
@@ -57,16 +68,16 @@ const Footer = () => {
                 <Link to="/" className="text-gray-600 hover:text-theme-gold transition-colors">Home</Link>
               </li>
               <li>
-                <a href="#expertise" className="text-gray-600 hover:text-theme-gold transition-colors">Expertise</a>
+                <button onClick={() => scrollToSection('expertise')} className="text-gray-600 hover:text-theme-gold transition-colors">Expertise</button>
               </li>
               <li>
-                <a href="#industries" className="text-gray-600 hover:text-theme-gold transition-colors">Industries</a>
+                <button onClick={() => scrollToSection('industries')} className="text-gray-600 hover:text-theme-gold transition-colors">Industries</button>
               </li>
               <li>
-                <a href="#why-choose-me" className="text-gray-600 hover:text-theme-gold transition-colors">Why Choose Me</a>
+                <button onClick={() => scrollToSection('why-choose-me')} className="text-gray-600 hover:text-theme-gold transition-colors">Why Choose Me</button>
               </li>
               <li>
-                <a href="#consultation" className="text-gray-600 hover:text-theme-gold transition-colors">Contact</a>
+                <button onClick={() => scrollToSection('consultation')} className="text-gray-600 hover:text-theme-gold transition-colors">Contact</button>
               </li>
               <li>
                 <Link to="/submit-project" className="text-gray-600 hover:text-theme-gold transition-colors">Submit a Project</Link>
@@ -79,11 +90,11 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <Mail size={20} className="shrink-0 mt-1 text-theme-gold" />
-                <span>aru.bhardwaj@insightrix.eu</span>
+                <a href="mailto:aru.bhardwaj@insightrix.eu" className="hover:text-theme-gold transition-colors">aru.bhardwaj@insightrix.eu</a>
               </li>
               <li className="flex items-start gap-3">
                 <Phone size={20} className="shrink-0 mt-1 text-theme-gold" />
-                <span>+33 (0) 766985210</span>
+                <a href="tel:+33766985210" className="hover:text-theme-gold transition-colors">+33 (0) 766985210</a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin size={20} className="shrink-0 mt-1 text-theme-gold" />

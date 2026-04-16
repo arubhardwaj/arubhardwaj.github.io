@@ -375,8 +375,8 @@ const translations = {
   },
   apart: {
     en: 'Apart',
-    it: '',
-    fr: '',
+    it: 'Dagli Altri',
+    fr: 'Des Autres',
     de: 'unterscheidet'
   },
   whyChooseMeDescription: {
@@ -396,13 +396,27 @@ const translations = {
     it: 'Lavoriamo Insieme',
     fr: 'Travaillons Ensemble',
     de: 'Zusammenarbeiten'
+  },
+  submitYourProject: {
+    en: 'Submit Your Project',
+    it: 'Invia il Tuo Progetto',
+    fr: 'Soumettez Votre Projet',
+    de: 'Projekt Einreichen'
   }
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguageState] = useState<Language>(() => {
+    const saved = localStorage.getItem('preferred-language');
+    return (saved as Language) || 'en';
+  });
+
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+    localStorage.setItem('preferred-language', lang);
+  };
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, translations }}>

@@ -70,7 +70,10 @@ const SubmitProject = () => {
     script.onload = () => {
       window.emailjs.init("hF6O_JgDy5jUxyk-4");
     };
-    
+    script.onerror = () => {
+      console.warn('Failed to load EmailJS script. Form submissions may not work.');
+    };
+
     return () => {
       if (document.body.contains(script)) {
         document.body.removeChild(script);
@@ -99,16 +102,38 @@ const SubmitProject = () => {
       'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
     ];
     
-    const validFiles = files.filter(file => allowedTypes.includes(file.type));
-    
-    if (validFiles.length !== files.length) {
+    const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB per file
+    const MAX_TOTAL_FILES = 5;
+
+    const validFiles = files.filter(file => {
+      if (!allowedTypes.includes(file.type)) {
+        toast({
+          title: "Invalid file type",
+          description: `"${file.name}" is not supported. Please upload PDF, DOC, DOCX, CSV, or Excel files.`,
+          variant: "destructive",
+        });
+        return false;
+      }
+      if (file.size > MAX_FILE_SIZE) {
+        toast({
+          title: "File too large",
+          description: `"${file.name}" exceeds 10MB limit.`,
+          variant: "destructive",
+        });
+        return false;
+      }
+      return true;
+    });
+
+    if (uploadedFiles.length + validFiles.length > MAX_TOTAL_FILES) {
       toast({
-        title: "Invalid file type",
-        description: "Please upload only PDF, DOC, DOCX, CSV, or Excel files.",
+        title: "Too many files",
+        description: `Maximum ${MAX_TOTAL_FILES} files allowed.`,
         variant: "destructive",
       });
+      return;
     }
-    
+
     setUploadedFiles(prev => [...prev, ...validFiles]);
   };
 

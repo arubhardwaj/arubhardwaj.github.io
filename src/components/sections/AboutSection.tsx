@@ -67,11 +67,11 @@ const AboutSection = () => {
                     </li>
                   </ul>
                   <div className="mt-6 space-y-3">
-                    <a href="#consultation" className="inline-block w-full bg-theme-gold hover:bg-theme-gold/90 text-white px-6 py-3 rounded-md font-medium transition-all duration-300 text-center">
+                    <a href="/#consultation" className="inline-block w-full bg-theme-gold hover:bg-theme-gold/90 text-white px-6 py-3 rounded-md font-medium transition-all duration-300 text-center">
                       {translations.scheduleConsultation[language]}
                     </a>
                     <a href="/submit-project" className="inline-block w-full bg-theme-olive hover:bg-theme-olive/90 text-white px-6 py-3 rounded-md font-medium transition-all duration-300 text-center">
-                      Submit Your Project
+                      {translations.submitYourProject[language]}
                     </a>
                   </div>
                 </CardContent>

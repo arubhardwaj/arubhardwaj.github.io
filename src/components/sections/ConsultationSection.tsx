@@ -61,6 +61,9 @@ const ConsultationSection = () => {
     const script = document.createElement('script');
     script.src = 'https://js.stripe.com/v3/buy-button.js';
     script.async = true;
+    script.onerror = () => {
+      console.warn('Failed to load Stripe script. Payment button may not work.');
+    };
     document.body.appendChild(script);
 
     // Load EmailJS
@@ -68,10 +71,13 @@ const ConsultationSection = () => {
     emailjsScript.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
     emailjsScript.async = true;
     document.body.appendChild(emailjsScript);
-    
+
     emailjsScript.onload = () => {
       // Initialize EmailJS with correct public key
       window.emailjs.init("hF6O_JgDy5jUxyk-4");
+    };
+    emailjsScript.onerror = () => {
+      console.warn('Failed to load EmailJS script. Contact form may not work.');
     };
 
     return () => {
