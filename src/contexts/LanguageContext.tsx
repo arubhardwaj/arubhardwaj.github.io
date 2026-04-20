@@ -375,6 +375,24 @@ const translations = {
     fr: 'Problème avec le planificateur ? Écrivez à aru.bhardwaj@insightrix.eu',
     de: 'Probleme mit dem Planer? Schreiben Sie an aru.bhardwaj@insightrix.eu'
   },
+  bookCallGateTitle: {
+    en: 'Complete Payment to Book a Time',
+    it: 'Completa il Pagamento per Prenotare',
+    fr: 'Finalisez le Paiement pour Réserver',
+    de: 'Zahlung Abschließen zum Buchen'
+  },
+  bookCallGateBody: {
+    en: 'This scheduling page is reserved for clients who have booked a paid consultation. Choose a 30-min or 60-min call first, then you\'ll be redirected back here to pick a time.',
+    it: 'Questa pagina è riservata ai clienti che hanno prenotato una consulenza a pagamento. Scegli prima una chiamata di 30 o 60 minuti, poi verrai reindirizzato qui per scegliere un orario.',
+    fr: 'Cette page est réservée aux clients ayant réservé une consultation payante. Choisissez d\'abord un appel de 30 ou 60 minutes, puis vous serez redirigé ici pour choisir un créneau.',
+    de: 'Diese Seite ist Kunden vorbehalten, die eine bezahlte Beratung gebucht haben. Wählen Sie zuerst ein 30- oder 60-Minuten-Gespräch, dann werden Sie hierher zurückgeleitet, um einen Termin zu wählen.'
+  },
+  bookCallGateCta: {
+    en: 'Book a Consultation',
+    it: 'Prenota una Consulenza',
+    fr: 'Réserver une Consultation',
+    de: 'Beratung Buchen'
+  },
   customizedSolutions: {
     en: 'Customized AI solutions',
     it: 'Soluzioni AI personalizzate',
