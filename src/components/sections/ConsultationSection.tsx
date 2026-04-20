@@ -38,7 +38,7 @@ declare global {
 }
 
 const PAYMENT_LINK_30_MIN = 'https://buy.stripe.com/8x28wPcVL3cj4889hR8so06';
-const PAYMENT_LINK_60_MIN = 'https://book.stripe.com/28og05dXm9e7dTafYZ';
+const PAYMENT_LINK_60_MIN = 'https://book.stripe.com/3cI6oH4pf9AHaww1Pp8so07';
 
 const ConsultationSection = () => {
   const { language, translations } = useLanguage();
