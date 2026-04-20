@@ -17,6 +17,7 @@ import MvpBuilderPage from "./pages/services/MvpBuilderPage";
 import SovereignAiPage from "./pages/services/SovereignAiPage";
 import NotFound from "./pages/NotFound";
 import BookCallNudge from "./components/BookCallNudge";
+import ScrollProgressNav from "./components/ScrollProgressNav";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const AppContent = () => (
       <Route path="/book-call" element={<BookCall />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
+    <ScrollProgressNav />
     <BookCallNudge />
   </BrowserRouter>
 );

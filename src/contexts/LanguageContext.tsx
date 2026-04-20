@@ -581,6 +581,36 @@ const translations = {
     fr: 'FAQ',
     de: 'FAQ'
   },
+  aboutMe: {
+    en: 'About',
+    it: 'Chi Sono',
+    fr: 'À propos',
+    de: 'Über mich'
+  },
+  services: {
+    en: 'Services',
+    it: 'Servizi',
+    fr: 'Services',
+    de: 'Leistungen'
+  },
+  fractionalCtoService: {
+    en: 'Fractional CTO',
+    it: 'Fractional CTO',
+    fr: 'Fractional CTO',
+    de: 'Fractional CTO'
+  },
+  mvpBuilderService: {
+    en: 'MVP Builder',
+    it: 'MVP Builder',
+    fr: 'MVP Builder',
+    de: 'MVP Builder'
+  },
+  sovereignAiService: {
+    en: 'Sovereign AI',
+    it: 'AI Sovrana',
+    fr: 'IA Souveraine',
+    de: 'Souveräne KI'
+  },
   faqTitle: {
     en: 'Frequently Asked Questions',
     it: 'Domande Frequenti',
