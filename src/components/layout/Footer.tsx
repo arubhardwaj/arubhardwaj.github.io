@@ -68,19 +68,22 @@ const Footer = () => {
                 <Link to="/" className="text-gray-600 hover:text-theme-gold transition-colors">Home</Link>
               </li>
               <li>
-                <button onClick={() => scrollToSection('expertise')} className="text-gray-600 hover:text-theme-gold transition-colors">Expertise</button>
+                <Link to="/about" className="text-gray-600 hover:text-theme-gold transition-colors">About</Link>
               </li>
               <li>
-                <button onClick={() => scrollToSection('industries')} className="text-gray-600 hover:text-theme-gold transition-colors">Industries</button>
+                <Link to="/services/fractional-cto" className="text-gray-600 hover:text-theme-gold transition-colors">Fractional CTO</Link>
               </li>
               <li>
-                <button onClick={() => scrollToSection('why-choose-me')} className="text-gray-600 hover:text-theme-gold transition-colors">Why Choose Me</button>
+                <Link to="/services/mvp-builder" className="text-gray-600 hover:text-theme-gold transition-colors">MVP Builder</Link>
               </li>
               <li>
-                <button onClick={() => scrollToSection('consultation')} className="text-gray-600 hover:text-theme-gold transition-colors">Contact</button>
+                <Link to="/services/sovereign-ai" className="text-gray-600 hover:text-theme-gold transition-colors">Sovereign AI</Link>
               </li>
               <li>
                 <Link to="/submit-project" className="text-gray-600 hover:text-theme-gold transition-colors">Submit a Project</Link>
+              </li>
+              <li>
+                <button onClick={() => scrollToSection('consultation')} className="text-gray-600 hover:text-theme-gold transition-colors">Contact</button>
               </li>
             </ul>
           </div>
@@ -118,12 +121,22 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-gray-300 pt-6 text-center text-gray-600">
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-2">
-            <p>&copy; {currentYear} Aru Bhardwaj. All rights reserved.</p>
-            <div className="flex gap-4">
+        <div className="border-t border-gray-300 pt-6 text-gray-600">
+          <div className="flex flex-col items-center gap-3 text-center">
+            <p className="text-sm">
+              &copy; {currentYear} <strong>Insightrix SAS</strong>. All rights reserved.
+              <span className="block text-xs text-gray-500 mt-1">Aru Bhardwaj — Fractional CTO &amp; AI Strategist</span>
+            </p>
+            <p className="text-xs text-gray-500">
+              60 Rue François Ier, 75008 Paris, France · SIRET 989 236 856 00013 · TVA FR42989236856
+            </p>
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs">
+              <Link to="/legal-notice" className="hover:text-theme-gold transition-colors">
+                Legal Notice / Mentions Légales
+              </Link>
+              <span className="text-gray-300">·</span>
               <Link to="/terms-and-conditions" className="hover:text-theme-gold transition-colors">
-                Terms & Conditions
+                Terms &amp; Conditions
               </Link>
             </div>
           </div>

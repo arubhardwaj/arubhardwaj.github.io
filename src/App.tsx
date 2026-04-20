@@ -10,6 +10,11 @@ import Index from "./pages/Index";
 import SubmitProject from "./pages/SubmitProject";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import BookCall from "./pages/BookCall";
+import AboutPage from "./pages/AboutPage";
+import LegalNoticePage from "./pages/LegalNoticePage";
+import FractionalCtoPage from "./pages/services/FractionalCtoPage";
+import MvpBuilderPage from "./pages/services/MvpBuilderPage";
+import SovereignAiPage from "./pages/services/SovereignAiPage";
 import NotFound from "./pages/NotFound";
 import BookCallNudge from "./components/BookCallNudge";
 
@@ -21,6 +26,11 @@ const AppContent = () => (
       <Route path="/" element={<Index />} />
       <Route path="/submit-project" element={<SubmitProject />} />
       <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+      <Route path="/legal-notice" element={<LegalNoticePage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/services/fractional-cto" element={<FractionalCtoPage />} />
+      <Route path="/services/mvp-builder" element={<MvpBuilderPage />} />
+      <Route path="/services/sovereign-ai" element={<SovereignAiPage />} />
       <Route path="/book-call" element={<BookCall />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
