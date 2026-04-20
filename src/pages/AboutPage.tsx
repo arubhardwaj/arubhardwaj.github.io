@@ -113,7 +113,7 @@ const AboutPage = () => (
             I'm the <strong>President and founder of Insightrix SAS</strong> — a Paris-headquartered AI consulting firm with active operations across the <strong>European Union</strong>, the <strong>United Kingdom</strong>, and <strong>India</strong>. Insightrix delivers Fractional CTO services, AI-powered MVP development, sovereign LLM infrastructure, and regulatory compliance advisory for startups, scale-ups, and regulated enterprises.
           </p>
           <p className="text-gray-700 leading-relaxed mb-5">
-            Working through Insightrix means one European counterparty that speaks your compliance language — French law for EU contracts, GDPR-ready data handling, and multi-region delivery spanning Paris, London, and Bengaluru.
+            Working through Insightrix means one European counterparty that speaks your compliance language — French law for EU contracts, GDPR-ready data handling, and multi-region delivery across France, the UK, and India.
           </p>
           <dl className="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm text-gray-600 mb-5 pt-5 border-t border-theme-olive/15">
             <div className="flex gap-2"><dt className="font-semibold text-theme-olive shrink-0">Registered:</dt><dd>60 Rue François Ier, 75008 Paris</dd></div>
