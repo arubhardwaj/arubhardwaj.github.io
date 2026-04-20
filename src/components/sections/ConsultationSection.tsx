@@ -104,19 +104,28 @@ const ConsultationSection = () => {
   };
 
   const handleCheckout = async (priceId: string) => {
+    console.log('[Checkout] clicked', { priceId, hasStripe: !!window.Stripe });
     if (!window.Stripe) {
       toast.error('Payment system is still loading. Please try again in a second.');
       return;
     }
-    const stripe = window.Stripe(STRIPE_PK);
-    const { error } = await stripe.redirectToCheckout({
-      lineItems: [{ price: priceId, quantity: 1 }],
-      mode: 'payment',
-      successUrl: `${window.location.origin}/?checkout=success#consultation`,
-      cancelUrl: `${window.location.origin}/#consultation`,
-      locale: language,
-    });
-    if (error) toast.error(error.message);
+    try {
+      const stripe = window.Stripe(STRIPE_PK);
+      const result = await stripe.redirectToCheckout({
+        lineItems: [{ price: priceId, quantity: 1 }],
+        mode: 'payment',
+        successUrl: `${window.location.origin}/?checkout=success#consultation`,
+        cancelUrl: `${window.location.origin}/#consultation`,
+        locale: language,
+      });
+      if (result?.error) {
+        console.error('[Checkout] Stripe error:', result.error);
+        toast.error(result.error.message || 'Could not start checkout. Please try again.');
+      }
+    } catch (err: any) {
+      console.error('[Checkout] exception:', err);
+      toast.error(err?.message || 'Unexpected error starting checkout.');
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
