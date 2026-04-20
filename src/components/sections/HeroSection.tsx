@@ -1,10 +1,60 @@
+import { useEffect, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+const ROTATING_PHRASES: Record<'en' | 'it' | 'fr' | 'de', string[]> = {
+  en: [
+    'Ships to Production',
+    'Drives Real Impact',
+    'Scales Effortlessly',
+    'Solves Hard Problems',
+    'Turns Data Into Gold'
+  ],
+  it: [
+    'Va in Produzione',
+    'Genera Impatto Reale',
+    'Scala Senza Sforzo',
+    'Risolve Problemi Difficili',
+    'Trasforma i Dati in Oro'
+  ],
+  fr: [
+    'Passent en Production',
+    'Ont un Impact Réel',
+    "Passent à l'Échelle",
+    'Résolvent de Vrais Problèmes',
+    'Transforment les Données en Or'
+  ],
+  de: [
+    'in Produktion geht',
+    'echte Wirkung erzielt',
+    'mühelos skaliert',
+    'schwierige Probleme löst',
+    'Daten zu Gold macht'
+  ]
+};
+
 const HeroSection = () => {
   const { language, translations } = useLanguage();
-  
+  const phrases = ROTATING_PHRASES[language];
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    setPhraseIndex(0);
+  }, [language]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsVisible(false);
+      setTimeout(() => {
+        setPhraseIndex((prev) => (prev + 1) % phrases.length);
+        setIsVisible(true);
+      }, 350);
+    }, 2800);
+    return () => clearInterval(interval);
+  }, [phrases.length]);
+
   return (
     <section className="relative min-h-screen flex items-center pt-16 bg-hero-lime overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 py-16 md:py-24 relative z-10">
@@ -12,31 +62,35 @@ const HeroSection = () => {
           <div>
             <h1 className="text-4xl md:text-5xl font-bold text-theme-olive mb-6 leading-tight">
               {translations.transformingData[language]}{' '}
-              <span className="text-theme-gold">
-                {translations.intelligentSolutions[language]}
+              <span
+                className={`text-theme-gold inline-block transition-all duration-300 ease-out ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
+                }`}
+              >
+                {phrases[phraseIndex]}
               </span>
-              <span className="block mt-2 text-xl md:text-2xl text-theme-olive">Fractional CTO | Freelance AI Developer & MVP Builder | ChatGPT, Claude & LLM Expert</span>
+              <span className="block mt-2 text-xl md:text-2xl text-theme-olive">Fractional CTO | AI Developer & MVP Builder | ChatGPT, Claude & LLM Expert</span>
             </h1>
-            
+
             <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl">
               {translations.heroDescription1[language]}
             </p>
-            
+
             <p className="text-lg md:text-xl text-gray-700 mb-12 max-w-2xl">
               {translations.heroDescription2[language]}
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
+              <Button
                 onClick={() => document.getElementById('expertise')?.scrollIntoView({ behavior: 'smooth' })}
                 className="bg-theme-olive hover:bg-theme-olive/90 text-white px-8 py-6 text-lg w-full sm:w-auto"
               >
                 {translations.exploreExpertise[language]}
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
               </Button>
-              <Button 
+              <Button
                 onClick={() => document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' })}
-                variant="outline" 
+                variant="outline"
                 className="bg-theme-gold hover:bg-theme-gold/90 text-white border-theme-gold px-8 py-6 text-lg w-full sm:w-auto"
               >
                 {translations.bookAConsultation[language]}
@@ -56,7 +110,7 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
           <div className="flex items-center">
             <div className="bg-white/80 rounded-md p-4 flex items-center flex-col md:flex-row w-full shadow-sm">
@@ -71,7 +125,7 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="flex items-center">
             <div className="bg-white/80 rounded-md p-4 flex items-center flex-col md:flex-row w-full shadow-sm">
               <div className="mr-4 text-theme-gold">
@@ -85,7 +139,7 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="flex items-center">
             <div className="bg-white/80 rounded-md p-4 flex items-center flex-col md:flex-row w-full shadow-sm">
               <div className="mr-4 text-theme-gold">
