@@ -102,9 +102,11 @@ const AboutSection = () => {
               <div className="w-10 h-10 rounded-lg bg-theme-olive/10 flex items-center justify-center mb-4">
                 <Clock className="h-5 w-5 text-theme-olive" />
               </div>
-              <div className="flex items-baseline justify-between mb-2">
+              <div className="flex items-baseline justify-between mb-2 gap-2">
                 <h4 className="text-lg font-semibold text-theme-olive">{translations.engagementHourlyTag[language]}</h4>
-                <span className="text-theme-gold font-bold">€150/hr</span>
+                <span className="text-theme-gold font-bold whitespace-nowrap">
+                  €150/hr <span className="text-xs font-normal text-gray-500">{translations.vatExtra[language]}</span>
+                </span>
               </div>
               <p className="text-sm text-gray-600 leading-relaxed">{translations.engagementHourlyDesc[language]}</p>
             </div>
@@ -113,9 +115,11 @@ const AboutSection = () => {
               <div className="w-10 h-10 rounded-lg bg-theme-olive/10 flex items-center justify-center mb-4">
                 <Zap className="h-5 w-5 text-theme-olive" />
               </div>
-              <div className="flex items-baseline justify-between mb-2">
+              <div className="flex items-baseline justify-between mb-2 gap-2">
                 <h4 className="text-lg font-semibold text-theme-olive">{translations.engagementDailyTag[language]}</h4>
-                <span className="text-theme-gold font-bold">€700/day</span>
+                <span className="text-theme-gold font-bold whitespace-nowrap">
+                  €700/day <span className="text-xs font-normal text-gray-500">{translations.vatExtra[language]}</span>
+                </span>
               </div>
               <p className="text-sm text-gray-600 leading-relaxed">{translations.engagementDailyDesc[language]}</p>
             </div>
