@@ -113,17 +113,24 @@ const translations = {
   },
 
   // Consultation Section
+  // Section heading pair (section title stays a two-tone split)
+  sendAMessageInstead: {
+    en: 'Prefer to send a message instead?',
+    it: 'Preferisci inviare un messaggio?',
+    fr: 'Vous préférez envoyer un message ?',
+    de: 'Lieber eine Nachricht senden?'
+  },
   getInTouch: {
-    en: 'Get In',
-    it: 'Mettiti In',
-    fr: 'Entrer En',
-    de: 'Kontakt'
+    en: 'Book a',
+    it: 'Prenota una',
+    fr: 'Réservez une',
+    de: 'Buchen Sie eine'
   },
   touch: {
-    en: 'Touch',
-    it: 'Contatto',
-    fr: 'Contact',
-    de: 'aufnehmen'
+    en: 'Consultation',
+    it: 'Consulenza',
+    fr: 'Consultation',
+    de: 'Beratung'
   },
   contactDescription: {
     en: 'Ready to transform your data into actionable insights? Let\'s discuss your project and explore how AI can drive your business forward.',

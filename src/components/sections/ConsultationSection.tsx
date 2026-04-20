@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Check, Linkedin, Lock, ShieldCheck, RotateCcw } from 'lucide-react';
+import { Mail, Phone, MapPin, Check, Linkedin, Lock, ShieldCheck, RotateCcw, CalendarCheck, ArrowRight, ChevronDown } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -182,9 +182,12 @@ const ConsultationSection = () => {
                   </div>
                 </div>
                 
-                <div className="mt-8">
-                  <h4 className="font-semibold mb-3">{translations.sendMessage[language]}</h4>
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                <details className="mt-8 group">
+                  <summary className="flex items-center justify-between cursor-pointer text-sm font-medium text-theme-olive hover:text-theme-gold transition-colors list-none py-3 border-t border-gray-200">
+                    <span>{translations.sendAMessageInstead[language]}</span>
+                    <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
+                  </summary>
+                  <form onSubmit={handleSubmit} className="space-y-4 mt-4">
                     <div>
                       <Label htmlFor="name" className="text-sm">{translations.fullName[language]}</Label>
                       <Input 
@@ -247,7 +250,7 @@ const ConsultationSection = () => {
                       {isSubmitting ? translations.sending[language] : translations.sendMessage[language]}
                     </Button>
                   </form>
-                </div>
+                </details>
               </div>
               
               <div className="p-8">
@@ -262,7 +265,7 @@ const ConsultationSection = () => {
                   {translations.consultationSocialProof[language]}
                 </p>
 
-                {/* Value stack */}
+                {/* Value stack — 3 strongest bullets */}
                 <div className="bg-theme-olive/5 rounded-lg p-4 mb-6 border border-theme-olive/10">
                   <p className="text-xs font-semibold uppercase tracking-wider text-theme-olive mb-2">
                     {translations.valueStackTitle[language]}
@@ -275,10 +278,6 @@ const ConsultationSection = () => {
                     <li className="flex items-start gap-2 text-sm text-gray-700">
                       <Check className="h-4 w-4 text-theme-gold shrink-0 mt-0.5" />
                       <span>{translations.valueBullet2[language]}</span>
-                    </li>
-                    <li className="flex items-start gap-2 text-sm text-gray-700">
-                      <Check className="h-4 w-4 text-theme-gold shrink-0 mt-0.5" />
-                      <span>{translations.valueBullet3[language]}</span>
                     </li>
                     <li className="flex items-start gap-2 text-sm text-gray-700">
                       <Check className="h-4 w-4 text-theme-gold shrink-0 mt-0.5" />
@@ -299,8 +298,12 @@ const ConsultationSection = () => {
                       <span className="absolute -top-3 right-4 bg-theme-olive text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
                         {translations.mostPopular[language]}
                       </span>
-                      <div className="text-left">
-                        <div className="font-bold text-lg md:text-xl">{translations.book60Min[language]}</div>
+                      <CalendarCheck className="h-6 w-6 md:h-7 md:w-7 shrink-0" />
+                      <div className="flex-1 text-left">
+                        <div className="font-bold text-lg md:text-xl flex items-center gap-2">
+                          {translations.book60Min[language]}
+                          <ArrowRight className="h-5 w-5 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all" />
+                        </div>
                         <div className="text-sm md:text-base opacity-90">{translations.book60MinSub[language]}</div>
                       </div>
                       <div className="text-right leading-tight shrink-0">
@@ -319,8 +322,12 @@ const ConsultationSection = () => {
                       rel="noopener noreferrer"
                       className="group w-full flex items-center justify-between gap-4 bg-white hover:bg-theme-olive/5 border border-gray-300 hover:border-theme-olive text-theme-olive px-6 py-4 rounded-lg transition-all duration-200 no-underline min-h-[60px]"
                     >
-                      <div className="text-left">
-                        <div className="font-semibold text-base">{translations.book30Min[language]}</div>
+                      <CalendarCheck className="h-5 w-5 shrink-0 text-theme-olive" />
+                      <div className="flex-1 text-left">
+                        <div className="font-semibold text-base flex items-center gap-2">
+                          {translations.book30Min[language]}
+                          <ArrowRight className="h-4 w-4 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all" />
+                        </div>
                         <div className="text-sm text-gray-500">{translations.book30MinSub[language]}</div>
                       </div>
                       <div className="text-right leading-tight shrink-0">
@@ -348,35 +355,6 @@ const ConsultationSection = () => {
                   </span>
                 </div>
                 
-                <div className="mt-8">
-                  <h4 className="text-lg font-semibold mb-4 text-theme-olive">{translations.whatHappensNext[language]}</h4>
-                  <ul className="space-y-4">
-                    <li className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-yellow-500 shrink-0 mt-0.5" />
-                      <span>{translations.confirmationEmail[language]}</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-yellow-500 shrink-0 mt-0.5" />
-                      <span>{translations.personalContact[language]}</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-yellow-500 shrink-0 mt-0.5" />
-                      <span>{translations.calendarInvite[language]}</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-yellow-500 shrink-0 mt-0.5" />
-                      <span>{translations.weekendAvailability[language]}</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-yellow-500 shrink-0 mt-0.5" />
-                      <span>{translations.preparationMaterials[language]}</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-yellow-500 shrink-0 mt-0.5" />
-                      <span>{translations.refundPolicy[language]}</span>
-                    </li>
-                  </ul>
-                </div>
               </div>
             </div>
           </CardContent>
