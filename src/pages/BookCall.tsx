@@ -29,6 +29,15 @@ const BookCall = () => {
       <Helmet>
         <title>Book Your Consultation Call | Aru Bhardwaj</title>
         <meta name="robots" content="noindex, nofollow" />
+        <meta property="og:title" content="Book Your Consultation Call | Aru Bhardwaj" />
+        <meta property="og:description" content="Schedule your paid consultation with Aru Bhardwaj — Fractional CTO & AI Strategist in Paris." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://arubhardwaj.eu/book-call" />
+        <meta property="og:image" content="https://arubhardwaj.eu/images/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Book Your Consultation Call | Aru Bhardwaj" />
+        <meta name="twitter:description" content="Schedule your paid consultation with Aru Bhardwaj — Fractional CTO & AI Strategist in Paris." />
+        <meta name="twitter:image" content="https://arubhardwaj.eu/images/og-image.jpg" />
       </Helmet>
       <Navbar />
       <main className="flex-1 bg-hero-lime py-16 md:py-20">

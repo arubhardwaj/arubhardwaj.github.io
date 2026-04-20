@@ -22,7 +22,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <h3 className="text-xl font-bold mb-4 text-theme-olive">Aru Bhardwaj</h3>
-            <p className="mb-4 text-gray-600">Fractional CTO, AI developer & data scientist with 7+ years experience. Expert in ChatGPT, Claude AI, LLMs, generative AI, machine learning, and predictive analytics.</p>
+            <p className="mb-4 text-gray-600">Fractional CTO architecting sovereign AI systems for startups and scale-ups across Europe. Custom ML, agentic RAG, and secure LLM infrastructure — 7+ years turning complex data into production intelligence.</p>
             <div className="flex items-center space-x-4">
               <a href="https://www.linkedin.com/in/arub" aria-label="LinkedIn" className="text-theme-olive hover:text-theme-gold">
                 <Linkedin size={20} />
@@ -104,15 +104,16 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-xl font-bold mb-4 text-theme-olive">AI Services</h3>
+            <h3 className="text-xl font-bold mb-4 text-theme-olive">Services</h3>
             <ul className="space-y-2">
-              <li className="text-gray-600">ChatGPT & OpenAI Integration</li>
-              <li className="text-gray-600">Claude AI & LLM Development</li>
-              <li className="text-gray-600">RAG & AI Agent Development</li>
+              <li className="text-gray-600">Fractional CTO & AI Strategy</li>
+              <li className="text-gray-600">MVP Development & Rapid Prototyping</li>
+              <li className="text-gray-600">Sovereign LLM Deployment (OVHcloud, Scaleway)</li>
+              <li className="text-gray-600">Multi-Cloud AI (AWS Bedrock, Vertex AI, Azure)</li>
+              <li className="text-gray-600">RAG Pipelines & Autonomous Agents</li>
+              <li className="text-gray-600">GDPR & EU AI Act Compliance</li>
               <li className="text-gray-600">Generative AI & Prompt Engineering</li>
               <li className="text-gray-600">Machine Learning & Predictive Analytics</li>
-              <li className="text-gray-600">NLP & Computer Vision</li>
-              <li className="text-gray-600">AI Strategy Consulting</li>
             </ul>
           </div>
         </div>

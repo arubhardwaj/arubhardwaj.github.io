@@ -81,12 +81,9 @@ const ConsultationSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Updated EmailJS configuration with correct service ID and template ID
     const serviceId = "service_ugxzpww";
     const templateId = "template_enrm7gd";
     const publicKey = "hF6O_JgDy5jUxyk-4";
-
-    console.log('Sending email with EmailJS...');
 
     window.emailjs.send(serviceId, templateId, {
       name: formData.name,
@@ -94,8 +91,7 @@ const ConsultationSection = () => {
       subject: formData.subject,
       message: formData.message
     }, publicKey)
-      .then((response: any) => {
-        console.log('Email sent successfully:', response);
+      .then(() => {
         toast.success('Message sent successfully! I will get back to you soon.');
         setFormData({ name: '', email: '', subject: '', message: '' });
         setIsSubmitting(false);
