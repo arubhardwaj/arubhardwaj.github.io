@@ -7,6 +7,10 @@ type EngagementType = 'consultation' | 'mvp' | 'fractional-cto' | 'sovereign-ai'
 type Stage = 'idea' | 'seed' | 'series-a' | 'scale-up';
 type Cadence = 'light' | 'medium' | 'heavy';
 
+const DAY_RATE = 700; // €/day base for all day-based calculations
+
+const fmt = (n: number) => `€${n.toLocaleString('en-US')}`;
+
 const CostCalculator = () => {
   const [engagement, setEngagement] = useState<EngagementType>('fractional-cto');
   const [stage, setStage] = useState<Stage>('seed');
@@ -18,34 +22,77 @@ const CostCalculator = () => {
         return {
           range: '€45 – €90',
           unit: 'per session',
-          note: '30-min (€45) or 60-min (€90). Prepaid via Stripe.',
+          math: '30-min @ €45 or 60-min @ €90',
+          note: 'Prepaid via Stripe. Includes a 24h written summary and 7 days of follow-up email Q&A.',
           cta: 'Book a Consultation'
         };
-      case 'mvp': {
-        const byStage: Record<Stage, { range: string; note: string }> = {
-          idea: { range: '€2,500 – €5,000', note: 'Discovery sprint only — validate scope before full build.' },
-          seed: { range: '€18,000 – €28,000', note: 'Fixed-scope MVP, 4-8 weeks.' },
-          'series-a': { range: '€28,000 – €45,000', note: 'Full MVP + post-launch iteration, 6-10 weeks.' },
-          'scale-up': { range: '€40,000 – €75,000', note: 'Production-grade build with compliance baseline.' }
-        };
-        return { ...byStage[stage], unit: 'fixed scope', cta: 'Discuss the Build' };
-      }
+
       case 'fractional-cto': {
-        const byCadence: Record<Cadence, { range: string; note: string }> = {
-          light: { range: '€2,100 – €3,000', note: '2-3 days/month — advisory, board prep, hiring support.' },
-          medium: { range: '€4,500 – €7,000', note: '~1 day/week — active technical leadership.' },
-          heavy: { range: '€8,000 – €12,000', note: '2 days/week — embedded leadership, intensive delivery.' }
+        const byCadence: Record<Cadence, { days: [number, number]; label: string; note: string }> = {
+          light: {
+            days: [2, 3],
+            label: 'Light · 2-3 days/month',
+            note: 'Advisory-only cadence: board prep, hiring support, monthly roadmap review. Minimum entry point.'
+          },
+          medium: {
+            days: [4, 5],
+            label: 'Medium · ~1 day/week',
+            note: 'Active technical leadership: weekly engineering sync, architecture reviews, vendor decisions, investor calls.'
+          },
+          heavy: {
+            days: [8, 10],
+            label: 'Heavy · ~2 days/week',
+            note: 'Embedded leadership: on Slack daily, delivery reviews, team 1:1s, pre-seed to Series B transition.'
+          }
         };
-        return { ...byCadence[cadence], unit: 'per month', cta: 'Discuss the Engagement' };
+        const opt = byCadence[cadence];
+        const min = opt.days[0] * DAY_RATE;
+        const max = opt.days[1] * DAY_RATE;
+        return {
+          range: `${fmt(min)} – ${fmt(max)}`,
+          unit: 'per month',
+          math: `${opt.days[0]}-${opt.days[1]} days × €${DAY_RATE}/day`,
+          note: opt.note,
+          cta: 'Discuss the Engagement'
+        };
       }
-      case 'sovereign-ai': {
-        const byStage: Record<Stage, { range: string; note: string }> = {
-          idea: { range: '€2,500 – €5,000', note: 'Scoping sprint: regulatory assessment, provider selection memo.' },
-          seed: { range: '€15,000 – €25,000', note: 'OVHcloud or Scaleway inference stack + basic compliance artefacts.' },
-          'series-a': { range: '€25,000 – €45,000', note: 'Full sovereign stack + DPIA + TIA + AI Act risk classification.' },
-          'scale-up': { range: '€45,000 – €80,000', note: 'Enterprise-grade with multi-region, audit trail, and procurement-ready docs.' }
+
+      case 'mvp': {
+        const byStage: Record<Stage, { days: [number, number]; note: string }> = {
+          idea: { days: [4, 6], note: 'Discovery sprint only — validate scope and stack before committing to a full build. Credited toward the MVP if you proceed.' },
+          seed: { days: [22, 32], note: 'Fixed-scope MVP, 4-8 weeks. Production URL, auth, payments, core AI feature, CI/CD, monitoring, and handover docs.' },
+          'series-a': { days: [34, 52], note: 'Full MVP plus post-launch iteration, 6-10 weeks. Production-ready with proper observability and load testing.' },
+          'scale-up': { days: [54, 82], note: 'Enterprise-grade build with compliance baseline (GDPR, sector regulations), 10-16 weeks.' }
         };
-        return { ...byStage[stage], unit: 'one-time project', cta: 'Discuss Your Compliance' };
+        const opt = byStage[stage];
+        const min = Math.round((opt.days[0] * DAY_RATE) / 500) * 500;
+        const max = Math.round((opt.days[1] * DAY_RATE) / 500) * 500;
+        return {
+          range: `${fmt(min)} – ${fmt(max)}`,
+          unit: 'fixed scope',
+          math: `${opt.days[0]}-${opt.days[1]} days × €${DAY_RATE}/day (fixed-price, 50% upfront)`,
+          note: opt.note,
+          cta: 'Discuss the Build'
+        };
+      }
+
+      case 'sovereign-ai': {
+        const byStage: Record<Stage, { days: [number, number]; note: string }> = {
+          idea: { days: [3, 5], note: 'Scoping sprint: regulatory classification, provider selection memo, architecture options.' },
+          seed: { days: [20, 32], note: 'OVHcloud or Scaleway inference stack + DPIA + basic compliance artefacts. 3-5 weeks.' },
+          'series-a': { days: [32, 58], note: 'Full sovereign stack + DPIA + Transfer Impact Assessment + AI Act risk classification. 5-9 weeks.' },
+          'scale-up': { days: [58, 92], note: 'Enterprise-grade with multi-region, audit trail, procurement-ready docs, and DPO handover. 9-14 weeks.' }
+        };
+        const opt = byStage[stage];
+        const min = Math.round((opt.days[0] * DAY_RATE) / 500) * 500;
+        const max = Math.round((opt.days[1] * DAY_RATE) / 500) * 500;
+        return {
+          range: `${fmt(min)} – ${fmt(max)}`,
+          unit: 'one-time project',
+          math: `${opt.days[0]}-${opt.days[1]} days × €${DAY_RATE}/day`,
+          note: opt.note,
+          cta: 'Discuss Your Compliance'
+        };
       }
     }
   }, [engagement, stage, cadence]);
@@ -65,8 +112,11 @@ const CostCalculator = () => {
         </div>
       </div>
 
-      <p className="text-sm text-gray-600 mb-6">
-        Indicative ranges only. Final pricing depends on scope, compliance depth, and timeline — confirmed in the Project Proposal after a discovery call.
+      <p className="text-sm text-gray-600 mb-2">
+        Indicative ranges based on a <strong>€{DAY_RATE}/day</strong> base rate. Final pricing depends on scope, compliance depth, and timeline — confirmed in the Project Proposal after a discovery call.
+      </p>
+      <p className="text-xs text-gray-500 mb-6">
+        Partnership deals (reduced cash + equity or success bonus) can cut the cash component by 40-60% for aligned early-stage startups. A service fee is always required.
       </p>
 
       {/* Engagement type */}
@@ -133,23 +183,24 @@ const CostCalculator = () => {
           <label className="block text-xs font-semibold uppercase tracking-wider text-theme-olive mb-2">
             Cadence
           </label>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
             {[
-              { id: 'light' as const, label: 'Light · 2-3d/mo' },
-              { id: 'medium' as const, label: 'Medium · 1d/wk' },
-              { id: 'heavy' as const, label: 'Heavy · 2d/wk' }
+              { id: 'light' as const, label: 'Light', sub: '2-3 days/month' },
+              { id: 'medium' as const, label: 'Medium', sub: '~1 day/week' },
+              { id: 'heavy' as const, label: 'Heavy', sub: '~2 days/week' }
             ].map((opt) => (
               <button
                 key={opt.id}
                 type="button"
                 onClick={() => setCadence(opt.id)}
-                className={`px-2 py-2.5 text-xs rounded-lg font-medium transition-all ${
+                className={`px-3 py-2.5 rounded-lg font-medium transition-all text-center ${
                   cadence === opt.id
                     ? 'bg-theme-gold text-white border-2 border-theme-gold'
                     : 'bg-white text-theme-olive border-2 border-gray-200 hover:border-theme-gold'
                 }`}
               >
-                {opt.label}
+                <span className="block text-sm font-semibold">{opt.label}</span>
+                <span className={`block text-[11px] ${cadence === opt.id ? 'opacity-90' : 'text-gray-500'}`}>{opt.sub}</span>
               </button>
             ))}
           </div>
@@ -159,10 +210,11 @@ const CostCalculator = () => {
       {/* Result */}
       <div className="bg-gradient-to-br from-theme-gold/15 to-theme-olive/5 rounded-xl p-5 border-2 border-theme-gold/30">
         <p className="text-xs font-semibold uppercase tracking-wider text-theme-olive mb-1">Estimated range</p>
-        <p className="text-3xl md:text-4xl font-extrabold text-theme-olive mb-1">
+        <p className="text-3xl md:text-4xl font-extrabold text-theme-olive mb-1 leading-tight">
           {result.range}
           <span className="text-sm font-medium text-gray-600 ml-2">{result.unit}</span>
         </p>
+        <p className="text-xs font-mono text-theme-olive/70 mb-3">{result.math}</p>
         <p className="text-sm text-gray-700 mb-1">{result.note}</p>
         <p className="text-xs text-gray-500 mb-4">All prices exclude VAT.</p>
 
