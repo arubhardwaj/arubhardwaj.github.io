@@ -6,6 +6,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import BookConsultationDialog from '@/components/BookConsultationDialog';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ServicePageProps {
   slug: string;
@@ -40,6 +41,7 @@ const ServicePageLayout = ({
   jsonLd,
   children
 }: ServicePageProps) => {
+  const { language, translations } = useLanguage();
   const url = `https://arubhardwaj.eu/services/${slug}`;
 
   return (
@@ -94,19 +96,19 @@ const ServicePageLayout = ({
             className="inline-flex items-center gap-2 text-sm text-theme-olive hover:text-theme-gold transition-colors mb-6"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to home
+            {translations.backToHome[language]}
           </Link>
 
           {/* Hero */}
           <header className="mb-12">
-            <p className="text-sm font-semibold uppercase tracking-wider text-theme-gold mb-3">Service</p>
+            <p className="text-sm font-semibold uppercase tracking-wider text-theme-gold mb-3">{translations.serviceKicker[language]}</p>
             <h1 className="text-4xl md:text-5xl font-bold text-theme-olive mb-4 leading-tight">{h1}</h1>
             <p className="text-xl text-gray-700 leading-relaxed">{tagline}</p>
           </header>
 
           {/* Who it's for */}
           <section className="mb-12">
-            <h2 className="text-2xl font-bold text-theme-olive mb-5">Who this is for</h2>
+            <h2 className="text-2xl font-bold text-theme-olive mb-5">{translations.whoThisIsFor[language]}</h2>
             <ul className="space-y-3">
               {whoItsFor.map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-gray-700 text-lg">
@@ -119,7 +121,7 @@ const ServicePageLayout = ({
 
           {/* What's included */}
           <section className="mb-12 bg-theme-olive/5 rounded-xl p-8 border border-theme-olive/10">
-            <h2 className="text-2xl font-bold text-theme-olive mb-5">What's included</h2>
+            <h2 className="text-2xl font-bold text-theme-olive mb-5">{translations.whatsIncluded[language]}</h2>
             <ul className="space-y-3">
               {whatsIncluded.map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-gray-700">
@@ -133,7 +135,7 @@ const ServicePageLayout = ({
           {/* Process */}
           {process && process.length > 0 && (
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-theme-olive mb-5">How we work</h2>
+              <h2 className="text-2xl font-bold text-theme-olive mb-5">{translations.howWeWork[language]}</h2>
               <ol className="space-y-4">
                 {process.map((step, i) => (
                   <li key={i} className="flex items-start gap-4">
@@ -153,7 +155,7 @@ const ServicePageLayout = ({
           {/* Outcomes */}
           {outcomes && outcomes.length > 0 && (
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-theme-olive mb-5">Outcomes you can expect</h2>
+              <h2 className="text-2xl font-bold text-theme-olive mb-5">{translations.outcomesYouCanExpect[language]}</h2>
               <ul className="grid md:grid-cols-2 gap-3">
                 {outcomes.map((outcome, i) => (
                   <li key={i} className="flex items-start gap-3 text-gray-700 bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
@@ -168,7 +170,7 @@ const ServicePageLayout = ({
           {/* Pricing */}
           {pricing && pricing.length > 0 && (
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-theme-olive mb-5">Pricing</h2>
+              <h2 className="text-2xl font-bold text-theme-olive mb-5">{translations.pricingHeading[language]}</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {pricing.map((tier, i) => (
                   <div key={i} className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
@@ -178,14 +180,14 @@ const ServicePageLayout = ({
                   </div>
                 ))}
               </div>
-              <p className="text-xs text-gray-500 mt-3 italic">All prices exclude VAT. EU B2B clients with a valid intra-community VAT number benefit from reverse charge.</p>
+              <p className="text-xs text-gray-500 mt-3 italic">{translations.pricingVatNote[language]}</p>
             </section>
           )}
 
           {/* FAQs */}
           {faqs && faqs.length > 0 && (
             <section className="mb-12">
-              <h2 className="text-2xl font-bold text-theme-olive mb-5">Frequently asked</h2>
+              <h2 className="text-2xl font-bold text-theme-olive mb-5">{translations.frequentlyAsked[language]}</h2>
               <div className="space-y-5">
                 {faqs.map((faq, i) => (
                   <div key={i}>
@@ -201,18 +203,18 @@ const ServicePageLayout = ({
 
           {/* CTA */}
           <section className="bg-gradient-to-br from-theme-gold/15 to-theme-olive/10 rounded-xl p-8 md:p-10 text-center border-2 border-theme-gold/30 shadow-md">
-            <h2 className="text-2xl md:text-3xl font-bold text-theme-olive mb-3">Let's discuss your project</h2>
-            <p className="text-gray-700 mb-6 max-w-xl mx-auto">Book a focused call — 30-min scope (€45) or 60-min deep-dive (€90). Written summary within 24h, follow-up Q&A for 7 days.</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-theme-olive mb-3">{translations.discussYourProject[language]}</h2>
+            <p className="text-gray-700 mb-6 max-w-xl mx-auto">{translations.discussYourProjectBody[language]}</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <BookConsultationDialog>
                 <Button className="bg-theme-gold hover:bg-theme-gold/90 text-white px-6 py-5 text-base">
-                  Book a Consultation
+                  {translations.bookConsultation[language]}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </BookConsultationDialog>
               <Link to="/submit-project">
                 <Button variant="outline" className="border-theme-olive text-theme-olive hover:bg-theme-olive hover:text-white px-6 py-5 text-base">
-                  Submit a Project
+                  {translations.submitAProject[language]}
                 </Button>
               </Link>
             </div>

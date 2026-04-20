@@ -611,6 +611,272 @@ const translations = {
     fr: 'IA Souveraine',
     de: 'Souveräne KI'
   },
+  // Shared page scaffold
+  backToHome: {
+    en: 'Back to home',
+    it: 'Torna alla home',
+    fr: "Retour à l'accueil",
+    de: 'Zurück zur Startseite'
+  },
+  serviceKicker: {
+    en: 'Service',
+    it: 'Servizio',
+    fr: 'Service',
+    de: 'Leistung'
+  },
+  aboutKicker: {
+    en: 'About',
+    it: 'Chi Sono',
+    fr: 'À propos',
+    de: 'Über mich'
+  },
+  whoThisIsFor: {
+    en: 'Who this is for',
+    it: 'A chi è rivolto',
+    fr: 'À qui cela s\'adresse',
+    de: 'Für wen das gedacht ist'
+  },
+  whatsIncluded: {
+    en: "What's included",
+    it: 'Cosa è incluso',
+    fr: 'Ce qui est inclus',
+    de: 'Was enthalten ist'
+  },
+  howWeWork: {
+    en: 'How we work',
+    it: 'Come lavoriamo',
+    fr: 'Comment nous collaborons',
+    de: 'Wie wir arbeiten'
+  },
+  outcomesYouCanExpect: {
+    en: 'Outcomes you can expect',
+    it: 'Risultati che puoi aspettarti',
+    fr: 'Résultats attendus',
+    de: 'Erwartbare Ergebnisse'
+  },
+  pricingHeading: {
+    en: 'Pricing',
+    it: 'Prezzi',
+    fr: 'Tarifs',
+    de: 'Preise'
+  },
+  pricingVatNote: {
+    en: 'All prices exclude VAT. EU B2B clients with a valid intra-community VAT number benefit from reverse charge.',
+    it: 'Tutti i prezzi escludono l\'IVA. I clienti B2B UE con un numero di partita IVA intracomunitaria valido beneficiano del reverse charge.',
+    fr: 'Tous les prix hors TVA. Les clients B2B UE disposant d\'un numéro de TVA intracommunautaire valide bénéficient de l\'autoliquidation.',
+    de: 'Alle Preise zzgl. MwSt. EU-B2B-Kunden mit gültiger innergemeinschaftlicher USt-IdNr. profitieren vom Reverse-Charge-Verfahren.'
+  },
+  frequentlyAsked: {
+    en: 'Frequently asked',
+    it: 'Domande frequenti',
+    fr: 'Questions fréquentes',
+    de: 'Häufig gefragt'
+  },
+  discussYourProject: {
+    en: "Let's discuss your project",
+    it: 'Parliamo del tuo progetto',
+    fr: 'Parlons de votre projet',
+    de: 'Lassen Sie uns über Ihr Projekt sprechen'
+  },
+  discussYourProjectBody: {
+    en: 'Book a focused call — 30-min scope (€45) or 60-min deep-dive (€90). Written summary within 24h, follow-up Q&A for 7 days.',
+    it: 'Prenota una call mirata — scoping di 30 min (€45) o deep-dive di 60 min (€90). Riepilogo scritto entro 24 ore, Q&A di follow-up per 7 giorni.',
+    fr: 'Réservez un appel ciblé — cadrage en 30 min (45 €) ou deep-dive en 60 min (90 €). Synthèse écrite sous 24 h, Q&A de suivi pendant 7 jours.',
+    de: 'Buchen Sie einen fokussierten Call — 30-Min-Scoping (€45) oder 60-Min-Deep-Dive (€90). Schriftliche Zusammenfassung innerhalb von 24 Std., Follow-up-Q&A für 7 Tage.'
+  },
+  submitAProject: {
+    en: 'Submit a Project',
+    it: 'Invia un Progetto',
+    fr: 'Soumettre un Projet',
+    de: 'Projekt Einreichen'
+  },
+  readyToDiscuss: {
+    en: 'Ready to discuss your project?',
+    it: 'Pronto a discutere il tuo progetto?',
+    fr: 'Prêt à discuter de votre projet ?',
+    de: 'Bereit, Ihr Projekt zu besprechen?'
+  },
+  readyToDiscussBody: {
+    en: 'Book a focused call — 30-min scope (€45) or 60-min deep-dive (€90). Written summary within 24h.',
+    it: 'Prenota una call mirata — scoping di 30 min (€45) o deep-dive di 60 min (€90). Riepilogo scritto entro 24 ore.',
+    fr: 'Réservez un appel ciblé — cadrage en 30 min (45 €) ou deep-dive en 60 min (90 €). Synthèse écrite sous 24 h.',
+    de: 'Buchen Sie einen fokussierten Call — 30-Min-Scoping (€45) oder 60-Min-Deep-Dive (€90). Schriftliche Zusammenfassung innerhalb von 24 Std.'
+  },
+  // Cost calculator
+  calcKicker: {
+    en: 'Quick estimator',
+    it: 'Stima rapida',
+    fr: 'Estimation rapide',
+    de: 'Schnellschätzung'
+  },
+  calcTitle: {
+    en: 'What might your engagement cost?',
+    it: 'Quanto potrebbe costarti?',
+    fr: 'Combien pourrait coûter votre engagement ?',
+    de: 'Was könnte Ihr Engagement kosten?'
+  },
+  calcBasedOn: {
+    en: 'Indicative ranges based on a €700/day base rate. Final pricing depends on scope, compliance depth, and timeline — confirmed in the Project Proposal after a discovery call.',
+    it: 'Fasce indicative basate su una tariffa giornaliera di €700. Il prezzo finale dipende dallo scope, dalla profondità di compliance e dalla tempistica — confermato nella Proposta dopo una call di discovery.',
+    fr: 'Fourchettes indicatives basées sur un tarif journalier de 700 €. Le prix final dépend du scope, de la profondeur de conformité et du calendrier — confirmé dans la Proposition après un appel de cadrage.',
+    de: 'Richtwerte auf Basis eines Tagessatzes von €700. Der endgültige Preis hängt von Umfang, Compliance-Tiefe und Zeitplan ab — bestätigt im Project Proposal nach einem Discovery-Call.'
+  },
+  calcPartnershipNote: {
+    en: 'Partnership deals (reduced cash + equity or success bonus) can cut the cash component by 40-60% for aligned early-stage startups. A service fee is always required.',
+    it: 'Accordi di Partnership (cash ridotto + equity o success bonus) possono tagliare la componente cash del 40-60% per startup early-stage allineate. È sempre richiesta una tariffa di servizio.',
+    fr: 'Les accords Partenariat (cash réduit + equity ou success bonus) peuvent réduire la part cash de 40-60 % pour les startups early-stage alignées. Un service fee est toujours requis.',
+    de: 'Partnerschafts-Deals (reduzierter Cash-Anteil + Equity oder Erfolgsbonus) können den Cash-Anteil für passende Early-Stage-Startups um 40-60 % senken. Eine Servicegebühr ist immer erforderlich.'
+  },
+  calcEngagementType: {
+    en: 'Engagement type',
+    it: 'Tipo di ingaggio',
+    fr: 'Type d\'engagement',
+    de: 'Engagement-Typ'
+  },
+  calcConsultation: {
+    en: 'Consultation',
+    it: 'Consulenza',
+    fr: 'Consultation',
+    de: 'Beratung'
+  },
+  calcMvpBuild: {
+    en: 'MVP Build',
+    it: 'Costruzione MVP',
+    fr: 'Construction MVP',
+    de: 'MVP-Entwicklung'
+  },
+  calcCompanyStage: {
+    en: 'Company stage',
+    it: 'Stadio aziendale',
+    fr: 'Stade de l\'entreprise',
+    de: 'Unternehmensphase'
+  },
+  calcStageIdea: {
+    en: 'Idea / Pre-seed',
+    it: 'Idea / Pre-seed',
+    fr: 'Idée / Pre-seed',
+    de: 'Idee / Pre-Seed'
+  },
+  calcStageSeed: {
+    en: 'Seed',
+    it: 'Seed',
+    fr: 'Seed',
+    de: 'Seed'
+  },
+  calcStageSeriesA: {
+    en: 'Series A',
+    it: 'Series A',
+    fr: 'Series A',
+    de: 'Series A'
+  },
+  calcStageScaleUp: {
+    en: 'Scale-up',
+    it: 'Scale-up',
+    fr: 'Scale-up',
+    de: 'Scale-up'
+  },
+  calcCadence: {
+    en: 'Cadence',
+    it: 'Cadenza',
+    fr: 'Cadence',
+    de: 'Kadenz'
+  },
+  calcLight: {
+    en: 'Light',
+    it: 'Leggera',
+    fr: 'Léger',
+    de: 'Leicht'
+  },
+  calcMedium: {
+    en: 'Medium',
+    it: 'Media',
+    fr: 'Moyen',
+    de: 'Mittel'
+  },
+  calcHeavy: {
+    en: 'Heavy',
+    it: 'Intensa',
+    fr: 'Intensif',
+    de: 'Intensiv'
+  },
+  calcLightSub: {
+    en: '2-3 days/month',
+    it: '2-3 giorni/mese',
+    fr: '2-3 jours/mois',
+    de: '2-3 Tage/Monat'
+  },
+  calcMediumSub: {
+    en: '~1 day/week',
+    it: '~1 giorno/settimana',
+    fr: '~1 jour/semaine',
+    de: '~1 Tag/Woche'
+  },
+  calcHeavySub: {
+    en: '~2 days/week',
+    it: '~2 giorni/settimana',
+    fr: '~2 jours/semaine',
+    de: '~2 Tage/Woche'
+  },
+  calcEstimatedRange: {
+    en: 'Estimated range',
+    it: 'Fascia stimata',
+    fr: 'Fourchette estimée',
+    de: 'Geschätzter Bereich'
+  },
+  calcPerSession: {
+    en: 'per session',
+    it: 'per sessione',
+    fr: 'par session',
+    de: 'pro Sitzung'
+  },
+  calcPerMonth: {
+    en: 'per month',
+    it: 'al mese',
+    fr: 'par mois',
+    de: 'pro Monat'
+  },
+  calcFixedScope: {
+    en: 'fixed scope',
+    it: 'scope fisso',
+    fr: 'périmètre fixe',
+    de: 'Festpreis'
+  },
+  calcOneTime: {
+    en: 'one-time project',
+    it: 'progetto una tantum',
+    fr: 'projet unique',
+    de: 'Einmalprojekt'
+  },
+  calcCtaConsultation: {
+    en: 'Book a Consultation',
+    it: 'Prenota una Consulenza',
+    fr: 'Réserver une Consultation',
+    de: 'Beratung Buchen'
+  },
+  calcCtaBuild: {
+    en: 'Discuss the Build',
+    it: 'Discuti il Build',
+    fr: 'Discuter du Build',
+    de: 'Build Besprechen'
+  },
+  calcCtaEngagement: {
+    en: 'Discuss the Engagement',
+    it: 'Discuti l\'Ingaggio',
+    fr: 'Discuter de la Mission',
+    de: 'Engagement Besprechen'
+  },
+  calcCtaCompliance: {
+    en: 'Discuss Your Compliance',
+    it: 'Discuti la tua Compliance',
+    fr: 'Discuter de votre Conformité',
+    de: 'Compliance Besprechen'
+  },
+  calcVatExcluded: {
+    en: 'All prices exclude VAT.',
+    it: 'Tutti i prezzi escludono l\'IVA.',
+    fr: 'Tous les prix hors TVA.',
+    de: 'Alle Preise zzgl. MwSt.'
+  },
   faqTitle: {
     en: 'Frequently Asked Questions',
     it: 'Domande Frequenti',
