@@ -47,6 +47,7 @@ const ServicePageLayout = ({
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href={url} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
@@ -58,6 +59,32 @@ const ServicePageLayout = ({
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImage} />
         {jsonLd && <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://arubhardwaj.eu/'
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Services',
+                item: 'https://arubhardwaj.eu/#expertise'
+              },
+              {
+                '@type': 'ListItem',
+                position: 3,
+                name: h1.replace(/&amp;/g, '&'),
+                item: url
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <Navbar />
       <main className="pt-24 pb-16">

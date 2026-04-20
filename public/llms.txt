@@ -35,7 +35,8 @@ All consultations include a written summary + action items within 24h and follow
 - TVA / VAT: FR42989236856
 - Base: Paris, France (Île-de-France)
 - Experience: 7+ years in AI, data engineering, and full-stack development
-- Languages: English, French, German, Italian, Hindi (multilingual collaboration)
+- Languages: English, Italian, French (B1 — intermediate), Hindi
+- Operations: Paris (HQ) · European Union · United Kingdom · India
 - Available: Worldwide, remote-first, on-site days in Paris and short on-site sprints across Europe
 - Rates: €150 per hour or €700 per day (exclusive of VAT). Partnership engagements (reduced fee + equity/success bonus) available for aligned startups.
 - Minimum engagement: 2-3 days per month for Fractional CTO retainers; 4-8 weeks for MVPs; 30 or 60 minutes for consultations.

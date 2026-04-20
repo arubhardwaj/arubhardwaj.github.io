@@ -21,28 +21,8 @@ const jsonLd = {
     familyName: 'Bhardwaj',
     jobTitle: 'Fractional CTO, AI Strategist & President of Insightrix SAS',
     description: 'Paris-based Fractional CTO, AI Strategist, and President of Insightrix SAS — a French AI consulting firm. 7+ years across AI, data engineering, and full-stack development. Specialises in European sovereign AI deployments, GDPR-compliant LLM systems, and MVP builds for startups, scale-ups, and regulated enterprises.',
-    worksFor: {
-      '@type': 'Organization',
-      '@id': 'https://insightrix.eu/#organization',
-      name: 'Insightrix SAS',
-      legalName: 'Insightrix SAS',
-      url: 'https://insightrix.eu',
-      email: 'aru.bhardwaj@insightrix.eu',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Paris',
-        addressRegion: 'Île-de-France',
-        addressCountry: 'FR'
-      },
-      foundingLocation: { '@type': 'Place', name: 'Paris, France' },
-      areaServed: [
-        { '@type': 'Country', name: 'France' },
-        { '@type': 'Place', name: 'European Union' },
-        { '@type': 'Place', name: 'Worldwide' }
-      ],
-      description: 'French AI consulting firm specialising in Fractional CTO services, AI MVP development, and EU sovereign LLM infrastructure. Founded and led by Aru Bhardwaj.'
-    },
-    knowsLanguage: ['English', 'French', 'German', 'Italian', 'Hindi'],
+    worksFor: { '@id': 'https://insightrix.eu/#organization' },
+    knowsLanguage: ['English', 'Italian', 'French', 'Hindi'],
     nationality: 'Indian',
     url: 'https://arubhardwaj.eu/',
     image: 'https://arubhardwaj.eu/images/headshot.jpg',
@@ -72,6 +52,16 @@ const AboutPage = () => (
       <meta name="twitter:description" content="Paris-based Fractional CTO and President of Insightrix SAS." />
       <meta name="twitter:image" content="https://arubhardwaj.eu/images/og-image.jpg" />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      <script type="application/ld+json">
+        {JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://arubhardwaj.eu/' },
+            { '@type': 'ListItem', position: 2, name: 'About', item: 'https://arubhardwaj.eu/about' }
+          ]
+        })}
+      </script>
     </Helmet>
     <Navbar />
     <main className="pt-24 pb-16">
@@ -120,10 +110,10 @@ const AboutPage = () => (
             </div>
           </div>
           <p className="text-gray-700 leading-relaxed mb-4">
-            I'm the <strong>President and founder of Insightrix SAS</strong>, a French AI consulting firm registered in Paris and operating across the European Union. Insightrix delivers Fractional CTO services, AI-powered MVP development, sovereign LLM infrastructure deployments, and EU regulatory compliance advisory for startups and regulated enterprises.
+            I'm the <strong>President and founder of Insightrix SAS</strong> — a Paris-headquartered AI consulting firm with active operations across the <strong>European Union</strong>, the <strong>United Kingdom</strong>, and <strong>India</strong>. Insightrix delivers Fractional CTO services, AI-powered MVP development, sovereign LLM infrastructure, and regulatory compliance advisory for startups, scale-ups, and regulated enterprises.
           </p>
           <p className="text-gray-700 leading-relaxed mb-5">
-            Engaging Insightrix gives you a European counterparty with French SIREN registration, intra-community VAT compliance, contracts under French jurisdiction, and zero CLOUD Act exposure — critical for banks, insurers, healthcare, legal, and public-sector buyers.
+            Working through Insightrix means one European counterparty that speaks your compliance language — French law for EU contracts, GDPR-ready data handling, and multi-region delivery spanning Paris, London, and Bengaluru.
           </p>
           <dl className="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm text-gray-600 mb-5 pt-5 border-t border-theme-olive/15">
             <div className="flex gap-2"><dt className="font-semibold text-theme-olive shrink-0">Registered:</dt><dd>60 Rue François Ier, 75008 Paris</dd></div>
@@ -168,7 +158,7 @@ const AboutPage = () => (
             <div className="flex gap-2"><dt className="font-semibold text-theme-olive w-32 shrink-0">Company:</dt><dd>President, Insightrix SAS</dd></div>
             <div className="flex gap-2"><dt className="font-semibold text-theme-olive w-32 shrink-0">Base:</dt><dd>Paris, France</dd></div>
             <div className="flex gap-2"><dt className="font-semibold text-theme-olive w-32 shrink-0">Experience:</dt><dd>7+ years in AI and data engineering</dd></div>
-            <div className="flex gap-2"><dt className="font-semibold text-theme-olive w-32 shrink-0">Languages:</dt><dd>English, French, German, Italian, Hindi</dd></div>
+            <div className="flex gap-2"><dt className="font-semibold text-theme-olive w-32 shrink-0">Languages:</dt><dd>English, Italian, French (B1), Hindi</dd></div>
             <div className="flex gap-2"><dt className="font-semibold text-theme-olive w-32 shrink-0">Availability:</dt><dd>Worldwide, remote-first</dd></div>
             <div className="flex gap-2"><dt className="font-semibold text-theme-olive w-32 shrink-0">Rates:</dt><dd>€150/hour or €700/day (ex. VAT)</dd></div>
             <div className="flex gap-2"><dt className="font-semibold text-theme-olive w-32 shrink-0">Jurisdiction:</dt><dd>French law, Paris courts</dd></div>
