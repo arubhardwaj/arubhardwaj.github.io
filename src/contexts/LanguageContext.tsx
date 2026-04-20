@@ -534,10 +534,10 @@ const translations = {
     de: 'Wie lang ist ein typisches Engagement?'
   },
   faq3A: {
-    en: 'Consultations run 30 or 60 minutes. MVPs typically ship in 4–8 weeks. Fractional CTO engagements are usually 2–3 days/week for a 3–6 month minimum, with extensions based on traction and fit. Shorter sprint engagements (1–2 weeks) are also possible for well-scoped prototypes.',
-    it: 'Le consulenze durano 30 o 60 minuti. Gli MVP vengono rilasciati tipicamente in 4–8 settimane. Gli ingaggi Fractional CTO sono di solito 2–3 giorni/settimana con un minimo di 3–6 mesi, con estensioni basate sul traction e sul fit. Sono possibili anche sprint più brevi (1–2 settimane) per prototipi ben definiti.',
-    fr: 'Les consultations durent 30 ou 60 minutes. Les MVPs sont généralement livrés en 4–8 semaines. Les engagements Fractional CTO sont habituellement 2–3 jours/semaine pour un minimum de 3–6 mois, avec des extensions selon la traction et le fit. Des sprints plus courts (1–2 semaines) sont aussi possibles pour des prototypes bien cadrés.',
-    de: 'Beratungen dauern 30 oder 60 Minuten. MVPs werden typischerweise in 4–8 Wochen ausgeliefert. Fractional-CTO-Engagements laufen meist 2–3 Tage/Woche für mindestens 3–6 Monate, mit Verlängerungen basierend auf Traction und Fit. Kürzere Sprint-Engagements (1–2 Wochen) sind auch möglich für gut abgegrenzte Prototypen.'
+    en: 'Consultations run 30 or 60 minutes. MVPs typically ship in 4–8 weeks. Fractional CTO engagements are usually 2–3 days/month minimum, with the cadence scaling up based on traction and fit. Shorter sprint engagements (1–2 weeks) are also possible for well-scoped prototypes.',
+    it: 'Le consulenze durano 30 o 60 minuti. Gli MVP vengono rilasciati tipicamente in 4–8 settimane. Gli ingaggi Fractional CTO sono di solito minimo 2–3 giorni/mese, con la cadenza che cresce in base al traction e al fit. Sono possibili anche sprint più brevi (1–2 settimane) per prototipi ben definiti.',
+    fr: 'Les consultations durent 30 ou 60 minutes. Les MVPs sont généralement livrés en 4–8 semaines. Les engagements Fractional CTO sont habituellement d\'au minimum 2–3 jours/mois, la cadence augmentant selon la traction et le fit. Des sprints plus courts (1–2 semaines) sont aussi possibles pour des prototypes bien cadrés.',
+    de: 'Beratungen dauern 30 oder 60 Minuten. MVPs werden typischerweise in 4–8 Wochen ausgeliefert. Fractional-CTO-Engagements laufen meist mindestens 2–3 Tage/Monat, wobei die Kadenz je nach Traction und Fit skaliert. Kürzere Sprint-Engagements (1–2 Wochen) sind auch möglich für gut abgegrenzte Prototypen.'
   },
   faq4Q: {
     en: 'Remote or on-site?',
