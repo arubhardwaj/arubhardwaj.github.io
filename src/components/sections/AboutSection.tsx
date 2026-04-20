@@ -15,8 +15,11 @@ const AboutSection = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-theme-olive">
               Aru Bhardwaj
             </h2>
-            <p className="text-lg mb-6 text-gray-700">
+            <p className="text-lg mb-4 text-gray-700">
               {translations.aboutMeDescription[language]}
+            </p>
+            <p className="text-lg mb-6 text-gray-700">
+              {translations.aboutMeDescription2[language]}
             </p>
             
             <div className="mb-8">

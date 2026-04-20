@@ -68,16 +68,16 @@ const translations = {
     de: 'in Produktion geht'
   },
   heroDescription1: {
-    en: 'I build with ChatGPT, Claude, LLMs, and cutting-edge generative AI — from intelligent agents and RAG pipelines to predictive models and NLP systems that actually ship to production.',
-    it: 'Sviluppo con ChatGPT, Claude, LLM e intelligenza artificiale generativa all\'avanguardia — dagli agenti intelligenti e pipeline RAG ai modelli predittivi e sistemi NLP pronti per la produzione.',
-    fr: 'Je développe avec ChatGPT, Claude, LLMs et l\'IA générative de pointe — des agents intelligents et pipelines RAG aux modèles prédictifs et systèmes NLP prêts pour la production.',
-    de: 'Ich entwickle mit ChatGPT, Claude, LLMs und modernster generativer KI — von intelligenten Agenten und RAG-Pipelines bis hin zu Vorhersagemodellen und NLP-Systemen für den Produktiveinsatz.'
+    en: 'I architect production-grade AI systems built to ship — intelligent RAG pipelines, autonomous agents, and sovereign LLM infrastructure that stands up to compliance, scale, and scrutiny.',
+    it: 'Progetto sistemi AI di livello enterprise costruiti per andare in produzione — pipeline RAG intelligenti, agenti autonomi e infrastrutture LLM sovrane che reggono compliance, scala e audit.',
+    fr: 'Je conçois des systèmes IA de niveau production — pipelines RAG intelligents, agents autonomes et infrastructures LLM souveraines qui tiennent face à la conformité, l\'échelle et l\'audit.',
+    de: 'Ich architektiere produktionsreife KI-Systeme — intelligente RAG-Pipelines, autonome Agenten und souveräne LLM-Infrastruktur, die Compliance, Skalierung und Prüfung standhält.'
   },
   heroDescription2: {
-    en: 'Whether you need an AI-powered product, a custom LLM solution, or deep data science — I turn complex ideas into production-ready systems that drive real business impact.',
-    it: 'Che tu abbia bisogno di un prodotto basato sull\'IA, una soluzione LLM personalizzata o data science avanzata — trasformo idee complesse in sistemi pronti per la produzione con impatto reale.',
-    fr: 'Que vous ayez besoin d\'un produit propulsé par l\'IA, d\'une solution LLM sur mesure ou de data science approfondie — je transforme les idées complexes en systèmes prêts pour la production.',
-    de: 'Ob Sie ein KI-gestütztes Produkt, eine maßgeschneiderte LLM-Lösung oder tiefgreifende Data Science benötigen — ich verwandle komplexe Ideen in produktionsreife Systeme mit echtem Geschäftsimpact.'
+    en: 'Whether you\'re a founder mapping a technical roadmap or a team racing to launch an AI product, I close the gap between cutting-edge generative AI and real business impact — with systems built secure by design, compliant by default, and engineered to win.',
+    it: 'Che tu sia un founder alla ricerca della tua roadmap tecnica o un team che corre a lanciare un prodotto AI, colmo il gap tra intelligenza artificiale di frontiera e impatto reale sul business — con sistemi secure by design, compliant by default e ingegnerizzati per vincere.',
+    fr: 'Que vous soyez fondateur en quête d\'une feuille de route technique ou une équipe en course pour lancer un produit IA, je comble l\'écart entre IA générative de pointe et impact business réel — avec des systèmes pensés secure by design, compliant by default, et conçus pour gagner.',
+    de: 'Ob Sie Gründer mit einer Tech-Roadmap im Aufbau sind oder ein Team, das ein KI-Produkt launchen will — ich schließe die Lücke zwischen modernster generativer KI und echtem Business-Impact. Mit Systemen, die secure by design, compliant by default und zum Gewinnen gebaut sind.'
   },
   exploreExpertise: {
     en: 'Explore My Expertise',
@@ -316,10 +316,16 @@ const translations = {
 
   // About Section
   aboutMeDescription: {
-    en: 'With over 7+ years of experience in data science and AI, I help businesses transform their data into actionable insights. I specialize in building custom machine learning models, implementing NLP solutions, and creating predictive analytics systems that drive real business value.',
-    it: 'Con oltre 7+ anni di esperienza nella scienza dei dati e nell\'IA, aiuto le aziende a trasformare i loro dati in insights azionabili. Mi specializzo nella costruzione di modelli di machine learning personalizzati, nell\'implementazione di soluzioni NLP e nella creazione di sistemi di analisi predittiva che generano valore commerciale reale.',
-    fr: 'Avec plus de 7+ ans d\'expérience en science des données et IA, j\'aide les entreprises à transformer leurs données en insights exploitables. Je me spécialise dans la construction de modèles d\'apprentissage automatique personnalisés, l\'implémentation de solutions NLP et la création de systèmes d\'analyse prédictive qui génèrent une vraie valeur commerciale.',
-    de: 'Mit über 7+ Jahren Erfahrung in Data Science und KI helfe ich Unternehmen, ihre Daten in umsetzbare Erkenntnisse zu verwandeln. Ich bin spezialisiert auf den Aufbau maßgeschneiderter Machine-Learning-Modelle, die Implementierung von NLP-Lösungen und die Erstellung von Predictive-Analytics-Systemen, die echten Geschäftswert schaffen.'
+    en: 'With 7+ years across AI and data engineering, I serve as a Fractional CTO for startups and scale-ups turning complex data into production intelligence. My specialty: architecting sovereign AI solutions — from custom ML models and agentic RAG systems to secure predictive pipelines running on European infrastructure.',
+    it: 'Con 7+ anni di esperienza in AI e data engineering, opero come Fractional CTO per startup e scale-up che trasformano dati complessi in intelligenza di produzione. La mia specialità: architettare soluzioni AI sovrane — dai modelli ML custom ai sistemi RAG agentici, fino a pipeline predittive sicure su infrastruttura europea.',
+    fr: 'Avec 7+ ans d\'expérience en IA et data engineering, j\'interviens comme Fractional CTO auprès de startups et scale-ups qui transforment des données complexes en intelligence de production. Ma spécialité : architecturer des solutions IA souveraines — des modèles ML sur mesure aux systèmes RAG agentiques, jusqu\'aux pipelines prédictifs sécurisés sur infrastructure européenne.',
+    de: 'Mit 7+ Jahren Erfahrung in KI und Data Engineering agiere ich als Fractional CTO für Startups und Scale-ups, die komplexe Daten in produktionsreife Intelligenz verwandeln. Meine Spezialität: souveräne KI-Lösungen zu architektieren — von Custom-ML-Modellen über agentische RAG-Systeme bis zu sicheren Predictive-Pipelines auf europäischer Infrastruktur.'
+  },
+  aboutMeDescription2: {
+    en: 'I don\'t just build models — I build the scalable, audit-ready technical foundations that compound in business value over time and keep your data under European jurisdiction.',
+    it: 'Non costruisco solo modelli — costruisco le fondamenta tecniche scalabili e audit-ready che compongono valore di business nel tempo e mantengono i tuoi dati sotto giurisdizione europea.',
+    fr: 'Je ne construis pas seulement des modèles — je construis les fondations techniques scalables et audit-ready qui composent de la valeur business dans le temps, tout en gardant vos données sous juridiction européenne.',
+    de: 'Ich baue nicht nur Modelle — ich baue skalierbare, audit-ready technische Fundamente, die Business-Wert über die Zeit akkumulieren und Ihre Daten unter europäischer Jurisdiktion halten.'
   },
   professionalServices: {
     en: 'Professional Services',
