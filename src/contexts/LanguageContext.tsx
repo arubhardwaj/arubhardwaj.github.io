@@ -204,10 +204,52 @@ const translations = {
     de: 'Wird gesendet...'
   },
   consultationPackage: {
-    en: 'Consultation Package',
-    it: 'Pacchetto Consulenza',
-    fr: 'Package Consultation',
-    de: 'Beratungspaket'
+    en: 'Book a Consultation',
+    it: 'Prenota una Consulenza',
+    fr: 'Réserver une Consultation',
+    de: 'Beratung Buchen'
+  },
+  consultationNudge: {
+    en: "Have a project in mind? Let's talk. Book a focused call — quick scope in 30 minutes, or a deep-dive to plan your build in 60.",
+    it: "Hai un progetto in mente? Parliamone. Prenota una call mirata — scoping veloce in 30 minuti o approfondimento per pianificare il tuo progetto in 60.",
+    fr: "Un projet en tête ? Parlons-en. Réservez un appel ciblé — cadrage rapide en 30 min, ou immersion pour planifier votre build en 60 min.",
+    de: "Haben Sie ein Projekt? Lassen Sie uns sprechen. Buchen Sie einen fokussierten Call — schnelles Scoping in 30 Minuten oder Deep-Dive zur Projektplanung in 60."
+  },
+  book30Min: {
+    en: 'Book 30-min Call',
+    it: 'Prenota Call 30 min',
+    fr: 'Réserver 30 min',
+    de: '30-Min-Call Buchen'
+  },
+  book30MinSub: {
+    en: 'Quick scope & validation',
+    it: 'Scoping & validazione rapida',
+    fr: 'Cadrage & validation rapides',
+    de: 'Schnelles Scoping & Validierung'
+  },
+  book60Min: {
+    en: 'Book 60-min Deep-Dive',
+    it: 'Prenota Deep-Dive 60 min',
+    fr: 'Réserver 60 min',
+    de: '60-Min-Deep-Dive Buchen'
+  },
+  book60MinSub: {
+    en: 'Strategy, architecture & roadmap',
+    it: 'Strategia, architettura & roadmap',
+    fr: 'Stratégie, architecture & feuille de route',
+    de: 'Strategie, Architektur & Roadmap'
+  },
+  mostPopular: {
+    en: 'Most Popular',
+    it: 'Più Popolare',
+    fr: 'Le Plus Populaire',
+    de: 'Am Beliebtesten'
+  },
+  securePayment: {
+    en: 'Secure payment via Stripe · Instant calendar invite',
+    it: 'Pagamento sicuro tramite Stripe · Invito calendario istantaneo',
+    fr: 'Paiement sécurisé via Stripe · Invitation calendrier immédiate',
+    de: 'Sichere Zahlung via Stripe · Sofortige Kalendereinladung'
   },
   whatHappensNext: {
     en: 'What Happens Next?',

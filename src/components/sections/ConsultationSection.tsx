@@ -32,19 +32,23 @@ const UpworkIcon = () => (
 );
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'stripe-buy-button': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
-        'buy-button-id': string;
-        'publishable-key': string;
-      };
-    }
-  }
-  
   interface Window {
     emailjs: any;
+    Stripe?: (pk: string) => {
+      redirectToCheckout: (opts: {
+        lineItems: Array<{ price: string; quantity: number }>;
+        mode: 'payment' | 'subscription';
+        successUrl: string;
+        cancelUrl: string;
+        locale?: string;
+      }) => Promise<{ error?: { message: string } }>;
+    };
   }
 }
+
+const STRIPE_PK = 'pk_live_51QTvRbDRlpu0Xokvl70HGWoEOV7yoyJ1ye6INHArLHaeDpSEKk0vGLIycqiN4VMuA0HueyzxLlsPVD1GukvLAcPI00hxC37Dmk';
+const PRICE_30_MIN = 'price_1TOHzcDRlpu0Xokv8te9qxEm';
+const PRICE_60_MIN = 'price_1RJibUDRlpu0XokvhbfMz9ln';
 
 const ConsultationSection = () => {
   const { language, translations } = useLanguage();
@@ -57,9 +61,9 @@ const ConsultationSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    // Load Stripe script
+    // Load Stripe.js (Checkout)
     const script = document.createElement('script');
-    script.src = 'https://js.stripe.com/v3/buy-button.js';
+    script.src = 'https://js.stripe.com/v3/';
     script.async = true;
     script.onerror = () => {
       console.warn('Failed to load Stripe script. Payment button may not work.');
@@ -82,7 +86,7 @@ const ConsultationSection = () => {
 
     return () => {
       // Clean up scripts when component unmounts
-      const existingStripeScript = document.querySelector('script[src="https://js.stripe.com/v3/buy-button.js"]');
+      const existingStripeScript = document.querySelector('script[src="https://js.stripe.com/v3/"]');
       if (existingStripeScript && document.body.contains(existingStripeScript)) {
         document.body.removeChild(existingStripeScript);
       }
@@ -97,6 +101,22 @@ const ConsultationSection = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleCheckout = async (priceId: string) => {
+    if (!window.Stripe) {
+      toast.error('Payment system is still loading. Please try again in a second.');
+      return;
+    }
+    const stripe = window.Stripe(STRIPE_PK);
+    const { error } = await stripe.redirectToCheckout({
+      lineItems: [{ price: priceId, quantity: 1 }],
+      mode: 'payment',
+      successUrl: `${window.location.origin}/?checkout=success#consultation`,
+      cancelUrl: `${window.location.origin}/#consultation`,
+      locale: language,
+    });
+    if (error) toast.error(error.message);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -277,17 +297,44 @@ const ConsultationSection = () => {
               </div>
               
               <div className="p-8">
-                <h3 className="text-xl font-semibold mb-6 text-theme-olive">{translations.consultationPackage[language]}</h3>
-                
-                <div className="flex justify-center my-8">
-                  <div className="stripe-button-container">
-                    <stripe-buy-button
-                      buy-button-id="buy_btn_1RJidbDRlpu0XokvgWLL4odr"
-                      publishable-key="pk_live_51QTvRbDRlpu0Xokvl70HGWoEOV7yoyJ1ye6INHArLHaeDpSEKk0vGLIycqiN4VMuA0HueyzxLlsPVD1GukvLAcPI00hxC37Dmk"
-                    >
-                    </stripe-buy-button>
-                  </div>
+                <h3 className="text-xl font-semibold mb-3 text-theme-olive">{translations.consultationPackage[language]}</h3>
+
+                <p className="text-gray-700 mb-6">
+                  {translations.consultationNudge[language]}
+                </p>
+
+                <div className="space-y-4">
+                  <button
+                    type="button"
+                    onClick={() => handleCheckout(PRICE_30_MIN)}
+                    className="group w-full flex items-center justify-between gap-4 bg-white hover:bg-theme-olive hover:text-white border-2 border-theme-olive text-theme-olive px-6 py-4 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
+                  >
+                    <div className="text-left">
+                      <div className="font-semibold text-base">{translations.book30Min[language]}</div>
+                      <div className="text-sm opacity-80">{translations.book30MinSub[language]}</div>
+                    </div>
+                    <span className="text-2xl font-bold">30 min</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => handleCheckout(PRICE_60_MIN)}
+                    className="group relative w-full flex items-center justify-between gap-4 bg-theme-gold hover:bg-theme-gold/90 text-white border-2 border-theme-gold px-6 py-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+                  >
+                    <span className="absolute -top-3 right-4 bg-theme-olive text-white text-xs font-semibold px-3 py-1 rounded-full">
+                      {translations.mostPopular[language]}
+                    </span>
+                    <div className="text-left">
+                      <div className="font-semibold text-base">{translations.book60Min[language]}</div>
+                      <div className="text-sm opacity-90">{translations.book60MinSub[language]}</div>
+                    </div>
+                    <span className="text-2xl font-bold">60 min</span>
+                  </button>
                 </div>
+
+                <p className="text-xs text-gray-500 text-center mt-4">
+                  {translations.securePayment[language]}
+                </p>
                 
                 <div className="mt-8">
                   <h4 className="text-lg font-semibold mb-4 text-theme-olive">{translations.whatHappensNext[language]}</h4>
