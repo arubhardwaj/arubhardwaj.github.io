@@ -22,7 +22,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <h3 className="text-xl font-bold mb-4 text-theme-olive">Aru Bhardwaj</h3>
-            <p className="mb-4 text-gray-600">Freelance AI developer & data scientist with 7+ years experience. Expert in ChatGPT, Claude AI, LLMs, generative AI, machine learning, and predictive analytics.</p>
+            <p className="mb-4 text-gray-600">Fractional CTO, freelance AI developer & data scientist with 7+ years experience. Expert in ChatGPT, Claude AI, LLMs, generative AI, machine learning, and predictive analytics.</p>
             <div className="flex items-center space-x-4">
               <a href="https://www.linkedin.com/in/arub" aria-label="LinkedIn" className="text-theme-olive hover:text-theme-gold">
                 <Linkedin size={20} />

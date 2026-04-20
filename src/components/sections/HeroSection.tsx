@@ -15,7 +15,7 @@ const HeroSection = () => {
               <span className="text-theme-gold">
                 {translations.intelligentSolutions[language]}
               </span>
-              <span className="block mt-2 text-xl md:text-2xl text-theme-olive">Freelance AI Developer & MVP Builder | ChatGPT, Claude & LLM Expert</span>
+              <span className="block mt-2 text-xl md:text-2xl text-theme-olive">Fractional CTO | Freelance AI Developer & MVP Builder | ChatGPT, Claude & LLM Expert</span>
             </h1>
             
             <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl">
