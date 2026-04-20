@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Check, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Check, Linkedin, Lock, ShieldCheck, RotateCcw } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -253,52 +253,100 @@ const ConsultationSection = () => {
               <div className="p-8">
                 <h3 className="text-xl font-semibold mb-3 text-theme-olive">{translations.consultationPackage[language]}</h3>
 
-                <p className="text-gray-700 mb-6">
+                <p className="text-gray-700 mb-4">
                   {translations.consultationNudge[language]}
                 </p>
 
-                <div className="space-y-4">
-                  {/* Primary CTA — 60-min, visually dominant */}
-                  <a
-                    href={PAYMENT_LINK_60_MIN}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative w-full flex items-center justify-between gap-4 bg-theme-gold hover:bg-theme-gold/90 text-white border-2 border-theme-gold px-6 py-5 md:py-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-xl hover:-translate-y-0.5 no-underline min-h-[72px]"
-                  >
-                    <span className="absolute -top-3 right-4 bg-theme-olive text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
-                      {translations.mostPopular[language]}
-                    </span>
-                    <div className="text-left">
-                      <div className="font-bold text-lg md:text-xl">{translations.book60Min[language]}</div>
-                      <div className="text-sm md:text-base opacity-90">{translations.book60MinSub[language]}</div>
-                    </div>
-                    <div className="text-right leading-tight shrink-0">
-                      <span className="block text-3xl md:text-4xl font-extrabold">60 min</span>
-                      <span className="block text-xs md:text-sm opacity-90">{translations.vatExtra[language]}</span>
-                    </div>
-                  </a>
+                {/* Social proof */}
+                <p className="text-xs text-gray-500 mb-5 italic border-l-2 border-theme-gold/40 pl-3">
+                  {translations.consultationSocialProof[language]}
+                </p>
 
-                  {/* Secondary CTA — 30-min, subordinate weight */}
-                  <a
-                    href={PAYMENT_LINK_30_MIN}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group w-full flex items-center justify-between gap-4 bg-white hover:bg-theme-olive/5 border border-gray-300 hover:border-theme-olive text-theme-olive px-6 py-4 rounded-lg transition-all duration-200 no-underline min-h-[60px]"
-                  >
-                    <div className="text-left">
-                      <div className="font-semibold text-base">{translations.book30Min[language]}</div>
-                      <div className="text-sm text-gray-500">{translations.book30MinSub[language]}</div>
-                    </div>
-                    <div className="text-right leading-tight shrink-0">
-                      <span className="block text-xl font-bold">30 min</span>
-                      <span className="block text-xs text-gray-500">{translations.vatExtra[language]}</span>
-                    </div>
-                  </a>
+                {/* Value stack */}
+                <div className="bg-theme-olive/5 rounded-lg p-4 mb-6 border border-theme-olive/10">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-theme-olive mb-2">
+                    {translations.valueStackTitle[language]}
+                  </p>
+                  <ul className="space-y-1.5">
+                    <li className="flex items-start gap-2 text-sm text-gray-700">
+                      <Check className="h-4 w-4 text-theme-gold shrink-0 mt-0.5" />
+                      <span>{translations.valueBullet1[language]}</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-gray-700">
+                      <Check className="h-4 w-4 text-theme-gold shrink-0 mt-0.5" />
+                      <span>{translations.valueBullet2[language]}</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-gray-700">
+                      <Check className="h-4 w-4 text-theme-gold shrink-0 mt-0.5" />
+                      <span>{translations.valueBullet3[language]}</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-gray-700">
+                      <Check className="h-4 w-4 text-theme-gold shrink-0 mt-0.5" />
+                      <span>{translations.valueBullet4[language]}</span>
+                    </li>
+                  </ul>
                 </div>
 
-                <p className="text-xs text-gray-500 text-center mt-4">
-                  {translations.securePayment[language]}
-                </p>
+                <div className="space-y-4">
+                  {/* Primary CTA — 60-min, visually dominant */}
+                  <div>
+                    <a
+                      href={PAYMENT_LINK_60_MIN}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative w-full flex items-center justify-between gap-4 bg-theme-gold hover:bg-theme-gold/90 text-white border-2 border-theme-gold px-6 py-5 md:py-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-xl hover:-translate-y-0.5 no-underline min-h-[72px]"
+                    >
+                      <span className="absolute -top-3 right-4 bg-theme-olive text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
+                        {translations.mostPopular[language]}
+                      </span>
+                      <div className="text-left">
+                        <div className="font-bold text-lg md:text-xl">{translations.book60Min[language]}</div>
+                        <div className="text-sm md:text-base opacity-90">{translations.book60MinSub[language]}</div>
+                      </div>
+                      <div className="text-right leading-tight shrink-0">
+                        <span className="block text-3xl md:text-4xl font-extrabold">€90</span>
+                        <span className="block text-xs md:text-sm opacity-90">60 min · {translations.vatExtra[language]}</span>
+                      </div>
+                    </a>
+                    <p className="text-xs text-gray-500 mt-2 px-1">{translations.book60BestFor[language]}</p>
+                  </div>
+
+                  {/* Secondary CTA — 30-min, subordinate weight */}
+                  <div>
+                    <a
+                      href={PAYMENT_LINK_30_MIN}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group w-full flex items-center justify-between gap-4 bg-white hover:bg-theme-olive/5 border border-gray-300 hover:border-theme-olive text-theme-olive px-6 py-4 rounded-lg transition-all duration-200 no-underline min-h-[60px]"
+                    >
+                      <div className="text-left">
+                        <div className="font-semibold text-base">{translations.book30Min[language]}</div>
+                        <div className="text-sm text-gray-500">{translations.book30MinSub[language]}</div>
+                      </div>
+                      <div className="text-right leading-tight shrink-0">
+                        <span className="block text-xl font-bold">€45</span>
+                        <span className="block text-xs text-gray-500">30 min · {translations.vatExtra[language]}</span>
+                      </div>
+                    </a>
+                    <p className="text-xs text-gray-500 mt-2 px-1">{translations.book30BestFor[language]}</p>
+                  </div>
+                </div>
+
+                {/* Trust signals row */}
+                <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mt-5 pt-4 border-t border-gray-100">
+                  <span className="flex items-center gap-1.5 text-xs text-gray-600">
+                    <Lock className="h-3.5 w-3.5 text-theme-olive" />
+                    {translations.trustSecureStripe[language]}
+                  </span>
+                  <span className="flex items-center gap-1.5 text-xs text-gray-600">
+                    <ShieldCheck className="h-3.5 w-3.5 text-theme-olive" />
+                    {translations.trustEuResidency[language]}
+                  </span>
+                  <span className="flex items-center gap-1.5 text-xs text-gray-600">
+                    <RotateCcw className="h-3.5 w-3.5 text-theme-olive" />
+                    {translations.trustRefundable[language]}
+                  </span>
+                </div>
                 
                 <div className="mt-8">
                   <h4 className="text-lg font-semibold mb-4 text-theme-olive">{translations.whatHappensNext[language]}</h4>

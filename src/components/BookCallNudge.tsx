@@ -121,8 +121,11 @@ const BookCallNudge = () => {
           <h4 className="text-base font-semibold text-gray-900 mb-1.5 leading-snug">
             {translations.nudgeTitle[language]}
           </h4>
-          <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+          <p className="text-sm text-gray-600 mb-3 leading-relaxed">
             {translations.nudgeBody[language]}
+          </p>
+          <p className="text-xs font-semibold text-theme-olive mb-4">
+            {translations.nudgePrice[language]}
           </p>
 
           <button

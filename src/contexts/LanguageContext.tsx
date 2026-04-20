@@ -251,6 +251,83 @@ const translations = {
     fr: 'Paiement sécurisé via Stripe · Invitation calendrier immédiate',
     de: 'Sichere Zahlung via Stripe · Sofortige Kalendereinladung'
   },
+  // Social proof line above CTAs
+  consultationSocialProof: {
+    en: 'Trusted by founders and teams across fintech, healthtech, luxury, and the public sector in France, Germany, the UK, and the Middle East.',
+    it: 'Scelto da founder e team in fintech, healthtech, luxury e pubblica amministrazione in Francia, Germania, UK e Medio Oriente.',
+    fr: 'Choisi par des fondateurs et équipes en fintech, healthtech, luxe et secteur public en France, Allemagne, au Royaume-Uni et au Moyen-Orient.',
+    de: 'Geschätzt von Gründern und Teams aus Fintech, Healthtech, Luxury und öffentlichem Sektor in Frankreich, Deutschland, UK und dem Nahen Osten.'
+  },
+  // Value stack
+  valueStackTitle: {
+    en: "What's included",
+    it: 'Cosa è incluso',
+    fr: 'Ce qui est inclus',
+    de: 'Was enthalten ist'
+  },
+  valueBullet1: {
+    en: 'Live video call — screen-share ready',
+    it: 'Videocall dal vivo — pronto per lo screen-share',
+    fr: 'Appel vidéo en direct — partage d\'écran inclus',
+    de: 'Live-Videocall — Bildschirmfreigabe bereit'
+  },
+  valueBullet2: {
+    en: 'Written summary + action items within 24h',
+    it: 'Riepilogo scritto + action item entro 24 ore',
+    fr: 'Synthèse écrite + actions concrètes sous 24h',
+    de: 'Schriftliche Zusammenfassung + To-Dos innerhalb von 24h'
+  },
+  valueBullet3: {
+    en: 'Architecture sketches & concrete recommendations',
+    it: 'Schizzi di architettura e raccomandazioni concrete',
+    fr: 'Schémas d\'architecture et recommandations concrètes',
+    de: 'Architektur-Skizzen & konkrete Empfehlungen'
+  },
+  valueBullet4: {
+    en: 'Follow-up email Q&A for 7 days after the call',
+    it: 'Q&A via email per 7 giorni dopo la call',
+    fr: 'Questions/réponses par email pendant 7 jours après l\'appel',
+    de: 'E-Mail-Follow-up mit Q&A für 7 Tage nach dem Call'
+  },
+  // Trust signals row
+  trustSecureStripe: {
+    en: 'Secure Stripe checkout',
+    it: 'Checkout sicuro Stripe',
+    fr: 'Paiement sécurisé Stripe',
+    de: 'Sicherer Stripe-Checkout'
+  },
+  trustEuResidency: {
+    en: 'EU data residency',
+    it: 'Dati residenti in UE',
+    fr: 'Données hébergées en UE',
+    de: 'EU-Datenresidenz'
+  },
+  trustRefundable: {
+    en: 'Refundable within 15 days',
+    it: 'Rimborsabile entro 15 giorni',
+    fr: 'Remboursable sous 15 jours',
+    de: 'Rückerstattung innerhalb von 15 Tagen'
+  },
+  // Session preview — "best for"
+  book30BestFor: {
+    en: 'Best for validating an AI idea, scoping a small project, or one specific technical question.',
+    it: 'Ideale per validare un\'idea AI, definire lo scope di un piccolo progetto o una domanda tecnica specifica.',
+    fr: 'Idéal pour valider une idée IA, cadrer un petit projet ou poser une question technique précise.',
+    de: 'Perfekt zum Validieren einer KI-Idee, Scoping eines kleinen Projekts oder einer konkreten technischen Frage.'
+  },
+  book60BestFor: {
+    en: 'Best for architecture reviews, roadmap discussions, or deep-diving into your AI build end to end.',
+    it: 'Ideale per review di architettura, discussioni di roadmap o deep-dive completo sul tuo build AI.',
+    fr: 'Idéal pour une revue d\'architecture, une discussion de roadmap ou un deep-dive complet sur votre projet IA.',
+    de: 'Perfekt für Architektur-Reviews, Roadmap-Gespräche oder End-to-End Deep-Dives in Ihren KI-Build.'
+  },
+  // Nudge card price line
+  nudgePrice: {
+    en: 'From €45 · 30 or 60 minutes',
+    it: 'Da €45 · 30 o 60 minuti',
+    fr: 'À partir de 45 € · 30 ou 60 minutes',
+    de: 'Ab 45 € · 30 oder 60 Minuten'
+  },
   whatHappensNext: {
     en: 'What Happens Next?',
     it: 'Cosa Succede Dopo?',
