@@ -5,6 +5,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import LanguageSwitcher from './LanguageSwitcher';
+import BookConsultationDialog from '@/components/BookConsultationDialog';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Navbar = () => {
@@ -90,9 +91,11 @@ const Navbar = () => {
               {translations.submitYourProject[language]}
             </Button>
           </Link>
-          <Button onClick={() => scrollToSection('consultation')} className="bg-theme-gold hover:bg-theme-gold/90 text-white">
-            {translations.bookConsultation[language]}
-          </Button>
+          <BookConsultationDialog>
+            <Button className="bg-theme-gold hover:bg-theme-gold/90 text-white">
+              {translations.bookConsultation[language]}
+            </Button>
+          </BookConsultationDialog>
         </div>
 
         {/* Mobile Menu Button */}
@@ -135,12 +138,14 @@ const Navbar = () => {
                 {translations.submitYourProject[language]}
               </Button>
             </Link>
-            <Button onClick={() => {
-              scrollToSection('consultation');
-              setIsMenuOpen(false);
-            }} className="bg-theme-gold hover:bg-theme-gold/90 text-white w-full">
-              {translations.bookConsultation[language]}
-            </Button>
+            <BookConsultationDialog>
+              <Button
+                onClick={() => setIsMenuOpen(false)}
+                className="bg-theme-gold hover:bg-theme-gold/90 text-white w-full"
+              >
+                {translations.bookConsultation[language]}
+              </Button>
+            </BookConsultationDialog>
           </nav>
         </div>
       )}

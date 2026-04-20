@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import BookConsultationDialog from '@/components/BookConsultationDialog';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const ROTATING_PHRASES: Record<'en' | 'it' | 'fr' | 'de', string[]> = {
@@ -100,13 +101,14 @@ const HeroSection = () => {
                 {translations.exploreExpertise[language]}
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
               </Button>
-              <Button
-                onClick={() => document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' })}
-                variant="outline"
-                className="bg-theme-gold hover:bg-theme-gold/90 text-white border-theme-gold px-8 py-6 text-lg w-full sm:w-auto"
-              >
-                {translations.bookAConsultation[language]}
-              </Button>
+              <BookConsultationDialog>
+                <Button
+                  variant="outline"
+                  className="bg-theme-gold hover:bg-theme-gold/90 text-white border-theme-gold px-8 py-6 text-lg w-full sm:w-auto"
+                >
+                  {translations.bookAConsultation[language]}
+                </Button>
+              </BookConsultationDialog>
             </div>
           </div>
           <div className="relative order-first md:order-last mb-8 md:mb-0">
