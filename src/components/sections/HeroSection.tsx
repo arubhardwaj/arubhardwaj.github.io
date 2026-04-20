@@ -69,7 +69,7 @@ const HeroSection = () => {
               >
                 {phrases[phraseIndex]}
               </span>
-              <span className="block mt-2 text-xl md:text-2xl text-theme-olive">Fractional CTO | AI Developer & MVP Builder | ChatGPT, Claude & LLM Expert</span>
+              <span className="block mt-2 text-xl md:text-2xl text-theme-olive">Fractional CTO | AI Strategist & MVP Builder</span>
             </h1>
 
             <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl">
