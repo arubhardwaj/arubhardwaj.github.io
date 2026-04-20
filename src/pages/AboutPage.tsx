@@ -115,12 +115,6 @@ const AboutPage = () => (
           <p className="text-gray-700 leading-relaxed mb-5">
             Working through Insightrix means one European counterparty that speaks your compliance language — French law for EU contracts, GDPR-ready data handling, and multi-region delivery across France, the UK, and India.
           </p>
-          <dl className="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm text-gray-600 mb-5 pt-5 border-t border-theme-olive/15">
-            <div className="flex gap-2"><dt className="font-semibold text-theme-olive shrink-0">Registered:</dt><dd>60 Rue François Ier, 75008 Paris</dd></div>
-            <div className="flex gap-2"><dt className="font-semibold text-theme-olive shrink-0">Legal form:</dt><dd>SAS (Société par Actions Simplifiée)</dd></div>
-            <div className="flex gap-2"><dt className="font-semibold text-theme-olive shrink-0">SIRET:</dt><dd>989 236 856 00013</dd></div>
-            <div className="flex gap-2"><dt className="font-semibold text-theme-olive shrink-0">TVA:</dt><dd>FR42989236856</dd></div>
-          </dl>
           <a href="https://insightrix.eu" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-theme-olive font-semibold hover:text-theme-gold transition-colors">
             Visit insightrix.eu
             <ExternalLink className="h-4 w-4" />
