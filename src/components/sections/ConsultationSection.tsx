@@ -258,38 +258,40 @@ const ConsultationSection = () => {
                 </p>
 
                 <div className="space-y-4">
-                  <a
-                    href={PAYMENT_LINK_30_MIN}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group w-full flex items-center justify-between gap-4 bg-white hover:bg-theme-olive hover:text-white border-2 border-theme-olive text-theme-olive px-6 py-4 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md no-underline"
-                  >
-                    <div className="text-left">
-                      <div className="font-semibold text-base">{translations.book30Min[language]}</div>
-                      <div className="text-sm opacity-80">{translations.book30MinSub[language]}</div>
-                    </div>
-                    <div className="text-right leading-tight">
-                      <span className="block text-2xl font-bold">30 min</span>
-                      <span className="block text-xs opacity-80">{translations.vatExtra[language]}</span>
-                    </div>
-                  </a>
-
+                  {/* Primary CTA — 60-min, visually dominant */}
                   <a
                     href={PAYMENT_LINK_60_MIN}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative w-full flex items-center justify-between gap-4 bg-theme-gold hover:bg-theme-gold/90 text-white border-2 border-theme-gold px-6 py-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg no-underline"
+                    className="group relative w-full flex items-center justify-between gap-4 bg-theme-gold hover:bg-theme-gold/90 text-white border-2 border-theme-gold px-6 py-5 md:py-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-xl hover:-translate-y-0.5 no-underline min-h-[72px]"
                   >
-                    <span className="absolute -top-3 right-4 bg-theme-olive text-white text-xs font-semibold px-3 py-1 rounded-full">
+                    <span className="absolute -top-3 right-4 bg-theme-olive text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
                       {translations.mostPopular[language]}
                     </span>
                     <div className="text-left">
-                      <div className="font-semibold text-base">{translations.book60Min[language]}</div>
-                      <div className="text-sm opacity-90">{translations.book60MinSub[language]}</div>
+                      <div className="font-bold text-lg md:text-xl">{translations.book60Min[language]}</div>
+                      <div className="text-sm md:text-base opacity-90">{translations.book60MinSub[language]}</div>
                     </div>
-                    <div className="text-right leading-tight">
-                      <span className="block text-2xl font-bold">60 min</span>
-                      <span className="block text-xs opacity-90">{translations.vatExtra[language]}</span>
+                    <div className="text-right leading-tight shrink-0">
+                      <span className="block text-3xl md:text-4xl font-extrabold">60 min</span>
+                      <span className="block text-xs md:text-sm opacity-90">{translations.vatExtra[language]}</span>
+                    </div>
+                  </a>
+
+                  {/* Secondary CTA — 30-min, subordinate weight */}
+                  <a
+                    href={PAYMENT_LINK_30_MIN}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group w-full flex items-center justify-between gap-4 bg-white hover:bg-theme-olive/5 border border-gray-300 hover:border-theme-olive text-theme-olive px-6 py-4 rounded-lg transition-all duration-200 no-underline min-h-[60px]"
+                  >
+                    <div className="text-left">
+                      <div className="font-semibold text-base">{translations.book30Min[language]}</div>
+                      <div className="text-sm text-gray-500">{translations.book30MinSub[language]}</div>
+                    </div>
+                    <div className="text-right leading-tight shrink-0">
+                      <span className="block text-xl font-bold">30 min</span>
+                      <span className="block text-xs text-gray-500">{translations.vatExtra[language]}</span>
                     </div>
                   </a>
                 </div>

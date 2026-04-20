@@ -26,7 +26,7 @@ const WhyChooseMeSection = () => {
         de: 'Nicht nur Implementierung, sondern strategische Beratung zur KI-Einführung zur Maximierung des ROI'
       },
       icon: Lightbulb,
-      color: 'bg-amber-100 text-amber-600'
+      color: 'bg-theme-gold/10 text-theme-gold'
     },
     {
       title: {
@@ -42,7 +42,7 @@ const WhyChooseMeSection = () => {
         de: 'Schnelle Proof-of-Concept-Entwicklung zur Validierung von KI-Lösungen vor der vollständigen Investition'
       },
       icon: Rocket,
-      color: 'bg-green-100 text-green-600'
+      color: 'bg-theme-olive/10 text-theme-olive'
     },
     {
       title: {
@@ -58,7 +58,7 @@ const WhyChooseMeSection = () => {
         de: 'Komplexe Modelle interpretierbar machen für die Akzeptanz und das Vertrauen der Stakeholder'
       },
       icon: Info,
-      color: 'bg-blue-100 text-blue-600'
+      color: 'bg-theme-gold/10 text-theme-gold'
     },
     {
       title: {
@@ -74,7 +74,7 @@ const WhyChooseMeSection = () => {
         de: 'Bereitschaftssupport und zeitzonengerechte Projektaktualisierungen für nahtlose Kommunikation'
       },
       icon: Clock,
-      color: 'bg-purple-100 text-purple-600'
+      color: 'bg-theme-olive/10 text-theme-olive'
     },
     {
       title: {
@@ -90,7 +90,7 @@ const WhyChooseMeSection = () => {
         de: 'Ermäßigte Dienstleistungen für gemeinnützige Organisationen und Startups zur Förderung von Innovation'
       },
       icon: BadgePercent,
-      color: 'bg-red-100 text-red-600'
+      color: 'bg-theme-gold/10 text-theme-gold'
     },
     {
       title: {
@@ -106,7 +106,7 @@ const WhyChooseMeSection = () => {
         de: 'Von der Ideenfindung bis zum Deployment und Monitoring — ich verantworte den gesamten Lebenszyklus, damit nichts übersehen wird'
       },
       icon: ShieldCheck,
-      color: 'bg-emerald-100 text-emerald-600'
+      color: 'bg-theme-olive/10 text-theme-olive'
     }
   ];
 

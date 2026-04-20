@@ -58,7 +58,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
         <button onClick={scrollToTop} className="flex items-center gap-2">
-          <span className="text-xl md:text-2xl font-bold text-theme-green">Aru Bhardwaj</span>
+          <span className="text-xl md:text-2xl font-bold text-theme-olive">Aru Bhardwaj</span>
         </button>
 
         {/* Desktop Navigation */}

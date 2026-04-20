@@ -39,13 +39,13 @@ const AboutSection = () => {
                     <div className="flex items-center gap-1 mb-3 bg-muted rounded-full p-1 w-fit">
                       <button
                         onClick={() => setIsDaily(false)}
-                        className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${!isDaily ? 'bg-theme-gold text-white shadow' : 'text-muted-foreground hover:text-foreground'}`}
+                        className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all min-h-[44px] ${!isDaily ? 'bg-theme-gold text-white shadow' : 'text-muted-foreground hover:text-foreground'}`}
                       >
                         {language === 'en' ? 'Hourly' : language === 'it' ? 'Oraria' : language === 'de' ? 'Stündlich' : 'Horaire'}
                       </button>
                       <button
                         onClick={() => setIsDaily(true)}
-                        className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${isDaily ? 'bg-theme-gold text-white shadow' : 'text-muted-foreground hover:text-foreground'}`}
+                        className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all min-h-[44px] ${isDaily ? 'bg-theme-gold text-white shadow' : 'text-muted-foreground hover:text-foreground'}`}
                       >
                         {language === 'en' ? 'Daily' : language === 'it' ? 'Giornaliera' : language === 'de' ? 'Täglich' : 'Journalier'}
                       </button>

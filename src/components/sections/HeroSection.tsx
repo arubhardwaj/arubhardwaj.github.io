@@ -39,12 +39,22 @@ const HeroSection = () => {
   const phrases = ROTATING_PHRASES[language];
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
     setPhraseIndex(0);
   }, [language]);
 
   useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setPrefersReducedMotion(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
+
+  useEffect(() => {
+    if (prefersReducedMotion) return;
     const interval = setInterval(() => {
       setIsVisible(false);
       setTimeout(() => {
@@ -53,7 +63,7 @@ const HeroSection = () => {
       }, 350);
     }, 2800);
     return () => clearInterval(interval);
-  }, [phrases.length]);
+  }, [phrases.length, prefersReducedMotion]);
 
   return (
     <section className="relative min-h-screen flex items-center pt-16 bg-hero-lime overflow-hidden">
@@ -63,8 +73,10 @@ const HeroSection = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-theme-olive mb-6 leading-tight">
               {translations.transformingData[language]}{' '}
               <span
-                className={`text-theme-gold inline-block transition-all duration-300 ease-out ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
+                className={`text-theme-gold inline-block ${
+                  prefersReducedMotion
+                    ? ''
+                    : `transition-all duration-300 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`
                 }`}
               >
                 {phrases[phraseIndex]}

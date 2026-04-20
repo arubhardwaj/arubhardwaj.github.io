@@ -13,8 +13,17 @@ const BookCallNudge = () => {
   const location = useLocation();
   const [isVisible, setIsVisible] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   const onHomepage = location.pathname === '/';
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setPrefersReducedMotion(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
 
   useEffect(() => {
     if (!onHomepage) return;
@@ -72,8 +81,10 @@ const BookCallNudge = () => {
     <div
       role="dialog"
       aria-label={translations.nudgeTitle[language]}
-      className={`fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 w-[calc(100%-2rem)] max-w-sm transition-all duration-500 ease-out ${
-        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0 pointer-events-none'
+      className={`fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 w-[calc(100%-2rem)] max-w-sm ${
+        prefersReducedMotion
+          ? isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          : `transition-all duration-500 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0 pointer-events-none'}`
       }`}
     >
       <div className="relative bg-white rounded-2xl shadow-2xl border border-theme-gold/30 overflow-hidden">
