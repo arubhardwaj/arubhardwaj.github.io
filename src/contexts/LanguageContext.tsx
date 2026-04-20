@@ -575,18 +575,6 @@ const translations = {
     fr: 'Oui. Les NDA mutuels sont standard. Je peux vous envoyer le mien pour commencer, ou signer le vôtre si les termes sont raisonnables. Tout le travail client, les idées produit et les données internes restent strictement confidentiels — pendant et après l\'engagement.',
     de: 'Ja. Gegenseitige NDAs sind Standard. Ich kann Ihnen meinen zusenden oder Ihren unterzeichnen, wenn die Bedingungen angemessen sind. Alle Kundenarbeit, Produktideen und internen Daten bleiben streng vertraulich — während und nach dem Engagement.'
   },
-  faq7Q: {
-    en: 'What if my project needs a stack you don\'t specialize in?',
-    it: 'Cosa succede se il mio progetto richiede uno stack in cui non sei specializzato?',
-    fr: 'Et si mon projet nécessite une stack dans laquelle vous n\'êtes pas spécialisé ?',
-    de: 'Was, wenn mein Projekt einen Stack benötigt, in dem Sie nicht spezialisiert sind?'
-  },
-  faq7A: {
-    en: 'I\'ll tell you upfront. My core stack is TypeScript, React, Next.js, Python, Node.js, and modern LLM tooling (OpenAI, Anthropic, LangChain, RAG pipelines, vector DBs). For adjacent stacks (Go, Rust, mobile native, heavy data engineering), I\'ll either ramp up quickly if it\'s close to my core, or help you find the right specialist from my network. Honesty over overcommitment — every time.',
-    it: 'Te lo dico subito. Il mio core stack è TypeScript, React, Next.js, Python, Node.js e tooling LLM moderno (OpenAI, Anthropic, LangChain, RAG pipeline, vector DB). Per stack adiacenti (Go, Rust, mobile native, data engineering pesante), o mi aggiorno velocemente se è vicino al mio core, o ti aiuto a trovare lo specialista giusto dal mio network. Onestà sempre prima dell\'over-commitment.',
-    fr: 'Je vous le dirai d\'emblée. Ma stack principale : TypeScript, React, Next.js, Python, Node.js et outillage LLM moderne (OpenAI, Anthropic, LangChain, pipelines RAG, bases vectorielles). Pour les stacks adjacentes (Go, Rust, mobile natif, data engineering lourd), soit je monte en compétence vite si c\'est proche de mon core, soit je vous aide à trouver le bon spécialiste dans mon réseau. Honnêteté plutôt que surengagement, toujours.',
-    de: 'Ich sage es Ihnen direkt. Mein Kern-Stack: TypeScript, React, Next.js, Python, Node.js und moderne LLM-Tools (OpenAI, Anthropic, LangChain, RAG-Pipelines, Vector-DBs). Für angrenzende Stacks (Go, Rust, Mobile Native, schweres Data Engineering) arbeite ich mich entweder schnell ein (wenn es nah an meinem Kern ist) oder helfe Ihnen, den richtigen Spezialisten aus meinem Netzwerk zu finden. Ehrlichkeit vor Überversprechen — immer.'
-  },
   faq8Q: {
     en: 'Can you join as a technical co-founder?',
     it: 'Puoi unirti come co-founder tecnico?',
