@@ -393,6 +393,36 @@ const translations = {
     fr: 'Réserver une Consultation',
     de: 'Beratung Buchen'
   },
+  nudgeKicker: {
+    en: "Let's talk",
+    it: 'Parliamone',
+    fr: 'Parlons-en',
+    de: 'Lass uns reden'
+  },
+  nudgeTitle: {
+    en: 'Thinking about your next AI move?',
+    it: 'Pensando alla tua prossima mossa AI?',
+    fr: 'Un projet IA en tête ?',
+    de: 'Denken Sie über Ihren nächsten KI-Schritt nach?'
+  },
+  nudgeBody: {
+    en: "Book a focused call — 30-min scope or 60-min deep-dive. No fluff, just real answers to your questions.",
+    it: 'Prenota una call mirata — scoping in 30 minuti o deep-dive in 60. Niente fuffa, solo risposte concrete.',
+    fr: "Réservez un appel ciblé — cadrage en 30 min ou immersion en 60. Pas de blabla, des réponses concrètes.",
+    de: 'Buchen Sie einen fokussierten Call — Scoping in 30 Minuten oder Deep-Dive in 60. Kein Blabla, nur konkrete Antworten.'
+  },
+  nudgeCta: {
+    en: 'Book a Call',
+    it: 'Prenota una Call',
+    fr: 'Réserver un Appel',
+    de: 'Call Buchen'
+  },
+  nudgeDismiss: {
+    en: 'Dismiss',
+    it: 'Chiudi',
+    fr: 'Fermer',
+    de: 'Schließen'
+  },
   customizedSolutions: {
     en: 'Customized AI solutions',
     it: 'Soluzioni AI personalizzate',

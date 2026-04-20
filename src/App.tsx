@@ -11,6 +11,7 @@ import SubmitProject from "./pages/SubmitProject";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import BookCall from "./pages/BookCall";
 import NotFound from "./pages/NotFound";
+import BookCallNudge from "./components/BookCallNudge";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const AppContent = () => (
       <Route path="/book-call" element={<BookCall />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
+    <BookCallNudge />
   </BrowserRouter>
 );
 
