@@ -9,6 +9,7 @@ import { LanguageProvider } from "./contexts/LanguageContext";
 import Index from "./pages/Index";
 import SubmitProject from "./pages/SubmitProject";
 import TermsAndConditions from "./pages/TermsAndConditions";
+import BookCall from "./pages/BookCall";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -19,6 +20,7 @@ const AppContent = () => (
       <Route path="/" element={<Index />} />
       <Route path="/submit-project" element={<SubmitProject />} />
       <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+      <Route path="/book-call" element={<BookCall />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </BrowserRouter>

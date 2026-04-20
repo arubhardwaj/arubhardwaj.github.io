@@ -351,6 +351,30 @@ const translations = {
     fr: '+ TVA',
     de: '+ MwSt.'
   },
+  paymentSuccessTitle: {
+    en: 'Payment Successful — Now Pick a Time',
+    it: 'Pagamento Riuscito — Ora Scegli un Orario',
+    fr: 'Paiement Réussi — Choisissez Maintenant un Créneau',
+    de: 'Zahlung Erfolgreich — Wählen Sie Jetzt einen Termin'
+  },
+  paymentSuccessSubtitle: {
+    en: 'Thanks for booking your consultation with me.',
+    it: 'Grazie per aver prenotato la tua consulenza con me.',
+    fr: 'Merci d\'avoir réservé votre consultation avec moi.',
+    de: 'Danke, dass Sie Ihre Beratung bei mir gebucht haben.'
+  },
+  paymentSuccessHint: {
+    en: 'Pick a time that works for you below — you\'ll receive a calendar invite instantly.',
+    it: 'Scegli un orario qui sotto — riceverai subito un invito sul calendario.',
+    fr: 'Choisissez un créneau ci-dessous — vous recevrez une invitation calendrier instantanément.',
+    de: 'Wählen Sie unten einen Termin — Sie erhalten sofort eine Kalendereinladung.'
+  },
+  paymentSuccessFooter: {
+    en: 'Having trouble with the scheduler? Email aru.bhardwaj@insightrix.eu',
+    it: 'Problemi con il calendario? Scrivi a aru.bhardwaj@insightrix.eu',
+    fr: 'Problème avec le planificateur ? Écrivez à aru.bhardwaj@insightrix.eu',
+    de: 'Probleme mit dem Planer? Schreiben Sie an aru.bhardwaj@insightrix.eu'
+  },
   customizedSolutions: {
     en: 'Customized AI solutions',
     it: 'Soluzioni AI personalizzate',
