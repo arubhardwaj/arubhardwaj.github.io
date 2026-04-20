@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Brain, GitMerge, BarChart3, MessageSquare, Server, Cpu, LineChart, PieChart, MapPin, Cloud, Database } from 'lucide-react';
+import { Brain, GitMerge, BarChart3, MessageSquare, Server, Cpu, LineChart, PieChart, MapPin, Cloud, Database, ShieldCheck } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -148,17 +148,32 @@ const ExpertiseSection = () => {
     },
     {
       title: {
-        en: "AWS Technologies",
-        it: "Tecnologie AWS",
-        fr: "Technologies AWS",
-        de: "AWS-Technologien"
+        en: "Multi-Cloud AI Platforms",
+        it: "Piattaforme AI Multi-Cloud",
+        fr: "Plateformes IA Multi-Cloud",
+        de: "Multi-Cloud-KI-Plattformen"
       },
       icon: Cloud,
       description: {
-        en: "Knowledgeable in EC2, EMR, Glue, SageMaker, QuickSight",
-        it: "Conoscenza di EC2, EMR, Glue, SageMaker, QuickSight",
-        fr: "Connaissances en EC2, EMR, Glue, SageMaker, QuickSight",
-        de: "Erfahren mit EC2, EMR, Glue, SageMaker, QuickSight"
+        en: "AWS (SageMaker, Bedrock, EC2, Lambda), Google Cloud Vertex AI (Gemini, Model Garden, AutoML), Azure OpenAI Service. Portable AI workloads across providers.",
+        it: "AWS (SageMaker, Bedrock, EC2, Lambda), Google Cloud Vertex AI (Gemini, Model Garden, AutoML), Azure OpenAI Service. Carichi AI portabili tra provider.",
+        fr: "AWS (SageMaker, Bedrock, EC2, Lambda), Google Cloud Vertex AI (Gemini, Model Garden, AutoML), Azure OpenAI Service. Charges IA portables entre providers.",
+        de: "AWS (SageMaker, Bedrock, EC2, Lambda), Google Cloud Vertex AI (Gemini, Model Garden, AutoML), Azure OpenAI Service. Portable KI-Workloads über Provider hinweg."
+      }
+    },
+    {
+      title: {
+        en: "EU Sovereign Cloud & GDPR AI",
+        it: "Cloud Sovrano UE & AI GDPR",
+        fr: "Cloud Souverain UE & IA RGPD",
+        de: "EU-Souveräne Cloud & DSGVO-KI"
+      },
+      icon: ShieldCheck,
+      description: {
+        en: "GDPR-compliant AI on European infrastructure — OVHcloud, Scaleway, Hetzner. Mistral AI, Aleph Alpha, open-source LLMs. Full data sovereignty for regulated industries.",
+        it: "AI conforme al GDPR su infrastruttura europea — OVHcloud, Scaleway, Hetzner. Mistral AI, Aleph Alpha, LLM open-source. Piena sovranità dei dati per settori regolamentati.",
+        fr: "IA conforme RGPD sur infrastructure européenne — OVHcloud, Scaleway, Hetzner. Mistral AI, Aleph Alpha, LLM open-source. Souveraineté totale des données pour secteurs régulés.",
+        de: "DSGVO-konforme KI auf europäischer Infrastruktur — OVHcloud, Scaleway, Hetzner. Mistral AI, Aleph Alpha, Open-Source-LLMs. Volle Datensouveränität für regulierte Branchen."
       }
     },
     {
@@ -174,21 +189,6 @@ const ExpertiseSection = () => {
         it: "Efficiente nell'estrazione e nell'elaborazione di grandi set di dati",
         fr: "Efficace dans l'extraction et le traitement de grands ensembles de données",
         de: "Effizient in der Extraktion und Verarbeitung großer Datensätze"
-      }
-    },
-    {
-      title: {
-        en: "Machine Learning & AI",
-        it: "Machine Learning & AI",
-        fr: "Apprentissage Automatique & IA",
-        de: "Machine Learning & KI"
-      },
-      icon: Brain,
-      description: {
-        en: "Expert in PCA, K-means, Random Forest, XGBoost, SVM, Logistic Regression, Deep Learning using TensorFlow",
-        it: "Esperto in PCA, K-means, Random Forest, XGBoost, SVM, Regressione Logistica, Deep Learning utilizzando TensorFlow",
-        fr: "Expert en ACP, K-means, Random Forest, XGBoost, SVM, Régression Logistique, Deep Learning utilisant TensorFlow",
-        de: "Experte für PCA, K-Means, Random Forest, XGBoost, SVM, logistische Regression, Deep Learning mit TensorFlow"
       }
     }
   ];
