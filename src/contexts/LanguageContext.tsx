@@ -310,10 +310,10 @@ const translations = {
     de: 'EU-Datenresidenz'
   },
   trustRefundable: {
-    en: 'Refundable within 15 days',
-    it: 'Rimborsabile entro 15 giorni',
-    fr: 'Remboursable sous 15 jours',
-    de: 'Rückerstattung innerhalb von 15 Tagen'
+    en: 'Refundable within 15 days (T&C apply)',
+    it: 'Rimborsabile entro 15 giorni (si applicano T&C)',
+    fr: 'Remboursable sous 15 jours (CGV applicables)',
+    de: 'Rückerstattung innerhalb von 15 Tagen (AGB gelten)'
   },
   // Session preview — "best for"
   book30BestFor: {

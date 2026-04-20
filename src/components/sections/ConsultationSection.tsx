@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
-import { Mail, Phone, MapPin, Check, Linkedin, Lock, ShieldCheck, RotateCcw, CalendarCheck, ArrowRight, ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Mail, Phone, MapPin, Check, Linkedin, Lock, RotateCcw, CalendarCheck, ArrowRight, ChevronDown } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -345,14 +346,13 @@ const ConsultationSection = () => {
                     <Lock className="h-3.5 w-3.5 text-theme-olive" />
                     {translations.trustSecureStripe[language]}
                   </span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-600">
-                    <ShieldCheck className="h-3.5 w-3.5 text-theme-olive" />
-                    {translations.trustEuResidency[language]}
-                  </span>
-                  <span className="flex items-center gap-1.5 text-xs text-gray-600">
+                  <Link
+                    to="/terms-and-conditions"
+                    className="flex items-center gap-1.5 text-xs text-gray-600 hover:text-theme-olive hover:underline transition-colors"
+                  >
                     <RotateCcw className="h-3.5 w-3.5 text-theme-olive" />
                     {translations.trustRefundable[language]}
-                  </span>
+                  </Link>
                 </div>
                 
               </div>
