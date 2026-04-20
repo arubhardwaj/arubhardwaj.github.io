@@ -18,11 +18,13 @@ import SovereignAiPage from "./pages/services/SovereignAiPage";
 import NotFound from "./pages/NotFound";
 import BookCallNudge from "./components/BookCallNudge";
 import ScrollProgressNav from "./components/ScrollProgressNav";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
 const AppContent = () => (
   <BrowserRouter>
+    <ScrollToTop />
     <Routes>
       <Route path="/" element={<Index />} />
       <Route path="/submit-project" element={<SubmitProject />} />
