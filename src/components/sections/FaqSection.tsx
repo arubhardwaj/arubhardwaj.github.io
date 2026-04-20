@@ -38,7 +38,9 @@ const FaqSection = () => {
                     </span>
                   </AccordionTrigger>
                   <AccordionContent className="text-gray-700 leading-relaxed pb-5 pl-10 pr-2 text-[15px]">
-                    {translations[aKey][language]}
+                    <span
+                      dangerouslySetInnerHTML={{ __html: translations[aKey][language] }}
+                    />
                   </AccordionContent>
                 </AccordionItem>
               );
