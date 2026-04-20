@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Clock, Zap, Handshake } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
 const AboutSection = () => {
@@ -88,6 +88,61 @@ const AboutSection = () => {
               <p className="text-gray-600">
                 {/* Empty paragraph as requested */}
               </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-16 md:mt-20">
+          <h3 className="text-2xl md:text-3xl font-bold text-theme-olive text-center mb-10">
+            {translations.engagementModelsTitle[language]}
+          </h3>
+
+          <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+            <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 rounded-lg bg-theme-olive/10 flex items-center justify-center mb-4">
+                <Clock className="h-5 w-5 text-theme-olive" />
+              </div>
+              <div className="flex items-baseline justify-between mb-2">
+                <h4 className="text-lg font-semibold text-theme-olive">{translations.engagementHourlyTag[language]}</h4>
+                <span className="text-theme-gold font-bold">€150/hr</span>
+              </div>
+              <p className="text-sm text-gray-600 leading-relaxed">{translations.engagementHourlyDesc[language]}</p>
+            </div>
+
+            <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-10 h-10 rounded-lg bg-theme-olive/10 flex items-center justify-center mb-4">
+                <Zap className="h-5 w-5 text-theme-olive" />
+              </div>
+              <div className="flex items-baseline justify-between mb-2">
+                <h4 className="text-lg font-semibold text-theme-olive">{translations.engagementDailyTag[language]}</h4>
+                <span className="text-theme-gold font-bold">€700/day</span>
+              </div>
+              <p className="text-sm text-gray-600 leading-relaxed">{translations.engagementDailyDesc[language]}</p>
+            </div>
+
+            <div className="relative bg-gradient-to-br from-theme-gold/10 to-theme-olive/5 rounded-xl border-2 border-theme-gold/40 p-6 shadow-md hover:shadow-lg transition-shadow">
+              <span className="absolute -top-3 left-6 bg-theme-gold text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
+                {translations.engagementPartnershipBadge[language]}
+              </span>
+              <div className="w-10 h-10 rounded-lg bg-theme-gold/20 flex items-center justify-center mb-4">
+                <Handshake className="h-5 w-5 text-theme-gold" />
+              </div>
+              <div className="flex items-baseline justify-between mb-2">
+                <h4 className="text-lg font-semibold text-theme-olive">{translations.engagementPartnershipTag[language]}</h4>
+                <span className="text-theme-gold font-bold text-sm">Fee + Equity</span>
+              </div>
+              <p className="text-sm text-gray-700 leading-relaxed mb-3">{translations.engagementPartnershipDesc[language]}</p>
+              <p className="text-xs text-gray-500 italic mb-4">{translations.engagementPartnershipNote[language]}</p>
+              <a
+                href="#consultation"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="inline-flex items-center text-sm font-semibold text-theme-olive hover:text-theme-gold transition-colors"
+              >
+                {translations.engagementDiscussCta[language]} →
+              </a>
             </div>
           </div>
         </div>

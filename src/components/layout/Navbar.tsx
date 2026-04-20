@@ -75,6 +75,9 @@ const Navbar = () => {
           <button onClick={() => scrollToSection('why-choose-me')} className="text-foreground hover:text-primary font-medium transition-colors">
             {translations.whyChooseMe[language]}
           </button>
+          <button onClick={() => scrollToSection('faq')} className="text-foreground hover:text-primary font-medium transition-colors">
+            {translations.faqNavLink[language]}
+          </button>
           <button onClick={() => scrollToSection('consultation')} className="text-foreground hover:text-primary font-medium transition-colors">
             {translations.contact[language]}
           </button>
@@ -120,6 +123,9 @@ const Navbar = () => {
             </button>
             <button onClick={() => { scrollToSection('why-choose-me'); setIsMenuOpen(false); }} className="text-foreground hover:text-primary font-medium transition-colors py-2 text-left">
               {translations.whyChooseMe[language]}
+            </button>
+            <button onClick={() => { scrollToSection('faq'); setIsMenuOpen(false); }} className="text-foreground hover:text-primary font-medium transition-colors py-2 text-left">
+              {translations.faqNavLink[language]}
             </button>
             <button onClick={() => { scrollToSection('consultation'); setIsMenuOpen(false); }} className="text-foreground hover:text-primary font-medium transition-colors py-2 text-left">
               {translations.contact[language]}

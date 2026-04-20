@@ -423,6 +423,182 @@ const translations = {
     fr: 'Fermer',
     de: 'Schließen'
   },
+  // Engagement Models cards (inside AboutSection)
+  engagementModelsTitle: {
+    en: 'How We Work Together',
+    it: 'Come Lavoriamo Insieme',
+    fr: 'Comment Nous Collaborons',
+    de: 'Wie Wir Zusammenarbeiten'
+  },
+  engagementHourlyTag: {
+    en: 'Hourly',
+    it: 'Oraria',
+    fr: 'Horaire',
+    de: 'Stündlich'
+  },
+  engagementHourlyDesc: {
+    en: 'Best for focused consults, code reviews, or quick technical questions.',
+    it: 'Ideale per consulenze mirate, code review o domande tecniche rapide.',
+    fr: 'Idéal pour les consultations ciblées, revues de code ou questions techniques rapides.',
+    de: 'Ideal für fokussierte Beratungen, Code-Reviews oder schnelle technische Fragen.'
+  },
+  engagementDailyTag: {
+    en: 'Daily / Sprint',
+    it: 'Giornaliera / Sprint',
+    fr: 'Journalier / Sprint',
+    de: 'Tagessatz / Sprint'
+  },
+  engagementDailyDesc: {
+    en: 'Best for defined projects, MVPs, and multi-week build sprints.',
+    it: 'Ideale per progetti definiti, MVP e sprint di sviluppo di più settimane.',
+    fr: 'Idéal pour les projets définis, MVPs et sprints de développement pluri-hebdomadaires.',
+    de: 'Ideal für definierte Projekte, MVPs und mehrwöchige Entwicklungssprints.'
+  },
+  engagementPartnershipTag: {
+    en: 'Partnership',
+    it: 'Partnership',
+    fr: 'Partenariat',
+    de: 'Partnerschaft'
+  },
+  engagementPartnershipBadge: {
+    en: 'Startup-Friendly',
+    it: 'Pensato per Startup',
+    fr: 'Adapté aux Startups',
+    de: 'Startup-Freundlich'
+  },
+  engagementPartnershipDesc: {
+    en: 'Reduced service fee + equity or success bonus. For startups and long-term MVP builds where I go deep on your product.',
+    it: 'Tariffa ridotta + equity o success fee. Per startup e sviluppo MVP a lungo termine dove mi immergo nel prodotto.',
+    fr: 'Tarif réduit + equity ou success fee. Pour startups et développement MVP long terme où je m\'investis dans votre produit.',
+    de: 'Reduzierter Stundensatz + Equity oder Erfolgshonorar. Für Startups und langfristige MVP-Entwicklung mit tiefer Produktbeteiligung.'
+  },
+  engagementPartnershipNote: {
+    en: 'Service fee always applies. Pure-equity engagements are not offered.',
+    it: 'La tariffa base si applica sempre. Non sono disponibili impegni solo in equity.',
+    fr: 'Les frais de service s\'appliquent toujours. Les engagements uniquement en equity ne sont pas proposés.',
+    de: 'Servicegebühr gilt immer. Reine Equity-Engagements werden nicht angeboten.'
+  },
+  engagementDiscussCta: {
+    en: 'Discuss Partnership',
+    it: 'Discuti la Partnership',
+    fr: 'Discuter du Partenariat',
+    de: 'Partnerschaft Besprechen'
+  },
+  // FAQ section
+  faqNavLink: {
+    en: 'FAQ',
+    it: 'FAQ',
+    fr: 'FAQ',
+    de: 'FAQ'
+  },
+  faqTitle: {
+    en: 'Frequently Asked Questions',
+    it: 'Domande Frequenti',
+    fr: 'Questions Fréquentes',
+    de: 'Häufig Gestellte Fragen'
+  },
+  faqSubtitle: {
+    en: 'Quick answers to the questions I get most often. Still not sure? Book a call — first answer is on me.',
+    it: 'Risposte veloci alle domande che ricevo più spesso. Hai ancora dubbi? Prenota una call — la prima risposta è gratis.',
+    fr: 'Réponses rapides aux questions qu\'on me pose le plus. Encore un doute ? Réservez un appel — la première réponse est offerte.',
+    de: 'Schnelle Antworten auf die häufigsten Fragen. Noch unsicher? Buchen Sie einen Call — die erste Antwort geht auf mich.'
+  },
+  faq1Q: {
+    en: 'Do you work on pure equity or revenue-share?',
+    it: 'Lavori solo in equity o con revenue-share?',
+    fr: 'Travaillez-vous uniquement en equity ou revenue-share ?',
+    de: 'Arbeiten Sie rein auf Equity- oder Revenue-Share-Basis?'
+  },
+  faq1A: {
+    en: 'I love working with ambitious founders, and I happily structure hybrid engagements — a reduced service fee combined with equity or a success bonus — when the fit is right. Pure-equity or revenue-share-only arrangements, however, aren\'t something I take on. A service fee is required on every project: it ensures focused delivery, protects both sides against misaligned timelines, and keeps the engagement sustainable the same way any senior technical hire is compensated. If you\'re an early-stage founder, let\'s talk — there\'s almost always a structure that works.',
+    it: 'Amo lavorare con founder ambiziosi e strutturo volentieri ingaggi ibridi — tariffa ridotta più equity o success bonus — quando c\'è il giusto match. Ma accordi solo in equity o solo revenue-share non li accetto. Una tariffa di servizio è sempre richiesta: garantisce un\'esecuzione focalizzata, protegge entrambe le parti da tempistiche disallineate e rende il rapporto sostenibile, esattamente come qualsiasi senior tecnico viene retribuito. Se sei un founder early-stage, parliamone — quasi sempre troviamo una struttura che funziona.',
+    fr: 'J\'adore travailler avec des fondateurs ambitieux et je structure volontiers des engagements hybrides — tarif réduit combiné à de l\'equity ou un bonus de succès — quand le fit est là. Les arrangements uniquement en equity ou revenue-share, en revanche, je ne les prends pas. Un service fee est requis sur chaque projet : il garantit une exécution focalisée, protège les deux parties contre les dérives de planning, et rend l\'engagement durable comme n\'importe quel poste senior technique. Si vous êtes fondateur early-stage, parlons-en — il y a presque toujours une structure qui fonctionne.',
+    de: 'Ich liebe es, mit ambitionierten Gründern zu arbeiten, und strukturiere gerne hybride Engagements — reduzierte Servicegebühr kombiniert mit Equity oder Erfolgsbonus — wenn der Fit stimmt. Reine Equity- oder Revenue-Share-Vereinbarungen nehme ich jedoch nicht an. Eine Servicegebühr ist bei jedem Projekt erforderlich: sie sichert fokussierte Umsetzung, schützt beide Seiten vor Zeitplan-Diskrepanzen und hält die Zusammenarbeit nachhaltig — genau wie bei jeder anderen Senior-Position. Wenn Sie Gründer in der Frühphase sind, lassen Sie uns sprechen — es gibt fast immer eine Struktur, die passt.'
+  },
+  faq2Q: {
+    en: 'How does the Partnership model work?',
+    it: 'Come funziona il modello Partnership?',
+    fr: 'Comment fonctionne le modèle Partenariat ?',
+    de: 'Wie funktioniert das Partnerschafts-Modell?'
+  },
+  faq2A: {
+    en: 'It\'s a hybrid engagement: a reduced cash rate (typically 40–60% of my standard) combined with equity, a success fee, or milestone-based bonuses. The exact split is discussed case by case after we\'ve talked through your stage, timeline, runway, and goals. The service-fee component is always present; it\'s what keeps the engagement focused and fair to both sides.',
+    it: 'È un ingaggio ibrido: una tariffa cash ridotta (tipicamente 40–60% della mia standard) combinata con equity, success fee o bonus su milestone. La suddivisione esatta si discute caso per caso dopo aver parlato del tuo stadio, timeline, runway e obiettivi. La componente di service fee è sempre presente: è ciò che mantiene l\'ingaggio focalizzato e equo per entrambe le parti.',
+    fr: 'C\'est un engagement hybride : un tarif cash réduit (généralement 40–60% de mon standard) combiné à de l\'equity, une success fee, ou des bonus sur milestones. La répartition exacte se discute au cas par cas après avoir parlé de votre stade, calendrier, runway et objectifs. La composante service fee est toujours présente — c\'est ce qui maintient l\'engagement focalisé et équitable pour les deux parties.',
+    de: 'Es ist ein hybrides Engagement: ein reduzierter Cash-Satz (typischerweise 40–60% meines Standards) kombiniert mit Equity, einer Erfolgsgebühr oder Meilenstein-Boni. Die genaue Aufteilung wird von Fall zu Fall besprochen, nachdem wir über Ihre Phase, Zeitplan, Runway und Ziele gesprochen haben. Die Servicegebühr-Komponente ist immer vorhanden — sie hält das Engagement fokussiert und fair für beide Seiten.'
+  },
+  faq3Q: {
+    en: 'What\'s a typical engagement duration?',
+    it: 'Qual è la durata tipica di un ingaggio?',
+    fr: 'Quelle est la durée typique d\'un engagement ?',
+    de: 'Wie lang ist ein typisches Engagement?'
+  },
+  faq3A: {
+    en: 'Consultations run 30 or 60 minutes. MVPs typically ship in 4–8 weeks. Fractional CTO engagements are usually 2–3 days/week for a 3–6 month minimum, with extensions based on traction and fit. Shorter sprint engagements (1–2 weeks) are also possible for well-scoped prototypes.',
+    it: 'Le consulenze durano 30 o 60 minuti. Gli MVP vengono rilasciati tipicamente in 4–8 settimane. Gli ingaggi Fractional CTO sono di solito 2–3 giorni/settimana con un minimo di 3–6 mesi, con estensioni basate sul traction e sul fit. Sono possibili anche sprint più brevi (1–2 settimane) per prototipi ben definiti.',
+    fr: 'Les consultations durent 30 ou 60 minutes. Les MVPs sont généralement livrés en 4–8 semaines. Les engagements Fractional CTO sont habituellement 2–3 jours/semaine pour un minimum de 3–6 mois, avec des extensions selon la traction et le fit. Des sprints plus courts (1–2 semaines) sont aussi possibles pour des prototypes bien cadrés.',
+    de: 'Beratungen dauern 30 oder 60 Minuten. MVPs werden typischerweise in 4–8 Wochen ausgeliefert. Fractional-CTO-Engagements laufen meist 2–3 Tage/Woche für mindestens 3–6 Monate, mit Verlängerungen basierend auf Traction und Fit. Kürzere Sprint-Engagements (1–2 Wochen) sind auch möglich für gut abgegrenzte Prototypen.'
+  },
+  faq4Q: {
+    en: 'Remote or on-site?',
+    it: 'Da remoto o on-site?',
+    fr: 'À distance ou sur site ?',
+    de: 'Remote oder vor Ort?'
+  },
+  faq4A: {
+    en: 'Remote-first, based in Paris. I\'m open to on-site days in Paris and short on-site sprints across Europe for the right engagements. Most clients are 100% remote with weekly syncs and async daily updates.',
+    it: 'Remote-first, con base a Parigi. Disponibile per giornate on-site a Parigi e brevi sprint on-site in Europa per gli ingaggi giusti. La maggior parte dei clienti lavora 100% in remoto con sync settimanali e update giornalieri asincroni.',
+    fr: 'Remote-first, basé à Paris. Ouvert à des journées on-site à Paris et à des sprints courts on-site en Europe pour les engagements appropriés. La plupart de mes clients travaillent 100% à distance avec des syncs hebdomadaires et des updates quotidiens asynchrones.',
+    de: 'Remote-first, mit Sitz in Paris. Offen für Vor-Ort-Tage in Paris und kurze Vor-Ort-Sprints in Europa bei passenden Engagements. Die meisten Kunden arbeiten 100% remote mit wöchentlichen Syncs und asynchronen täglichen Updates.'
+  },
+  faq5Q: {
+    en: 'How quickly can you start?',
+    it: 'Quanto velocemente puoi iniziare?',
+    fr: 'À quelle vitesse pouvez-vous commencer ?',
+    de: 'Wie schnell können Sie anfangen?'
+  },
+  faq5A: {
+    en: 'Usually within 1–2 weeks of signing. For urgent MVPs or discovery sprints I can often kick off within days, starting with a scoped 3–5 day discovery phase before we commit to the full build.',
+    it: 'Di solito entro 1–2 settimane dalla firma. Per MVP urgenti o sprint di discovery posso spesso iniziare in pochi giorni, partendo da una fase di discovery di 3–5 giorni prima di impegnarci sullo sviluppo completo.',
+    fr: 'Généralement dans les 1–2 semaines suivant la signature. Pour les MVPs urgents ou sprints de cadrage, je peux souvent démarrer en quelques jours, en commençant par une phase de discovery de 3–5 jours avant de s\'engager sur le build complet.',
+    de: 'In der Regel innerhalb von 1–2 Wochen nach Vertragsabschluss. Für dringende MVPs oder Discovery-Sprints kann ich oft innerhalb weniger Tage starten — mit einer abgegrenzten 3–5-tägigen Discovery-Phase, bevor wir uns auf den vollständigen Build festlegen.'
+  },
+  faq6Q: {
+    en: 'Do you sign NDAs?',
+    it: 'Firmi NDA?',
+    fr: 'Signez-vous des NDA ?',
+    de: 'Unterzeichnen Sie NDAs?'
+  },
+  faq6A: {
+    en: 'Yes. Mutual NDAs are standard. I can send you a clean one to start, or sign yours if the terms are reasonable. All client work, product ideas, and internal data stay strictly confidential — during and after the engagement.',
+    it: 'Sì. Gli NDA reciproci sono standard. Posso inviarti il mio per iniziare, o firmare il tuo se i termini sono ragionevoli. Tutto il lavoro cliente, le idee di prodotto e i dati interni rimangono strettamente confidenziali — durante e dopo l\'ingaggio.',
+    fr: 'Oui. Les NDA mutuels sont standard. Je peux vous envoyer le mien pour commencer, ou signer le vôtre si les termes sont raisonnables. Tout le travail client, les idées produit et les données internes restent strictement confidentiels — pendant et après l\'engagement.',
+    de: 'Ja. Gegenseitige NDAs sind Standard. Ich kann Ihnen meinen zusenden oder Ihren unterzeichnen, wenn die Bedingungen angemessen sind. Alle Kundenarbeit, Produktideen und internen Daten bleiben streng vertraulich — während und nach dem Engagement.'
+  },
+  faq7Q: {
+    en: 'What if my project needs a stack you don\'t specialize in?',
+    it: 'Cosa succede se il mio progetto richiede uno stack in cui non sei specializzato?',
+    fr: 'Et si mon projet nécessite une stack dans laquelle vous n\'êtes pas spécialisé ?',
+    de: 'Was, wenn mein Projekt einen Stack benötigt, in dem Sie nicht spezialisiert sind?'
+  },
+  faq7A: {
+    en: 'I\'ll tell you upfront. My core stack is TypeScript, React, Next.js, Python, Node.js, and modern LLM tooling (OpenAI, Anthropic, LangChain, RAG pipelines, vector DBs). For adjacent stacks (Go, Rust, mobile native, heavy data engineering), I\'ll either ramp up quickly if it\'s close to my core, or help you find the right specialist from my network. Honesty over overcommitment — every time.',
+    it: 'Te lo dico subito. Il mio core stack è TypeScript, React, Next.js, Python, Node.js e tooling LLM moderno (OpenAI, Anthropic, LangChain, RAG pipeline, vector DB). Per stack adiacenti (Go, Rust, mobile native, data engineering pesante), o mi aggiorno velocemente se è vicino al mio core, o ti aiuto a trovare lo specialista giusto dal mio network. Onestà sempre prima dell\'over-commitment.',
+    fr: 'Je vous le dirai d\'emblée. Ma stack principale : TypeScript, React, Next.js, Python, Node.js et outillage LLM moderne (OpenAI, Anthropic, LangChain, pipelines RAG, bases vectorielles). Pour les stacks adjacentes (Go, Rust, mobile natif, data engineering lourd), soit je monte en compétence vite si c\'est proche de mon core, soit je vous aide à trouver le bon spécialiste dans mon réseau. Honnêteté plutôt que surengagement, toujours.',
+    de: 'Ich sage es Ihnen direkt. Mein Kern-Stack: TypeScript, React, Next.js, Python, Node.js und moderne LLM-Tools (OpenAI, Anthropic, LangChain, RAG-Pipelines, Vector-DBs). Für angrenzende Stacks (Go, Rust, Mobile Native, schweres Data Engineering) arbeite ich mich entweder schnell ein (wenn es nah an meinem Kern ist) oder helfe Ihnen, den richtigen Spezialisten aus meinem Netzwerk zu finden. Ehrlichkeit vor Überversprechen — immer.'
+  },
+  faq8Q: {
+    en: 'Can you join as a technical co-founder?',
+    it: 'Puoi unirti come co-founder tecnico?',
+    fr: 'Pouvez-vous rejoindre en tant que co-fondateur technique ?',
+    de: 'Können Sie als technischer Mitgründer einsteigen?'
+  },
+  faq8A: {
+    en: 'Rarely, and only for startups I\'m deeply aligned with — on mission, market, and long-term collaboration. Equity-heavy co-founder arrangements need mutual conviction on both sides and a realistic path to milestones. More often than not, the Partnership model (reduced service fee + equity or success bonus) is a better fit for both of us — it gets you senior technical leadership without the co-founder commitment, and it keeps my focus across a handful of great projects rather than locked into one.',
+    it: 'Raramente, e solo per startup con cui c\'è un allineamento profondo — su missione, mercato e collaborazione a lungo termine. Gli accordi co-founder pesanti in equity richiedono convinzione reciproca da entrambe le parti e un percorso realistico verso i milestone. Il più delle volte, il modello Partnership (tariffa ridotta + equity o success bonus) è più adatto per entrambi — ti dà leadership tecnica senior senza il commitment da co-founder e mantiene il mio focus su diversi grandi progetti invece di bloccarmi su uno solo.',
+    fr: 'Rarement, et seulement pour des startups avec lesquelles je suis profondément aligné — sur la mission, le marché et la collaboration long terme. Les arrangements co-fondateur à forte equity nécessitent une conviction mutuelle des deux côtés et un chemin réaliste vers les milestones. Le plus souvent, le modèle Partenariat (tarif réduit + equity ou bonus de succès) est un meilleur fit pour nous deux — il vous donne un leadership technique senior sans l\'engagement de co-fondateur, et me garde concentré sur plusieurs grands projets plutôt qu\'enfermé dans un seul.',
+    de: 'Selten, und nur für Startups, mit denen ich tief ausgerichtet bin — bei Mission, Markt und langfristiger Zusammenarbeit. Equity-lastige Mitgründer-Vereinbarungen erfordern beidseitige Überzeugung und einen realistischen Weg zu den Meilensteinen. Meistens ist das Partnerschafts-Modell (reduzierte Servicegebühr + Equity oder Erfolgsbonus) für beide Seiten besser geeignet — es gibt Ihnen erfahrene technische Führung ohne Mitgründer-Commitment und hält meinen Fokus auf mehrere großartige Projekte verteilt statt auf eines fixiert.'
+  },
   customizedSolutions: {
     en: 'Customized AI solutions',
     it: 'Soluzioni AI personalizzate',

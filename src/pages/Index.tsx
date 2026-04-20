@@ -9,6 +9,7 @@ import AboutSection from '@/components/sections/AboutSection';
 import ExpertiseSection from '@/components/sections/ExpertiseSection';
 import IndustriesSection from '@/components/sections/IndustriesSection';
 import WhyChooseMeSection from '@/components/sections/WhyChooseMeSection';
+import FaqSection from '@/components/sections/FaqSection';
 import ConsultationSection from '@/components/sections/ConsultationSection';
 
 const Index = () => {
@@ -37,6 +38,7 @@ const Index = () => {
         <ExpertiseSection />
         <IndustriesSection />
         <WhyChooseMeSection />
+        <FaqSection />
         <ConsultationSection />
         {/* SEO-rich content for search engines — hidden from visual display */}
         <section className="sr-only" aria-hidden="true">
