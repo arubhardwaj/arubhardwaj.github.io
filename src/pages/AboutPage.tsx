@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, Linkedin, ExternalLink, MapPin, Mail, Phone, Bui
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import BookConsultationDialog from '@/components/BookConsultationDialog';
+import CostCalculator from '@/components/CostCalculator';
 import { Button } from '@/components/ui/button';
 
 const jsonLd = {
@@ -172,6 +173,11 @@ const AboutPage = () => (
             <div className="flex gap-2"><dt className="font-semibold text-theme-olive w-32 shrink-0">Rates:</dt><dd>€150/hour or €700/day (ex. VAT)</dd></div>
             <div className="flex gap-2"><dt className="font-semibold text-theme-olive w-32 shrink-0">Jurisdiction:</dt><dd>French law, Paris courts</dd></div>
           </dl>
+        </section>
+
+        {/* Cost calculator */}
+        <section className="mb-12">
+          <CostCalculator />
         </section>
 
         {/* Contact */}
