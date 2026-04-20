@@ -272,7 +272,10 @@ const ConsultationSection = () => {
                       <div className="font-semibold text-base">{translations.book30Min[language]}</div>
                       <div className="text-sm opacity-80">{translations.book30MinSub[language]}</div>
                     </div>
-                    <span className="text-2xl font-bold">30 min</span>
+                    <div className="text-right leading-tight">
+                      <span className="block text-2xl font-bold">30 min</span>
+                      <span className="block text-xs opacity-80">{translations.vatExtra[language]}</span>
+                    </div>
                   </a>
 
                   <a
@@ -288,7 +291,10 @@ const ConsultationSection = () => {
                       <div className="font-semibold text-base">{translations.book60Min[language]}</div>
                       <div className="text-sm opacity-90">{translations.book60MinSub[language]}</div>
                     </div>
-                    <span className="text-2xl font-bold">60 min</span>
+                    <div className="text-right leading-tight">
+                      <span className="block text-2xl font-bold">60 min</span>
+                      <span className="block text-xs opacity-90">{translations.vatExtra[language]}</span>
+                    </div>
                   </a>
                 </div>
 
