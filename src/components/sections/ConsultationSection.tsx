@@ -34,21 +34,11 @@ const UpworkIcon = () => (
 declare global {
   interface Window {
     emailjs: any;
-    Stripe?: (pk: string) => {
-      redirectToCheckout: (opts: {
-        lineItems: Array<{ price: string; quantity: number }>;
-        mode: 'payment' | 'subscription';
-        successUrl: string;
-        cancelUrl: string;
-        locale?: string;
-      }) => Promise<{ error?: { message: string } }>;
-    };
   }
 }
 
-const STRIPE_PK = 'pk_live_51QTvRbDRlpu0Xokvl70HGWoEOV7yoyJ1ye6INHArLHaeDpSEKk0vGLIycqiN4VMuA0HueyzxLlsPVD1GukvLAcPI00hxC37Dmk';
-const PRICE_30_MIN = 'price_1TOHzcDRlpu0Xokv8te9qxEm';
-const PRICE_60_MIN = 'price_1RJibUDRlpu0XokvhbfMz9ln';
+const PAYMENT_LINK_30_MIN = 'https://buy.stripe.com/8x28wPcVL3cj4889hR8so06';
+const PAYMENT_LINK_60_MIN = 'https://book.stripe.com/28og05dXm9e7dTafYZ';
 
 const ConsultationSection = () => {
   const { language, translations } = useLanguage();
@@ -61,15 +51,6 @@ const ConsultationSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    // Load Stripe.js (Checkout)
-    const script = document.createElement('script');
-    script.src = 'https://js.stripe.com/v3/';
-    script.async = true;
-    script.onerror = () => {
-      console.warn('Failed to load Stripe script. Payment button may not work.');
-    };
-    document.body.appendChild(script);
-
     // Load EmailJS
     const emailjsScript = document.createElement('script');
     emailjsScript.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
@@ -77,7 +58,6 @@ const ConsultationSection = () => {
     document.body.appendChild(emailjsScript);
 
     emailjsScript.onload = () => {
-      // Initialize EmailJS with correct public key
       window.emailjs.init("hF6O_JgDy5jUxyk-4");
     };
     emailjsScript.onerror = () => {
@@ -85,12 +65,6 @@ const ConsultationSection = () => {
     };
 
     return () => {
-      // Clean up scripts when component unmounts
-      const existingStripeScript = document.querySelector('script[src="https://js.stripe.com/v3/"]');
-      if (existingStripeScript && document.body.contains(existingStripeScript)) {
-        document.body.removeChild(existingStripeScript);
-      }
-      
       const existingEmailjsScript = document.querySelector('script[src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"]');
       if (existingEmailjsScript && document.body.contains(existingEmailjsScript)) {
         document.body.removeChild(existingEmailjsScript);
@@ -101,31 +75,6 @@ const ConsultationSection = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleCheckout = async (priceId: string) => {
-    console.log('[Checkout] clicked', { priceId, hasStripe: !!window.Stripe });
-    if (!window.Stripe) {
-      toast.error('Payment system is still loading. Please try again in a second.');
-      return;
-    }
-    try {
-      const stripe = window.Stripe(STRIPE_PK);
-      const result = await stripe.redirectToCheckout({
-        lineItems: [{ price: priceId, quantity: 1 }],
-        mode: 'payment',
-        successUrl: `${window.location.origin}/?checkout=success#consultation`,
-        cancelUrl: `${window.location.origin}/#consultation`,
-        locale: language,
-      });
-      if (result?.error) {
-        console.error('[Checkout] Stripe error:', result.error);
-        toast.error(result.error.message || 'Could not start checkout. Please try again.');
-      }
-    } catch (err: any) {
-      console.error('[Checkout] exception:', err);
-      toast.error(err?.message || 'Unexpected error starting checkout.');
-    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -313,22 +262,24 @@ const ConsultationSection = () => {
                 </p>
 
                 <div className="space-y-4">
-                  <button
-                    type="button"
-                    onClick={() => handleCheckout(PRICE_30_MIN)}
-                    className="group w-full flex items-center justify-between gap-4 bg-white hover:bg-theme-olive hover:text-white border-2 border-theme-olive text-theme-olive px-6 py-4 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md"
+                  <a
+                    href={PAYMENT_LINK_30_MIN}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group w-full flex items-center justify-between gap-4 bg-white hover:bg-theme-olive hover:text-white border-2 border-theme-olive text-theme-olive px-6 py-4 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md no-underline"
                   >
                     <div className="text-left">
                       <div className="font-semibold text-base">{translations.book30Min[language]}</div>
                       <div className="text-sm opacity-80">{translations.book30MinSub[language]}</div>
                     </div>
                     <span className="text-2xl font-bold">30 min</span>
-                  </button>
+                  </a>
 
-                  <button
-                    type="button"
-                    onClick={() => handleCheckout(PRICE_60_MIN)}
-                    className="group relative w-full flex items-center justify-between gap-4 bg-theme-gold hover:bg-theme-gold/90 text-white border-2 border-theme-gold px-6 py-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+                  <a
+                    href={PAYMENT_LINK_60_MIN}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative w-full flex items-center justify-between gap-4 bg-theme-gold hover:bg-theme-gold/90 text-white border-2 border-theme-gold px-6 py-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg no-underline"
                   >
                     <span className="absolute -top-3 right-4 bg-theme-olive text-white text-xs font-semibold px-3 py-1 rounded-full">
                       {translations.mostPopular[language]}
@@ -338,7 +289,7 @@ const ConsultationSection = () => {
                       <div className="text-sm opacity-90">{translations.book60MinSub[language]}</div>
                     </div>
                     <span className="text-2xl font-bold">60 min</span>
-                  </button>
+                  </a>
                 </div>
 
                 <p className="text-xs text-gray-500 text-center mt-4">
