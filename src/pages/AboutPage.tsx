@@ -80,7 +80,7 @@ const CONTENT: Record<Lang, AboutContent> = {
       { iconKey: 'base', label: 'Base', value: 'Paris, France' },
       { iconKey: 'experience', label: 'Experience', value: '7+ years in AI & data engineering' },
       { iconKey: 'languages', label: 'Languages', value: 'EN · IT · FR (B1) · HI' },
-      { iconKey: 'availability', label: 'Availability', value: 'Remote-first, worldwide' }
+      { iconKey: 'availability', label: 'Availability', value: 'Paris & Remote' }
     ],
     getInTouch: 'Get in touch',
     paris: 'Paris, France & Remote',
@@ -131,7 +131,7 @@ const CONTENT: Record<Lang, AboutContent> = {
       { iconKey: 'base', label: 'Sede', value: 'Parigi, Francia' },
       { iconKey: 'experience', label: 'Esperienza', value: '7+ anni in AI & data engineering' },
       { iconKey: 'languages', label: 'Lingue', value: 'EN · IT · FR (B1) · HI' },
-      { iconKey: 'availability', label: 'Disponibilità', value: 'Remote-first, mondiale' }
+      { iconKey: 'availability', label: 'Disponibilità', value: 'Parigi & Remote' }
     ],
     getInTouch: 'Contattami',
     paris: 'Parigi, Francia & Remoto',
@@ -182,7 +182,7 @@ const CONTENT: Record<Lang, AboutContent> = {
       { iconKey: 'base', label: 'Base', value: 'Paris, France' },
       { iconKey: 'experience', label: 'Expérience', value: '7+ ans en IA & data engineering' },
       { iconKey: 'languages', label: 'Langues', value: 'EN · IT · FR (B1) · HI' },
-      { iconKey: 'availability', label: 'Disponibilité', value: 'Remote-first, mondiale' }
+      { iconKey: 'availability', label: 'Disponibilité', value: 'Paris & À distance' }
     ],
     getInTouch: 'Me contacter',
     paris: 'Paris, France & À distance',
@@ -233,7 +233,7 @@ const CONTENT: Record<Lang, AboutContent> = {
       { iconKey: 'base', label: 'Sitz', value: 'Paris, Frankreich' },
       { iconKey: 'experience', label: 'Erfahrung', value: '7+ Jahre in KI & Data Engineering' },
       { iconKey: 'languages', label: 'Sprachen', value: 'EN · IT · FR (B1) · HI' },
-      { iconKey: 'availability', label: 'Verfügbarkeit', value: 'Remote-first, weltweit' }
+      { iconKey: 'availability', label: 'Verfügbarkeit', value: 'Paris & Remote' }
     ],
     getInTouch: 'Kontakt aufnehmen',
     paris: 'Paris, Frankreich & Remote',
