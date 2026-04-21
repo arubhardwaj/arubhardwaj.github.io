@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, Linkedin, ExternalLink, MapPin, Mail, Phone, Building2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Linkedin, ExternalLink, MapPin, Mail, Phone, Building2, Briefcase, Award, Languages, Zap } from 'lucide-react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import BookConsultationDialog from '@/components/BookConsultationDialog';
@@ -28,7 +28,7 @@ interface AboutContent {
   whatIDoHeading: string;
   whatIDo: { title: string; desc: string; to: string }[];
   keyFactsHeading: string;
-  facts: { label: string; value: string }[];
+  facts: { label: string; value: string; iconKey: 'role' | 'company' | 'base' | 'experience' | 'languages' | 'availability' }[];
   getInTouch: string;
   paris: string;
   readyHeading: string;
@@ -75,14 +75,12 @@ const CONTENT: Record<Lang, AboutContent> = {
     ],
     keyFactsHeading: 'Key facts',
     facts: [
-      { label: 'Role:', value: 'Fractional CTO, AI Strategist' },
-      { label: 'Company:', value: 'President, Insightrix SAS' },
-      { label: 'Base:', value: 'Paris, France' },
-      { label: 'Experience:', value: '7+ years in AI and data engineering' },
-      { label: 'Languages:', value: 'English, Italian, French (B1), Hindi' },
-      { label: 'Availability:', value: 'Worldwide, remote-first' },
-      { label: 'Rates:', value: '€150/hour or €700/day (ex. VAT)' },
-      { label: 'Jurisdiction:', value: 'French law, Paris courts' }
+      { iconKey: 'role', label: 'Role', value: 'Fractional CTO & AI Strategist' },
+      { iconKey: 'company', label: 'Company', value: 'President, Insightrix SAS' },
+      { iconKey: 'base', label: 'Base', value: 'Paris, France' },
+      { iconKey: 'experience', label: 'Experience', value: '7+ years in AI & data engineering' },
+      { iconKey: 'languages', label: 'Languages', value: 'EN · IT · FR (B1) · HI' },
+      { iconKey: 'availability', label: 'Availability', value: 'Remote-first, worldwide' }
     ],
     getInTouch: 'Get in touch',
     paris: 'Paris, France & Remote',
@@ -128,14 +126,12 @@ const CONTENT: Record<Lang, AboutContent> = {
     ],
     keyFactsHeading: 'Dati principali',
     facts: [
-      { label: 'Ruolo:', value: 'Fractional CTO, AI Strategist' },
-      { label: 'Azienda:', value: 'Presidente, Insightrix SAS' },
-      { label: 'Sede:', value: 'Parigi, Francia' },
-      { label: 'Esperienza:', value: '7+ anni in AI e data engineering' },
-      { label: 'Lingue:', value: 'Inglese, Italiano, Francese (B1), Hindi' },
-      { label: 'Disponibilità:', value: 'Mondiale, remote-first' },
-      { label: 'Tariffe:', value: '€150/ora o €700/giorno (IVA esclusa)' },
-      { label: 'Giurisdizione:', value: 'Diritto francese, tribunali di Parigi' }
+      { iconKey: 'role', label: 'Ruolo', value: 'Fractional CTO & AI Strategist' },
+      { iconKey: 'company', label: 'Azienda', value: 'Presidente, Insightrix SAS' },
+      { iconKey: 'base', label: 'Sede', value: 'Parigi, Francia' },
+      { iconKey: 'experience', label: 'Esperienza', value: '7+ anni in AI & data engineering' },
+      { iconKey: 'languages', label: 'Lingue', value: 'EN · IT · FR (B1) · HI' },
+      { iconKey: 'availability', label: 'Disponibilità', value: 'Remote-first, mondiale' }
     ],
     getInTouch: 'Contattami',
     paris: 'Parigi, Francia & Remoto',
@@ -181,14 +177,12 @@ const CONTENT: Record<Lang, AboutContent> = {
     ],
     keyFactsHeading: 'Faits clés',
     facts: [
-      { label: 'Rôle :', value: 'Fractional CTO, AI Strategist' },
-      { label: 'Entreprise :', value: 'Président, Insightrix SAS' },
-      { label: 'Base :', value: 'Paris, France' },
-      { label: 'Expérience :', value: '7+ ans en IA et data engineering' },
-      { label: 'Langues :', value: 'Anglais, Italien, Français (B1), Hindi' },
-      { label: 'Disponibilité :', value: 'Mondiale, remote-first' },
-      { label: 'Tarifs :', value: '150 €/heure ou 700 €/jour (hors TVA)' },
-      { label: 'Juridiction :', value: 'Droit français, tribunaux de Paris' }
+      { iconKey: 'role', label: 'Rôle', value: 'Fractional CTO & AI Strategist' },
+      { iconKey: 'company', label: 'Entreprise', value: 'Président, Insightrix SAS' },
+      { iconKey: 'base', label: 'Base', value: 'Paris, France' },
+      { iconKey: 'experience', label: 'Expérience', value: '7+ ans en IA & data engineering' },
+      { iconKey: 'languages', label: 'Langues', value: 'EN · IT · FR (B1) · HI' },
+      { iconKey: 'availability', label: 'Disponibilité', value: 'Remote-first, mondiale' }
     ],
     getInTouch: 'Me contacter',
     paris: 'Paris, France & À distance',
@@ -234,14 +228,12 @@ const CONTENT: Record<Lang, AboutContent> = {
     ],
     keyFactsHeading: 'Eckdaten',
     facts: [
-      { label: 'Rolle:', value: 'Fractional CTO, KI-Stratege' },
-      { label: 'Unternehmen:', value: 'Präsident, Insightrix SAS' },
-      { label: 'Sitz:', value: 'Paris, Frankreich' },
-      { label: 'Erfahrung:', value: '7+ Jahre in KI und Data Engineering' },
-      { label: 'Sprachen:', value: 'Englisch, Italienisch, Französisch (B1), Hindi' },
-      { label: 'Verfügbarkeit:', value: 'Weltweit, Remote-first' },
-      { label: 'Honorare:', value: '€150/Stunde oder €700/Tag (zzgl. MwSt.)' },
-      { label: 'Gerichtsstand:', value: 'Französisches Recht, Pariser Gerichte' }
+      { iconKey: 'role', label: 'Rolle', value: 'Fractional CTO & KI-Stratege' },
+      { iconKey: 'company', label: 'Unternehmen', value: 'Präsident, Insightrix SAS' },
+      { iconKey: 'base', label: 'Sitz', value: 'Paris, Frankreich' },
+      { iconKey: 'experience', label: 'Erfahrung', value: '7+ Jahre in KI & Data Engineering' },
+      { iconKey: 'languages', label: 'Sprachen', value: 'EN · IT · FR (B1) · HI' },
+      { iconKey: 'availability', label: 'Verfügbarkeit', value: 'Remote-first, weltweit' }
     ],
     getInTouch: 'Kontakt aufnehmen',
     paris: 'Paris, Frankreich & Remote',
@@ -378,17 +370,38 @@ const AboutPage = () => {
             </div>
           </section>
 
-          {/* Facts */}
+          {/* Facts — visual stat grid */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-theme-olive mb-5">{c.keyFactsHeading}</h2>
-            <dl className="grid md:grid-cols-2 gap-x-8 gap-y-3 text-gray-700">
-              {c.facts.map((f, i) => (
-                <div key={i} className="flex gap-2">
-                  <dt className="font-semibold text-theme-olive w-36 shrink-0">{f.label}</dt>
-                  <dd>{f.value}</dd>
-                </div>
-              ))}
-            </dl>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+              {c.facts.map((f, i) => {
+                const Icon =
+                  f.iconKey === 'role' ? Briefcase :
+                  f.iconKey === 'company' ? Building2 :
+                  f.iconKey === 'base' ? MapPin :
+                  f.iconKey === 'experience' ? Award :
+                  f.iconKey === 'languages' ? Languages :
+                  Zap;
+                return (
+                  <div
+                    key={i}
+                    className="group bg-white border border-gray-200 rounded-xl p-4 hover:border-theme-gold hover:shadow-md transition-all"
+                  >
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="w-8 h-8 rounded-lg bg-theme-gold/10 flex items-center justify-center shrink-0 group-hover:bg-theme-gold/20 transition-colors">
+                        <Icon className="h-4 w-4 text-theme-gold" />
+                      </div>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-theme-olive/70">
+                        {f.label}
+                      </p>
+                    </div>
+                    <p className="text-sm font-semibold text-theme-olive leading-snug">
+                      {f.value}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
           </section>
 
           {/* Cost calculator */}
