@@ -8,6 +8,12 @@ Allow: /
 User-agent: DuckDuckBot
 Allow: /
 
+User-agent: Bravebot
+Allow: /
+
+User-agent: Brave-Bot
+Allow: /
+
 User-agent: Twitterbot
 Allow: /
 
