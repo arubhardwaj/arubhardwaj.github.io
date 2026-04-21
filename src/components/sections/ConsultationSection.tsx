@@ -8,7 +8,6 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
-import { useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 // Custom Icon components for Upwork and Malt
@@ -32,12 +31,6 @@ const UpworkIcon = () => (
   </div>
 );
 
-declare global {
-  interface Window {
-    emailjs: any;
-  }
-}
-
 const PAYMENT_LINK_30_MIN = 'https://buy.stripe.com/8x28wPcVL3cj4889hR8so06';
 const PAYMENT_LINK_60_MIN = 'https://book.stripe.com/3cI6oH4pf9AHaww1Pp8so07';
 
@@ -51,57 +44,41 @@ const ConsultationSection = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  useEffect(() => {
-    // Load EmailJS
-    const emailjsScript = document.createElement('script');
-    emailjsScript.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
-    emailjsScript.async = true;
-    document.body.appendChild(emailjsScript);
-
-    emailjsScript.onload = () => {
-      window.emailjs.init("hF6O_JgDy5jUxyk-4");
-    };
-    emailjsScript.onerror = () => {
-      console.warn('Failed to load EmailJS script. Contact form may not work.');
-    };
-
-    return () => {
-      const existingEmailjsScript = document.querySelector('script[src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"]');
-      if (existingEmailjsScript && document.body.contains(existingEmailjsScript)) {
-        document.body.removeChild(existingEmailjsScript);
-      }
-    };
-  }, []);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const serviceId = "service_ugxzpww";
-    const templateId = "template_enrm7gd";
-    const publicKey = "hF6O_JgDy5jUxyk-4";
-
-    window.emailjs.send(serviceId, templateId, {
-      name: formData.name,
-      email: formData.email,
-      subject: formData.subject,
-      message: formData.message
-    }, publicKey)
-      .then(() => {
-        toast.success('Message sent successfully! I will get back to you soon.');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-        setIsSubmitting(false);
-      })
-      .catch((error: any) => {
-        console.error('Error sending email:', error);
-        toast.error('Failed to send message. Please try contacting me directly at aru.bhardwaj@insightrix.eu');
-        setIsSubmitting(false);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message
+        })
       });
+
+      if (!response.ok) {
+        const errBody = await response.json().catch(() => ({ error: 'Request failed' }));
+        throw new Error(errBody.error || `Request failed with status ${response.status}`);
+      }
+
+      toast.success('Message sent successfully! I will get back to you soon.');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error: unknown) {
+      console.error('Error sending contact message:', error);
+      const msg = error instanceof Error ? error.message : 'Please try contacting me directly at aru.bhardwaj@insightrix.eu';
+      toast.error(`Failed to send message. ${msg}`);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
