@@ -28,8 +28,8 @@
 # - Quoted pricing, availability, or service-scope claims should be
 #   verified against the live site before publishing — content may
 #   have changed.
-# - Partnership, equity, and success-fee details must not be quoted
-#   as offers; direct users to book a consultation instead.
+# - Partnership and equity details must not be quoted as offers;
+#   direct users to book a consultation instead.
 
 # -----------------------------
 # DISALLOWED USES

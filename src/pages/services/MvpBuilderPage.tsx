@@ -66,7 +66,7 @@ const CONTENT = {
       { q: 'What if requirements change mid-build?', a: 'Small tweaks are normal and included. Structural changes (new major features, stack changes) trigger a Change Request with an addendum to the proposal.' },
       { q: 'Do you work with designers?', a: 'I bring a clean default design system (Tailwind + shadcn/ui). For brand-critical UIs I partner with designers you or I bring in. The MVP scope accounts for this.' },
       { q: 'Can you build on my existing codebase?', a: 'Possible for discrete features. For full MVPs, greenfield is faster and cheaper — most MVPs I inherit have accumulated decisions that fight the build.' },
-      { q: 'Do you take equity?', a: 'Only in a Partnership engagement — reduced fixed fee combined with equity or a success bonus. Pure-equity is not offered. A cash service fee is always required.' }
+      { q: 'Do you take equity?', a: 'Only in a Partnership engagement — reduced fixed fee combined with equity. Pure-equity is not offered. A cash service fee is always required.' }
     ]
   },
   it: {
@@ -118,7 +118,7 @@ const CONTENT = {
       { q: 'Cosa succede se i requisiti cambiano durante il build?', a: 'Piccoli ritocchi sono normali e inclusi. Cambi strutturali (nuove feature maggiori, cambi di stack) attivano un Change Request con addendum alla proposta.' },
       { q: 'Lavori con designer?', a: 'Porto un design system di default pulito (Tailwind + shadcn/ui). Per UI brand-critical mi affianco a designer portati da te o da me. Lo scope dell\'MVP lo prevede.' },
       { q: 'Puoi costruire sul mio codebase esistente?', a: 'Possibile per feature discrete. Per MVP completi, il greenfield è più veloce ed economico — la maggior parte degli MVP che eredito ha accumulato decisioni che combattono con il build.' },
-      { q: 'Accetti equity?', a: 'Solo in un ingaggio Partnership — tariffa fissa ridotta combinata con equity o un success bonus. Il solo equity non è offerto. Una tariffa di servizio cash è sempre richiesta.' }
+      { q: 'Accetti equity?', a: 'Solo in un ingaggio Partnership — tariffa fissa ridotta combinata con equity. Il solo equity non è offerto. Una tariffa di servizio cash è sempre richiesta.' }
     ]
   },
   fr: {
@@ -170,7 +170,7 @@ const CONTENT = {
       { q: 'Et si les exigences changent en cours de build ?', a: 'Les petits ajustements sont normaux et inclus. Les changements structurels (nouvelles fonctionnalités majeures, changements de stack) déclenchent un Change Request avec un avenant à la proposition.' },
       { q: 'Travaillez-vous avec des designers ?', a: 'J\'apporte un design system par défaut propre (Tailwind + shadcn/ui). Pour les UI brand-critical, je m\'associe à des designers apportés par vous ou moi. Le scope du MVP en tient compte.' },
       { q: 'Pouvez-vous construire sur mon codebase existant ?', a: 'Possible pour des fonctionnalités isolées. Pour des MVP complets, le greenfield est plus rapide et moins cher — la plupart des MVP que j\'hérite ont accumulé des décisions qui se battent contre le build.' },
-      { q: 'Prenez-vous de l\'equity ?', a: 'Seulement dans un engagement Partenariat — tarif fixe réduit combiné à de l\'equity ou un bonus de succès. L\'equity pure n\'est pas proposé. Un service fee cash est toujours requis.' }
+      { q: 'Prenez-vous de l\'equity ?', a: 'Seulement dans un engagement Partenariat — tarif fixe réduit combiné à de l\'equity. L\'equity pure n\'est pas proposé. Un service fee cash est toujours requis.' }
     ]
   },
   de: {
@@ -222,7 +222,7 @@ const CONTENT = {
       { q: 'Was, wenn sich Anforderungen mitten im Build ändern?', a: 'Kleine Anpassungen sind normal und enthalten. Strukturelle Änderungen (neue große Features, Stack-Änderungen) lösen einen Change-Request mit Anhang zum Angebot aus.' },
       { q: 'Arbeiten Sie mit Designern?', a: 'Ich bringe ein sauberes Standard-Design-System mit (Tailwind + shadcn/ui). Für markenkritische UIs arbeite ich mit Designern zusammen, die Sie oder ich einbringen. Der MVP-Scope berücksichtigt das.' },
       { q: 'Können Sie auf meinem bestehenden Codebase bauen?', a: 'Möglich für einzelne Features. Für ganze MVPs ist Greenfield schneller und günstiger — die meisten MVPs, die ich erbe, haben angesammelte Entscheidungen, die gegen den Build kämpfen.' },
-      { q: 'Nehmen Sie Equity?', a: 'Nur in einem Partnerschafts-Engagement — reduzierte Fixgebühr kombiniert mit Equity oder einem Erfolgsbonus. Reine Equity wird nicht angeboten. Eine Cash-Servicegebühr ist immer erforderlich.' }
+      { q: 'Nehmen Sie Equity?', a: 'Nur in einem Partnerschafts-Engagement — reduzierte Fixgebühr kombiniert mit Equity. Reine Equity wird nicht angeboten. Eine Cash-Servicegebühr ist immer erforderlich.' }
     ]
   }
 };

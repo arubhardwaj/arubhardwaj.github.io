@@ -190,12 +190,12 @@ const TERMS: Record<Language, TermsContent> = {
       },
       {
         id: '13',
-        title: '13. Alternative Compensation (Success Fees & Equity)',
+        title: '13. Alternative Compensation (Equity)',
         body: (
           <div className="space-y-3 text-gray-700">
-            <p>Where specifically agreed in a Project Proposal or Partnership Agreement, compensation may include — in addition to the mandatory service fee — success fees, performance bonuses, revenue-share, milestone-based incentives, or equity vesting.</p>
-            <p>Such alternative-compensation arrangements will be governed by a separate <strong>Shareholders&apos; Agreement</strong>, <strong>Success Fee Addendum</strong>, or <strong>Partnership Agreement</strong> signed between the parties, which shall supersede these general terms where they conflict on matters of compensation, vesting, cliffs, acceleration, and exit events.</p>
-            <p>For the avoidance of doubt: <em>a service fee component is always present in every engagement</em>. Pure-equity, pure-revenue-share, or pure-success-fee arrangements without a cash service-fee component are not offered.</p>
+            <p>Where specifically agreed in a Project Proposal or Partnership Agreement, compensation may include — in addition to the mandatory service fee — equity vesting.</p>
+            <p>Such alternative-compensation arrangements will be governed by a separate <strong>Shareholders&apos; Agreement</strong> or <strong>Partnership Agreement</strong> signed between the parties, which shall supersede these general terms where they conflict on matters of compensation, vesting, cliffs, acceleration, and exit events.</p>
+            <p>For the avoidance of doubt: <em>a service fee component is always present in every engagement</em>. Pure-equity arrangements without a cash service-fee component are not offered.</p>
           </div>
         )
       }
@@ -366,12 +366,12 @@ const TERMS: Record<Language, TermsContent> = {
       },
       {
         id: '13',
-        title: '13. Rémunération Alternative (Success Fees & Equity)',
+        title: '13. Rémunération Alternative (Equity)',
         body: (
           <div className="space-y-3 text-gray-700">
-            <p>Lorsque spécifiquement convenu dans une Proposition de Projet ou un Accord de Partenariat, la rémunération peut inclure — en plus du service fee obligatoire — des success fees, primes de performance, revenue-share, incentives par jalons ou vesting d\'equity.</p>
-            <p>Ces arrangements de rémunération alternative seront régis par un <strong>Pacte d\'Actionnaires</strong>, un <strong>Avenant Success Fee</strong> ou un <strong>Accord de Partenariat</strong> séparé signé entre les parties, qui prévaudra sur les présentes conditions générales en cas de conflit sur les questions de rémunération, vesting, cliffs, accélération et événements de sortie.</p>
-            <p>Pour lever toute ambiguïté : <em>une composante service fee est toujours présente dans chaque mission</em>. Les arrangements purement en equity, purement en revenue-share ou purement en success fee sans composante cash ne sont pas proposés.</p>
+            <p>Lorsque spécifiquement convenu dans une Proposition de Projet ou un Accord de Partenariat, la rémunération peut inclure — en plus du service fee obligatoire — un vesting d\'equity.</p>
+            <p>Ces arrangements de rémunération alternative seront régis par un <strong>Pacte d\'Actionnaires</strong> ou un <strong>Accord de Partenariat</strong> séparé signé entre les parties, qui prévaudra sur les présentes conditions générales en cas de conflit sur les questions de rémunération, vesting, cliffs, accélération et événements de sortie.</p>
+            <p>Pour lever toute ambiguïté : <em>une composante service fee est toujours présente dans chaque mission</em>. Les arrangements purement en equity sans composante cash ne sont pas proposés.</p>
           </div>
         )
       }
@@ -542,12 +542,12 @@ const TERMS: Record<Language, TermsContent> = {
       },
       {
         id: '13',
-        title: '13. Alternative Vergütung (Erfolgsprämien & Equity)',
+        title: '13. Alternative Vergütung (Equity)',
         body: (
           <div className="space-y-3 text-gray-700">
-            <p>Wo dies in einem Project Proposal oder Partnerschaftsvertrag ausdrücklich vereinbart wurde, kann die Vergütung — zusätzlich zur verpflichtenden Servicegebühr — Erfolgsprämien, Leistungsboni, Revenue-Share, meilensteinbasierte Anreize oder Equity-Vesting umfassen.</p>
-            <p>Solche Vereinbarungen zu alternativer Vergütung werden durch einen separaten <strong>Gesellschaftervertrag</strong>, <strong>Erfolgsprämien-Nachtrag</strong> oder <strong>Partnerschaftsvertrag</strong> geregelt, der zwischen den Parteien unterzeichnet wird und diese allgemeinen Bedingungen bei Konflikten in Fragen der Vergütung, des Vesting, der Cliffs, der Beschleunigung und von Exit-Ereignissen ersetzt.</p>
-            <p>Zur Klarstellung: <em>Eine Servicegebühr-Komponente ist in jedem Engagement immer vorhanden</em>. Reine Equity-, reine Revenue-Share- oder reine Erfolgsprämien-Vereinbarungen ohne Cash-Servicegebühr werden nicht angeboten.</p>
+            <p>Wo dies in einem Project Proposal oder Partnerschaftsvertrag ausdrücklich vereinbart wurde, kann die Vergütung — zusätzlich zur verpflichtenden Servicegebühr — Equity-Vesting umfassen.</p>
+            <p>Solche Vereinbarungen zu alternativer Vergütung werden durch einen separaten <strong>Gesellschaftervertrag</strong> oder <strong>Partnerschaftsvertrag</strong> geregelt, der zwischen den Parteien unterzeichnet wird und diese allgemeinen Bedingungen bei Konflikten in Fragen der Vergütung, des Vesting, der Cliffs, der Beschleunigung und von Exit-Ereignissen ersetzt.</p>
+            <p>Zur Klarstellung: <em>Eine Servicegebühr-Komponente ist in jedem Engagement immer vorhanden</em>. Reine Equity-Vereinbarungen ohne Cash-Servicegebühr werden nicht angeboten.</p>
           </div>
         )
       }
@@ -718,12 +718,12 @@ const TERMS: Record<Language, TermsContent> = {
       },
       {
         id: '13',
-        title: '13. Compensi Alternativi (Success Fee & Equity)',
+        title: '13. Compensi Alternativi (Equity)',
         body: (
           <div className="space-y-3 text-gray-700">
-            <p>Ove specificamente concordato in un Project Proposal o Accordo di Partnership, il compenso può includere — oltre al service fee obbligatorio — success fee, bonus di performance, revenue-share, incentivi basati su milestone o vesting di equity.</p>
-            <p>Tali accordi di compenso alternativo saranno regolati da un <strong>Patto Parasociale</strong>, un <strong>Addendum Success Fee</strong> o un <strong>Accordo di Partnership</strong> separato firmato tra le parti, che prevarrà sui presenti termini generali in caso di conflitto su materie di compenso, vesting, cliff, accelerazione ed eventi di exit.</p>
-            <p>Per chiarezza: <em>una componente di service fee è sempre presente in ogni ingaggio</em>. Accordi puramente in equity, puramente in revenue-share o puramente in success fee senza componente cash non sono offerti.</p>
+            <p>Ove specificamente concordato in un Project Proposal o Accordo di Partnership, il compenso può includere — oltre al service fee obbligatorio — vesting di equity.</p>
+            <p>Tali accordi di compenso alternativo saranno regolati da un <strong>Patto Parasociale</strong> o un <strong>Accordo di Partnership</strong> separato firmato tra le parti, che prevarrà sui presenti termini generali in caso di conflitto su materie di compenso, vesting, cliff, accelerazione ed eventi di exit.</p>
+            <p>Per chiarezza: <em>una componente di service fee è sempre presente in ogni ingaggio</em>. Accordi puramente in equity senza componente cash non sono offerti.</p>
           </div>
         )
       }
