@@ -20,11 +20,19 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 type Lang = 'en' | 'it' | 'fr' | 'de';
 
-declare global {
-  interface Window {
-    emailjs: any;
-  }
-}
+// Convert a File to base64 for transport to our API endpoint (Resend)
+const fileToBase64 = (file: File): Promise<string> =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = reader.result as string;
+      // Strip the data URL prefix: "data:<mime>;base64,<payload>"
+      const comma = result.indexOf(',');
+      resolve(comma === -1 ? result : result.slice(comma + 1));
+    };
+    reader.onerror = () => reject(reader.error);
+    reader.readAsDataURL(file);
+  });
 
 const formSchema = z.object({
   fullName: z.string().min(2, 'Please enter your full name'),
@@ -361,26 +369,6 @@ const SubmitProject = () => {
     },
   });
 
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
-    script.async = true;
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      window.emailjs.init('hF6O_JgDy5jUxyk-4');
-    };
-    script.onerror = () => {
-      console.warn('Failed to load EmailJS script. Form submissions may not work.');
-    };
-
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
-
   const watchStartDate = form.watch('startDate');
 
   const getMinDueDate = () => {
@@ -477,19 +465,34 @@ Submitted:  ${new Date().toISOString()}
 GDPR:       Consent given
 `;
 
-      const serviceId = 'service_ugxzpww';
-      const templateId = 'template_enrm7gd';
-      const publicKey = 'hF6O_JgDy5jUxyk-4';
-
       const shortService = SERVICE_LABELS_EN[data.serviceInterest];
       const urgentPrefix = data.urgentProject ? '[URGENT] ' : '';
+      const subject = `${urgentPrefix}New brief: ${shortService} — ${data.companyName} — €${data.budget.toLocaleString('en-US')}`;
 
-      await window.emailjs.send(serviceId, templateId, {
-        name: data.fullName,
-        email: data.contactEmail,
-        subject: `${urgentPrefix}New brief: ${shortService} — ${data.companyName} — €${data.budget.toLocaleString('en-US')}`,
-        message: emailContent
-      }, publicKey);
+      // Encode files for transport as base64
+      const attachmentPayload = await Promise.all(
+        uploadedFiles.map(async (file) => ({
+          filename: file.name,
+          content: await fileToBase64(file)
+        }))
+      );
+
+      const response = await fetch('/api/submit-project', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          subject,
+          message: emailContent,
+          fromName: data.fullName,
+          fromEmail: data.contactEmail,
+          attachments: attachmentPayload
+        })
+      });
+
+      if (!response.ok) {
+        const errBody = await response.json().catch(() => ({ error: 'Request failed' }));
+        throw new Error(errBody.error || `Request failed with status ${response.status}`);
+      }
 
       setIsSubmitted(true);
       toast({ title: c.toastSuccess, description: c.toastSuccessDesc });
