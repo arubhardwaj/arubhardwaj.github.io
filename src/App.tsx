@@ -19,6 +19,7 @@ import NotFound from "./pages/NotFound";
 import BookCallNudge from "./components/BookCallNudge";
 import ScrollProgressNav from "./components/ScrollProgressNav";
 import ScrollToTop from "./components/ScrollToTop";
+import { Analytics } from "@vercel/analytics/react";
 
 const queryClient = new QueryClient();
 
@@ -51,6 +52,7 @@ const App = () => {
             <AppContent />
             <Toaster />
             <Sonner />
+            <Analytics />
           </TooltipProvider>
         </LanguageProvider>
       </QueryClientProvider>
