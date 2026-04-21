@@ -591,7 +591,25 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Static SEO fallback for crawlers that don't execute JS (Bingbot, older crawlers).
+           React replaces this immediately on hydration — real users never see it. -->
+      <header>
+        <h1>Aru Bhardwaj — Fractional CTO &amp; AI Strategist</h1>
+        <p>Paris-based Fractional CTO and President of Insightrix SAS. I architect production-grade AI systems for European startups and scale-ups — intelligent RAG pipelines, autonomous agents, sovereign LLM infrastructure, and MVPs that ship in 4-8 weeks.</p>
+        <nav>
+          <ul>
+            <li><a href="/about">About Aru Bhardwaj</a></li>
+            <li><a href="/services/fractional-cto">Fractional CTO Services</a></li>
+            <li><a href="/services/mvp-builder">AI-Powered MVP Builder</a></li>
+            <li><a href="/services/sovereign-ai">Sovereign AI &amp; GDPR-Compliant LLM Deployment</a></li>
+            <li><a href="/submit-project">Submit a Project</a></li>
+            <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
+            <li><a href="/legal-notice">Legal Notice</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
