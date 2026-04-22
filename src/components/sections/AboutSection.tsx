@@ -84,7 +84,7 @@ const AboutSection = () => {
           
           <div className="rounded-lg overflow-hidden shadow-xl">
             <div className="border-8 border-theme-gold rounded-full overflow-hidden aspect-square w-64 md:w-80 mx-auto">
-              <img alt="Aru Bhardwaj - Fractional CTO, AI Strategist & MVP Builder based in Paris, specializing in sovereign AI infrastructure, RAG systems, and GDPR-compliant LLM deployments across Europe" className="w-full h-full object-fill" src="/lovable-uploads/aa05f26c-fc9f-4fc6-9bde-9212daa6295f.png" />
+              <img alt="Aru Bhardwaj - Fractional CTO, AI Strategist & MVP Builder based in Paris, specializing in sovereign AI infrastructure, RAG systems, and GDPR-compliant LLM deployments across Europe" className="w-full h-full object-cover object-top" src="/images/headshot.jpg" loading="lazy" width="320" height="320" />
             </div>
             <div className="bg-white p-6 text-center">
               <h3 className="text-xl font-bold mb-1 text-theme-olive">Aru Bhardwaj</h3>
