@@ -71,23 +71,32 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 md:px-8 py-16 md:py-24 relative z-10">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div>
-            {/* Decorative flourish + identity kicker */}
+            {/* Data-flow constellation + identity kicker */}
             <div className="mb-8">
               <svg
-                className="w-56 md:w-64 h-auto text-theme-gold mb-4"
-                viewBox="0 0 240 40"
+                className="w-52 md:w-60 h-auto text-theme-gold mb-4"
+                viewBox="0 0 240 36"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true"
               >
+                {/* Subtle connecting curve threading all nodes */}
                 <path
-                  d="M 3 28 C 20 8, 45 36, 68 20 C 90 6, 115 32, 138 18 C 158 6, 180 28, 200 16 C 215 8, 228 22, 236 14"
+                  d="M 8 22 Q 45 6, 85 20 T 160 14 T 232 18"
                   stroke="currentColor"
-                  strokeWidth="2.5"
+                  strokeWidth="1.25"
                   strokeLinecap="round"
+                  opacity="0.3"
                   fill="none"
                 />
-                <circle cx="236" cy="14" r="2.5" fill="currentColor" />
+                {/* Nodes: small to large, simulates a data pipeline */}
+                <circle cx="8" cy="22" r="2.5" fill="currentColor" opacity="0.55" />
+                <circle cx="48" cy="10" r="3.5" fill="currentColor" opacity="0.75" />
+                <circle cx="98" cy="20" r="5" fill="currentColor" />
+                <circle cx="98" cy="20" r="8" fill="currentColor" opacity="0.15" />
+                <circle cx="152" cy="14" r="3.5" fill="currentColor" opacity="0.85" />
+                <circle cx="198" cy="16" r="2.75" fill="currentColor" opacity="0.65" />
+                <circle cx="232" cy="18" r="2" fill="currentColor" opacity="0.5" />
               </svg>
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-bold tracking-[0.25em] uppercase text-theme-olive">
                 <span>Fractional CTO</span>
