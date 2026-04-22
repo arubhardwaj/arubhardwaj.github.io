@@ -55,6 +55,12 @@ const translations = {
   },
 
   // Hero Section
+  availabilityBadge: {
+    en: 'Accepting new engagements',
+    it: 'Accetto nuovi ingaggi',
+    fr: 'Disponible pour de nouveaux projets',
+    de: 'Nehme neue Engagements an'
+  },
   transformingData: {
     en: 'I Build AI That',
     it: 'Creo AI Che',

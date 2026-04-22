@@ -71,6 +71,17 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 md:px-8 py-16 md:py-24 relative z-10">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div>
+            {/* Availability pill */}
+            <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm rounded-full px-4 py-2 border border-theme-olive/15 shadow-sm mb-6">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
+              </span>
+              <span className="text-xs font-semibold text-theme-olive tracking-wider uppercase">
+                {translations.availabilityBadge[language]}
+              </span>
+            </div>
+
             <h1 className="text-4xl md:text-5xl font-bold text-theme-olive mb-6 leading-tight">
               {translations.transformingData[language]}{' '}
               <span
