@@ -105,7 +105,7 @@ const BookCallNudge = () => {
               <img
                 src="/images/headshot.jpg"
                 alt="Aru Bhardwaj"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
                 loading="lazy"
               />
             </div>

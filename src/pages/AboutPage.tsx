@@ -327,7 +327,7 @@ const AboutPage = () => {
 
           <div className="grid md:grid-cols-[auto,1fr] gap-8 mb-12 items-start">
             <div className="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden ring-4 ring-theme-gold/30 mx-auto md:mx-0 shadow-xl shrink-0">
-              <img src="/images/headshot.jpg" alt={c.imgAlt} className="w-full h-full object-cover" loading="eager" width="224" height="224" />
+              <img src="/images/headshot.jpg" alt={c.imgAlt} className="w-full h-full object-cover object-top" loading="eager" width="224" height="224" />
             </div>
 
             <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
