@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useSearchParams, Link } from 'react-router-dom';
 import { CheckCircle, Calendar, AlertCircle, ArrowRight } from 'lucide-react';
@@ -6,114 +6,22 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-/**
- * BookCall — post-payment scheduling page.
- *
- * Flow:
- *   Stripe Payment Link → success redirect to /book-call?session_id=cs_...
- *   → session_id gate verifies Stripe returned a valid Checkout session
- *   → inline Cal.com embed for cal.arubhardwaj.eu/aru
- *
- * Direct visits without a session_id see a friendly wall and CTA to
- * the consultation section.
- */
-
-const CAL_ORIGIN = 'https://cal.arubhardwaj.eu';
-const CAL_EMBED_SRC = `${CAL_ORIGIN}/embed/embed.js`;
-const CAL_NAMESPACE = 'aru';
-const CAL_LINK = 'aru'; // resolves to cal.arubhardwaj.eu/aru
-
-declare global {
-  interface Window {
-    Cal?: {
-      (action: string, ...args: unknown[]): void;
-      ns?: Record<string, (action: string, ...args: unknown[]) => void>;
-      loaded?: boolean;
-      q?: unknown[];
-    };
-  }
-}
+const ZCAL_SCRIPT_SRC = 'https://static.zcal.co/embed/v1/embed.js';
+const ZCAL_LINK = 'https://zcal.co/i/2rDwr33H';
 
 const BookCall = () => {
   const { language, translations } = useLanguage();
   const [searchParams] = useSearchParams();
   const sessionId = searchParams.get('session_id');
   const hasPaid = Boolean(sessionId && sessionId.startsWith('cs_'));
-  const inlineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!hasPaid) return;
-
-    // Load the Cal.com embed loader (once) and initialise the inline widget.
-    // Pattern adapted from the official Cal.com embed snippet.
-    (function (C: Window, A: string, L: string) {
-      const p = function (a: unknown, ar: IArguments) {
-        (a as { q: unknown[] }).q.push(ar);
-      };
-      const d = C.document;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      C.Cal = (C.Cal as any) || function (...args: unknown[]) {
-        const cal = C.Cal as unknown as {
-          loaded?: boolean;
-          ns: Record<string, (action: string, ...args: unknown[]) => void>;
-          q: unknown[];
-        };
-        const ar = arguments as unknown as IArguments;
-        if (!cal.loaded) {
-          cal.ns = {};
-          cal.q = cal.q || [];
-          const script = d.createElement('script');
-          script.src = A;
-          d.head.appendChild(script);
-          cal.loaded = true;
-        }
-        if (args[0] === L) {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          const api: any = function () { p(api, arguments); };
-          const namespace = args[1] as string;
-          api.q = api.q || [];
-          if (typeof namespace === 'string') {
-            cal.ns[namespace] = cal.ns[namespace] || api;
-            p(cal.ns[namespace], ar);
-            p(cal, { 0: 'initNamespace', 1: namespace, length: 2 } as unknown as IArguments);
-          } else {
-            p(cal, ar);
-          }
-          return;
-        }
-        p(cal, ar);
-      };
-    })(window, CAL_EMBED_SRC, 'init');
-
-    const cal = window.Cal;
-    if (!cal) return;
-
-    // Initialise namespace pointing at our self-hosted Cal instance
-    cal('init', CAL_NAMESPACE, { origin: CAL_ORIGIN });
-
-    const ns = cal.ns?.[CAL_NAMESPACE];
-    if (!ns) return;
-
-    // Mount inline embed into #book-call-cal-inline with EN/IT/FR/DE locale
-    // following the current language context.
-    ns('inline', {
-      elementOrSelector: '#book-call-cal-inline',
-      calLink: CAL_LINK,
-      config: {
-        layout: 'month_view',
-        theme: 'light',
-      }
-    });
-
-    // UI tuning: hide Cal.com branding-heavy chrome if hideEventTypeDetails
-    // is desired later. For now, keep defaults.
-    ns('ui', {
-      hideEventTypeDetails: false,
-      layout: 'month_view',
-      styles: {
-        branding: { brandColor: '#4a5d23' } // theme-olive
-      }
-    });
+    if (document.querySelector(`script[src="${ZCAL_SCRIPT_SRC}"]`)) return;
+    const script = document.createElement('script');
+    script.src = ZCAL_SCRIPT_SRC;
+    script.async = true;
+    document.body.appendChild(script);
   }, [hasPaid]);
 
   return (
@@ -133,9 +41,9 @@ const BookCall = () => {
       </Helmet>
       <Navbar />
       <main className="flex-1 bg-hero-lime py-16 md:py-20">
-        <div className="container mx-auto px-4 md:px-8 max-w-4xl">
+        <div className="container mx-auto px-4 md:px-8 max-w-3xl">
           {hasPaid ? (
-            <div className="bg-white rounded-2xl shadow-lg p-6 md:p-10">
+            <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
               <div className="flex items-start gap-4 mb-4">
                 <CheckCircle className="h-10 w-10 text-green-500 shrink-0 mt-1" />
                 <h1 className="text-2xl md:text-3xl font-bold text-theme-olive leading-tight">
@@ -150,20 +58,16 @@ const BookCall = () => {
                 <span>{translations.paymentSuccessHint[language]}</span>
               </p>
 
-              {/* Cal.com inline embed — self-hosted at cal.arubhardwaj.eu */}
-              <div
-                id="book-call-cal-inline"
-                ref={inlineRef}
-                className="cal-inline-wrapper min-h-[640px]"
-                style={{ width: '100%', overflow: 'hidden' }}
-              />
+              <div className="zcal-inline-widget">
+                <a href={ZCAL_LINK}>Consultation — Schedule a meeting</a>
+              </div>
 
               <p className="text-xs text-gray-400 mt-6 text-center">
                 {translations.paymentSuccessFooter[language]}
               </p>
             </div>
           ) : (
-            <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 text-center max-w-2xl mx-auto">
+            <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 text-center">
               <AlertCircle className="h-12 w-12 text-theme-gold mx-auto mb-4" />
               <h1 className="text-2xl md:text-3xl font-bold text-theme-olive mb-3">
                 {translations.bookCallGateTitle[language]}
