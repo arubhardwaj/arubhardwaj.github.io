@@ -45,19 +45,6 @@ const Footer = () => {
                   />
                 </div>
               </a>
-              {/* Pride Flag Badge */}
-              <div 
-                className="w-6 h-4 rounded-sm overflow-hidden flex flex-col"
-                title="LGBTQ+ Ally"
-                aria-label="Pride Flag"
-              >
-                <div className="flex-1 bg-[#E40303]"></div>
-                <div className="flex-1 bg-[#FF8C00]"></div>
-                <div className="flex-1 bg-[#FFED00]"></div>
-                <div className="flex-1 bg-[#008026]"></div>
-                <div className="flex-1 bg-[#24408E]"></div>
-                <div className="flex-1 bg-[#732982]"></div>
-              </div>
             </div>
           </div>
           
