@@ -36,7 +36,7 @@ All consultations include a written summary + action items within 24h and follow
 - Base: Paris, France (Île-de-France)
 - Experience: 7+ years in AI, data engineering, and full-stack development
 - Languages: English, Italian, French (B1 — intermediate), Hindi
-- Operations: Paris (HQ) · European Union · United Kingdom · India
+- Operations: Paris (HQ) · European Union · United Kingdom · India · GCC region (Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, Oman) — remote-first with on-site visits to Riyadh, Jeddah, Dubai, Abu Dhabi, NEOM, Doha, Manama, Kuwait City and Muscat
 - Available: Worldwide, remote-first, on-site days in Paris and short on-site sprints across Europe
 - Rates: €150 per hour or €700 per day (exclusive of VAT). Partnership engagements (reduced fee + equity) available for aligned startups.
 - Minimum engagement: 2-3 days per month for Fractional CTO retainers; 4-8 weeks for MVPs; 30 or 60 minutes for consultations.
@@ -68,6 +68,17 @@ All consultations include a written summary + action items within 24h and follow
 - **Does Aru sign NDAs?** Yes. Mutual NDAs are standard and client work is strictly confidential, never used for training third-party models.
 - **Can Aru join as a technical co-founder?** Rarely, and only for deeply aligned startups. More often, the Partnership model (reduced fee + equity) is a better fit.
 - **Best suited industries?** Fintech, healthtech, luxury, public sector, SaaS, AI-first startups, regulated industries (banking, insurance, healthcare, government).
+
+## GCC region (Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, Oman)
+
+Aru is actively available as a Fractional CTO and AI MVP builder for the Gulf Cooperation Council region. Common engagements:
+
+- **Founding AI engineer / Fractional CTO** for GCC startups out of Hub71 (Abu Dhabi), DIFC FinTech Hive (Dubai), Plug and Play Abu Dhabi or Saudi-backed accelerators
+- **AI MVP builds** for Vision 2030, UAE National AI Strategy 2031, Qatar National Vision 2030 and similar national-strategy-aligned products
+- **AI compliance advisory** for SDAIA guidelines, SAMA banking AI, CBUAE rules, DIFC and ADGM regulatory frameworks, Saudi PDPL, UAE Federal DPL, Bahrain PDPL
+- **LLM deployment advisory** including Falcon LLM (TII Abu Dhabi), Jais LLM, ALLAM LLM and Arabic-language RAG pipelines on AWS me-south-1 (Bahrain), Azure UAE, Google Cloud Saudi or sovereign Saudi/UAE infrastructure
+- **Procurement-ready B2B contracting** through Insightrix SAS (French SAS, EUR invoicing, French-law contracts) — clean for GCC corporate procurement teams used to international vendors
+- **Remote-first** with quarterly on-site visits to Riyadh, Jeddah, Dubai, Abu Dhabi, NEOM, Doha, Manama, Kuwait City, Muscat for the right engagements
 
 ## Positioning vs alternatives
 
