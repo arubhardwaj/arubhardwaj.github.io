@@ -21,7 +21,7 @@ const CONTENT = {
     title: 'AI-Powered MVP Development | 4-8 Week Builds | Aru Bhardwaj',
     h1: 'AI-Powered MVPs, Shipped in 4-8 Weeks',
     tagline: 'End-to-end MVP builds for founders: architecture, AI integration, frontend, backend, deployment. Modern stack with ChatGPT, Claude, Mistral, or custom LLMs baked in from day one.',
-    description: 'AI MVP builder in Paris and Europe. Idea-to-production in 4-8 weeks for startups and scale-ups. React/Next.js, Python, Node.js, LLM integration (OpenAI, Anthropic, Mistral), sovereign-cloud deployment.',
+    description: 'AI MVP builder in Paris, Europe, and the GCC (Dubai, Riyadh, Abu Dhabi, Doha). Idea-to-production in 4-8 weeks for startups and scale-ups. React/Next.js, Python, Node.js, LLM integration (OpenAI, Anthropic, Mistral, Falcon, Jais), sovereign-cloud deployment.',
     whoItsFor: [
       'Non-technical founders with a validated idea who need a production MVP fast',
       'Teams that raised pre-seed or seed and need to ship before the next milestone',

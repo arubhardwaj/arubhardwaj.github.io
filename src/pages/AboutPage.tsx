@@ -62,9 +62,9 @@ const CONTENT: Record<Lang, AboutContent> = {
     companyKicker: 'Company',
     companyLocation: 'Paris, France · AI consulting firm',
     insightrixP1: (<>
-      I'm the <strong>President and founder of Insightrix SAS</strong> — a Paris-headquartered AI consulting firm with active operations across the <strong>European Union</strong>, the <strong>United Kingdom</strong>, and <strong>India</strong>. Insightrix delivers Fractional CTO services, AI-powered MVP development, sovereign LLM infrastructure, and regulatory compliance advisory for startups, scale-ups, and regulated enterprises.
+      I'm the <strong>President and founder of Insightrix SAS</strong> — a Paris-headquartered AI consulting firm with active operations across the <strong>European Union</strong>, the <strong>United Kingdom</strong>, <strong>India</strong>, and the <strong>GCC region</strong> (Saudi Arabia, UAE, Qatar, Kuwait, Bahrain, Oman). Insightrix delivers Fractional CTO services, AI-powered MVP development, sovereign LLM infrastructure, and regulatory compliance advisory for startups, scale-ups, and regulated enterprises.
     </>),
-    insightrixP2: 'Working through Insightrix means one European counterparty that speaks your compliance language — French law for EU contracts, GDPR-ready data handling, and multi-region delivery across France, the UK, and India.',
+    insightrixP2: 'Working through Insightrix means one European counterparty that speaks your compliance language — French law for EU contracts, GDPR-ready data handling, and multi-region delivery across France, the UK, India, and the GCC.',
     visitInsightrix: 'Visit insightrix.eu',
     whatIDoHeading: 'What I do',
     whatIDo: [

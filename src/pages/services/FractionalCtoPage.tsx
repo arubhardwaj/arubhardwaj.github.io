@@ -15,7 +15,14 @@ const jsonLd = {
     { '@type': 'Country', name: 'Germany' },
     { '@type': 'Country', name: 'Switzerland' },
     { '@type': 'Country', name: 'Italy' },
-    { '@type': 'Place', name: 'European Union' }
+    { '@type': 'Place', name: 'European Union' },
+    { '@type': 'Country', name: 'United Arab Emirates' },
+    { '@type': 'Country', name: 'Saudi Arabia' },
+    { '@type': 'Country', name: 'Qatar' },
+    { '@type': 'Country', name: 'Kuwait' },
+    { '@type': 'Country', name: 'Bahrain' },
+    { '@type': 'Country', name: 'Oman' },
+    { '@type': 'Place', name: 'GCC' }
   ],
   audience: { '@type': 'Audience', audienceType: 'Startup founders and scale-up leadership' },
   description: 'Part-time technical leadership for startups and scale-ups. Technical roadmap, architecture decisions, hiring, AI strategy, EU regulatory compliance. 2-3 days per month minimum.',
@@ -28,7 +35,7 @@ const CONTENT = {
     title: 'Fractional CTO Services | Paris-based, EU-focused | Aru Bhardwaj',
     h1: 'Fractional CTO for Startups & Scale-Ups',
     tagline: 'Senior technical leadership, 2-3 days per month. Paris-based, same time zone as your European team, fluent in GDPR, RGPD, the EU AI Act, and sovereign cloud.',
-    description: 'Hire a Fractional CTO in Paris and across Europe. Technical roadmap, architecture, hiring, and AI strategy — without the cost of a full-time executive. Startups and scale-ups from seed to Series B.',
+    description: 'Hire a Fractional CTO in Paris, across Europe, and the GCC (Saudi Arabia, UAE, Qatar). Technical roadmap, architecture, hiring, and AI strategy — without the cost of a full-time executive. Startups and scale-ups from seed to Series B.',
     whoItsFor: [
       'Non-technical founders building an AI-first or tech-heavy product',
       "Seed to Series B startups that need senior tech leadership but can't yet justify a full-time CTO",

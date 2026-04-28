@@ -21,7 +21,7 @@ const CONTENT = {
     title: 'EU Sovereign AI & GDPR-Compliant LLM Deployment | Aru Bhardwaj',
     h1: 'Sovereign AI & GDPR-Compliant LLM Infrastructure',
     tagline: 'Private, self-hosted, and EU-sovereign LLM deployment. OVHcloud, Scaleway, Hetzner, Mistral AI. Full EU data residency, no CLOUD Act exposure, audit-ready for regulated industries.',
-    description: 'EU sovereign AI consulting and deployment. GDPR/RGPD-compliant LLM infrastructure on OVHcloud, Scaleway, Hetzner, and Mistral AI. For banks, insurers, healthcare, legal, and public sector in France, Germany, Switzerland, Italy.',
+    description: 'EU + GCC sovereign AI consulting and deployment. GDPR/RGPD-compliant LLM infrastructure on OVHcloud, Scaleway, Hetzner, Mistral AI, plus AWS me-south-1 (Bahrain) and regional Saudi/UAE clouds with Falcon and Jais LLM integration. For banks, insurers, healthcare, legal, and public sector across France, Germany, Switzerland, Italy, Saudi Arabia, UAE, Qatar, and the wider GCC.',
     whoItsFor: [
       'Banks, insurers, and fintechs regulated by ACPR, BaFin, FINMA, CONSOB, or DNB',
       'Healthcare organisations needing HDS-compliant AI (France) or KHZG-aligned deployments (Germany)',
